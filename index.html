@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    /*更改浏览器默认设置；有说法在复杂的页面这样会带来负荷*/
+    *{
+        padding: 0px;
+        margin: 0px;
+        font-size: 1.4em;
+    }
+    div{
+        text-align: center;
+    }
+    /*最上面的背景*/
+    div#top{
+        height: 12em;
+        background-image:url(新年快乐.jpg);
+        background-size: cover;
+        background-position: 0 -1.8em;
+    }
+    /*导航*/
+    div#导航{
+        height: 3em;
+        border-bottom:1px solid gainsboro;
+    }
+    div#导航 ul{
+        list-style-type: none;
+    }
+    div#导航 ul li{
+        display:inline;
+    }
+    div#导航 ul li a{
+        text-decoration: none;
+        font-size: 0.9em;
+        color: gray;
+        padding:0 0.39em;
+    }
+    div#导航 ul li a:hover{
+        color: black;
+        }
+    div#section2,div#section3,div#section4{
+       display:none;
+    }
+    /*bottom_a*/
+    a.bottom_a{
+        color:white;
+        text-decoration: none;
+        background-color: lightcoral;
+        padding: 0.4em 4em;
+    }
+
+
+
+    /*section3*/
+    div#section3 a{
+        text-decoration: none;
+        font-size: 0.9em;
+        color: gray;
+        padding:0 0.39em;
+    }
+    div#section3 ul{
+        display: none;
+    }
+    div#section3 li{
+        display:block;
+        text-align: left;
+    }
+    div#section3 p{
+        display:none;
+    }
+    div#section3 a#chapter1{
+        color: black;
+        font-size: 3em;
+        display: inline;
+    }
+</style>
+</head>
+
+<body>
+    <div id="top">
+    </div>
+    <div id="导航">
+        <ul>
+            <li><a href="#" onclick="myFunction1()" name="toptop">主页</a></li>
+            <li><a href="#" onclick="myFunction2()">流沙</a></li>
+            <li><a href="#" onclick="myFunction3()">言说</a></li>
+            <li><a href="#" onclick="myFunction4()">更多</a></li>
+        </ul>
+    </div>
+
+
+<!--section1-->
+    <div id="section1" >
+    <h1 id="top1">做喜欢的事，做喜欢的自己。</h1>
+    <img src="犬夜叉.gif" />
+    <h1 id="morning"></h1>
+    <!--暂时拉长-->
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <img src="龙人.gif" />
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <a class="bottom_a" href="#toptop">回到顶部</a>
+    </div>
+<!--section2-->
+    <div id="section2" >
+    <h1>沙泥可以建高楼，通天高！</h1>
+    </div>
+<!--section3-->
+    <div id="section3" >
+    <a id="chapter1" onclick="yany()">章节1</a>
+    <ul id="yan1">
+        <li><a id="yan_a1" onclick="yan_1()">惊讶</a></li>
+        <p id="yan1_1">鸭；呵啊；握天；握去</p>
+        <li><a id="yan_a2" onclick="yan_2()">可以</a></li>
+        <p id="yan1_2">开玩笑，你以为；<br/>嘿呀，开玩笑呐</p>
+        <li><a id="yan_a3" onclick="yan_3()">没必要</a></li>
+        <p id="yan1_3">没必要，这个没必要</p>
+    </ul>
+    </div>
+<!--section4-->
+    <div id="section4" >
+    <h1>还没想好放什么</h1>
+    </div>
+
+<!--section3-->
+    <script>
+    function yany(){
+        if(document.getElementById("chapter1").innerHTML=="章节1"){
+            document.getElementById("chapter1").innerHTML="章节1 "    
+            document.getElementById("yan1").style.display="block";
+        }else{
+            document.getElementById("chapter1").innerHTML="章节1"
+            document.getElementById("yan1").style.display="none";
+        }
+    }
+    function yan_1(){
+        if(document.getElementById("yan_a1").innerHTML=="惊讶"){
+            document.getElementById("yan_a1").innerHTML="惊讶 "    
+            document.getElementById("yan1_1").style.display="block";
+        }else{
+            document.getElementById("yan_a1").innerHTML="惊讶"
+            document.getElementById("yan1_1").style.display="none";
+        }
+    }
+    function yan_2(){
+        if(document.getElementById("yan_a2").innerHTML=="可以"){
+            document.getElementById("yan_a2").innerHTML="可以 "    
+            document.getElementById("yan1_2").style.display="block";
+        }else{
+            document.getElementById("yan_a2").innerHTML="可以"
+            document.getElementById("yan1_2").style.display="none";
+        }
+    }
+    function yan_3(){
+        if(document.getElementById("yan_a3").innerHTML=="没必要"){
+            document.getElementById("yan_a3").innerHTML="没必要 "    
+            document.getElementById("yan1_3").style.display="block";
+        }else{
+            document.getElementById("yan_a3").innerHTML="没必要"
+            document.getElementById("yan1_3").style.display="none";
+        }
+    }
+    </script>
+    <!--导航-->>
+    <script>
+    function myFunction1(){
+        document.getElementById("section1").style.display="block";
+        document.getElementById("section2").style.display="none";
+        document.getElementById("section3").style.display="none";
+        document.getElementById("section4").style.display="none";
+    }
+    function myFunction2(){
+        document.getElementById("section1").style.display="none";
+        document.getElementById("section2").style.display="block";
+        document.getElementById("section3").style.display="none";
+        document.getElementById("section4").style.display="none";
+    }
+    function myFunction3(){
+        document.getElementById("section1").style.display="none";
+        document.getElementById("section2").style.display="none";
+        document.getElementById("section3").style.display="block";
+        document.getElementById("section4").style.display="none";
+    }
+    function myFunction4(){
+        document.getElementById("section1").style.display="none";
+        document.getElementById("section2").style.display="none";
+        document.getElementById("section3").style.display="none";
+        document.getElementById("section4").style.display="block";
+    }
+    //招呼
+    var x = new Date();
+    var y = x.getHours();
+    if(y<7){document.getElementById("morning").innerHTML = "天呐，爷今天起的这么早"}
+    else if(y<9){document.getElementById("morning").innerHTML = "早噢,记得喝杯温开水噢！"}
+    else if(y<12){document.getElementById("morning").innerHTML = "撸起袖子就是干"}
+    else if(y<18){document.getElementById("morning").innerHTML = "下午也要好努力呢！"}
+    else if(y<22){document.getElementById("morning").innerHTML = "醉里挑灯看剑，梦回吹角连营。"}
+    else if(y<23){document.getElementById("morning").innerHTML = "准备睡觉了┗|｀O′|┛ 嗷~~"}
+    else{document.getElementById("morning").innerHTML = "不要熬夜啊，小老弟"}
+    </script>
+</body>
+</html>
