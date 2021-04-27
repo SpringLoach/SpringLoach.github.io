@@ -1,151 +1,942 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>响应式</title>
 <style type="text/css">
-/* 更改浏览器默认设置；有说法在复杂的页面这样会带来负荷 */
+/*更改浏览器默认设置；有说法在复杂的页面这样会带来负荷*/
 *{
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-}
-/* 针对手机 */
-[class*="col-"] {
-    width: 100%;
-}
-
-
-/* 针对平板电脑, 顺序不能乱 */
-@media only screen and (min-width: 600px) {
-.col-s-1 {width: 8.33%;}
-.col-s-2 {width: 16.66%;}
-.col-s-3 {width: 25%;}
-.col-s-4 {width: 33.33%;}
-.col-s-5 {width: 41.66%;}
-.col-s-6 {width: 50%;}
-.col-s-7 {width: 58.33%;}
-.col-s-8 {width: 66.66%;}
-.col-s-9 {width: 75%;}
-.col-s-10 {width: 83.33%;}
-.col-s-11 {width: 91.66%;}
-.col-s-12 {width: 100%;}
-}
-/* 针对桌面 */
-@media only screen and (min-width: 768px) {
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
-}
-[class*="col-"] {
-    float: left;
-    padding: 15px;
-}
-.row::after{
-    content: "";
-    clear: both;
-    display: table;
-}
-/*图片*/
-img {
-    width: 100%;
-    height: auto;
-}
-/*一些修饰的样式*/
-html {
-    font-family: "Lucida Sans", sans-serif;
-}
-.header {
-    background-color: slategrey;
-    color: white;
-    padding: 15px;
-}
-.menu ul {
-    list-style-type: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
-.menu li {
-    background-color: #33b5e5;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    color: #ffffff;
-    margin-bottom: 7px;
+/* 通配 */
+li {list-style: none;}
+a {text-decoration: none; color: #000;}
+img {display: block;}
+input {border: none;}
+.fl {float: left;}
+.fr {float: right;}
+.clearFixed::after {content: ""; clear: both; display: table;}
+/* 版心*/
+.glob {width: 1200px; margin: 0 auto;}
+/* header */
+.header .h_top {height: 40px; background: #32373e;}
+.header .h_top .topLeft .topLeft_1 .txt1 {color:#00b38a; font-size: 22px; height: 40px; line-height: 40px;}
+.header .h_top .topLeft .topLeft_1 .txt2 {color:#00b38a; font-size: 12px; margin: 16px 18px 0 30px;}
+.header .h_top .topLeft .topLeft_1 .txt3 {color:#afb5c0; font-size: 12px; margin: 16px 36px 0 0;}
+.header .h_top .topLeft .topLeft_2 li {width: 70px; text-align: center;}
+.header .h_top .topLeft .topLeft_2 li a {font-size: 14px; color: #a3b5a7; height:40px; line-height: 40px;}
+.header .h_top .topLeft .topLeft_2 li:first-child {background: #24282c;}
+.header .h_top .topLeft .topLeft_2 li:first-child a {color: #fff;}
+.header .h_top .topRight {height: 40px; line-height: 40px; font-size: 12px;}
+.header .h_top .topRight ul a {color: #93b5c0;}
+.header .h_top .topRight ul .txt1 span {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    display: inline-block;
+    background: url(img/sprite.png) 52px 120px;
+}
+.header .h_top .topRight ul .txt2 span  {margin: 0 18px;}
+.header .h_top .topRight ul .txt2 {margin-right: 28px;}
+.header .h_top .topRight ul .txt3 span {
+    width: 16px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    background: url(img/sprite.png) 65px 45px;
+}
+.header .h_top .topRight ul .txt3 {margin-right: 22px;}
+.header .h_top .topRight ul .txt3 a {color: #08d7a2;}
+.header .h_top .topRight ul .txt4 {margin-right: 8px;}
+.header .h_bottom {height: 120px; background: #00b38a;}
+.header .h_bottom .botLeft {
+    position: relative; 
+    width: 556px;
+}
+.header .h_bottom .img1 {height:120px; width:auto;}
+.header .h_bottom .botLeft .img2 {
+    position: absolute;
+    top: 32px;
+    left: 232px;
+}
+.header .h_bottom .botLeft .txt {
+    position: absolute;
+    top: 76px;
+    left: 232px;
+    font-size:12px;
+	color:#fff;
+}
+.header .h_bottom .botRight {
+    width:454px;
+	height:120px;
+	position: relative;
+}
+.header .h_bottom .botRight .form1 {
+    position: absolute;
+    top: 50%;
+    height: 36px;
+    margin-top: -18px;
+    color:#757575;
+	font-size: 12px;
+}
+.header .h_bottom .botRight .form1 .input1 {
+    width: 163px;
+	height: 36px;
+	margin-right: 25px;
+	text-indent: 10px;
+}
+.header .h_bottom .botRight .form1 .input2Box {
+    width: 148px;
+	height: 36px;
+	margin-right: 12px;
+    background: #fff;
+}
+.header .h_bottom .botRight .form1 .input2 {
+    width: 94px;
+	height: 36px;
+	text-indent: 10px;
+}
+.header .h_bottom .botRight .form1 .input2Box a {
+    padding: 6px;
+	color:#00b38a;
+}
+.header .h_bottom .botRight .form1 .input3 {
+    width: 106px;
+	height: 36px;
+    color: #ccefe7;
+    background: transparent;
+    border: 1px solid #ccefe7;
+}
+.search {height: 132px; background: #f2f5f4;}
+.search .searchCon {height: 132px; padding-top:30px;}
+.search .searchBox {
+    width: 937px;
+	height: 47px;
+	margin-left: 173px;
+}
+.search .searchBox .s_top .input1 {
+    width: 796px;
+	height: 47px;
+    text-indent: 10px;
+	border: 1px solid #e8e8e8;
+}
+.search .searchBox .s_top .input2 {
+    width: 141px;
+	height: 47px;
+	color: #fff;
+	font-size: 18px;
+	background: #00b38a;
+}
+.search .searchBox .s_bottom li{
+    margin-right: 20px;
+    margin-top: 7px;
+}
+.search .searchBox .s_bottom a {
+    font-size: 12px;
+    color: #00c1cc;
+}
+.search .searchBox .s_bottom li:first-child a {
+    color: #778ab9;
+}
+.banner {padding-top: 46px}
+.banner .b_left {width: 320px; font-size: 12px;}
+.banner .b_left ul {position: relative;}
+.banner .b_left li {margin-bottom: 33px;margin-top: 6px;}
+.banner .b_left li a {margin-right: 26px;color: #555;}
+.banner .b_left li:first-child {margin-top: 0;}
+.banner .b_left li:first-child a {font-size: 17px;}
+.banner .b_left li:last-child a {position:absolute; font-family:"宋体";right:0px;}
+.banner .b_right {position:relative; width: 840px; height: 347px;}
+.banner .b_right img {width: 840px; height: 347px;}
+.banner .b_right span {
+    position: absolute;
+    display: none;
+    width: 22px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 34px;
+    top: 50%;
+    margin-top: -17px;
+    color: #000;
+    font-family:"宋体";
+    font-weight: bold;
+}
+.banner .b_right .span1 {left: 20px;}
+.banner .b_right .span2 {right: 20px;}
+.banner .b_right:hover span {display: block;}
+.content .c_top {margin-top: 30px;}
+.content .c_top .top1 {padding-bottom:15px; border-bottom: 1px solid #e8e8e8;}
+.content .c_top .top1 a {margin-right: 60px;}
+.content .c_top .top1 a:first-child {padding-bottom:14px; border-bottom: 2px solid #333;}
+.content .c_top .top1 a:last-child {color: #999;}
+.content .content2 .c_top .top1 a:last-child {color: #333;}
+.content .c_top .top2 {margin-top: 20px;}
+.content .c_top .top2 span {
+    height: 18px;
+    line-height: 18px;
+    width: 18px;
+    margin-right: 16px;
+    border-radius: 50%;
+    background: #e6e6e6;
+    color:#fff;
+    text-align: center;
+}
+.content .c_top .top2 a {height: 18px; line-height: 18px; margin-right: 55px; font-size: 12px;}
+.content .c_top .top2 a:nth-of-type(1) {color: #999;}
+.content .c_top .top2 a:nth-of-type(2) {color: #00b38a;}
+.local {width:351px; margin:0 auto;}
+.content .c_middle {margin-top: 20px;}
+.content .c_middle .middleBox {width:389px; border:1px solid #eaeeed;margin:0 0 14px 0;}
+.content .c_middle .middleBox:nth-of-type(3n+2) {margin:0 14px 14px;}
+.content .c_middle .middleBox .txt1 {padding:18px 0;}
+.content .c_middle .middleBox .txt1 .txt1Con {padding-bottom: 25px; border-bottom: 1px dashed #e0e0e0;}
+.content .c_middle .middleBox .txt1 .line1 span:nth-of-type(1) {font-size: 16px;}
+.content .c_middle .middleBox .txt1 .line1 span:nth-of-type(2) {font-size: 14px; color: #999; padding:0 5px 0 8px;}
+.content .c_middle .middleBox .txt1 .line1 span:nth-of-type(3) {font-size: 12px; color: #fa6041;}
+.content .c_middle .middleBox .txt1 p {font-size: 14px; color: #777; padding:10px 0;}
+.content .c_middle .middleBox .txt1 .txtBox {
+    font-size: 12px; 
+    color: #999; 
+    padding: 5px 8px;
+    border:1px solid #f0f0f0;
+    border-radius: 3px;
+}
+.content .c_middle .middleBox .txt2 {padding:0 0 15px;}
+.content .c_middle .middleBox .txt2 img {width: 40px; height:40px; margin-right: 12px;}
+.content .c_middle .middleBox .txt2 p:nth-of-type(1) {color: #555; font-size: 14px;} 
+.content .c_middle .middleBox .txt2 p:nth-of-type(2) {color: #999; font-size: 14px;} 
+.content .c_footer {text-align: center;}
+.content .c_footer a {
+    display: inline-block;
+    text-align: center;
     padding: 8px;
+    width: 430px;
+    color: #00b38a;
+    border: 1px solid #00b38a;
+    margin-bottom: 60px;
 }
-.menu li:hover {
-    background-color: #0099cc;
+.local2{width:260px; margin: 0 auto;}
+.content .content2 .c_middle .middleBox {width: 288px; text-align: center; margin: 0 0 15px 0;}
+.content .content2 .c_middle .middleBox:nth-of-type(4n+2) {margin:0 15px;}
+.content .content2 .c_middle .middleBox:nth-of-type(4n+3) {margin-right: 15px;}
+.content .content2 .c_middle .txt1 {padding:20px 0 10px; border-bottom: 1px dashed #e0e0e0;}
+.content .content2 .c_middle .txt1 img {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
 }
-.aside {
-    background-color: #33b5e5;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    padding: 15px;
-    color: #ffffff;
-    text-align: center;
+.content .content2 .c_middle .txt1 p:nth-of-type(1) {font-size: 16px; color: #333;padding: 5px 0;}
+.content .content2 .c_middle .txt1 p:nth-of-type(2) {font-size: 14px; color: #999;padding: 0;}
+.content .content2 .c_middle .txt1 p:nth-of-type(3) {
+    font-size: 14px; 
+    color: #555;
+    padding: 6px 0; 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.content .content2 .c_middle .txt2 .sBox {width:85px;margin: 16px 0 0;}
+.content .content2 .c_middle .txt2 .sBox:nth-of-type(2) {border-left:0.1px solid #999;border-right:0.1px solid #999;}
+.content .content2 .c_middle .txt2 .sBox p:nth-of-type(1) {font-size: 14px;color: #00b38a;}
+.content .content2 .c_middle .txt2 .sBox p:nth-of-type(2) {font-size: 12px;color: #999;}
+.footer .f_top .pBox {
+    font-size: 18px; 
+    color: #333;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0 0 14px;
+}
+.footer .f_top .pBox a {
+    border-bottom: 2px solid #333;
+    padding: 0 0 13px;
+}
+.footer .f_top p {
+    padding: 30px 0 0;
     font-size: 14px;
-    margin-bottom: 7px;
 }
-.footer {
-    padding: 15px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    background-color: #0099cc;
-    color: white;
-    font-size: 15px;
+.footer .f_top p a {color: #555; margin-right:18px;}
+.footer .f_top p a:last-child {color: #999; margin: 0px;}
+.footer .f_top img {padding: 7px 0; margin-left: 2px;}
+.footer .f_middle {margin-top: 90px; border-top: 1px solid #ebebeb;}
+.footer .f_middle .middleCon {padding: 50px 0 65px 0;}
+.footer .f_middle .middleLeft {margin-right: 120px;}
+.footer .f_middle .middleLeft a:nth-of-type(1) {
+    display:block; 
+    font-size: 14px; 
+    width: 180px;
+    color: #00b38a;
+    border: 1px solid #00b38a;
+    padding: 10px;
     text-align: center;
-    font-family: sans-serif;
+    margin: 0 0 15px;
 }
+.footer .f_middle .middleLeft a:nth-of-type(2) {
+    display:block; 
+    font-size: 14px; 
+    width: 180px;
+    color: #00b38a;
+    border: 1px solid #00b38a;
+    padding: 10px;
+    text-align: center;
+    margin: 0 0 15px;
+}
+.footer .f_middle .middleLeft .span1{
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    background: url(img/sprite2.png) 108px 38px;
+}
+
+.footer .f_middle .middleLeft .span2{
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    display: inline-block;
+    background: url(img/sprite2.png) 42px -52px;
+}
+.footer .f_middle .middleLeft a:nth-of-type(3) {font-size: 12px; color: #555; margin-right: 15px;}
+.footer .f_middle .middleLeft a:nth-of-type(4) {font-size: 12px; color: #555;}
+.footer .f_middle .middleLeft img {display: inline-block; margin-right: 5px;}
+.footer .f_middle .middleRight {border-left: 1px solid #ebebeb;padding-left: 160px;}
+.footer .f_middle .middleRight dl {margin-right: 160px;}
+.footer .f_middle .middleRight dl:last-child {margin: 0px;}
+.footer .f_middle .middleRight dt {font-size: 18px; color: #555; font-weight: bold; margin-bottom: 25px;}
+.footer .f_middle .middleRight dd {font-size: 14px; color: #555;margin-top: 15px;}
+.footer .f_bottom {height: 100px; background: whitesmoke;}
+.footer .f_bottom .bottomCon {position:relative;height: 100px;}
+.footer .f_bottom .bottomRight {position: absolute; right: 0; top: 50%; transform: translate(0,-50%);}
+.footer .f_bottom .bottomLeft {position: absolute; left: 0; top: 50%; transform: translate(0,-50%);}
+.footer .f_bottom .bottomCenter {position: absolute; left: 520px; top: 50%; transform: translate(0,-50%);}
+.footer .f_bottom .bottomLeft span {font-size: 14px; color: #999;}
+.footer .f_bottom .bottomLeft > span:first-child {margin-right: 10px;}
+.footer .f_bottom .bottomLeft .span1 {
+    width:16px;
+    height:16px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(img/sprite2.png) -150px 71px;
+}
+.footer .f_bottom .bottomCenter .sBox {display: inline-block; width:180px;border: 1px solid #d5dadf;}
+.footer .f_bottom .bottomCenter .sBox .span2 {
+    width:40px;
+    height:40px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 8px -10px 0 10px;
+    background: url(img/sprite2.png) -130px -10px;
+}
+.footer .f_bottom .bottomCenter .sBox p {font-size: 12px; color: #999;}
+.footer .f_bottom .bottomCenter .sBox p:nth-of-type(1) {margin-top: 5px;}
+.footer .f_bottom .bottomCenter .sBox p:nth-of-type(3) {margin-bottom: 5px;}
 
 </style>
 </head>
-
 <body>
 <div class="header">
-<h1>犬类</h1>
+    <div class="h_top">
+        <div class="topCon glob clearFixed">
+            <div class="topLeft fl clearFixed">
+                <div class="topLeft_1 clearFixed fl">
+                    <p class="txt1 fl">拉钩</p>
+                    <p class="txt2 fl">全国站</p>
+                    <p class="txt3 fl">[切换城市]</p>
+                </div>
+                <div class="topLeft_2 clearFixed fl">
+                    <li class="fl"><a href="#">首页</a></li>
+                    <li class="fl"><a href="#">公司</a></li>
+                    <li class="fl"><a href="#">校园</a></li>
+                    <li class="fl"><a href="#">言职</a></li>
+                    <li class="fl"><a href="#">课程</a></li>
+                </div>
+            </div>
+            <div class="topRight fr">
+                <ul class="clearFixed">
+                    <li class="fl txt1"><a href="#"><span></span>登录</a></li>
+                    <li class="fl txt2"><a href="#"><span>|</span>注册</a></li>
+                    <li class="fl txt3"><a href="#"><span></span>拉钩APP</a></li>
+                    <li class="fl txt4"><a href="#">进入企业版</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="h_bottom">
+        <div class="botCon glob clearFixed">
+            <div class="botLeft fl">
+                <img class="img1" alt="" src="img/logo.png">
+                <div class="img2">
+                    <img alt="" src="img/footer_lagou.png">
+                </div>
+                <p class="txt">7555585家公司|67676767个职位在拉钩等你</p>
+            </div>
+            <div class="botRight fr">
+                <form class="clearFixed form1">
+                    <input class="fl input1" type="text" placeholder="输入手机号" />
+                    <div class="fl input2Box" >
+                        <input class="input2" type="text" placeholder="验证码" />
+                        |<a href="#">获取</a>
+                    </div>
+                    <input class="fl input3"  type="submit" value="登录/注册">
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="row">
-    <div class="col-3 col-s-3">
-        <ul class="menu">
-            <li>阿拉斯加</li>
-            <li>中华田园犬</li>
-            <li>金毛</li>
-            <li>萨摩耶</li>
-        </ul>
+<div class="search">
+    <div class="searchCon">
+        <div class="searchBox">
+            <div class="s_top clearFixed">
+                <input class="input1 fl" type="text" placeholder="搜索公司，职位或地点" />
+                <input class="input2 fl" type="submit" value="搜索" />
+            </div>
+            <div class="s_bottom">
+                <ul class="clearFixed">
+                    <li class="fl"><a>热门搜索:</a></li>
+                    <li class="fl"><a href="">24小时极速入职</a></li>
+                    <li class="fl"><a href="">名企校招早班车</a></li>
+                    <li class="fl"><a href="">Java面试</a></li>
+                    <li class="fl"><a href="">架构设计</a></li>
+                    <li class="fl"><a href="">数据分析</a></li>
+                    <li class="fl"><a href="">PHP</a></li>
+                    <li class="fl"><a href="">C++</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="col-6 col-s-9">
-        <h1>萨摩耶</h1>
-        <img class="img" alt="可爱的萨摩耶" src="萨摩耶.jpg">
-        <p>萨摩耶犬，原是西伯利亚的原住民萨摩耶族培育出的犬种，一岁前调皮、灵动。它机警、强壮、灵活、美丽、高贵优雅、乖巧可爱，有着非常引人注目的外表，有“微笑天使”的称号，也有着“微笑天使面孔，捣蛋魔鬼内心”之称。</p>
-        <br>
-        <p>萨摩耶犬很聪明，学习东西很快，但程度也有很大差异，要注意不同情况区别对待。它的性情温和，对主人忠诚，适应性强。警惕，充满活力，待人友善，不保守，不胆怯，不多疑，只是进攻性不强。</p>
+</div>
+<div class="banner">
+    <div class="bannerCon glob clearFixed">
+        <div class="b_left fl">
+            <ul class="clearFixed" >
+                <li class="fl"><a href="#">技术</a></li>
+                <li class="fl"><a href="#">Java</a></li>
+                <li class="fl"><a href="#">PHP</a></li>
+                <li class="fl"><a href="#">区块链</a></li>
+                <li class="fl"><a>&gt;</a></li>
+            </ul>
+            <ul class="clearFixed">
+                <li class="fl"><a href="#">技术</a></li>
+                <li class="fl"><a href="#">Java</a></li>
+                <li class="fl"><a href="#">PHP</a></li>
+                <li class="fl"><a href="#">区块链</a></li>
+                <li class="fl"><a>&gt;</a></li>
+            </ul>
+            <ul class="clearFixed">
+                <li class="fl"><a href="#">技术</a></li>
+                <li class="fl"><a href="#">Java</a></li>
+                <li class="fl"><a href="#">PHP</a></li>
+                <li class="fl"><a href="#">区块链</a></li>
+                <li class="fl"><a>&gt;</a></li>
+            </ul>
+            <ul class="clearFixed">
+                <li class="fl"><a href="#">技术</a></li>
+                <li class="fl"><a href="#">Java</a></li>
+                <li class="fl"><a href="#">PHP</a></li>
+                <li class="fl"><a href="#">区块链</a></li>
+                <li class="fl"><a>&gt;</a></li>
+            </ul>
+            <ul class="clearFixed">
+                <li class="fl"><a href="#">技术</a></li>
+                <li class="fl"><a href="#">Java</a></li>
+                <li class="fl"><a href="#">PHP</a></li>
+                <li class="fl"><a href="#">区块链</a></li>
+                <li class="fl"><a>&gt;</a></li>
+            </ul>
+            <ul class="clearFixed">
+                <li class="fl"><a href="#">技术</a></li>
+                <li class="fl"><a href="#">Java</a></li>
+                <li class="fl"><a href="#">PHP</a></li>
+                <li class="fl"><a href="#">区块链</a></li>
+                <li class="fl"><a>&gt;</a></li>
+            </ul>
+            <ul class="clearFixed">
+                <li class="fl"><a href="#">技术</a></li>
+                <li class="fl"><a href="#">Java</a></li>
+                <li class="fl"><a href="#">PHP</a></li>
+                <li class="fl"><a href="#">区块链</a></li>
+                <li class="fl"><a>&gt;</a></li>
+            </ul>
+        </div>
+        <div class="b_right fr">
+            <img alt="" src="img/banner.JPG"/>
+            <span class="span1">&lt;</span> 
+            <span class="span2">&gt;</span> 
+        </div>
     </div>
-    <div class="col-3 col-s-12">
-        <div class="aside">
-        <h2>饲养方法</h2>
-        <br>
-        <p>人和萨摩耶犬感情上的联系是人和萨摩耶犬共同生活结为伴侣的前提条件。因此，主人与萨摩耶犬要多接触，对它多关心爱护，要友好相待。</p>
+</div>
+<div class="content">
+    <div class="c_top glob">
+        <div class="top1">
+            <a href="#">24Hour热门</a>
+            <a href="#">最新职位</a>
         </div>
-        <div class="aside">
-        <h2>品系颜色</h2> 
-        <br>
-        <p>萨摩耶犬的颜色为白色；部分带有很浅的浅棕色、奶酪色、浅棕色。此外其他颜色都属于失格。世界上曾出现过一只灰白色萨摩，FCI承认他是具有纯种血统萨摩耶基因的返祖萨摩，黑色萨摩耶犬极为罕见。</p>
+        <div class="top2 clearFixed">
+            <span class="fl">?</span>
+            <a class="fl" href="#">在过去的24小时,最多人看过的岗位在这里</a>
+            <a class="fl" href="#">我知道了</a>
         </div>
-        <div class="aside">
-        <h2>外形特征</h2>
-        <br>
-        <p>直立的耳朵很厚，呈三角形，尖端略圆。两耳分的较开。眼睛颜色深为佳，两眼凹陷，间距大，杏仁形，下眼睑向耳基部倾斜。鼻子颜色有黑色、棕色、肝褐色，鼻的颜色有时随年龄和气候改变。嘴唇多数是黑色，嘴角上翘。</p>
+    </div>
+    <div class="c_middle glob clearFixed">
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
         </div>
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
+        </div>
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
+        </div>
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
+        </div>
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
+        </div>
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
+        </div>
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
+        </div>
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
+        </div>
+        <div class="middleBox fl">
+            <div class="txt1 local">
+                <div class="txt1Con">
+                    <div class="line1 clearFixed">
+                        <span class="fl">Java开发工程师</span>
+                        <span class="fl">[10:35发布]</span>
+                        <img class="fl" alt="" src="img/icon_chat.png" />
+                        <span class="fr">10K-15K</span>
+                    </div>
+                        <p>经验2-3年 / 本科</p>
+                        <span class="txtBox">Node.js</span>
+                        <span class="txtBox">Web前端</span>
+                        <span class="txtBox">Vue</span>
+                </div>
+            </div>
+            <div class="txt2 local clearFixed">
+                <img  class="fl" alt="" src="img/con2.png" />
+                <p>长沙千锋教育科技有限公司</p>
+                <p>教育/未融资/长沙</p>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+    </div>
+    <div class="c_footer glob">
+        <a href="#">查看更多</a>
+    </div>
+    <div class="content2">
+        <div class="c_top glob">
+            <div class="top1">
+                <a href="#">互联网热门公司榜</a>
+            </div>
+            <div class="top2 clearFixed">
+                <span class="fl">?</span>
+                <a class="fl" href="#">在过去的24小时,最多人看过的岗位在这里</a>
+                <a class="fl" href="#">我知道了</a>
+            </div>
+        </div>
+        <div class="c_middle glob clearFixed">
+            <div class="middleBox fl">
+                <div class="txt1 local2">
+                    <img src="img/con2.png" alt="">
+                    <p>数据堂</p>
+                    <p>教育，数据服务 / A轮</p>
+                    <p>发掘数据的价值，便利人们的生活，让人们怎么吃得更香睡得更舒服。</p>
+                </div>
+                <div class="txt2 local2 clearFixed">  
+                    <div class="sBox fl">
+                        <p>225</p>
+                        <p>面试评价</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>85</p>
+                        <p>在招职位</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>100%</p>
+                        <p>简历处理率</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middleBox fl">
+                <div class="txt1 local2">
+                    <img src="img/con2.png" alt="">
+                    <p>数据堂</p>
+                    <p>教育，数据服务 / A轮</p>
+                    <p>发掘数据的价值，便利人们的生活，让人们怎么吃得更香睡得更舒服。</p>
+                </div>
+                <div class="txt2 local2 clearFixed">  
+                    <div class="sBox fl">
+                        <p>225</p>
+                        <p>面试评价</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>85</p>
+                        <p>在招职位</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>100%</p>
+                        <p>简历处理率</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middleBox fl">
+                <div class="txt1 local2">
+                    <img src="img/con2.png" alt="">
+                    <p>数据堂</p>
+                    <p>教育，数据服务 / A轮</p>
+                    <p>发掘数据的价值，便利人们的生活，让人们怎么吃得更香睡得更舒服。</p>
+                </div>
+                <div class="txt2 local2 clearFixed">  
+                    <div class="sBox fl">
+                        <p>225</p>
+                        <p>面试评价</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>85</p>
+                        <p>在招职位</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>100%</p>
+                        <p>简历处理率</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middleBox fl">
+                <div class="txt1 local2">
+                    <img src="img/con2.png" alt="">
+                    <p>数据堂</p>
+                    <p>教育，数据服务 / A轮</p>
+                    <p>发掘数据的价值，便利人们的生活，让人们怎么吃得更香睡得更舒服。</p>
+                </div>
+                <div class="txt2 local2 clearFixed">  
+                    <div class="sBox fl">
+                        <p>225</p>
+                        <p>面试评价</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>85</p>
+                        <p>在招职位</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>100%</p>
+                        <p>简历处理率</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middleBox fl">
+                <div class="txt1 local2">
+                    <img src="img/con2.png" alt="">
+                    <p>数据堂</p>
+                    <p>教育，数据服务 / A轮</p>
+                    <p>发掘数据的价值，便利人们的生活，让人们怎么吃得更香睡得更舒服。</p>
+                </div>
+                <div class="txt2 local2 clearFixed">  
+                    <div class="sBox fl">
+                        <p>225</p>
+                        <p>面试评价</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>85</p>
+                        <p>在招职位</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>100%</p>
+                        <p>简历处理率</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middleBox fl">
+                <div class="txt1 local2">
+                    <img src="img/con2.png" alt="">
+                    <p>数据堂</p>
+                    <p>教育，数据服务 / A轮</p>
+                    <p>发掘数据的价值，便利人们的生活，让人们怎么吃得更香睡得更舒服。</p>
+                </div>
+                <div class="txt2 local2 clearFixed">  
+                    <div class="sBox fl">
+                        <p>225</p>
+                        <p>面试评价</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>85</p>
+                        <p>在招职位</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>100%</p>
+                        <p>简历处理率</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middleBox fl">
+                <div class="txt1 local2">
+                    <img src="img/con2.png" alt="">
+                    <p>数据堂</p>
+                    <p>教育，数据服务 / A轮</p>
+                    <p>发掘数据的价值，便利人们的生活，让人们怎么吃得更香睡得更舒服。</p>
+                </div>
+                <div class="txt2 local2 clearFixed">  
+                    <div class="sBox fl">
+                        <p>225</p>
+                        <p>面试评价</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>85</p>
+                        <p>在招职位</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>100%</p>
+                        <p>简历处理率</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middleBox fl">
+                <div class="txt1 local2">
+                    <img src="img/con2.png" alt="">
+                    <p>数据堂</p>
+                    <p>教育，数据服务 / A轮</p>
+                    <p>发掘数据的价值，便利人们的生活，让人们怎么吃得更香睡得更舒服。</p>
+                </div>
+                <div class="txt2 local2 clearFixed">  
+                    <div class="sBox fl">
+                        <p>225</p>
+                        <p>面试评价</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>85</p>
+                        <p>在招职位</p>
+                    </div>
+                    <div class="sBox fl">
+                        <p>100%</p>
+                        <p>简历处理率</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c_footer glob">
+            <a href="#">查看更多</a>
+        </div>
+        
     </div>
 </div>
 <div class="footer">
-    <p>Drunk to see the sword, dream blowing the horn camp.</p>
+    <div class="f_top glob">
+        <div class="pBox glob">
+            <a href="">友情链接</a>
+        </div>
+        <p class="clearFixed">
+            <a class="fl" href="">找工作</a>
+            <a class="fl" href="">招聘网</a>
+            <a class="fl" href="">java课</a>
+            <a class="fl" href="">架构课</a>
+            <a class="fl" href="">字节跳动</a>
+            <a class="fl" href="">哔哩哔哩招募</a>
+            <a class="fl" href="">公信宝</a>
+            <a class="fl" href="">职场百科</a>
+            <a class="fl" href="">研究报告</a>
+            <a class="fr" href="">展开<img class="fr" src="img2/open.jpg" alt="" /></a>
+        </p>
+    </div>
+    <div class="f_middle">
+        <div class="middleCon glob clearFixed">
+            <div class="middleLeft fl">
+                <a href=""><span class="span1"></span>下载拉勾APP</a>
+                <a href=""><span class="span2"></span>微信小程序</a>
+                <a href=""><img alt="" src="img2/icon-wechat.png">拉勾微信</a>
+                <a href=""><img alt="" src="img2/icon-sina1.png">拉勾微博</a>
+            </div>
+            <div class="middleRight fl clearFixed">
+                <dl class="fl">
+                    <dt>企业服务</dt>
+                    <dd>招聘抢人宝典</dd>
+                    <dd>公司搜索</dd>
+                    <dd>拉钩APP</dd>
+                </dl>
+                <dl class="fl">
+                    <dt>用户帮助</dt>
+                    <dd>用户协议</dd>
+                    <dd>隐私政策</dd>
+                    <dd>在线提问</dd>
+                </dl>
+                <dl class="fl">
+                    <dt>联系方式</dt>
+                    <dd>服务热线： 4006 2828 35 (9:00 - 18:00)</dd>
+                    <dd>企业服务邮箱： cc@lagou.com</dd>
+                    <dd>联系我们</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="f_bottom">
+        <div class="bottomCon glob">
+            <div class="bottomLeft">
+                <span>©2021 拉勾网 京ICP备12312343-2</span>
+                <span><span class="span1"></span>京公安网备 110108099987658776号</span>
+            </div>
+            <div class="bottomCenter">
+                <div class="sBox">
+                    <span class="span2 fl"></span>
+                    <p>违法和不良信息举报</p>
+                    <p>电话: 4006 2828 35</p>
+                    <p>邮箱: cc@lagou.com</p>
+                </div>
+            </div>
+            <div class="bottomRight">
+                <img src="img/footer_lagou.png" alt="">
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
