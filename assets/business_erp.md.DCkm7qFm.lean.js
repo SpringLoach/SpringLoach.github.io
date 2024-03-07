@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,V as n}from"./chunks/framework.DIvs8UGF.js";const c=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"business/erp.md","filePath":"business/erp.md"}'),h={name:"business/erp.md"},t=n("",28),l=[t];function p(k,e,E,r,d,g){return a(),i("div",null,l)}const F=s(h,[["render",p]]);export{c as __pageData,F as default};

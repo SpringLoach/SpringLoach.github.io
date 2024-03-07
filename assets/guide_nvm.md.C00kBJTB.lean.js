@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as e,V as i}from"./chunks/framework.DIvs8UGF.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/nvm.md","filePath":"guide/nvm.md"}'),t={name:"guide/nvm.md"},l=i("",23),n=[l];function p(h,d,o,c,r,k){return e(),a("div",null,n)}const m=s(t,[["render",p]]);export{u as __pageData,m as default};
