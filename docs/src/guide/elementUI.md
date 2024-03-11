@@ -323,3 +323,47 @@ export default {
 
 
 
+
+
+#### 复选框-拓展选中能力
+
+点击复选框无法选中值：
+
+```html
+<div @click="handleChangeValue">
+	<el-checkbox v-model="select" :true-label="1" :false-label="0" />
+	<span>选中值</span>
+</div>
+
+<script>
+function handleChangeValue() {
+	if (this.select == 0) {
+        this.select = 1
+        // to other..
+    } else {
+        this.select = 0
+    }
+}
+</script>
+```
+
+修复：
+
+```html
+<div>
+	<el-checkbox :value="select" :true-label="1" :false-label="0" @change="handleChangeValue" />
+	<span @click="handleChangeValue">选中值</span>
+</div>
+
+<script>
+function handleChangeValue() {
+	if (this.select == 0) {
+        this.select = 1
+        // to other..
+    } else {
+        this.select = 0
+    }
+}
+</script>
+```
+

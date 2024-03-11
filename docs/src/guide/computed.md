@@ -1,14 +1,10 @@
+<script setup>
+import CustomComponent from '../template/computed.vue'
+</script>
 
+### 小写转大写
 
-<textarea id="computed-textarea" class="operate-textarea" />
-
-
-
-<button id="computed-btn">测试</button>
-
-
-<div id="computed-result"></div>
-
+<CustomComponent />
 
 ### 循环遍历数组索引
 
