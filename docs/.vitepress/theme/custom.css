@@ -1,0 +1,12 @@
+:root {
+  /* --vp-code-block-bg: #161618; */
+}
+
+
+
+/******* computed *******/
+.operate-textarea {
+  width: 600px;
+  height: 300px;
+  border: 1px solid #dcdfe6;
+}
