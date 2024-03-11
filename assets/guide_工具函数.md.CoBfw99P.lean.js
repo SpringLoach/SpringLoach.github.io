@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,V as n}from"./chunks/framework.DIvs8UGF.js";const y=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/工具函数.md","filePath":"guide/工具函数.md"}'),h={name:"guide/工具函数.md"},k=n("",8),l=[k];function t(p,e,E,r,d,g){return a(),i("div",null,l)}const c=s(h,[["render",t]]);export{y as __pageData,c as default};

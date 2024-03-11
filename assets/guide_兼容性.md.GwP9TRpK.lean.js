@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as t,V as r}from"./chunks/framework.DIvs8UGF.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/兼容性.md","filePath":"guide/兼容性.md"}'),o={name:"guide/兼容性.md"},i=r("",9),c=[i];function n(s,l,_,d,h,p){return t(),a("div",null,c)}const m=e(o,[["render",n]]);export{u as __pageData,m as default};

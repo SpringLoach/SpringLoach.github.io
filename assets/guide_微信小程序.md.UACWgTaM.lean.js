@@ -1,1 +1,0 @@
-import{_ as a,c as s,o as e,V as t}from"./chunks/framework.DIvs8UGF.js";const g=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/微信小程序.md","filePath":"guide/微信小程序.md"}'),i={name:"guide/微信小程序.md"},n=t("",15),p=[n];function l(o,r,h,c,d,k){return e(),s("div",null,p)}const _=a(i,[["render",l]]);export{g as __pageData,_ as default};
