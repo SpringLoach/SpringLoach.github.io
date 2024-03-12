@@ -11,6 +11,13 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/computed' },
       { text: 'Business', link: '/business/test' },
+      {
+        text: '前端',
+        items: [
+          { text: '素养基石', link: '/前端/素养基石/数据结构与算法/section2' },
+          { text: '原生技术', link: '/前端/原生技术/Json/json' },
+        ]
+      },
       { text: '编程相关', link: '/expand/初始配置/计算机环境配置' }
     ],
 
@@ -71,6 +78,30 @@ export default defineConfig({
             },
             { text: 'svn', link: '/expand/相关技能/svn/SVN' },
             { text: 'xmind', link: '/expand/相关技能/xmind/xmind' },
+          ]
+        }
+      ],
+      '/前端/': [
+        {
+          text: '素养基石',
+          items: [
+            { 
+              text: '数据结构与算法',
+              items: [
+                { text: 'section2', link: '/前端/素养基石/数据结构与算法/section2' },
+              ]
+            },
+          ]
+        },
+        {
+          text: '原生技术',
+          items: [
+            { 
+              text: 'Json',
+              items: [
+                { text: 'Json', link: '/前端/原生技术/Json/json' },
+              ]
+            },
           ]
         }
       ]
