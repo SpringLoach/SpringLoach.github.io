@@ -257,9 +257,6 @@ removeAt(index) {
 ## 循环链表  
 > 循环链表的最后一个 node 指向第一个元素，而非引用 undefined。  
 
-图解：  
-![循环链表](循环链表.jpg)    
-
 **创建循环链表**  
 ```
 class CircularLinkedList extends LinkedList {
