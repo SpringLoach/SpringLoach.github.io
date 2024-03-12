@@ -3,7 +3,6 @@
 
 ## 邻接表  
 > 可以使用一种叫做邻接表的动态数据结构来表示图。邻接表由图中每个顶点的相邻顶点列表所组成。   
-> ![邻接表](邻接表.jpg)  
 
 **声明骨架**  
 > 默认为无向图。  
@@ -48,13 +47,13 @@ addEdge(v,w) {
 getVertices() {
     return this.vertices;
 }
-```  
+```
 **返回邻接表**  
 ```
 getAdjList() {
     return this.adjList;
 }
-```  
+```
 **创建 toString 方法**  
 > 迭代顶点列表，并在每一个元素处迭代相应邻接表。  
 ```
@@ -91,7 +90,7 @@ const Colors = {  // 枚举器
     GREY: 1,   // 访问了，但未探索
     BLACK: 2   // 访问且探索
 };  
-```  
+```
 **初始化顶点标记**  
 > 将所有顶点标记为未访问（白色）。  
 ```
@@ -112,6 +111,7 @@ const initializeColor = vertices => {
 - 将顶点 u 出列，取邻点存入变量，顶点 u 变灰。
 - 将 *白色邻点* 变灰入列，顶点 u 变黑，(如果队列不为空)重复 ② ③。
   
+
 **算法实现**  
 ```
 const breadthFirstSearch = (graph, startVertex, callback) => {
@@ -139,7 +139,7 @@ const breadthFirstSearch = (graph, startVertex, callback) => {
         }
     }
 };
-```  
+```
 
 > 回调函数参考
 > （其中 z 是顶点列表；结果将会输出被访问顶点的顺序）
@@ -188,7 +188,7 @@ const BFS = (graph, startVertex) => {
         predecessors
     };
 };
-```  
+```
 **构建原溯点到其它顶点的路径**  
 > 通过建立栈的方式，使最后存入的源起点最先出栈。  
 ```
@@ -244,7 +244,7 @@ const depthFirstSearchVisit = (u, color, adjList, callback) => {
     }
     color[u] = Colors.BLACK;  // 上面完成后，自身探索完成
 };
-```  
+```
 ### 发现时间和完成探索时间  
 > 需要对先前的方法进行一点改进。  
 ```
@@ -288,7 +288,7 @@ const DFSVisit = (u, color, d, f, p, time, adjList) => {
     f[u] = ++time.count;
     // 自身加一，且计入这次计算（表达式）
 };
-```  
+```
 
 ### 拓扑排序————使用深度优先搜索  
 > 拓扑排序只能应用于 **有向无环图**（ DAG ）。  
