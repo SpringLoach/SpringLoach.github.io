@@ -11,6 +11,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/computed' },
       { text: 'Business', link: '/business/test' },
+      { text: '编程相关', link: '/expand/初始配置/计算机环境配置' }
     ],
 
     sidebar: {
@@ -39,6 +40,37 @@ export default defineConfig({
             { text: 'test', link: '/business/test' },
             { text: 'h5', link: '/business/h5' },
             { text: 'erp', link: '/business/erp' }
+          ]
+        }
+      ],
+      '/expand/': [
+        {
+          text: '初始配置',
+          items: [
+            { text: '计算机环境配置', link: '/expand/初始配置/计算机环境配置' },
+          ]
+        },
+        {
+          text: '相关技能',
+          items: [
+            { 
+              text: 'git',
+              items: [
+                { text: '速查', link: '/expand/相关技能/git/速查' },
+                { text: 'git学习', link: '/expand/相关技能/git/git学习/git学习' },
+                { text: 'git学习2', link: '/expand/相关技能/git/git学习/git学习2' },
+                { text: 'git学习3', link: '/expand/相关技能/git/git学习/git学习3' },
+              ]
+            },
+            { 
+              text: 'markdown', 
+              items: [
+                { text: '风格规范', link: '/expand/相关技能/markdown/风格规范' },
+                { text: 'markdown', link: '/expand/相关技能/markdown/markdown' },
+              ]
+            },
+            { text: 'svn', link: '/expand/相关技能/svn/SVN' },
+            { text: 'xmind', link: '/expand/相关技能/xmind/xmind' },
           ]
         }
       ]
