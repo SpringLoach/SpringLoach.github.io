@@ -89,6 +89,18 @@ export default defineConfig({
               text: '数据结构与算法',
               items: [
                 { text: 'section2', link: '/前端/素养基石/数据结构与算法/section2' },
+                { text: 'section3', link: '/前端/素养基石/数据结构与算法/section3' },
+                { text: 'section4', link: '/前端/素养基石/数据结构与算法/section4' },
+                { text: 'section5', link: '/前端/素养基石/数据结构与算法/section5' },
+                { text: 'section6', link: '/前端/素养基石/数据结构与算法/section6' },
+                { text: 'section7', link: '/前端/素养基石/数据结构与算法/section7' },
+                { text: 'section8', link: '/前端/素养基石/数据结构与算法/section8' },
+                { text: 'section9', link: '/前端/素养基石/数据结构与算法/section9' },
+                { text: 'section10', link: '/前端/素养基石/数据结构与算法/section10' },
+                { text: 'section11', link: '/前端/素养基石/数据结构与算法/section11' },
+                { text: 'section12', link: '/前端/素养基石/数据结构与算法/section12' },
+                { text: '数组相关', link: '/前端/素养基石/数据结构与算法/数组相关' },
+                { text: '项目栗子', link: '/前端/素养基石/数据结构与算法/项目栗子' },
               ]
             },
           ]
