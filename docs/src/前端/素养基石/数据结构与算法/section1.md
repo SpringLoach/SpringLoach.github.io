@@ -179,77 +179,101 @@ a（x）;
 ```
 
 ## JavaScript 的数组方法参考  
+
 **数组合并**  
+
 > `concat（）`方法可以向一个数组传递数组、对象或是元素。（均会被当成一个元素）  
+
 ```
 const x =[1,2];
 const y ={name:'a',age:'b'};
 const z = 3;
 let zz = x.concat(y,z);     // [1,2,{name:'a',age:'b'},3]
 ```
+
 #### 迭代器函数  
+
 > 设定一个数组，如果数组里的元素可以被 2 整除（偶数），函数就返回 true，否则返回 false。
+
 ```
 const isEven = a => a % 2 === 0;    // isEven是自己取的函数名; 后面的表达式会返回布尔值
 let x =[1,2,3,4,5,6,7];
 ```
+
 **用 every（） 迭代**  
+
 > 对数组中的每个元素运行**给定函数**（指参数），如果该函数对每个元素**都返回 true**，则返回 true。
->  
+>
 > 本例中，数组的第一个元素是 1，因此 isEven 函数返回 false，然后 every 执行结束。  
+
 ```
 x.every(isEven);
 ```
 
 **用 some() 迭代**  
+
 > 对数组中的每个元素运行给定函数，如果任一元素返回 true，则返回 true.  
+
 ```
 x.some(isEven);
 ```
 
 **用 forEach() 迭代**  
+
 > 对数组中的每个元素运行给定函数，无返回值。  
-> 
+>
 > 使用结果与 for 循环相同。  
+
 ```
 x.forEach(a => console.log(a % 2 === 0));
 ```
 
 **用 map() 取回新数组**  
+
 > 对数组中的每个元素运行给定函数，返回每次**函数调用的结果**组成的数组。  
+
 ```
 x.map(isEven);
 ```
 
 **用 filter() 取回新数组**  
+
 > 对数组中的每个元素运行给定函数，返回该函数会**返回 true 的元素**组成的数组。  
+
 ```
 x.filter(isEven);
 ```
 
 #### 解析reduce的用法  
+
 > 语法  
+>
 > ```  
 > arr.reduce(callback,[initialValue])
->   
+> 
 > 解释： 
 > call back (取回执行数组中每个元素的函数所包含的四个参数)
->   1.previousValue （上一次调用回调返回的值，或初始值）
->   2.currentValue  （数组中当前被处理的元素）
->   3.index         （当前元素在数值中的索引）// 可选
->   4.array          (调用 reduce 的数组)    // 可选
+> 1.previousValue （上一次调用回调返回的值，或初始值）
+> 2.currentValue  （数组中当前被处理的元素）
+> 3.index         （当前元素在数值中的索引）// 可选
+> 4.array          (调用 reduce 的数组)    // 可选
 > initialValue       (设置的初始值）          // 可选  
 > ```
-对数组的所有元素求和  
+>
+> 对数组的所有元素求和  
+
 ```
 let x = [2,3,4];
 x.reduce((a,b) => a + b);       // 结果为 9，将调用函数 2 次
 x.reduce(((a,b) => a * b),2);   // 结果为 48，将调用函数 3 次，有初始值可以避免空数组报错
 ```
+
 有篇写的很好的文章，可以学习[更高级的技巧](https://www.jianshu.com/p/e375ba1cfc47)。  
 
 ## ES6数组新功能  
+
 **使用 `for...of` 循环迭代数组**  
+
 ```
 for(const n of x){
 	console.log(n % 2 === 0 ? 'even' : 'odd');
@@ -257,11 +281,13 @@ for(const n of x){
 ```
 
 **使用 `@@iterator` 对象**  
+
 > 返回一个包含数组键值对的**迭代器**对象，可以通过同步调用得到数组元素的键值对。
-> 
+>
 > 需要通过 Symbol.iterator 来访问。
 > 然后，不断调用迭代器的 next 方法，就能依次得到数组中的值。  
-```
+
+```javascript
 let x = [3,5,9,2];
 let y = x[Symbol.iterator]();
 
@@ -271,24 +297,31 @@ console.log(y.next().value);     // 9
 console.log(y.next().value);     // 2
 console.log(y.next().value);     // undefined
 ```
+
 也可以  
-```
+
+```javascript
 let y = x[Symbol.iterator]();
 for (const n of x){
 	console.log(n);         // 3 5 9 2
 }
 ```
+
 #### 数组的entries() 方法
+
 > 返回包含数组所有键值对的 `@@iterator`
-> 
+>
 > `key` 是数组中的位置，`value` 是保存在数组索引的值。  
+
 ```
 let y = x.entries();		 // 得到键值对的迭代器
 console.log(y.next().value);     // [0,3]
 console.log(y.next().value);     // [1,5]
 console.log(y.next().value);     // [2,9]
 ```
+
 也可以使用 ES6 的结构实现在循环中拆分键值对    
+
 ```
 let arr = [5,2,7]
 
@@ -297,53 +330,75 @@ for(const [i, v] of arr.entries()) {
   console.log(v);
 }
 ```
+
 **数组的 keys() 方法**  
+
 > 返回包含数组所有**索引**的 `@iterator`。
-> 
-> 一旦没有可迭代的值      // {value: 0, done: false }  
+>
+> 一旦没有可迭代的值      // `{value: 0, done: false } ` 
+
 ```
 const y = x.keys();     // 得到数组索引的迭代器
 console.log(y.next());  // {value: 0, done: false }
 console.log(y.next());  // {value: 1, done: false }
 console.log(y.next());  // {value: 2, done: false }
 ```
+
 **数组的 values() 方法**  
+
 > 返回包含数组所有**值**的 `@iterator`。  
+
 ```
 const y = x.values(); 
 console.log(y.next());  // {value: 3, done: false }
 console.log(y.next());  // {value: 5, done: false }
 console.log(y.next());  // {value: 9, done: false }
 ```
+
 **使用 Array.from 方法**  
+
 > 根据已有数组创建一个新的数组。  
-复制一个数组  
+> 复制一个数组  
+
 ```
 let y = Array.from(x);
 ```
+
 也可以传入一个过滤值的函数
+
 ```
 let z = Array.from(x, a => (a % 2 == 0));  // [false,false,false,true]
 ```
+
 **使用 Array.of 方法**  
+
 > 根据传入的参数创建一个新数组。  
-等价的代码  
+> 等价的代码  
+
 ```
 let y = Array.of(1,2);
 let y = [1,2];
 ```
+
 复制已有的数组
+
 ```
 let y = Array.of(...x);    // 展开运算符把数组里的值展开成参数
 ```
+
+#### 
+
+
+
 #### 使用fill方法
+
 > 用静态值填充数值。  
 
-参数 | 说明 | 补充
-:-: | :-: | :-: 
-参数1 | 填充值 | /
-参数2 | 起始索引 `[` | 可选，可负，默认为 0
-参数3 | 结束索引 `)` | 可选，可负
+| 参数  |     说明     |         补充         |
+| :---: | :----------: | :------------------: |
+| 参数1 |    填充值    |          /           |
+| 参数2 | 起始索引 `[` | 可选，可负，默认为 0 |
+| 参数3 | 结束索引 `)` |      可选，可负      |
 
 ```
 let v = [1,2,3,4,5,6];
@@ -354,13 +409,14 @@ v.fill(0);     //  [0,0,0,0,0,0]
 ```
 
 #### 使用copyWithin方法  
+
 > 复制数组中一系列元素到**同一数组**指定的起始位置。      
 
-参数 | 说明 | 补充
-:-: | :-: | :-: 
-参数1 | 插入索引 | /
-参数2 | 复制起始索引 `[` | 可选，可负，默认为 0
-参数3 | 复制结束索引 `)` | 可选，可负
+| 参数  |       说明       |         补充         |
+| :---: | :--------------: | :------------------: |
+| 参数1 |     插入索引     |          /           |
+| 参数2 | 复制起始索引 `[` | 可选，可负，默认为 0 |
+| 参数3 | 复制结束索引 `)` |      可选，可负      |
 
 ```
 let v = [1,2,3,4,5,6];
@@ -370,23 +426,33 @@ v.copyWithin(0,4);     //  [5,6,3,4,5,6]
 // 超出索引部分无效 
 ```
 
+### 
+
+
+
 ### 排序元素  
 
 **使用 reverse() 方法**  
+
 > 在原数组中颠倒元素的顺序。  
+
 ```
 v.reverse();
 ```
 
 **使用 sort() 方法**  
+
 > 按照字母顺序（ ASCII值 ）对数组排序，支持传入指定排序方法的**函数作为参数**。
-> 
-> 
-**按数值从小到大排序**  
+>
+>
+> **按数值从小到大排序**  
+
 ```
 v.sort((a,b) => a - b);    // 前提是数组的元素是数组，或其valueOf()方法返回数值，如 Date 对象
 ```
+
 > 也可以更清晰的表示：
+>
 > ```
 > function x(a,b){
 > 	if (a < b){
@@ -399,8 +465,10 @@ v.sort((a,b) => a - b);    // 前提是数组的元素是数组，或其valueOf(
 > }
 > v.sort(x);
 > ```
-**自定义排序**  
+>
+> **自定义排序**  
 > 根据年龄排序。
+
 ```
 let v = [
 	{ name:'coco', age:17 },
@@ -409,10 +477,13 @@ let v = [
 	]
 console.log(v.sort((a,b) => a.age-b.age));		
 ```
+
 **字符串排序**  
+
 > 按照 ASCII 值比较，a 将排在任意大写字母的后面。  
-> 
+>
 > 可以给 sort 传入一个忽略大小写的比较函数来解决这个问题。  
+
 ```
 let v = ['F','a','f','A'];
 
@@ -428,42 +499,61 @@ function x(a,b){
 
 console.log(v.sort(x));    // [A,a,F,f]
 ```
+
 将小写字母排在前面：
+
 > 这个方法同样可以对带重音符号的字符排序。
+
 ```
 console.log(v.sort((a,b) => a.localeCompare(b)));    // [a,A,f,F]
 ```
 
 ### 搜索  
+
 **使用 indexOf() 方法**  
+
 > 返回第一个与给定参数相等的数组元素的**索引**，没有找到则返回 -1  
+
 ```
 let x = [4,87,24,3]
 console.log(x.indexOf(24));    // 返回 2
 ```
+
 **使用 lastIndexOf() 方法**  
+
 > 返回最后一个与给定参数相等的数组元素的**索引**，没有找到则返回 -1  
 
 **使用 find 和 findIndex 方法——ECMAScript 2015**  
+
 > 根据**回调函数**给定的条件从数组中查找元素，如果找到则返回第一个满足条件的元素 / 索引，找不到则返回 undefined / -1 。    
+
 ```
 document.write(x.find(a => a > 22));    // 输出 87
 ```
+
 **使用 includes() 方法——ECMAScript 2017**  
+
 > 如果数组中存在**某个元素**则返回 true，否则返回 false。  
+
 ```
 console.log(x.includes(87));	// true
 console.log(x.includes(87,2));	// false 第二个参数为起始索引[
 ```
 
 ### 输出数组为字符串  
+
 **使用 includes() 方法**  
+
 > 将数组作为一个字符串返回。  
+
 ```
 console.log(x.toString());
 ```
+
 **使用 join() 方法**  
+
 > 将所有的数组元素连接成一个字符串。
+
 ```
 console.log(x.join('-'));    // 4-87-24-3
 ```

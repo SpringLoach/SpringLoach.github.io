@@ -88,6 +88,7 @@ export default defineConfig({
             { 
               text: '数据结构与算法',
               items: [
+                { text: 'section1', link: '/前端/素养基石/数据结构与算法/section1' },
                 { text: 'section2', link: '/前端/素养基石/数据结构与算法/section2' },
                 { text: 'section3', link: '/前端/素养基石/数据结构与算法/section3' },
                 { text: 'section4', link: '/前端/素养基石/数据结构与算法/section4' },
