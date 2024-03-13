@@ -115,6 +115,15 @@ export default defineConfig({
                 { text: 'Json', link: '/前端/原生技术/Json/json' },
               ]
             },
+            { 
+              text: 'TypeScript',
+              items: [
+                { text: '实践-vue', link: '/前端/原生技术/TypeScript/应用/实践-vue' },
+                { text: '快速入门', link: '/前端/原生技术/TypeScript/快速入门' },
+                { text: '配置(旧)', link: '/前端/原生技术/TypeScript/配置(旧)' },
+                { text: '入门(旧文档)', link: '/前端/原生技术/TypeScript/入门(旧文档)' },
+              ]
+            },
           ]
         }
       ]
