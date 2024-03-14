@@ -110,6 +110,29 @@ export default defineConfig({
           text: '原生技术',
           items: [
             { 
+              text: 'css',
+              items: [
+                { text: '图片', link: '/前端/原生技术/css/媒体相关/图片' },
+                { text: '功能总结', link: '/前端/原生技术/css/样式相关/功能总结' },
+                { text: '兼容性', link: '/前端/原生技术/css/样式相关/兼容性' },
+                { text: '示例', link: '/前端/原生技术/css/样式相关/示例' },
+                { text: '疑难杂症', link: '/前端/原生技术/css/样式相关/疑难杂症' },
+                { text: '预处理器', link: '/前端/原生技术/css/原笔记/知识整理/预处理器' },
+                { text: 'html', link: '/前端/原生技术/css/原笔记/知识整理/html' },
+                { text: '布局', link: '/前端/原生技术/css/原笔记/布局' },
+                { text: '导航栏', link: '/前端/原生技术/css/原笔记/导航栏' },
+                { text: '动画', link: '/前端/原生技术/css/原笔记/动画' },
+                { text: '动画库', link: '/前端/原生技术/css/原笔记/动画库' },
+                { text: '对齐', link: '/前端/原生技术/css/原笔记/对齐' },
+                { text: '功能集结', link: '/前端/原生技术/css/原笔记/功能集结' },
+                { text: '媒体查询', link: '/前端/原生技术/css/原笔记/媒体查询' },
+                { text: '响应式布局', link: '/前端/原生技术/css/原笔记/响应式布局' },
+                { text: '样式速查表', link: '/前端/原生技术/css/原笔记/样式速查表' },
+                { text: '组合器', link: '/前端/原生技术/css/原笔记/组合器' },
+                { text: 'html-速查', link: '/前端/原生技术/css/原笔记/html-速查' },
+              ]
+            },
+            { 
               text: 'Json',
               items: [
                 { text: 'Json', link: '/前端/原生技术/Json/json' },
