@@ -37,6 +37,7 @@ export default defineConfig({
             { text: 'vant', link: '/guide/vant' },
             { text: '微信小程序', link: '/guide/微信小程序' },
             { text: '待整理', link: '/guide/待整理' },
+            { text: 'test', link: '/guide/test' },
           ]
         }
       ],
