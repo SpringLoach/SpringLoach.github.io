@@ -1,3 +1,15 @@
+#### 业务
+
+师傅详情-师傅报价tab：只有报价单 才会有
+
+定制家具(全屋定制)判断
+
+```javascript
+orderInfo.cid == 135
+```
+
+
+
 
 
 #### 弹框组件
@@ -15,3 +27,6 @@ src\views\feedOrder\components\baseDialog.vue
 src\views\placeorderVip\popup\baseDialog.vue
 
 自定义padding边距，主题内容，按钮，可以插槽改
+
+
+
