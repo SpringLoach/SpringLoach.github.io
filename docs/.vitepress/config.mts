@@ -10,7 +10,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/computed' },
-      { text: 'Business', link: '/business/test' },
+      { text: 'Business', link: '/business/common' },
       {
         text: '前端',
         items: [
@@ -45,9 +45,13 @@ export default defineConfig({
         {
           text: 'Business',
           items: [
-            { text: 'test', link: '/business/test' },
+            { text: 'common', link: '/business/common' },
             { text: 'h5', link: '/business/h5' },
-            { text: 'erp', link: '/business/erp' }
+            { text: '小程序', link: '/business/小程序' },
+            { text: 'erp', link: '/business/erp' },
+            { text: 'web', link: '/business/web' },
+            { text: '官网', link: '/business/官网' },
+            { text: '构建', link: '/business/构建' },
           ]
         }
       ],

@@ -146,6 +146,7 @@ export default {
                 this.imgUpload(newFile)
             })
             if (file) {
+                // 触发事件
                 reader.readAsDataURL(file)
             }
         },

@@ -1,3 +1,23 @@
+
+
+#### 连续英文允许换行
+
+```css
+word-break: break-all;
+```
+
+#### 不允许文字换行
+
+```css
+white-space: nowrap;
+```
+
+onChangeTab
+
+celoTabs
+
+
+
 #### bug总结
 
 1. 没测试到的位置，85%的概率出bug（哪怕是添加的刷新、提示报错这种看似合乎常理的处理，依赖别人的代码，永远不知道什么时候会被坑。。）
@@ -24,28 +44,6 @@
    ```
 
 6. 如果是小程序/APP内嵌h5，涉及到跳转/截图/分享相关的功能，两个端都要测试，实际效果可能会有差异
-
-
-
-
-
-#### 连续英文允许换行
-
-```css
-word-break: break-all;
-```
-
-#### 不允许文字换行
-
-```css
-white-space: nowrap;
-```
-
-onChangeTab
-
-celoTabs
-
-
 
 
 
