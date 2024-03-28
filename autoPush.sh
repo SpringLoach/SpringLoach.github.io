@@ -21,4 +21,4 @@ while true; do
 done
 
 echo "结束"
-read -p "Shell不会退出，输入'exit'以退出：" input
+read -p "输入任意字符以退出：" input
