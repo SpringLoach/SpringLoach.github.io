@@ -21,4 +21,4 @@ while true; do
 done
 
 echo "结束"
-Read-Host -Prompt "按下回车键以退出..."
+read -p "Shell不会退出，输入'exit'以退出：" input
