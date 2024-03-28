@@ -52,11 +52,19 @@
 
 #### 生成代码片段
 
+> [辅助网站](https://snippet-generator.app/)、[参考一](http://www.taodudu.cc/news/show-5912388.html?action=onClick)、[参考二](https://blog.csdn.net/m0_47531829/article/details/121195178)
+
 文件 - 首选项 - 用户片段 - 选中html - 此时会打开一个json格式的文件
 
 在[辅助网站](https://snippet-generator.app/)中将代码复制到该文件中
 
 ![快速生成代码辅助网站](./img/快速生成代码辅助网站.png)
+
+
+
+#### 标签名快捷键失效
+
+[vscode的Emmet语法失效](https://blog.csdn.net/weixin_42479421/article/details/133075054)
 
 
 

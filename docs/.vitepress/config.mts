@@ -29,7 +29,6 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'computed', link: '/guide/computed' },
-            { text: 'Markdown Examples', link: '/guide/markdown-examples' },
             { text: 'vitepress', link: '/guide/vitepress' },
             { text: 'ES Next', link: '/guide/ES Next' },
             { text: 'nvm', link: '/guide/nvm' },
