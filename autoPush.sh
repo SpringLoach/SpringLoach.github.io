@@ -21,4 +21,4 @@ while true; do
 done
 
 echo "结束"
-read -p "输入任意字符以退出：" input
+# read -p "输入任意字符以退出：" input
