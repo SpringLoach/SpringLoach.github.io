@@ -19,6 +19,7 @@ export default defineConfig({
           { text: '原生技术', link: '/前端/原生技术/Json/json' },
         ]
       },
+      { text: '技术框架', link: '/前端/技术框架/文档参考' },
       { text: '编程相关', link: '/expand/初始配置/计算机环境配置' }
     ],
 
@@ -201,6 +202,22 @@ export default defineConfig({
                 { text: '入门(旧文档)', link: '/前端/原生技术/TypeScript/入门(旧文档)' },
               ]
             },
+          ]
+        }
+      ],
+      '/技术框架/': [
+        { text: '文档参考', link: '/前端/技术框架/文档参考' },
+        {
+          text: '技术框架',
+          collapsed: true,
+          items: [
+            { 
+              text: 'React',
+              collapsed: true,
+              items: [
+                { text: 'HOOK.md', link: '/前端/技术框架/技术框架/React技术栈/React/HOOK.md' },
+              ]
+            }
           ]
         }
       ]
