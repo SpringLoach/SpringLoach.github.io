@@ -199,6 +199,7 @@ export default defineConfig({
         },
         {
           text: '编程相关',
+          collapsed: true,
           items: [
             { 
               text: 'git',
