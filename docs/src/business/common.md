@@ -12,10 +12,6 @@ word-break: break-all;
 white-space: nowrap;
 ```
 
-onChangeTab
-
-celoTabs
-
 
 
 #### bug总结
@@ -44,6 +40,8 @@ celoTabs
    ```
 
 6. 如果是小程序/APP内嵌h5，涉及到跳转/截图/分享相关的功能，两个端都要测试，实际效果可能会有差异
+
+7. 添加生命钩子调试，小心重复添加替换了原有的，又忘记删
 
 
 

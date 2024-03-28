@@ -96,3 +96,25 @@ src\views\placeOrderPlatform\popup\cookieRechargePopup.vue
 
 
 
+### 特殊实现
+
+#### 跳转到下单并选中特定商品类目
+
+平台-下单页默认选中某商品类目：
+
+```
+/placeorder/index?furnitureActive=true&cId=148
+```
+
+组件下默认有处理：
+
+```
+src\views\placeOrderPlatform\index.vue
+```
+
+跳转方式参考系统消息，家具亿元补贴那块
+
+```
+src\views\person\mymessage\list.vue
+```
+
