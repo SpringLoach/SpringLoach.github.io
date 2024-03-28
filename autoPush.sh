@@ -5,9 +5,10 @@ git add .
 git commit -m ${random_number}
 
 # 执行git push直至成功
-echo "启动"
+echo "ooooooo启动ooooooo"
 while true; do
     # 尝试执行git push
+    echo "尝试执行git push..."
     git push
 
     # 检查git push的退出状态
@@ -15,10 +16,10 @@ while true; do
         echo "Git push 成功"
         break
     else
-        echo "Git push 失败，稍后重试..."
-        sleep 5  # 等待5秒后重试
+        echo "Git push 失败，即将重试..."
+        sleep 1  # 等待1秒后重试
     fi
 done
 
-echo "结束"
+echo "ooooooo结束ooooooo"
 # read -p "输入任意字符以退出：" input
