@@ -91,51 +91,6 @@ res：业务实现
 
 
 
-**自动化脚本**
-
-z_newBranch.sh
-
-```sh
-#!/bin/bash
-target_branch=branch_name
-
-#create new branch from master
-if [ true ]
-then
-	git checkout .				     # 丢弃本地修改
-	git switch master                # 切换到主干
-	git pull                         # 从远程拉取最新代码到本地
-	git checkout -b ${target_branch} # 克隆最新主干分支
-    echo "success!!"
-else
-	echo "sorry, program operation requires specifying parameters"
-fi
-```
-
-z_mergeToTest.sh
-
-```sh
-#!/bin/bash
-
-target_branch=test_11.2
-current_branch=$(git branch --show-current)
-#Push local branch to test branch
-if [ true ]
-then
-	git checkout .				           # 丢弃本地修改
-	git switch ${target_branch}            # 切换到测试分支
-	git pull                               # 从远程拉取最新代码到本地
-	git merge ${current_branch} --no-edit  # 将本地原分支合并到测试分支-不加评价
-    echo "操作成功，请查看是否存在冲突，并自行推送"
-else
-	echo "sorry, program operation requires specifying parameters"
-fi
-```
-
-
-
-
-
 粘贴图片示例
 
 ```html
