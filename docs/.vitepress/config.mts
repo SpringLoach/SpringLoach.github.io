@@ -14,7 +14,8 @@ export default defineConfig({
       {
         text: '前端',
         items: [
-          { text: '素养基石', link: '/前端/素养基石/数据结构与算法/section2' },
+          { text: '方法梳理', link: '/前端/方法梳理/原生部分/日期处理' },
+          { text: '素养基石', link: '/前端/素养基石/网络/axios' },
           { text: '原生技术', link: '/前端/原生技术/Json/json' },
         ]
       },
@@ -88,10 +89,45 @@ export default defineConfig({
       ],
       '/前端/': [
         {
+          text: '方法梳理',
+          collapsed: true,
+          items: [
+            { 
+              text: '原生部分',
+              collapsed: true,
+              items: [
+                { text: '表单相关', link: '/前端/方法梳理/原生部分/表单相关' },
+                { text: '格式转换', link: '/前端/方法梳理/原生部分/格式转换' },
+                { text: '环境相关', link: '/前端/方法梳理/原生部分/环境相关' },
+                { text: '路由缓存', link: '/前端/方法梳理/原生部分/路由缓存' },
+                { text: '全局相关', link: '/前端/方法梳理/原生部分/全局相关' },
+                { text: '日期处理', link: '/前端/方法梳理/原生部分/日期处理' },
+                { text: '数字格式化', link: '/前端/方法梳理/原生部分/数字格式化' },
+                { text: '正则校验', link: '/前端/方法梳理/原生部分/正则校验' },
+                { text: '正则语法', link: '/前端/方法梳理/原生部分/正则语法' },
+                { text: '字符串相关', link: '/前端/方法梳理/原生部分/字符串相关' },
+              ]
+            },
+            { 
+              text: '依赖三方',
+              collapsed: true,
+              items: [
+                { text: '导出PDF', link: '/前端/方法梳理/依赖三方/导出PDF' },
+                { text: '国际化', link: '/前端/方法梳理/依赖三方/国际化' },
+                { text: '海报二维码', link: '/前端/方法梳理/依赖三方/海报二维码' },
+                { text: '缓存方案', link: '/前端/方法梳理/依赖三方/缓存方案' },
+                { text: '导出表格', link: '/前端/方法梳理/依赖三方/导出excel/导出表格' },
+              ]
+            },
+          ]
+        },
+        {
           text: '素养基石',
+          collapsed: true,
           items: [
             { 
               text: '数据结构与算法',
+              collapsed: true,
               items: [
                 { text: 'section1', link: '/前端/素养基石/数据结构与算法/section1' },
                 { text: 'section2', link: '/前端/素养基石/数据结构与算法/section2' },
@@ -109,13 +145,24 @@ export default defineConfig({
                 { text: '项目栗子', link: '/前端/素养基石/数据结构与算法/项目栗子' },
               ]
             },
+            { 
+              text: '网络',
+              collapsed: true,
+              items: [
+                { text: 'axios', link: '/前端/素养基石/网络/axios' },
+                { text: '路径处理', link: '/前端/素养基石/网络/路径处理' },
+                { text: '网络协议', link: '/前端/素养基石/网络/网络协议' },
+              ]
+            },
           ]
         },
         {
           text: '原生技术',
+          collapsed: true,
           items: [
             { 
               text: 'css',
+              collapsed: true,
               items: [
                 { text: '图片', link: '/前端/原生技术/css/媒体相关/图片' },
                 { text: '功能总结', link: '/前端/原生技术/css/样式相关/功能总结' },
@@ -139,12 +186,14 @@ export default defineConfig({
             },
             { 
               text: 'Json',
+              collapsed: true,
               items: [
                 { text: 'Json', link: '/前端/原生技术/Json/json' },
               ]
             },
             { 
               text: 'TypeScript',
+              collapsed: true,
               items: [
                 { text: '实践-vue', link: '/前端/原生技术/TypeScript/应用/实践-vue' },
                 { text: '快速入门', link: '/前端/原生技术/TypeScript/快速入门' },
