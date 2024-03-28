@@ -20,7 +20,7 @@ export default defineConfig({
         ]
       },
       { text: '技术框架', link: '/前端2/技术框架/文档参考' },
-      { text: '编程相关', link: '/expand/初始配置/计算机环境配置' }
+      { text: '其他', link: '/expand/初始配置/计算机环境配置' }
     ],
 
     sidebar: {
@@ -54,37 +54,6 @@ export default defineConfig({
             { text: 'web', link: '/business/web' },
             { text: '官网', link: '/business/官网' },
             { text: '构建', link: '/business/构建' },
-          ]
-        }
-      ],
-      '/expand/': [
-        {
-          text: '初始配置',
-          items: [
-            { text: '计算机环境配置', link: '/expand/初始配置/计算机环境配置' },
-          ]
-        },
-        {
-          text: '相关技能',
-          items: [
-            { 
-              text: 'git',
-              items: [
-                { text: '速查', link: '/expand/相关技能/git/速查' },
-                { text: 'git学习', link: '/expand/相关技能/git/git学习/git学习' },
-                { text: 'git学习2', link: '/expand/相关技能/git/git学习/git学习2' },
-                { text: 'git学习3', link: '/expand/相关技能/git/git学习/git学习3' },
-              ]
-            },
-            { 
-              text: 'markdown', 
-              items: [
-                { text: '风格规范', link: '/expand/相关技能/markdown/风格规范' },
-                { text: 'markdown', link: '/expand/相关技能/markdown/markdown' },
-              ]
-            },
-            { text: 'svn', link: '/expand/相关技能/svn/SVN' },
-            { text: 'xmind', link: '/expand/相关技能/xmind/xmind' },
           ]
         }
       ],
@@ -218,6 +187,37 @@ export default defineConfig({
                 { text: 'HOOK.md', link: '/前端2/技术框架/技术框架/React技术栈/React/HOOK.md' },
               ]
             }
+          ]
+        },
+      ],
+      '/expand/': [
+        {
+          text: '初始配置',
+          items: [
+            { text: '计算机环境配置', link: '/expand/初始配置/计算机环境配置' },
+          ]
+        },
+        {
+          text: '编程相关',
+          items: [
+            { 
+              text: 'git',
+              items: [
+                { text: '速查', link: '/expand/相关技能/git/速查' },
+                { text: 'git学习', link: '/expand/相关技能/git/git学习/git学习' },
+                { text: 'git学习2', link: '/expand/相关技能/git/git学习/git学习2' },
+                { text: 'git学习3', link: '/expand/相关技能/git/git学习/git学习3' },
+              ]
+            },
+            { 
+              text: 'markdown', 
+              items: [
+                { text: '风格规范', link: '/expand/相关技能/markdown/风格规范' },
+                { text: 'markdown', link: '/expand/相关技能/markdown/markdown' },
+              ]
+            },
+            { text: 'svn', link: '/expand/相关技能/svn/SVN' },
+            { text: 'xmind', link: '/expand/相关技能/xmind/xmind' },
           ]
         }
       ]
