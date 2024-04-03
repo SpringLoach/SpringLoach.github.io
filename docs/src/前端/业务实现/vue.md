@@ -101,3 +101,45 @@ if (process.env.NODE_ENV === "production") {
 1. 跳转到编辑页时，将查询条件保存到路由参数中
 2. 从编辑页点击返回时，将路由参数带上，跳转到列表页
 3. 在列表页组件的 mounted 钩子中，检查路由是否存在相应参数，有就初始化查询条件
+
+
+
+### 设置动态样式值
+
+```html
+<template>
+    <div>
+        <component :is="'style'">
+            :root {
+                --roll: {{ rollY }};
+            }
+        </component>
+        
+        <div class="other-content">...</div>
+    </div>
+</template>
+
+<script lang="ts" setup>
+const topList = ref([])
+const rollY = computed(() => {
+    if (!topList.value || (topList.value.length <= 6)) {
+        return '0'
+    }
+    return  `-${(topList.value.length - 3)*92}px`
+})
+</script>
+
+<style>
+@keyframes rankRoll {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(var(--roll));
+    }
+}
+</style>
+```
+
+
+
