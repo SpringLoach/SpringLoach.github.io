@@ -111,6 +111,16 @@ const params = {
 
 - 表单字段格式化
 
+`src\views\workermanange\capacityConfigManage\subsidyWorkerSetting\index.vue`
+
+- 复选框操作
+- 自定义表头
+- 自定义输入控件
+
+`src\views\workermanange\capacityConfigManage\subsidySkuSetting\index.vue`
+
+- 自定义输入控件（三级品类、商品、规格）
+
 
 
 ### 内容超过两行展示 el-tooltip
