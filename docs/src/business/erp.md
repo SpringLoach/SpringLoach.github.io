@@ -192,6 +192,8 @@ export default {
 
 ### 通用导出按钮组件
 
+`src\components\diyUpload\index.vue`
+
 > 这样就可以不用关注导出方法的处理过程，以及按钮禁用状态了。
 
 ```html
@@ -224,6 +226,101 @@ export default {
 | params    | 参数，供导出方法和校验方法用 | {}     | Object   |
 | perm      | 权限字符串                   | ''     | String   |
 | delayTime | 延迟禁用时间                 | 0      | Number   |
+
+
+
+### 上传文件
+
+> 看接口文档 Content-Type 为 multipart/form-data，但代码里没看到特别处理
+
+`src\views\workermanange\capacityConfigManage\subsidySkuSetting\edit\addDialog.vue`
+
+`接口使用`
+
+```javascript
+func() {
+    const formDatas = new FormData()
+	formDatas.append('file', file)
+
+	const res = await exportApi(formDatas)
+}
+```
+
+`接口定义`
+
+```javascript
+export function exportApi(data) {
+    return request({
+        url: '/xx/yy',
+        method: 'post',
+        data
+    })
+}
+```
+
+
+
+### 导入excel
+
+**A. 导入文件(上传excel)、成功失败数量、导出失败模板**
+
+补贴SKU设置
+
+`src\views\workermanange\capacityConfigManage\subsidySkuSetting\edit\addDialog.vue`
+
+
+
+**B. 导入文件(解析excel获取到数据上传)、成功失败数量、导出失败模板**
+
+站内信
+
+`src\views\operations\internalMessageManagement\edit\index.vue`
+
+
+
+### lb-table 复选框禁用
+
+`使用默认配置时，无法添加属性`
+
+```javascript
+const tableOptions = {
+    selection: true
+}
+```
+
+`需要添加自定义属性时，手动添加列`
+
+```javascript
+function selectable(row) {
+    if (row.type == 1) {
+        return false         //禁用
+    } else {
+        return true          //可选
+    }
+}
+const tableOptions = {
+    column: [
+        { type: 'selection', selectable },
+        { label: '示例', prop: 'xxx' },
+    ]
+}
+```
+
+
+
+### 限制最大输入问题
+
+```html
+<el-input
+    v-model="amount"
+    v-maxSet:50000
+    maxlength="5"
+    placeholder="请输入金额"
+    @blur="amount = $event.target.value"
+/>
+```
+
+只设置 `v-maxSet`，在测试中途输入中文、英文时，可能导致双向绑定失效从而展示出不合预期的值，所以在失焦时增加处理，后续可以看看 `maxlength` 是否可以去掉
 
 
 

@@ -1,6 +1,6 @@
 
 
-**自定义输入文本域ui**
+### 自定义输入文本域ui
 
 > 随输入字数定制统计字数颜色
 
@@ -75,5 +75,42 @@ export default {
     }
 }
 </style>
+```
+
+
+
+
+
+### 背景图-弹窗
+
+> 圆角对齐
+
+`h5`
+
+```html
+<van-popup v-model="officialAccountPopupShow" :style="{ 'border-radius': '4px', background: 'transparent' }">
+...
+</van-popup>
+
+<style>
+.official-account-box {
+    position: relative;
+    width: 600px;
+    height: 800px;
+    background-image: url(https://xx.png);
+    background-size: 100%, 100%;
+}
+</style>
+```
+
+`wechat`
+
+```html
+<van-popup
+    show="{{ showOfficialAccountPopup }}"
+    custom-style="border-radius: 20rpx;background: transparent;"
+>
+...
+</van-popup>
 ```
 

@@ -367,3 +367,23 @@ function handleChangeValue() {
 </script>
 ```
 
+
+
+#### el-popconfirm失效问题
+
+在列表中新增项，刷新后，发现有的项点不出确认框；
+
+要将 `v-if` 放在 `el-popconfirm` 上
+
+```html
+<el-popconfirm
+    v-if="row.status == 2"
+    title="确认禁用？"
+    @confirm="todo"
+>
+    <template slot="reference">
+        <el-button slot="reference" type="text" size="small"> 禁用 </el-button>
+    </template>
+</el-popconfirm>
+```
+

@@ -118,3 +118,64 @@ src\views\placeOrderPlatform\index.vue
 src\views\person\mymessage\list.vue
 ```
 
+
+
+
+
+#### 活动落地页web/h5-纯图片布局
+
+> 均存在一个问题：在特定机型下(如1179*2556)，图片间会存在间隔，难以完美消除
+>
+> 图片宽度与屏幕一致，高度自适应
+
+```html
+<div class="page">
+	<img class="ac-img" src="xx1" />
+	<img class="ac-img" src="xx2" />
+	<img class="ac-img" src="xx3" />
+	<img class="ac-img" src="xx4" />
+</div>
+
+<style lang="scss" scoped>
+.page {
+    height: 100%;
+    margin: 0 auto;
+    .ac-img {
+        width: 100%;
+        vertical-align: middle;
+    }
+}
+</style>
+```
+
+> 图片宽度固定，缩放滚轮，图片也会缩放。web要求如此。
+
+```html
+<div class="page">
+	<div class="ac-img-1" ></div>
+    <div class="ac-img-2" ></div>
+    <div class="ac-img-3" ></div>
+</div>
+
+<style lang="scss" scoped>
+.page {
+    height: 100%;
+    margin: 0 auto;
+    .ac-img-1 {
+    	height: 440px; // 实际高度
+        background:url(images/bgbg.jpg) no-repeat center 0;
+    }
+    .ac-img-2 {
+        // 缩放时，偶尔出现1像素空白
+        margin-top: -1px;
+    	height: 240px; // 实际高度
+        background:url(images/bgbg.jpg) no-repeat center 0;
+    }
+    .ac-img-3 {
+    	height: 240px; // 实际高度
+        background:url(images/bgbg.jpg) no-repeat center 0;
+    }
+}
+</style>
+```
+

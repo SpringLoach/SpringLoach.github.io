@@ -47,6 +47,9 @@ export default DefaultTheme
 | 配置上/下一页[文案](https://vitepress.dev/zh/reference/default-theme-config#docfooter) | [链接一](https://vitepress.dev/zh/reference/default-theme-config#docfooter) |                                                              |
 | 设置大纲层级显示、标题展示                                   | [链接一](https://vitepress.dev/zh/reference/default-theme-config#outline) | 通过 `level: 'deep'` 开启层级结构，默认展示多层              |
 | 设置多侧边栏                                                 | [链接一](https://vitepress.dev/zh/reference/default-theme-sidebar#multiple-sidebars) | 可以结合[导航链接](https://vitepress.dev/zh/reference/default-theme-nav#navigation-links)使用 |
+| 部署 GitHub Pages                                            | [链接一](https://vitepress.dev/zh/guide/deploy#github-pages) | 推送代码自动打包部署                                         |
+
+部署 GitHub Pages 配置![github-vitepress部署设置](.\img\github-vitepress部署设置.png)
 
 
 
