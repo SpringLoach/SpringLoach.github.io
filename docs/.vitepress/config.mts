@@ -51,6 +51,7 @@ export default defineConfig({
             { text: '小程序', link: '/business/小程序' },
             { text: 'erp', link: '/business/erp' },
             { text: 'web', link: '/business/web' },
+            { text: 'nuxt', link: '/business/nuxt' },
             { text: '官网', link: '/business/官网' },
             { text: '构建', link: '/business/构建' },
           ]

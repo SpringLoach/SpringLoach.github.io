@@ -308,6 +308,24 @@ const tableOptions = {
 
 
 
+### lb-table 带入查询值
+
+> 直接在 setup 中修改，会导致查询值被记录为初始态，重置时无法清空，要在 `lb-search` 完成初始化后进行操作。
+
+```javascript
+mounted() {
+    this.$nextTick(() => {
+        const r = this.$route
+        if (r.query.id) {
+            this.searchParams.id = r.query.id
+        }
+        this.queryList()
+    })
+}
+```
+
+
+
 ### 限制最大输入问题
 
 ```html
