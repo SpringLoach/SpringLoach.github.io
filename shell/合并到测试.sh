@@ -11,9 +11,57 @@ lowercase_first_letter() {
     echo "${lower_first_char}${rest}"
 }
 
-read -p "输入项目路径：" path
-new_path=$(lowercase_first_letter "$path")
-cd $new_path
+echo "请选择你要合并到测试分支的项目:"
+
+select opt in "自定义路径" "erp-admin" "lbdj-pc-website" "lbdj-app-h5" "lbdj-team-app-h5" "lbdj-order-app-h5" "lbdj-wap" "worker-mini-program" "xd-mini-program" "退出"; do
+  case $opt in
+    "自定义路径")
+      read -p "输入项目路径：" origin_path
+      path=$(lowercase_first_letter "$origin_path")
+      break
+      ;;
+    "erp-admin")
+      path='d:\项目\erp-admin'
+      break
+      ;;
+    "lbdj-pc-website")
+      path='d:\备用项目\lbdj-pc-website'
+      break
+      ;;
+    "lbdj-app-h5")
+      path='d:\备用项目\lbdj-app-h5'
+      break
+      ;;
+    "lbdj-team-app-h5")
+      path='d:\项目\lbdj-team-app-h5'
+      break
+      ;;
+    "lbdj-order-app-h5")
+      path='d:\项目\lbdj-order-app-h5'
+      break
+      ;;
+    "lbdj-wap")
+      path='d:\项目\lbdj-wap'
+      break
+      ;;
+    "worker-mini-program")
+      path='d:\项目\worker-mini-program'
+      break
+      ;;
+    "xd-mini-program")
+      path='d:\项目\D:\项目\xd-mini-program'
+      break
+      ;;
+    "退出")
+      echo "退出程序"
+      exit
+      break
+      ;;
+    *) echo "无效的选项 $REPLY";;
+  esac
+done
+
+cd $path
 
 target_branch=test_11.4
 echo "默认分支为${target_branch}，是否合并到该分支？"
