@@ -79,7 +79,67 @@ export default {
 
 
 
-#### 级联选择器多次点击导致页面奔溃问题
+#### 年月选择控件-部分月份可选
+
+> ① 文档的 disabledDate 选项不能直接加到标签下，这样不能生效；
+>
+> ② 不要把 pickerOptions 写成箭头函数，会获取不到 `this`；
+>
+> ③ 这个控件，如果把比较的日期打印出来，数量庞多，会导致页面极卡，不打印就没事；
+
+```html
+<template>
+    <el-date-picker
+        v-model="time"
+        type="month"
+        value-format="yyyy-MM"
+        placeholder="请选择"
+        :picker-options="pickerOptions"
+        clearable
+    />
+</template>
+
+<script>
+export default {
+    data() {
+        time: '',
+        validSubsidyList: [
+            {
+                subsidyYear: 2025,
+                subsidyMonth: 3
+            },
+            {
+                subsidyYear: 2025,
+                subsidyMonth: 6
+            }
+        ]
+    },
+    computed: {
+        pickerOptions() {
+            return {
+                disabledDate: (time) => {
+                    const selectDateObj = {
+                        year: time.getFullYear(),
+                        month: time.getMonth() + 1,
+                    }
+                    const target = this.validSubsidyList.find(subsidy => {
+                        const condition1 = subsidy.subsidyYear == selectDateObj.year
+                        const condition2 = subsidy.subsidyMonth == selectDateObj.month
+                        return condition1 && condition2
+                    })
+                    
+                    return !target
+                }
+            }
+        }
+    }
+}
+</script>
+```
+
+
+
+#### 级联选择器-多次点击导致页面奔溃问题
 
 https://mybj123.com/18067.html
 

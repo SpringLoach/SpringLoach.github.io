@@ -23,5 +23,6 @@ git checkout .				     # 丢弃本地修改
 git switch master                # 切换到主干
 git pull                         # 从远程拉取最新代码到本地
 git checkout -b $branch_name     # 克隆最新主干分支
-echo "success!!"
+echo "success!! 准备打开项目"
+code $new_path
 sleep 2                          # 等待2秒

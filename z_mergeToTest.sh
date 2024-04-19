@@ -24,16 +24,34 @@ then
     read -p "输入需要合并到的测试分支：" target_branch
 fi
 
-# read -p "输入需要合并到的测试分支：" target_branch
-
 current_branch=$(git branch --show-current)
 
 #Push local branch to test branch
 git checkout .				            # 丢弃本地修改
-git switch ${target_branch}             # 切换到测试分支
+git switch ${target_branch}       # 切换到测试分支
+
+
+# 切换后的分支
+switch_branch=$(git branch --show-current)
+# 比较当前分支名是否为目标分支名
+if [ "$switch_branch" = "$target_branch" ]; then
+    echo "当前分支是 $target_branch"
+else
+    echo "检测到当前分支不是 $target_branch，将不会执行后续操作"
+    read -p "........"
+    exit
+fi
+
 git pull                                # 从远程拉取最新代码到本地
-echo "当前分支: ${current_branch}"
+echo "当前需要合并的分支: ${current_branch}"
 git merge ${current_branch} --no-edit # 将本地原分支合并到测试分支-不加评价
-# git merge ${current_branch} -m "Merge branch $current_branch into $target_branch" # 将本地原分支合并到测试分支-不加评价
-echo "操作成功，请查看是否存在冲突，并自行推送"
+
+# 检查是否存在冲突
+if git diff --quiet --cached; then
+  echo "没有冲突, 自动执行 git push"
+  git push
+else
+  echo "存在冲突，需自行手动解决"
+fi
+
 sleep 2                                 # 等待2秒
