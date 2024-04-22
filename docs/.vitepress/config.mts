@@ -16,7 +16,7 @@ export default defineConfig({
         items: [
           { text: '方法梳理', link: '/前端/方法梳理/原生部分/日期处理' },
           { text: '素养基石', link: '/前端/素养基石/网络/axios' },
-          { text: '原生技术', link: '/前端/原生技术/Json/json' },
+          { text: '原生技术', link: '/前端/原生技术/css/样式相关/功能总结' },
         ]
       },
       { text: '技术框架', link: '/前端2/技术框架/文档参考' },
