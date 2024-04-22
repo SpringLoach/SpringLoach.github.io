@@ -14,3 +14,30 @@ https://blog.csdn.net/weixin_56650035/article/details/123036388
 ]">demo</div>
 ```
 
+
+
+#### 通过路由自定义页面标题
+
+通过路由的 meta 属性自定义页面标题
+
+```javascript
+[
+    ...,
+    {
+        path: '/',
+        name: 'detail',
+        component: () =>
+            import('@/pages/detail.vue'),
+        meta: {
+            title: '详情展示'
+        }
+    }
+]
+
+router.afterEach(to => {
+    if (to.meta.title) {
+        document.title = to.meta.title
+    }
+})
+```
+
