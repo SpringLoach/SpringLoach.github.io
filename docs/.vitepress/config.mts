@@ -29,6 +29,7 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'computed', link: '/guide/computed' },
+            { text: '编写规范', link: '/guide/编写规范' },
             { text: 'vitepress', link: '/guide/vitepress' },
             { text: 'ES Next', link: '/guide/ES Next' },
             { text: 'nvm', link: '/guide/nvm' },

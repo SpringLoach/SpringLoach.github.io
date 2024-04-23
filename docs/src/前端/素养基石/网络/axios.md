@@ -436,5 +436,9 @@ window.URL.createObjectURL介绍 https://www.cnblogs.com/mark5/p/13321460.html?i
 
 
 
+### config自定义属性失效
 
+> 正常情况下，可以通过在请求配置中添加自定义属性，然后在拦截器读取config后，进行一些操作，但是在某些版本 (0.18.x)，axios 对 config 的键做了[白名单处理](https://segmentfault.com/q/1010000020681070)
+>
+> 解决：升级或降级 axios 版本（如0.19.x）
 
