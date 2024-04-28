@@ -45,7 +45,7 @@ select opt in "自定义路径" "erp-admin" "lbdj-pc-website" "lbdj-app-h5" "lbd
       break
       ;;
     "xd-mini-program")
-      path='d:\项目\D:\项目\xd-mini-program'
+      path='d:\项目\xd-mini-program'
       break
       ;;
     "official-website-pc-fe")
