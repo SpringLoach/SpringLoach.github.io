@@ -7,6 +7,11 @@ const posterForm = ref({
   other: 123
 })
 
+// 写法一
+function change(type: 'avatorUrl' | 'posterUrl') {
+  posterForm.value[type] = 'demo'
+}
+// 写法二
 function change(type) {
   posterForm.value[type as 'avatorUrl' | 'posterUrl'] = 'demo'
 }
