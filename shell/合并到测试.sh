@@ -1,33 +1,31 @@
 #!/bin/bash
 
-target_branch=test_11.4
-
 echo "请选择你要合并到测试分支的项目:"
 
 source d:/power/SpringLoach.github.io/shell/common_path.sh
 
-echo "默认分支为${target_branch}，是否合并到该分支？"
+echo "默认分支为${target_test_branch}，是否合并到该分支？"
 read -p "输入y或n：" answer
 
 if [ $answer != 'y' ]
 then
-    read -p "输入需要合并到的测试分支：" target_branch
+    read -p "输入需要合并到的测试分支：" target_test_branch
 fi
 
 current_branch=$(git branch --show-current)
 
 #Push local branch to test branch
 git checkout .				            # 丢弃本地修改
-git switch ${target_branch}       # 切换到测试分支
+git switch ${target_test_branch}       # 切换到测试分支
 
 
 # 切换后的分支
 switch_branch=$(git branch --show-current)
 # 比较当前分支名是否为目标分支名
-if [ "$switch_branch" = "$target_branch" ]; then
-    echo "当前分支是 $target_branch"
+if [ "$switch_branch" = "$target_test_branch" ]; then
+    echo "当前分支是 $target_test_branch"
 else
-    echo "检测到当前分支不是 $target_branch，将不会执行后续操作"
+    echo "检测到当前分支不是 $target_test_branch，将不会执行后续操作"
     read -p "........"
     exit
 fi

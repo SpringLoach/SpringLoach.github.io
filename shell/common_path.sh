@@ -1,3 +1,6 @@
+# 作为合并对象的测试分支
+target_test_branch=test_11.5
+
 # 函数：将字符串的首字母转换为小写
 # 参数 $1: 输入字符串
 # 返回值：首字母小写的字符串
@@ -9,7 +12,7 @@ lowercase_first_letter() {
     echo "${lower_first_char}${rest}"
 }
 
-select opt in "自定义路径" "erp-admin" "lbdj-pc-website" "lbdj-app-h5" "lbdj-team-app-h5" "lbdj-order-app-h5" "lbdj-wap" "worker-mini-program" "xd-mini-program" "official-website-pc-fe" "xixiang-virtual-street-h5" "退出"; do
+select opt in "自定义路径" "erp-admin" "lbdj-pc-website" "lbdj-app-h5" "lbdj-team-app-h5" "lbdj-order-app-h5" "lbdj-wap" "worker-mini-program" "xd-mini-program" "official-website-pc-fe" "xixiang-virtual-street-h5" "jms-erp-fe" "退出"; do
   case $opt in
     "自定义路径")
       read -p "输入项目路径：" origin_path
@@ -54,6 +57,10 @@ select opt in "自定义路径" "erp-admin" "lbdj-pc-website" "lbdj-app-h5" "lbd
       ;;
     "xixiang-virtual-street-h5")
       path='d:\备用项目\xixiang-virtual-street-h5'
+      break
+      ;;
+    "jms-erp-fe")
+      path='d:\项目\jms-erp-fe'
       break
       ;;
     "退出")
