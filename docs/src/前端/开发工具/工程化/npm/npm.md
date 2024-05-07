@@ -11,3 +11,55 @@ registry=https://registry.npmmirror.com
 sentrycli_cdnurl=https://npmmirror.com/mirrors/sentry-cli
 ```
 
+
+
+### 下载源配置
+
+#### 临时指定下载源
+
+```sh
+npm install --registry=https://registry.npmmirror.com
+```
+
+```sh
+npm install axios --registry=https://registry.npmmirror.com
+```
+
+
+
+#### 修改默认下载源
+
+```sh
+npm config set registry https://registry.npmmirror.com
+```
+
+> 默认源地址为 `https://registry.npmjs.org`
+
+```sh
+npm config get registry
+```
+
+
+
+#### 使用cnpm指定下载源
+
+```sh
+npm install -g cnpm --registry=https://registry.npmmirror.com
+```
+
+```sh
+cnpm -v
+```
+
+```sh
+cnpm install
+```
+
+
+
+
+
+
+
+
+
