@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "power",
+  title: "master",
   description: "Accumulate Steadily",
   srcDir: 'src',
   themeConfig: {
