@@ -61,7 +61,52 @@ function closeDrawer() {
 
 
 
+### 获取方法返回值类型
 
+> 示例：已有方法；创建一个变量，定义为方法返回值的类型
+
+```typescript
+function test(str: string) {
+    return str.split('')
+}
+type TestResultType = ReturnType<typeof test>
+let result: TestResultType
+```
+
+
+
+### 类的类型&类实例的类型
+
+> 类的类型定义名为类名本身
+
+`global.d.ts`
+
+```typescript
+declare class OSS {
+    options: object
+    constructor(o?: object) {
+        Object.assign(this.options, o)
+    }
+    static Wrapper: function
+    multipartUpload: function
+}
+
+// 已知类的实例类型
+type OSSInstance = InstanceType<typeof OSS>
+```
+
+`使用例子`
+
+```typescript
+let client: OSSInstance | null = null
+
+client = new OSS.Wrapper({
+    bucket: "xxx",
+    secure: true
+})
+
+client!.multipartUpload()
+```
 
 
 
