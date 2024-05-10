@@ -222,6 +222,7 @@ export default defineConfig({
             { text: 'svn', link: '/expand/相关技能/svn/SVN' },
             { text: 'xmind', link: '/expand/相关技能/xmind/xmind' },
             { text: 'v2rayN', link: '/expand/相关技能/v2rayN/v2rayN' },
+            { text: 'PicList', link: '/expand/相关技能/PicList/PicList' },
           ]
         },
         { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },

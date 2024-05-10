@@ -8,7 +8,7 @@ getOrderDetail
 
 
 
-### 规则
+### 内部规则
 
 | 模块   | 说明                                                       |
 | ------ | ---------------------------------------------------------- |
@@ -16,7 +16,139 @@ getOrderDetail
 
 
 
-### 滚动条样式
+### 列表联调步骤
+
+【业务搜索字段】
+
+- 定义到 searchParams
+
+- 定义到 searchOptions
+
+- (视情况) 搜索接口入参处理【不需要处理，则直接展开searchParams即可】
+
+- (视情况) 自定义搜索项
+
+【分页字段】
+
+- 一般currentPage出现4次，pageSize出现3次
+
+- 接口定义的字段不统一，要看
+
+```javascript
+const { currentPage, pageSize } = this.pagination
+const params = {
+    ...this.searchParams,
+    pageNum: currentPage,
+    pageSize
+}
+```
+
+【列表字段】
+
+- 定义到 tableOptions
+
+- (视情况) 添加到模板中的表格项
+
+
+
+#### 参考
+
+`src\views\operations\activityCenterConfig\index.vue`
+
+- 获取标准枚举标签
+
+- 表单字段格式化
+
+`src\views\workermanange\capacityConfigManage\subsidyWorkerSetting\index.vue`
+
+- 复选框操作
+- 自定义表头
+- 自定义输入控件
+
+`src\views\workermanange\capacityConfigManage\subsidySkuSetting\index.vue`
+
+- 自定义输入控件（三级品类、商品、规格）
+
+
+
+#### lb-table 复选框禁用
+
+`使用默认配置时，无法添加属性`
+
+```javascript
+const tableOptions = {
+    selection: true
+}
+```
+
+`需要添加自定义属性时，手动添加列`
+
+```javascript
+function selectable(row) {
+    if (row.type == 1) {
+        return false         //禁用
+    } else {
+        return true          //可选
+    }
+}
+const tableOptions = {
+    column: [
+        { type: 'selection', selectable },
+        { label: '示例', prop: 'xxx' },
+    ]
+}
+```
+
+
+
+#### lb-table 带入查询值
+
+> 直接在 setup 中修改，会导致查询值被记录为初始态，重置时无法清空，要在 `lb-search` 完成初始化后进行操作。
+
+```javascript
+mounted() {
+    this.$nextTick(() => {
+        const r = this.$route
+        if (r.query.id) {
+            this.searchParams.id = r.query.id
+        }
+        this.queryList()
+    })
+}
+```
+
+
+
+### 风格
+
+#### 表单初始化/重置复用原始数据
+
+> 避免表单内容过多的情况下，需要在多出写重复的属性；注意初始值避免定义为 `undefined`，拷贝会丢失导致失去响应。
+
+```html
+<script>
+const orginForm = {
+    aa: '',
+    bb: []
+}
+export default {
+	data() {
+        return {
+            configForm: JSON.parse(JSON.stringify(orginForm))
+        }
+    },
+    methods: {
+        reset() {
+            this.configForm = JSON.parse(JSON.stringify(orginForm))
+        }
+    }
+}
+</script>
+```
+
+
+
+#### 滚动条样式
 
 `浅色`
 
@@ -68,62 +200,212 @@ getOrderDetail
 
 
 
-### 列表联调步骤
 
-【业务搜索字段】
 
-- 定义到 searchParams
+### 功能
 
-- 定义到 searchOptions
+#### 通用导出按钮组件
 
-- (视情况) 搜索接口入参处理【不需要处理，则直接展开searchParams即可】
+`src\components\diyUpload\index.vue`
 
-- (视情况) 自定义搜索项
+> 这样就可以不用关注导出方法的处理过程，以及按钮禁用状态了。
 
-【分页字段】
+```html
+<diyUpload
+    :apiFunc="exportAuditorList"
+    :params="getParm()"
+    perm="/rechargeRebateConfig/exportAuditorList"
+/>
 
-- 一般currentPage出现4次，pageSize出现3次
+<script>
+import { exportList } from '@/api/xx'
+import diyUpload from '@/components/diyUpload'
+export default {
+    components: {
+        diyUpload
+    },
+    data() {
+        return {
+            exportList
+        }
+    }
+}
+</script>
+```
 
-- 接口定义的字段不统一，要看
+| 参数      | 说明                         | 默认值 | 类型     |
+| --------- | ---------------------------- | ------ | -------- |
+| apiFunc   | 导出api                      |        | Function |
+| validFunc | 校验方法                     |        | Function |
+| params    | 参数，供导出方法和校验方法用 | {}     | Object   |
+| perm      | 权限字符串                   | ''     | String   |
+| delayTime | 延迟禁用时间                 | 0      | Number   |
+
+
+
+#### 上传文件
+
+> 看接口文档 Content-Type 为 multipart/form-data，但代码里没看到特别处理
+
+`src\views\workermanange\capacityConfigManage\subsidySkuSetting\edit\addDialog.vue`
+
+`接口使用`
 
 ```javascript
-const { currentPage, pageSize } = this.pagination
-const params = {
-    ...this.searchParams,
-    pageNum: currentPage,
-    pageSize
+func() {
+    const formDatas = new FormData()
+	formDatas.append('file', file)
+
+	const res = await exportApi(formDatas)
 }
 ```
 
-【列表字段】
+`接口定义`
 
-- 定义到 tableOptions
-
-- (视情况) 添加到模板中的表格项
-
-
-
-**参考**
-
-`src\views\operations\activityCenterConfig\index.vue`
-
-- 获取标准枚举标签
-
-- 表单字段格式化
-
-`src\views\workermanange\capacityConfigManage\subsidyWorkerSetting\index.vue`
-
-- 复选框操作
-- 自定义表头
-- 自定义输入控件
-
-`src\views\workermanange\capacityConfigManage\subsidySkuSetting\index.vue`
-
-- 自定义输入控件（三级品类、商品、规格）
+```javascript
+export function exportApi(data) {
+    return request({
+        url: '/xx/yy',
+        method: 'post',
+        data
+    })
+}
+```
 
 
 
-### 内容超过两行展示 el-tooltip
+#### 导入excel
+
+**A. 导入文件(上传excel)、成功失败数量、导出失败模板**
+
+补贴SKU设置
+
+`src\views\workermanange\capacityConfigManage\subsidySkuSetting\edit\addDialog.vue`
+
+
+
+**B. 导入文件(解析excel获取到数据上传)、成功失败数量、导出失败模板**
+
+站内信
+
+`src\views\operations\internalMessageManagement\edit\index.vue`
+
+
+
+
+
+### 组件
+
+#### 总览
+
+日志弹窗-修改前后内容复杂【活动中心配置-日志】
+
+```
+src\views\operations\activityCenterConfig\edit\editDialog.vue
+```
+
+日志弹窗-不带分页、简单【师傅工单配置-详情-异常信息】
+
+```
+src\views\workermanange\workerOrderManange\workOrderDetail\components\abnormalDialog.vue
+```
+
+省市-关联选择器【师傅短信促单列表-创建规则/编辑】
+
+> 可回显
+
+```
+src\views\operations\msgPromotion\ruleList\components\addRule.vue
+```
+
+省市-级联选择器【师傅管理-师傅工单管理-工单生成规则配置】
+
+```
+src\views\workermanange\workerOrderManange\workOrderConfig\components\workOrderCreatorConfig.vue
+```
+
+
+
+#### 简易弹窗列表
+
+```html
+<template>
+    <diy-dialog
+        ref="dialogRef"
+        title="更换客服"
+        title-in-center
+        width="800px"
+        :show-footer="false"
+    >
+        <el-table class="diy-table" :data="tableData" border stripe max-height="500">
+            <div slot="empty" class="empty-box">
+                <img :src="require('@/assets/images/empty.png')" />
+                <span class="empty-text">暂无数据</span>
+            </div>
+            <el-table-column align="center" prop="a" label="订单异常" width="200" />
+            <el-table-column align="center" prop="b" label="问题描述" />
+        </el-table>
+    </diy-dialog>
+</template>
+
+<script>
+
+import diyDialog from '@/components/diyDialog'
+
+export default {
+    components: {
+        diyDialog
+    },
+    data() {
+        return {
+            tableData: [
+                {
+                    a: '订单转报价',
+                    b: '商家端订单一口价转报价，同时存在一口价/转报价订单状态'
+                },
+            ]
+        }
+    },
+    created() {
+        this.tableData = [
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+        ]
+        this.tableData = [
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+            ...this.tableData,
+        ]
+    },
+    methods: {
+        showDialog() {
+            this.$refs.dialogRef.showDialog()
+        },
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+@import '@/styles/revision-2023.scss';
+</style>
+```
+
+
+
+### 其它
+
+#### 内容超过两行展示 el-tooltip
 
 ```html
 <template #someText="scope">
@@ -163,170 +445,7 @@ function showTips(obj, row) {
 
 
 
-### 表单初始化/重置复用原始数据
-
-> 避免表单内容过多的情况下，需要在多出写重复的属性。
-
-```html
-<script>
-const orginForm = {
-    aa: '',
-    bb: []
-}
-export default {
-	data() {
-        return {
-            configForm: JSON.parse(JSON.stringify(orginForm))
-        }
-    },
-    methods: {
-        reset() {
-            this.configForm = JSON.parse(JSON.stringify(orginForm))
-        }
-    }
-}
-</script>
-```
-
-
-
-### 通用导出按钮组件
-
-`src\components\diyUpload\index.vue`
-
-> 这样就可以不用关注导出方法的处理过程，以及按钮禁用状态了。
-
-```html
-<diyUpload
-    :apiFunc="exportAuditorList"
-    :params="getParm()"
-    perm="/rechargeRebateConfig/exportAuditorList"
-/>
-
-<script>
-import { exportList } from '@/api/xx'
-import diyUpload from '@/components/diyUpload'
-export default {
-    components: {
-        diyUpload
-    },
-    data() {
-        return {
-            exportList
-        }
-    }
-}
-</script>
-```
-
-| 参数      | 说明                         | 默认值 | 类型     |
-| --------- | ---------------------------- | ------ | -------- |
-| apiFunc   | 导出api                      |        | Function |
-| validFunc | 校验方法                     |        | Function |
-| params    | 参数，供导出方法和校验方法用 | {}     | Object   |
-| perm      | 权限字符串                   | ''     | String   |
-| delayTime | 延迟禁用时间                 | 0      | Number   |
-
-
-
-### 上传文件
-
-> 看接口文档 Content-Type 为 multipart/form-data，但代码里没看到特别处理
-
-`src\views\workermanange\capacityConfigManage\subsidySkuSetting\edit\addDialog.vue`
-
-`接口使用`
-
-```javascript
-func() {
-    const formDatas = new FormData()
-	formDatas.append('file', file)
-
-	const res = await exportApi(formDatas)
-}
-```
-
-`接口定义`
-
-```javascript
-export function exportApi(data) {
-    return request({
-        url: '/xx/yy',
-        method: 'post',
-        data
-    })
-}
-```
-
-
-
-### 导入excel
-
-**A. 导入文件(上传excel)、成功失败数量、导出失败模板**
-
-补贴SKU设置
-
-`src\views\workermanange\capacityConfigManage\subsidySkuSetting\edit\addDialog.vue`
-
-
-
-**B. 导入文件(解析excel获取到数据上传)、成功失败数量、导出失败模板**
-
-站内信
-
-`src\views\operations\internalMessageManagement\edit\index.vue`
-
-
-
-### lb-table 复选框禁用
-
-`使用默认配置时，无法添加属性`
-
-```javascript
-const tableOptions = {
-    selection: true
-}
-```
-
-`需要添加自定义属性时，手动添加列`
-
-```javascript
-function selectable(row) {
-    if (row.type == 1) {
-        return false         //禁用
-    } else {
-        return true          //可选
-    }
-}
-const tableOptions = {
-    column: [
-        { type: 'selection', selectable },
-        { label: '示例', prop: 'xxx' },
-    ]
-}
-```
-
-
-
-### lb-table 带入查询值
-
-> 直接在 setup 中修改，会导致查询值被记录为初始态，重置时无法清空，要在 `lb-search` 完成初始化后进行操作。
-
-```javascript
-mounted() {
-    this.$nextTick(() => {
-        const r = this.$route
-        if (r.query.id) {
-            this.searchParams.id = r.query.id
-        }
-        this.queryList()
-    })
-}
-```
-
-
-
-### 限制最大输入问题
+#### 限制最大输入问题
 
 ```html
 <el-input
@@ -339,6 +458,4 @@ mounted() {
 ```
 
 只设置 `v-maxSet`，在测试中途输入中文、英文时，可能导致双向绑定失效从而展示出不合预期的值，所以在失焦时增加处理，后续可以看看 `maxlength` 是否可以去掉
-
-
 
