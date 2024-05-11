@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "power"
   text: "Accumulate Steadily"
-  tagline: My great project tagline
+  tagline: Health first, worry last
   actions:
     - theme: brand
       text: Guide
