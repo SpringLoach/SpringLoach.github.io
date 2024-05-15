@@ -90,6 +90,15 @@ export default defineConfig({
                 { text: '导出表格', link: '/前端/方法梳理/依赖三方/导出excel/导出表格' },
               ]
             },
+            {
+              text: '业务实现',
+              collapsed: true,
+              items: [
+                { text: '兼容性', link: '/前端/业务实现/兼容性' },
+                { text: 'vue', link: '/前端/业务实现/vue' },
+                { text: '界面', link: '/前端/业务实现/界面' },
+              ]
+            },
           ]
         },
         {

@@ -143,3 +143,68 @@ const rollY = computed(() => {
 
 
 
+### 通过 v-model 绑定镶嵌弹窗
+
+:bug: 碰到的一个业务场景，`computed ` 通过 `this.$refs.shareRef && this.$refs.shareRef.show` 这样的方式监听子组件弹窗是否打开，会有监听不及时的问题，所以要修改写法。
+
+`父组件`
+
+```html
+<template>
+    <sharePop v-model="sharePopShow" />
+    <div v-show="showWinner">...</div>
+</template>
+
+<script>
+export default {
+    data() {
+        sharePopShow: false
+    },
+    computed: {
+    	// 业务：弹窗展示时，获奖列表不展示
+        showWinner() {
+            const condition1 = !this.sharePopShow
+            return condition1
+        },
+    },
+}
+</script>
+```
+
+`子组件`
+
+```html
+<template>
+    <van-overlay :show="value">
+        内容
+    </van-overlay>
+</template>
+
+<script>
+export default {
+    model: {
+        prop: 'value',
+        event: 'change'
+    },
+    props: {
+        value: {
+            type: Boolean,
+            default: false
+        }
+    },
+    methods: {
+        show() {
+            this.$emit('change', true)
+        },
+        hide() {
+            this.$emit('change', false)
+        }
+    }
+}
+</script>
+```
+
+
+
+
+
