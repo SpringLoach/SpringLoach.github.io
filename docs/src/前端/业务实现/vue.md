@@ -206,5 +206,66 @@ export default {
 
 
 
+### 获取距截止时间差
+
+```html
+<script>
+export default {
+    data() {
+        return {
+            resTimeCell: ['00', '00', '00', '00'], // 天 时 分 秒
+            countTimer: null,
+        }
+    },
+    created() {
+        this.getResTimeCell()
+    },
+    beforeDestroyed() {
+        clearInterval(this.countTimer)
+    },
+
+    methods: {
+        getResTimeCell() {
+            let nowDate = new Date()
+            const endDate = new Date('2024/6/30 23:59:59') // 结束时间
+            if (nowDate < endDate) {
+                this.resTimeCell = this.getDiffTimes(nowDate, endDate, true)
+                this.countTimer = setInterval(() => {
+                    nowDate = new Date()
+                    if (nowDate < endDate) {
+                        this.resTimeCell = this.getDiffTimes(nowDate, endDate, true)
+                    } else {
+                        this.resTimeCell = ['00', '00', '00', '00']
+                        clearInterval(this.countTimer)
+                    }
+                }, 1000)
+            }
+        },
+        getDiffTimes(startData, endDate, fixed_2 = false) {
+            //相差的总秒数
+            let totalSeconds = parseInt((endDate - startData) / 1000)
+            // 取天数后取模（余数）
+            let days = Math.floor(totalSeconds / (60 * 60 * 24))
+            let modulo = totalSeconds % (60 * 60 * 24)
+            // 取小时数后取模（余数）
+            let hours = Math.floor(modulo / (60 * 60))
+            modulo = modulo % (60 * 60)
+            // 分钟
+            let minutes = Math.floor(modulo / 60)
+            // 秒（通过取模获取）
+            let seconds = modulo % 60
+            if (fixed_2) {
+                days = days < 10 ? '0' + days : days
+                hours = hours < 10 ? '0' + hours : hours
+                minutes = minutes < 10 ? '0' + minutes : minutes
+                seconds = seconds < 10 ? '0' + seconds : seconds
+            }
+            return [days, hours, minutes, seconds]
+        },
+    }
+}
+</script>
+```
+
 
 
