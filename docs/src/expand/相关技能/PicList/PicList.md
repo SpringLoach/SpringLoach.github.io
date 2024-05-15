@@ -48,7 +48,14 @@
   | 代理地址    |             | 如果访问Github需要代理地址访问，则填 |
   | CDN加速域名 |             | 按需填                               |
 
-  
+
+
+
+### 四、在 Typora 中使用
+
+步骤见[文档](https://piclist.cn/app.html#%E5%A6%82%E4%BD%95%E5%9C%A8typora%E4%B8%AD%E4%BD%BF%E7%94%A8)
+
+
 
 参考链接：
 
