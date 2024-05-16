@@ -1,3 +1,96 @@
+## 编写规范
+
+1. 何时用类型，何时用声明
+
+2. 类型/声明命名习惯 函数/简单类型/实例用类型；对象用接口
+
+   - 大写开头的驼峰
+   - 组件-xxComponent 实例-xxInstance 方法-xxFn、自定义属性-xxProps 数组项-xxItem 配置-xxOptions 状态-xxStatus 列表-xxList、xxs
+
+
+
+
+
+## 常用类型
+
+```typescript
+// 期约
+Promise<unknown>
+```
+
+
+
+## 高频场景
+
+### 定义固定的状态值
+
+```typescript
+declare type UploadStatus = 'ready' | 'uploading' | 'success' | 'fail'
+```
+
+
+
+### 定义实例类型
+
+```typescript
+declare class Demo {}
+
+declare type OSSInstance = InstanceType<typeof Demo>
+```
+
+
+
+### 获取方法返回值类型
+
+> 示例：已有方法；创建一个变量，定义为方法返回值的类型
+
+```typescript
+function test(str: string) {
+    return str.split('')
+}
+type TestResultType = ReturnType<typeof test>
+let result: TestResultType
+```
+
+
+
+### 类的类型&类实例的类型
+
+> 类的类型定义名为类名本身
+
+`global.d.ts`
+
+```typescript
+declare class OSS {
+    options: object
+    constructor(o?: object) {
+        Object.assign(this.options, o)
+    }
+    static Wrapper: function
+    multipartUpload: function
+}
+
+// 已知类的实例类型
+type OSSInstance = InstanceType<typeof OSS>
+```
+
+`使用例子`
+
+```typescript
+let client: OSSInstance | null = null
+
+client = new OSS.Wrapper({
+    bucket: "xxx",
+    secure: true
+})
+
+client!.multipartUpload()
+```
+
+
+
+## 低频情景
+
 ### 给对象的动态属性赋值
 
 ```javascript
@@ -61,51 +154,44 @@ function closeDrawer() {
 
 
 
-### 获取方法返回值类型
-
-> 示例：已有方法；创建一个变量，定义为方法返回值的类型
+## 拓展方法
 
 ```typescript
-function test(str: string) {
-    return str.split('')
-}
-type TestResultType = ReturnType<typeof test>
-let result: TestResultType
+declare type Nullable<T> = T | null;
+declare type Arrayable<T> = T | T[];
+declare type Awaitable<T> = Promise<T> | T;
 ```
 
-
-
-### 类的类型&类实例的类型
-
-> 类的类型定义名为类名本身
-
-`global.d.ts`
-
 ```typescript
-declare class OSS {
-    options: object
-    constructor(o?: object) {
-        Object.assign(this.options, o)
-    }
-    static Wrapper: function
-    multipartUpload: function
+// 定义一个可以接收值为Awaitable类型的方法
+async function processData(data: Awaitable<string>): Promise<void> {
+    const resolvedData = await data; // 既可以接收原始值，也可以接收期约
+    console.log(resolvedData);
 }
 
-// 已知类的实例类型
-type OSSInstance = InstanceType<typeof OSS>
+// 使用
+processData("Hello, world!"); // Regular value
+processData(fetchData()); // Promise returned from fetchData function
 ```
 
-`使用例子`
+
+
+## 从lib积累
+
+### 将接口特定属性设置为可选
 
 ```typescript
-let client: OSSInstance | null = null
-
-client = new OSS.Wrapper({
-    bucket: "xxx",
-    secure: true
-})
-
-client!.multipartUpload()
+export interface UploadFile {
+    name: string;
+    percentage?: number;
+    status: UploadStatus;
+    size?: number;
+    response?: unknown;
+    uid: number;
+    url?: string;
+    raw?: UploadRawFile;
+}
+export declare type UploadUserFile = Omit<UploadFile, 'status' | 'uid'> & Partial<Pick<UploadFile, 'status' | 'uid'>>;
 ```
 
 
@@ -113,4 +199,14 @@ client!.multipartUpload()
 
 
 
+
+## 等价的写法
+
+```typescript
+declare type DemoType =
+  | 'demo'
+  | 'master'
+  
+declare type DemoType = 'demo' | 'master'
+```
 

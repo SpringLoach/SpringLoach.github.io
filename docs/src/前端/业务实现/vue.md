@@ -269,3 +269,45 @@ export default {
 
 
 
+### 定制样式风格
+
+> 适合于存在几种特定风格样式的情况，如果自定义样式过多就不合适了，还是得用 `v-bind="$attrs"`
+
+```html
+<template>
+    <el-button
+        v-bind="styleBind"
+    >
+        导出
+    </el-button>
+</template>
+
+<script>
+export default {
+    props: {
+        // 按钮样式风格
+        btnType: {
+            type: Number,
+            default: 1
+        }
+    },
+    computed: {
+        styleBind() {
+            if (this.btnType == 1) {
+                return {
+                    icon: 'el-icon-upload2',
+                    type: 'text',
+                    size: 'small'
+                }
+            }
+            if (this.btnType == 2) {
+                return {
+                    type: 'success'
+                }
+            }
+        }
+    }
+}
+</script>
+```
+
