@@ -1,4 +1,4 @@
-#### 接口返回值对不上问题
+### 接口返回值对不上问题
 
 > 同一时间需要调用接口，拿到不同类型的数据，这时 useFetch 会将最终拿到的结果返回到每次上，这是有问题的：
 
@@ -16,7 +16,7 @@ export function demoApi(body = {}) {
 
 
 
-#### 进入页面执行一次，判断是不是移动端访问
+### 进入页面执行一次，判断是不是移动端访问
 
 `plugins\global.ts`
 
@@ -55,7 +55,7 @@ export default defineNuxtConfig
 
 
 
-#### 访问 window 对象报错
+### 访问 window 对象报错
 
 > 在Nuxt.js中，`window` 对象通常在客户端（浏览器）上下文中可用，但在服务端渲染（SSR）期间，由于Node.js环境并不包含`window`对象，因此在组件或页面的`created`、`mounted`钩子之前尝试访问`window.location`会导致错误（页面404）。
 >
@@ -73,6 +73,39 @@ onMounted(() => {
     console.log(window.location.href)
 })
 </script>
+```
+
+
+
+### nuxt3-添加脚本
+
+```html
+<script setup lang="ts">
+useHead({
+    script: [
+    {
+      src: 'https://demo.js',
+      type: 'text/javascript',
+      tagPosition: 'bodyClose' // 看情况加，表示放到body后面，防止加载不了阻塞html解析
+    }
+  ]
+})
+</script>
+```
+
+
+
+### 动态修改页面背景
+
+```javascript
+onMounted(() => {
+    const dom = document.querySelector('body') as HTMLBodyElement
+    dom.style.backgroundColor = '#f4f4f4'
+})
+onBeforeMount(() => {
+    const dom = document.querySelector('body') as HTMLBodyElement
+    dom.style.backgroundColor = ''
+})
 ```
 
 
