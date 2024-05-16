@@ -1,13 +1,16 @@
 <template>
     <div>
-        <textarea v-model="inputValue" class="operate-textarea" />
+        <textarea v-model="inputValue" class="operate-textarea" placeholder="需要进行替换的文本" />
 
-        <div>
-            <button class="btn" @click="strToUpperCase">小写转大写</button>
+        <div class="form-item">
+            <span style="margin-right: 4px;">将</span>
+            <input v-model="leftValue" class="inline-input" type="text">
+            <span style="margin: 0 4px;">替换为</span>
+            <input v-model="rightValue" class="inline-input" type="text">
         </div>
 
         <div>
-          <button class="btn" @click="kebabToCamelOrReversal">驼峰-短横线互转</button>
+            <button class="btn" @click="strToUpperCase">全局替换</button>
         </div>
 
         <div v-if="computedValue" class="result-wrap">
@@ -21,34 +24,30 @@
 import { onMounted, ref, watch } from 'vue'
 
 const inputValue = ref('')
+const leftValue = ref('')
+const rightValue = ref('')
 const computedValue = ref('')
 const copyText = ref('复制')
 
-onMounted(() => {
-  console.log('====-----mount-----====')
-  import('./lib-that-access-window-on-import').then((module) => {
-    // use code
-  })
-})
 watch(computedValue, () => {
   copyText.value = '复制'
 })
 
 function strToUpperCase() {
-  computedValue.value = inputValue.value.toUpperCase()
-}
-function kebabToCamelOrReversal() {
-  computedValue.value = kebabToCamelOrReversalFunc(inputValue.value)
-}
+  // computedValue.value = inputValue.value.replace(`/${leftValue.value}/g`, rightValue.value)
 
-// 驼峰-短横线互转
-function kebabToCamelOrReversalFunc(str) {
-	if (!str) return
-	if (str.indexOf('-') != -1) {
-		return str.replace(/-(\w)/g, (match, group1) => group1.toUpperCase());
-	} else {
-		return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-	}
+  // 转义正则表达式特殊字符的函数
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& 表示匹配到的子字符串
+  }
+
+  // 创建正则表达式
+  let escapedUsername = escapeRegExp(leftValue.value);
+  let regex = new RegExp(escapedUsername, 'g');
+
+  // 使用 replace 方法进行替换
+  computedValue.value = inputValue.value.replace(regex, rightValue.value);
+
 }
 
 function copy(text) {
@@ -69,14 +68,20 @@ function copy(text) {
 }
 </script>
 
-
 <style scoped>
 .operate-textarea {
   width: 600px;
   height: 120px;
   border: 1px solid #dcdfe6;
 }
-
+.form-item {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #a7a8aa;
+}
+.inline-input {
+    border: 1px solid #dcdfe6;
+}
 .result-wrap {
   position: relative;
   margin-top: 6px;
