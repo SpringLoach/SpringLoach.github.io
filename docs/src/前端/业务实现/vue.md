@@ -311,3 +311,22 @@ export default {
 </script>
 ```
 
+
+
+### 避免相似节点影响
+
+> 这里说的影响，包括下拉列表的数据渲染，表单控件的限制条件等，可以给父盒子添加 `key` 属性限制。
+
+```html
+<div v-if="configForm.status == 1" key="status_1">...</div>
+<div v-if="configForm.status == 2" key="status_2">...</div>
+```
+
+![image-20240426104646586](https://raw.githubusercontent.com/SpringLoach/img_store/main/img/[vue]相似结构问题 .png)
+
+
+
+
+
+
+
