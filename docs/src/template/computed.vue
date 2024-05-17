@@ -10,6 +10,14 @@
           <button class="btn" @click="kebabToCamelOrReversal">驼峰-短横线互转</button>
         </div>
 
+        <div>
+          <button class="btn" @click="decodeURI">decodeURI解码</button>
+        </div>
+
+        <div>
+          <button class="btn" @click="formatJSON">json格式化</button>
+        </div>
+
         <div v-if="computedValue" class="result-wrap">
           {{ computedValue }}
           <span class="copy-btn" @click="copy(computedValue)">{{ copyText }}</span>
@@ -49,6 +57,25 @@ function kebabToCamelOrReversalFunc(str) {
 	} else {
 		return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 	}
+}
+
+// 解码
+function decodeURI(str) {
+  if (!str) return
+  return decodeURIComponent(str)
+}
+
+// json格式化
+function formatJSON(jsonObj, indentation = 4) {
+    try {
+        // 将对象转为 JSON 字符串并格式化
+        const jsonString = JSON.stringify(jsonObj, null, indentation); // 第三个参数指定缩进空格数
+        return jsonString;
+    } catch (error) {
+        // 捕获并处理错误
+        console.error("无法格式化 JSON 对象:", error);
+        return null;
+    }
 }
 
 function copy(text) {
