@@ -25,24 +25,30 @@
 
 #### 快捷键  
 
-|       输入/操作       |             说明             |
-| :-------------------: | :--------------------------: |
-|     `Ctrl` + `[`      |         左缩进选中行         |
-|     `Ctrl` + `/`      |          注释选中行          |
-| `Alt` + `Shift` + `A` |         注释选中内容         |
-| `Shift` + `Alt` + `↓` |        快速复制选中行        |
-| `Alt` + `Shift` + `F` |            格式化            |
-|     `Ctrl` + `~`      |           打开终端           |
-|     `Ctrl` + `F`      |          文档内匹配          |
-|    `Alt` + `Enter`    |        选中所有匹配项        |
-|      log + `Tab`      |        console.log()         |
-|       div#demo        |  `<div id="demo"\></div\>`   |
-|       div.demo        | `<div class="demo"\></div\>` |
-|         a\*3          |           3个a标签           |
-|       ul>li\*3        |        3个li的ul列表         |
-|   ul>li{text}\*100    |    ul带100个默认文本的li     |
-|   bgc + `↓` + `Tab`   |      backgroundcolor: ;      |
-|     fontz + `Tab`     |         font-size: ;         |
+|        输入/操作         |             说明             |
+| :----------------------: | :--------------------------: |
+|       `Ctrl` + `[`       |         左缩进选中行         |
+|       `Ctrl` + `/`       |          注释选中行          |
+|  `Alt` + `Shift` + `A`   |         注释选中内容         |
+|  `Shift` + `Alt` + `↓`   |        快速复制选中行        |
+|  `Alt` + `Shift` + `F`   |            格式化            |
+|       `Ctrl` + `~`       |        打开/关闭终端         |
+|       `Ctrl` + `F`       |          文档内匹配          |
+|       `Ctrl` + `B`       |     打开/关闭资源管理器      |
+|       `Ctrl` + `G`       |     快速切换到第 `N` 行      |
+|       `Ctrl` + `P`       |        匹配文件名索引        |
+|       `Ctrl` + `↓`       |    同时移动光标和文档视窗    |
+|       `Alt` + `↓`        |    本行代码与下行代码替换    |
+|     `Alt` + `Enter`      |        选中所有匹配项        |
+| `Ctrl` + `Alt` + `Enter` |      [新版]确认全局替换      |
+|       log + `Tab`        |        console.log()         |
+|         div#demo         |  `<div id="demo"\></div\>`   |
+|         div.demo         | `<div class="demo"\></div\>` |
+|           a\*3           |           3个a标签           |
+|         ul>li\*3         |        3个li的ul列表         |
+|     ul>li{text}\*100     |    ul带100个默认文本的li     |
+|    bgc + `↓` + `Tab`     |      backgroundcolor: ;      |
+|      fontz + `Tab`       |         font-size: ;         |
 
 #### 更改缩进 
 
