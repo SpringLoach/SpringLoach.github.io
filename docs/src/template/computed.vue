@@ -60,22 +60,18 @@ function kebabToCamelOrReversalFunc(str) {
 }
 
 // 解码
-function decodeURI(str) {
-  if (!str) return
-  return decodeURIComponent(str)
+function decodeURI() {
+  if (!inputValue.value) return
+  computedValue.value = decodeURIComponent(inputValue.value)
 }
 
 // json格式化
-function formatJSON(jsonObj, indentation = 4) {
-    try {
-        // 将对象转为 JSON 字符串并格式化
-        const jsonString = JSON.stringify(jsonObj, null, indentation); // 第三个参数指定缩进空格数
-        return jsonString;
-    } catch (error) {
-        // 捕获并处理错误
-        console.error("无法格式化 JSON 对象:", error);
-        return null;
-    }
+function formatJSON() {
+  const indentation = 4
+  if (!inputValue.value) return
+  const jsonObj = JSON.parse(inputValue.value)
+  const jsonString = JSON.stringify(jsonObj, null, indentation) // 第三个参数指定缩进空格数
+  console.log(jsonString)
 }
 
 function copy(text) {
