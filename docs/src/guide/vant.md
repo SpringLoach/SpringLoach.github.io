@@ -114,3 +114,33 @@ export default {
 </van-popup>
 ```
 
+
+
+### 组件样式出错
+
+> vant 同时使用按需自动引用 / 手动引用组件样式，会导致样式的优先级改变
+
+```
+.van-popup {} // 白色背景
+.van-toast {} // 黑色背景
+```
+
+`示例`
+
+最后排查，是由于手动引入了组件，导致出现样式问题： 
+
+`main.ts`
+
+```javascript
+import { ImagePreview } from 'vant';
+import { createApp } from 'vue'
+import App from './App.vue'
+
+const app = createApp(App)
+
+// 图片预览
+app.use(ImagePreview);
+```
+
+
+

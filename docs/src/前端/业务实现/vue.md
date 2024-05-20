@@ -400,3 +400,71 @@ const router= new VueRouter({
 
 
 
+### 下拉框选项增强
+
+选项加强
+
+```javascript
+computed: {
+    // 根据 disableCateIdList 设置部分选项禁用
+    enhanceRoleCidList() {
+        return this.roleCidList.map(item => {
+            const exsit = this.disableCateIdList.findIndex(_id => {
+                return item.value == _id
+            })
+            return {
+                ...item,
+                disabled: exsit !== -1
+            }
+        })
+    }
+}
+```
+
+级联加强
+
+```javascript
+props: {
+    disabledIdsList: {
+        type: Array,
+        default: () => {}
+    }
+},
+computed: {
+    enhanceOptions() {
+        // disabledRegionIdsList [[0, 1], [0, 2]]
+        // 如果不存在禁用配置，返回默认配置
+        if (!this.disabledIdsList || !this.disabledIdsList.length) {
+            return this.options
+        }
+        let newOptions = this.options.map(provinceObj => {
+            // 这里不深拷贝，会影响原来的【this.options】
+            const newProvinceObj = JSON.parse(JSON.stringify(provinceObj))
+            this.disabledIdsList.forEach(ids => {
+                if (newProvinceObj.id == ids[0]) {
+                    newProvinceObj.regionListVoList = newProvinceObj.regionListVoList.map(cityObj => {
+                        // 会存在一些项没设置disabled属性，但也够用
+                        return {
+                            ...cityObj,
+                            disabled: cityObj.id == ids[1]
+                        }
+                    })
+                }
+            })
+            return newProvinceObj
+        })
+        // 特别处理，如果市级不存在可选项，手动将省级设为不可选
+        newOptions = newOptions.map(provinceObj => {
+            const canOperateItem = provinceObj.regionListVoList.find(item => !item.disabled)
+            return {
+                ...provinceObj,
+                disabled: !canOperateItem
+            }
+        })
+        return newOptions
+    }
+}
+```
+
+
+

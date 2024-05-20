@@ -236,6 +236,7 @@ export default defineConfig({
           ]
         },
         { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },
+        { text: '有兴趣就研究', link: '/expand/有兴趣就研究' },
       ]
     },
 
