@@ -326,7 +326,77 @@ export default {
 
 
 
+### 子组件内部方法调用时机
 
+```html
+<template>
+	<el-radio-group v-model="configForm.status">
+        <el-radio :label="1">开启配置</el-radio>
+        <el-radio :label="0">关闭配置</el-radio>
+    </el-radio-group>
+    <template v-if="[0, 1].includes(configForm.status)">
+        <child-components ref="demoRef" />
+    </template>
+</template>
+
+<script>
+const orginForm = {
+    status: undefined,
+    other: '',
+}
+export default {
+    data() {
+        return {
+            configForm: JSON.parse(JSON.stringify(orginForm)),
+        }
+    },
+    methods: {
+        // 假设result是接口请求到的详情数据
+        init(result) {
+            this.$set(this.configForm, 'status', result.status) // 深拷贝丢失undefined属性
+            this.$nextTick(() => {
+                this.$refs.demoRef.init()
+            })
+        }
+    }
+}
+</script>
+```
+
+
+
+### vue2/3切换路由回到顶部
+
+**vue3**
+
+```javascript
+import { createRouter, createWebHashHistory } from 'vue-router'
+ 
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
+  // 每次切换路由的时候滚动到页面顶部
+  scrollBehavior () {
+    // vue2.0  x  y  控制
+    // vue3.0  left  top 控制
+    return { left: 0, top: 0 }
+  }
+})
+```
+
+**vue2**
+
+```javascript
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+ 
+const router= new VueRouter({
+  routes,
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  }
+})
+```
 
 
 

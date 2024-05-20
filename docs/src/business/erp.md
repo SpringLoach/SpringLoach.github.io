@@ -123,7 +123,7 @@ mounted() {
 
 #### 表单初始化/重置复用原始数据
 
-> 避免表单内容过多的情况下，需要在多出写重复的属性；注意初始值避免定义为 `undefined`，拷贝会丢失导致失去响应。
+> 避免表单内容过多的情况下，需要在多出写重复的属性；注意初始值避免定义为 `undefined`，`JSON.parse(JSON.stringify)`  拷贝会丢失对应属性导致失去响应。
 
 ```html
 <script>
@@ -291,6 +291,53 @@ export function exportApi(data) {
 `src\views\operations\internalMessageManagement\edit\index.vue`
 
 
+
+#### 后端的流数据下载
+
+`接口`
+
+```javascript
+// 根据 axios 封装
+export function demoApi(data) {
+    return request({
+        url: '/demoApiLink',
+        method: 'post',
+        data,
+        header: { headers: { 'Content-Type': 'application/json; application/octet-stream' } }, // 二进制数据
+        responseType: 'blob'
+    })
+}
+```
+
+`业务`
+
+```html
+<el-button @click="downloadErrorList">下载失败数据</el-button>
+```
+
+```javascript
+async downloadErrorList() {
+    const res = await demoApi({})
+    const blob = new Blob([res.data]);
+    let url = window.URL.createObjectURL(blob);
+    const filename = '示例导出文件名称.xlsx'
+    if ("download" in document.createElement("a")) {
+        try {
+            let link = document.createElement("a");
+            link.style.display = "none";
+            link.href = url;
+            link.setAttribute("download", filename);
+            document.body.appendChild(link);
+            link.click();
+            link.remove()
+        } catch (e) {
+            console.log(e)
+        }
+    } else {
+        navigator.msSaveBlob(blob, filename);
+    }
+}
+```
 
 
 
