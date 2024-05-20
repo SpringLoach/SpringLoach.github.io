@@ -7,6 +7,10 @@
         </div>
 
         <div>
+            <button class="btn" @click="strToUpperCase">大写转小写</button>
+        </div>
+
+        <div>
           <button class="btn" @click="kebabToCamelOrReversal">驼峰-短横线互转</button>
         </div>
 
@@ -44,6 +48,9 @@ watch(computedValue, () => {
 
 function strToUpperCase() {
   computedValue.value = inputValue.value.toUpperCase()
+}
+function strToLowerCase() {
+  computedValue.value = inputValue.value.toLowerCase()
 }
 function kebabToCamelOrReversal() {
   computedValue.value = kebabToCamelOrReversalFunc(inputValue.value)
