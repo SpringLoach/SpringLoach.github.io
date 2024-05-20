@@ -7,7 +7,7 @@
         </div>
 
         <div>
-            <button class="btn" @click="strToUpperCase">大写转小写</button>
+            <button class="btn" @click="strToLowerCase">大写转小写</button>
         </div>
 
         <div>
