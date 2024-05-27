@@ -354,10 +354,6 @@ formatPrice(price) {
 <!-- 错误—条件语句 -->
 ```
 
-`<span>{{ var a = 1 }}</span>`
-
-`<span>{{ if(1) { return 2 } }}</span>`
-
 
 
 ### 基本指令
