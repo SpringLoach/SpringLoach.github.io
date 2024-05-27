@@ -814,16 +814,16 @@ axios({
 })
 ```
 
-| 请求方式                         | 参数 | 说明            |
-| -------------------------------- | ---- | --------------- |
-| axios(config)                    | 对象 | 默认为 GET 请求 |
-| axios.get(url, [config])         | /    | /               |
-| axios.post(url, [data,[config]]) | /    | /               |
-| ...                              | /    | /               |
+| 请求方式                           | 参数 | 说明            |
+| ---------------------------------- | ---- | --------------- |
+| `axios(config)`                    | 对象 | 默认为 GET 请求 |
+| `axios.get(url, [config])`         | /    | /               |
+| `axios.post(url, [data,[config]])` | /    | /               |
+| ...                                | /    | /               |
 
 ### 携带参数发起请求
 
-:bug: 错误接口 123.207.32.32:8000/home/data?type=pop&page=1
+:bug: 错误接口 `123.207.32.32:8000/home/data?type=pop&page=1`
 
 ```react
 axios({
