@@ -351,9 +351,9 @@ formatPrice(price) {
 <!-- 允许-表达式 -->
 <span>{{ isShow? 1 : 2 }}</span>
 <!-- 错误—赋值语句 -->
-<span>{{ var a = 1 }}</span>
+<!-- <span>{{ var a = 1 }}</span> -->
 <!-- 错误—条件语句 -->
-<span>{{ if(1) { return 2 } }}</span>
+<!-- <span>{{ if(1) { return 2 } }}</span> -->
 ```
 
 
