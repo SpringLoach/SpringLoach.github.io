@@ -35,3 +35,8 @@ computed: {
 }
 ```
 
+
+
+### 不引入ref等变量
+
+https://blog.csdn.net/qq_43806488/article/details/126616539

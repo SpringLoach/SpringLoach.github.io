@@ -61,3 +61,10 @@ beforeDestory() {
 ```
 
 观察选项可以配置观察元素属性、子元素、元素内容等
+
+
+
+### div监听onfocus和onblur
+
+https://blog.csdn.net/weixin_43877799/article/details/121287494
+

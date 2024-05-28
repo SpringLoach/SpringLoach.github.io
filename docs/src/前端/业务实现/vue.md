@@ -468,3 +468,120 @@ computed: {
 
 
 
+### 订单详情缓存时机
+
+> 从列表进入时，需要刷新组件；从选择地址返回时，需要保留状态
+
+可以通过路由属性 `cache` 控制是否缓存页面，但对于商详这种需要动态缓存的页面，需要设计新的思路
+
+感觉模块销毁前，需要清空缓存状态，这样更有保障一些？
+
+`模块页面路由入口`
+
+```html
+<template>
+	<keep-alive>
+        <router-view v-if="$route.meta.cache" />
+    </keep-alive>
+    <keep-alive :include="keepAlivePages">
+        <router-view v-if="$route.meta.cacheTo"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.cache && !$route.meta.cacheTo" />
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+    computed: {
+        ...mapGetters('router', {
+            keepAlivePages: 'keepAlivePages'
+        })
+    },
+}
+</script>
+```
+
+`src\store\modules\router.js`
+
+```javascript
+const router = {
+    namespaced: true,
+    state: {
+        keepAlivePages: []
+    },
+    getters: {
+        keepAlivePages(state) {
+            return state.keepAlivePages
+        }
+    },
+    mutations: {
+        // 清空缓存页面
+        CLEAR_KEEP_ALIVE_PAGES(state) {
+            state.keepAlivePages = []
+        },
+        // 新增缓存页面
+        PUSH_KEEP_ALIVE_PAGE(state, pageName) {
+            if (!state.keepAlivePages.includes(pageName)) {
+                state.keepAlivePages.push(pageName)
+            }
+        },
+        // 删除缓存页面
+        REMOVE_KEEP_ALIVE_PAGE(state, pageName) {
+            let index = state.keepAlivePages.findIndex((item) => {
+                return item === pageName
+            })
+            if (index !== -1) {
+                state.keepAlivePages.splice(index, 1)
+            }
+        }
+    },
+}
+
+export default router
+```
+
+`商详页面组件`
+
+```html
+<script>
+import { mapMutations } from 'vuex'
+export default 
+    beforeRouteLeave(to, from, next) {
+        if (from.meta.cacheTo && from.meta.cacheTo.includes(to.name)) {
+            this.addKeepAlive(from.name)
+        } else {
+            this.removeKeepAlive(from.name)
+        }
+    	// 这里如果直接调用，可能会缓存失效，可能和执行代码顺序有关
+        this.$nextTick(() => {
+            next()
+        })
+    },
+    methods: {
+        ...mapMutations('router', {
+            addKeepAlive: 'PUSH_KEEP_ALIVE_PAGE',
+            removeKeepAlive: 'REMOVE_KEEP_ALIVE_PAGE'
+        })
+    }
+}
+</script>
+```
+
+`路由定义`
+
+```javascript
+{
+    path: 'detail',
+    component: resolve => require(['@/xx/detail'], resolve),
+    meta: {
+        title: '商品详情',
+        cacheTo: ['addressList', 'addressUpdate'] // 对于其他页面路由定义的name属性
+    },
+    name: 'mallDetail'
+}
+```
+
+
+
+
+

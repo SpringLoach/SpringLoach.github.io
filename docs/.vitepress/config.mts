@@ -8,9 +8,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/computed' },
-      { text: 'Business', link: '/business/common' },
+      { text: '首页', link: '/' },
+      { text: '业务', link: '/business/common' },
       {
         text: '前端',
         items: [
@@ -19,25 +18,24 @@ export default defineConfig({
           { text: '原生技术', link: '/前端/原生技术/css/样式相关/功能总结' },
         ]
       },
-      { text: '技术框架', link: '/前端2/技术框架/文档参考' },
+      { 
+        text: '技术框架',
+        // link: '/前端2/技术框架/文档参考',
+        items: [
+          { text: '文档参考', link: '/前端2/技术框架/文档参考' },
+          { text: '技术框架', link: '/前端2/技术框架/技术框架/微信小程序/微信小程序' },
+          { text: 'UI框架', link: '/前端2/技术框架/UI框架/Element-UI/elementUI' },
+        ]
+      },
       { text: '其他', link: '/expand/初始配置/计算机环境配置' }
     ],
 
     sidebar: {
-      '/guide/': [
-        {
-          text: 'Guide',
-          items: [
-            { text: 'computed', link: '/guide/computed' },
-            { text: '样式', link: '/guide/样式' },
-            { text: '待整理', link: '/guide/待整理' },
-          ]
-        }
-      ],
       '/business/': [
         {
           text: 'Business',
           items: [
+            { text: 'computed', link: '/business/computed' },
             { text: 'common', link: '/business/common' },
             { text: 'h5', link: '/business/h5' },
             { text: '小程序', link: '/business/小程序' },
