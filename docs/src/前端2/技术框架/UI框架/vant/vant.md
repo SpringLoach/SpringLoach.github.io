@@ -4,7 +4,7 @@
 
 > 随输入字数定制统计字数颜色
 
-![image-20240126173029894](./[css]自定义输入文本域.png)
+![](https://raw.githubusercontent.com/SpringLoach/img_store/main/img/[css]自定义输入文本域.png)
 
 ```html
 <van-field
