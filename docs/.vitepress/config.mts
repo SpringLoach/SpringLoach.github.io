@@ -29,8 +29,6 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'computed', link: '/guide/computed' },
-            { text: '编写规范', link: '/guide/编写规范' },
-            { text: 'vitepress', link: '/guide/vitepress' },
             { text: 'ES Next', link: '/guide/ES Next' },
             { text: 'nvm', link: '/guide/nvm' },
             { text: 'elementUI', link: '/guide/elementUI' },
@@ -232,9 +230,11 @@ export default defineConfig({
             { text: 'svn', link: '/expand/相关技能/svn/SVN' },
             { text: 'xmind', link: '/expand/相关技能/xmind/xmind' },
             { text: 'v2rayN', link: '/expand/相关技能/v2rayN/v2rayN' },
+            { text: 'vitepress', link: '/expand/相关技能/vitepress/vitepress' },
             { text: 'PicList', link: '/expand/相关技能/PicList/PicList' },
           ]
         },
+        { text: '编写规范', link: '/expand/编写规范' },
         { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },
         { text: '有兴趣就研究', link: '/expand/有兴趣就研究' },
       ]

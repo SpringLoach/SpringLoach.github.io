@@ -49,7 +49,7 @@ export default DefaultTheme
 | 设置多侧边栏                                                 | [链接一](https://vitepress.dev/zh/reference/default-theme-sidebar#multiple-sidebars) | 可以结合[导航链接](https://vitepress.dev/zh/reference/default-theme-nav#navigation-links)使用 |
 | 部署 GitHub Pages                                            | [链接一](https://vitepress.dev/zh/guide/deploy#github-pages) | 推送代码自动打包部署                                         |
 
-部署 GitHub Pages 配置![github-vitepress部署设置](.\img\github-vitepress部署设置.png)
+部署 GitHub Pages 配置![](https://raw.githubusercontent.com/SpringLoach/img_store/main/img/[vitepress]部署github.png)
 
 
 
