@@ -147,7 +147,7 @@ https://mybj123.com/18067.html
 
 #### 自定义el-progress(vue3)
 
-![image-20240109103157732](./img/diy-el-progress.png)
+![](https://raw.githubusercontent.com/SpringLoach/img_store/main/img/%5Belement%5Ddiy-el-progress.png)
 
 ```html
 <el-progress

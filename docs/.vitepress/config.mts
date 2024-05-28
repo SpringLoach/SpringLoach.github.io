@@ -29,13 +29,7 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'computed', link: '/guide/computed' },
-            { text: 'ES Next', link: '/guide/ES Next' },
-            { text: 'nvm', link: '/guide/nvm' },
-            { text: 'elementUI', link: '/guide/elementUI' },
-            { text: 'viewer.js', link: '/guide/viewer.js' },
             { text: '样式', link: '/guide/样式' },
-            { text: 'vant', link: '/guide/vant' },
-            { text: '微信小程序', link: '/guide/微信小程序' },
             { text: '待整理', link: '/guide/待整理' },
           ]
         }
@@ -172,6 +166,14 @@ export default defineConfig({
               ]
             },
             { 
+              text: 'JavaScript',
+              collapsed: true,
+              items: [
+                { text: '常用方法速查', link: '/前端/原生技术/javascript/常用方法速查' },
+                { text: 'ES Next', link: '/前端/原生技术/javascript/功能相关/ES Next' },
+              ]
+            },
+            { 
               text: 'TypeScript',
               collapsed: true,
               items: [
@@ -196,9 +198,28 @@ export default defineConfig({
               items: [
                 { text: 'HOOK.md', link: '/前端2/技术框架/技术框架/React技术栈/React/HOOK.md' },
               ]
+            },
+            { 
+              text: '微信小程序',
+              collapsed: true,
+              items: [
+                { text: '微信小程序', link: '/前端2/技术框架/技术框架/微信小程序/微信小程序' },
+              ]
             }
           ]
         },
+        {
+          text: 'UI框架',
+          collapsed: true,
+          items: [
+            { 
+              text: 'elementUI',
+              items: [
+                { text: 'elementUI', link: '/前端2/技术框架/UI框架/Element-UI/elementUI' },
+              ]
+            },
+          ]
+        }
       ],
       '/expand/': [
         {
