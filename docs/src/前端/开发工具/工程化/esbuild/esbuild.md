@@ -236,11 +236,10 @@ console.log(result)
 
 - [esbuild官方文档](https://esbuild.github.io/getting-started/#install-esbuild)
 
+other
 
+[(35条消息) esbuild 配置开发环境_twinkle||cll的博客-CSDN博客](https://blog.csdn.net/qq_41499782/article/details/119278871)
 
-# 补充的话
+[esbuild 入门 - 简书](https://www.jianshu.com/p/8994115416c3)
 
-在[仓库](https://github.com/SpringLoach/power)，还提供了许多<span style="color: #3a84aa">前端常见需求</span>及实现的归纳整理，欢迎客官看看~
-
-如果这篇笔记能够帮助到你，请帮忙在 [github](https://github.com/SpringLoach/power) 上点亮 `star`，感谢！
-
+[esbuild - Getting Started](https://esbuild.github.io/getting-started/#yarn-pnp)

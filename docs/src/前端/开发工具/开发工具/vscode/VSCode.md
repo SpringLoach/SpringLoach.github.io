@@ -74,6 +74,12 @@
 
 
 
+#### 配置eslint+prettier
+
+[eslint 作为 vscode 格式化风格](https://zhuanlan.zhihu.com/p/456547987)
+
+
+
 ### 其他
 
 #### markdown常用表情  
