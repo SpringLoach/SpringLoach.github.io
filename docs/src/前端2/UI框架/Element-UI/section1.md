@@ -4,7 +4,7 @@
 
 > 注意要**先**引入vue才能正常使用，而且需要使用到vue挂载的元素上。
 
-```react
+```html
 <head>
   <!-- 引入样式 -->
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
@@ -68,7 +68,7 @@ Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 | 缩放-沿顶     | el-zoom-in-top    |
 | 缩放-沿底     | el-zoom-in-bottom |
 
-```react
+```html
 // 控制按钮，需要初始化 show
 <el-button @click="show = !show">Click Me</el-button>
 
@@ -79,7 +79,7 @@ Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 
 #### 展开折叠
 
-```react
+```html
 <el-button @click="show = !show">Click Me</el-button>
 
 <el-collapse-transition>
@@ -95,11 +95,13 @@ Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 
 > 在行标签内镶嵌列标签，列标签占据的**最大**列数总合为24。
 
-```react
+```javascript
 import {Row, Col} from 'element-ui';
 
 Vue.use(Row);
 Vue.use(Col);
+```
+```html
 <el-row>
   <el-col :span="3"><div>abc</div></el-col>
   <el-col :span="2"><div>def</div></el-col>
@@ -150,7 +152,7 @@ Vue.use(Footer);
 
 > 可以在内部嵌套 `<el-container>`，使子元素能够垂直排列。
 
-```react
+```html
 <el-container>
   <el-header>Header</el-header>
   <el-container>
@@ -184,7 +186,7 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 
 > 直接给相应标签添加类 `el-icon-iconName` 即可。
 
-```react
+```html
 // 纯图标
 <i class="el-icon-loading"></i>
 
@@ -229,7 +231,7 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 
 > 选中时，将相应的 `label` 的值赋值给绑定值。
 
-```react
+```html
 <el-radio v-model="selectFruit" label="apple">苹果</el-radio>
 <el-radio v-model="selectFruit" label="peach">桃子</el-radio>
 ```
@@ -247,7 +249,7 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 
 > 适用于在多个互斥的选项中选择的场景，无需给项绑定变量。
 
-```react
+```html
 <el-radio-group  v-model="selectFruit">
   <el-radio label="apple">苹果</el-radio>
   <el-radio label="peach">桃子</el-radio>
@@ -270,7 +272,7 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 
 > 只需替换项元素即可。
 
-```react
+```html
 <el-radio-group  v-model="selectFruit">
   <el-radio-button label="apple">苹果</el-radio-button>
   <el-radio-button label="peach">桃子</el-radio-button>
@@ -287,7 +289,7 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 >
 > 标签中的内容为按钮后的介绍。
 
-```react
+```html
 <el-checkbox v-model="isChecked">大西瓜</el-checkbox>
 ```
 
@@ -303,7 +305,7 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 
 #### 多选框组
 
-```react
+```html
 <el-checkbox-group v-model="fruitList">
   <el-checkbox label="apple"></el-checkbox>
   <el-checkbox label="peach"></el-checkbox>
@@ -339,7 +341,7 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 >
 > 不支持 `v-model`修饰符。
 
-```react
+```html
 <el-input v-model="variable" placeholder="请输入"></el-input>
 ```
 
@@ -361,7 +363,7 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 
 > 可以添加按钮、[图标](https://github.com/SpringLoach/Vue/blob/main/plugins/Element-UI/section1.md#Icon图标)、使用插槽添加文本，添加一到多个元素。
 
-```react
+```html
 // 文本
 <el-input>
   <template slot="append">.com</template>
@@ -389,9 +391,10 @@ box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
 >
 > 也可以[复合元素使用](https://github.com/SpringLoach/Vue/blob/main/plugins/Element-UI/section1.md#复合元素使用)。
 
-```react
+```html
 <el-autocomplete v-model="selectRes" :fetch-suggestions="querySearch"></el-autocomplete>
-
+```
+```javascript
 data() {
   return {
     restaurants: [],
@@ -438,7 +441,7 @@ mounted() {
 >
 > 模板标签的 `slot-scope` 属性指向每一条建议。
 
-```react
+```html
 <el-autocomplete v-model="selectRes" :fetch-suggestions="querySearch">
   <template slot-scope="{ item }">
     <div class="name">{{ item.value }}</div>
@@ -451,7 +454,7 @@ mounted() {
 
 > 需要配合限制长度属性使用。
 
-```react
+```html
 <el-input v-model="any" :maxlength="12" show-word-limit></el-input>
 ```
 
@@ -459,7 +462,7 @@ mounted() {
 
 > 可手动或通过控制器改变数值。只需绑定值即可。
 
-```react
+```html
 <el-input-number v-model="num" :min="1" :max="3"></el-input-number>
 ```
 
@@ -485,13 +488,14 @@ mounted() {
 
 > 即供以选择的下拉菜单。
 
-```react
+```html
 <el-select v-model="value">
   <el-option v-for="item in options" :key="item.value"
     :label="item.label" :value="item.value">
   </el-option>
 </el-select>
-
+```
+```javascript
 data() {
   return {
     options: [{
@@ -531,7 +535,7 @@ data() {
 
 > 直接在项标签中插入相应内容。
 
-```react
+```html
 <el-select ...>
   <el-option v-for="item in options"...>
     <span>{{item.label}}</span>anything<span>{{item.value}}</span>
@@ -543,7 +547,7 @@ data() {
 
 > 使用 `el-option-group` 对选项进行分组。
 
-```react
+```html
 <el-select v-model="value">
   <el-option-group v-for="group in options" :key="group.label" :label="group.label">
     <el-option v-for="item in group.options" :key="item.value" 
@@ -551,7 +555,8 @@ data() {
     </el-option>
   </el-option-group>
 </el-select>
-
+```
+```javascript
 data() {
   return {
     options: [{
@@ -599,10 +604,11 @@ data() {
 
 ### Cascader级联选择器
 
-```react
+```html
 <el-cascader v-model="value" :options="options" 
   :props="casProps" ></el-cascader>
-
+```
+```javascript
 data() {
   return {
     value: '',
@@ -669,7 +675,7 @@ data() {
 
 > 传入的两个对象分别表示当前节点对象和数据。
 
-```react
+```html
 <el-cascader :options="options">
   <template slot-scope="{ node, data }">
     <span>{{ data.label }}</span>
@@ -682,9 +688,10 @@ data() {
 
 > 模拟开关左右滑动的组件。
 
-```react
+```html
 <el-switch v-model="value"></el-switch>
-
+```
+```javascript
 data() {
   return {
     value: true
@@ -705,9 +712,10 @@ data() {
 
 ### Slider滑块
 
-```react
+```html
 <el-slider v-model="value"></el-slider>
-
+```
+```javascript
 data() {
   return {
     value: 15
@@ -734,7 +742,7 @@ data() {
 
 #### 固定或任意时间点
 
-```react
+```html
 // 固定时间点
 <el-time-select v-model="value" :picker-options="pickOpt">
 </el-time-select>
@@ -742,7 +750,8 @@ data() {
 // 任意时间点
 <el-time-picker v-model="value2" :picker-options="pickOpt2">
 </el-time-picker>
-
+```
+```javascript
 data() {
   return {
     value: '',
@@ -791,14 +800,15 @@ data() {
 
 #### 点击上传
 
-```react
+```html
 <el-upload action="https://jsonplaceholder.typicode.com/posts/"
   multiple :file-list="fileList">
   <el-button size="small" type="primary">点击上传</el-button>
   // 可选的提示语句
   <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
 </el-upload>
-  
+```
+```javascript
 data() {
   return {
     fileList: [
@@ -1028,7 +1038,7 @@ data() {
 
 > 通过设置 `slot="header"` 的模板实现，列内容可以使用模板也可以不使用。
 
-```react
+```html
 <el-table-column>
   <template slot="header" slot-scope="scope">..</template>
   <template>.. </template>
@@ -1177,7 +1187,7 @@ methods: {
 
 > 出现在按钮、图标右上角的数字或状态标记
 
-```react
+```html
 <el-badge :value="3">
   <el-button size="small">回复</el-button>
 </el-badge>
@@ -1270,7 +1280,7 @@ data() {
 
 > 使用默认插槽。
 
-```react
+```html
 <el-empty>
   <p>(●ˇ∀ˇ●)</p>
 </el-empty>
@@ -1325,7 +1335,7 @@ data() {
 
 > 添加到存在 `v-loading` 的元素上。
 
-```react
+```html
 <p v-loading="loading"
   element-loading-text="拼命加载中"
   element-loading-spinner="el-icon-loading"
@@ -1463,7 +1473,7 @@ this.$notify({
 
 ### Menu导航菜单
 
-```react
+```javascript
 import {Menu, Submenu, MenuItem,} from 'element-ui';
 
 Vue.use(Menu);
@@ -1473,7 +1483,7 @@ Vue.use(MenuItem);
 
 普通垂直导航菜单栗子
 
-```react
+```html
 <el-menu :default-active="activeIndex" mode="horizontal">
   <el-menu-item index="1">导航一</el-menu-item>
   <el-menu-item index="2">导航二</el-menu-item>
@@ -1483,7 +1493,7 @@ Vue.use(MenuItem);
 
 各种项演示
 
-```react
+```html
 <el-menu :default-active="activeIndex" mode="horizontal">
 
   <!-- 最普通的项 -->  
@@ -1527,7 +1537,8 @@ Vue.use(MenuItem);
   </el-submenu>
   
 </el-menu>
-
+```
+```javascript
 data() {
   return {
     activeIndex: '1'
@@ -1563,7 +1574,7 @@ data() {
 
 #### 菜单分组
 
-```react
+```html
 <el-menu-item-group title="罗德岛">
   <el-menu-item index="1-1">迷迭香</el-menu-item>
   <el-menu-item index="1-2">温蒂</el-menu-item>
@@ -1583,7 +1594,7 @@ data() {
 >
 > 在菜单项、副容器标题模板中添加不同标签，被添加 `slot="title"` 的标签会在被折叠时隐藏。
 
-```react
+```html
 <el-menu-item index="1">
   <span slot="title">处理中心</span><i>a</i>
 </el-menu-item>
@@ -1595,14 +1606,15 @@ data() {
 >
 > 每一个标签页可以有任意多的展现。
 
-```react
+```html
 <el-tabs v-model="activeName">
   <el-tab-pane label="用户管理" name="first">内容一</el-tab-pane>
   <el-tab-pane label="配置管理" name="second">内容二</el-tab-pane>
   <el-tab-pane label="角色管理" name="third">内容三</el-tab-pane>
   <el-tab-pane label="定时任务补偿" name="fourth">内容四</el-tab-pane>
 </el-tabs>
-      
+```
+```javascript  
 data() {
   return {
     activeName: 'second'
@@ -1627,7 +1639,7 @@ data() {
 
 > 不需要 `label`，在项标签中添加额外标签并添加 `slot="label"`。
 
-```react
+```html
 <el-tab-pane name="first">
   <span slot="label"><i class="el-icon-date"></i> 用户管理</span>
   内容一
@@ -1636,7 +1648,7 @@ data() {
 
 ### Breadcrumb面包屑
 
-```react
+```html
 <el-breadcrumb separator="/">
   <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
   <el-breadcrumb-item>活动管理</el-breadcrumb-item>
@@ -1660,7 +1672,7 @@ data() {
 >
 > 大容器内的首个标签为占位符，小容器需要使用 `slot="dropdown"` 来设置下拉菜单。
 
-```react
+```html
 <el-dropdown>
   <span class="el-dropdown-link"> 
     下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
@@ -1670,7 +1682,8 @@ data() {
     <el-dropdown-item>狮子头</el-dropdown-item>
   </el-dropdown-menu>
 </el-dropdown>
-      
+```
+```css
 .el-dropdown-link {
   cursor: pointer;
   color: #409EFF;
@@ -1697,13 +1710,14 @@ data() {
 
 ### Steps步骤条
 
-```react
+```html
 <el-steps :active="active" finish-status="success">
   <el-step title="步骤 1"></el-step>
   <el-step title="步骤 2"></el-step>
   <el-step title="步骤 3"></el-step>
 </el-steps>
-      
+```
+```javascript
 data() {
   return {
     active: 0
@@ -1746,7 +1760,7 @@ data() {
 >
 > 向标签添加 `slot="footer"` 表示用于底部区域。
 
-```react
+```html
 <el-button @click="dialogVisible = true">点击</el-button>
 
 <el-dialog title="标题" :visible.sync="dialogVisible" width="50%"
@@ -1757,7 +1771,8 @@ data() {
     <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
   </span>
 </el-dialog>
-      
+```
+```javascript  
 data() {
   return {
     dialogVisible: false
@@ -1792,7 +1807,7 @@ methods: {
 
 > 鼠标悬浮时的提示信息。
 
-```react
+```html
 <el-tooltip content="提示文本" placement="top">
   <el-button>正上</el-button>
 </el-tooltip>
@@ -1817,7 +1832,7 @@ methods: {
 
 > 与 Tooltip 很类似。但可以有多种触发方式，像一个迷你的对话框。
 
-```react
+```html
 <el-popover placement="top-start" title="标题" width="200"
   trigger="hover" content="内容">
   <el-button slot="reference">hover 激活</el-button>
@@ -1845,7 +1860,7 @@ methods: {
 
 > 点击元素时弹出的气泡确认框。
 
-```react
+```html
 <el-popconfirm title="这是一段内容确定删除吗？">
   <el-button slot="reference">删除</el-button>
 </el-popconfirm>
@@ -1875,7 +1890,7 @@ methods: {
 
 > 将信息聚合在卡片容器中展示。
 
-```react
+```html
 <el-card>
 </el-card>
 ```
@@ -1894,7 +1909,7 @@ methods: {
 
 > 可以当作轮播图。
 
-```react
+```html
 <el-carousel height="150px">
   <el-carousel-item v-for="item in 4" :key="item">
     <h3>{{ item }}</h3>
@@ -2022,7 +2037,7 @@ data() {
 
 > 支持懒加载，自定义占位、加载失败等。
 
-```react
+```html
 <el-image
   style="width: 100px; height: 100px"
   src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
@@ -2060,13 +2075,14 @@ data() {
 >
 > 容器元素需要有固定高度并设置 `overflow:auto`。
 
-```react
+```html
 <div style="height:100px; overflow:auto">
   <ul class="infinite-list" v-infinite-scroll="load" :infinite-scroll-immediate="false">
     <li v-for="i in count" class="infinite-list-item">{{ i }}</li>
   </ul>
 </div>
-      
+```
+```javascript  
 data() {
   return {
     count: 12
