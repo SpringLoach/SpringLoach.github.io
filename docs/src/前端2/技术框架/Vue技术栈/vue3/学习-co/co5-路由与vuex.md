@@ -486,7 +486,7 @@ removeRoute(); // 如果存在则删除路由
 
 > 实现登录验证。
 
-```react
+```javascript
 const router = createRouter({...})
 
 router.beforeEach((to, from) => {
@@ -1000,7 +1000,7 @@ export default homeModule
 
 <span style="backGround: #efe0b9">Demo.vue</span>
 
-```react
+```html
 // 根部的状态
 <h2>{{ $store.state.rootCounter }}</h2>
 // 模块的状态
@@ -1026,7 +1026,7 @@ export default homeModule
 
 #### 命名空间使用
 
-```react
+```html
 // 根部的状态
 <h2>{{ $store.state.rootCounter }}</h2>
 // 模块的状态

@@ -31,9 +31,10 @@
 
 <span style="backGround: #efe0b9">Father.vue</span>
 
-```react
+```html
 <home demo="hey" />
-
+```
+```javascript
 import Home from './Home.vue';
 
 export default {
@@ -45,7 +46,7 @@ export default {
 
 <span style="backGround: #efe0b9">Demo.vue</span>
 
-```react
+```javascript
 export default {
   props: {
     demo: {
@@ -65,7 +66,7 @@ export default {
 
 **常见风格**
 
-```react
+```javascript
 setup(_, { emit }) {
   console.log(emit);
 },
@@ -77,11 +78,11 @@ setup(_, { emit }) {
 
 ## setup函数的返回值
 
-```react
+```html
 <h2>{{title}}: {{counter}}</h2>
 <button @click="increment">+1</button>
-
-
+```
+```javascript
 setup() {
   let counter = 100;
 
@@ -117,10 +118,11 @@ setup() {
 
 > 使用 <span style="color: #a50">reactive函数</span>，可以为 setup 中定义的数据提供响应式的特性。
 
-```react
+```html
 <h2>当前计数: {{state.counter}}</h2>
 <button @click="increment">+1</button>
-
+```
+```javascript
 import { reactive } from 'vue';
 
 setup() {
@@ -157,10 +159,11 @@ setup() {
 
 > 该 Api 可以传入基本类型，对于较为简单的数据使用它就好了。
 
-```react
+```html
 <h2>当前计数: {{counter}}</h2>
 <button @click="increment">+1</button>
-
+```
+```javascript
 import { ref } from 'vue';
 
 setup() {
@@ -187,11 +190,12 @@ setup() {
 
 #### Ref的浅层解包
 
-```react
+```html
 <h2>当前计数: {{info.counter.value}}</h2>
 <!-- 当如果最外层包裹的是一个reactive可响应式对象, 那么内容的ref可以解包 -->
 <h2>当前计数: {{reactiveInfo.counter}}</h2>
-
+```
+```javascript
 setup() {
   let counter = ref(100);
   const info = {
@@ -463,10 +467,11 @@ export default function(value, delay = 300) {
 
 `Demo.vue`
 
-```react
+```html
 <input v-model="message"/>
 <h2>{{message}}</h2>
-
+```
+```javascript
 import debounceRef from './hook/useDebounceRef';
 setup() {
   const message = debounceRef("Hello World");
@@ -666,9 +671,10 @@ watchEffect(() => {
 
 ##### (例)使用ref
 
-```react
+```html
 <h2 ref="title">哈哈哈</h2>
-
+```
+```javascript
 import { ref, watchEffect } from 'vue';
 
 setup() {
@@ -894,7 +900,7 @@ setup() {
 
 ## Provide和Inject
 
-```react
+```javascript
 import { provide, ref, readonly } from 'vue';
 
 import Home from './Home.vue';
@@ -924,7 +930,7 @@ export default {
 
 
 
-```react
+```javascript
 import { inject } from 'vue';
 
 setup() {
@@ -1112,7 +1118,7 @@ import {
 
 ## render和h函数的简单示例
 
-```react
+```html
 <script>
   import { h } from 'vue';
 
@@ -1136,7 +1142,7 @@ import {
 
 ### Options API
 
-```react
+```html
 <script>
   import { h } from 'vue';
 
@@ -1167,7 +1173,7 @@ import {
 
 ### Composition API
 
-```react
+```html
 <script>
   import { ref, h } from 'vue';
 
@@ -1201,7 +1207,7 @@ import {
 
 <span style="backGround: #efe0b9">demo.vue</span>
 
-```react
+```html
 <script>
   import { h } from 'vue';
   import HelloWorld from './HelloWorld.vue';
@@ -1226,7 +1232,7 @@ import {
 
 <span style="backGround: #efe0b9">HelloWorld.vue</span>
 
-```react
+```html
 <script>
   import { h } from "vue";
 
@@ -1265,7 +1271,7 @@ module.export = {
 
 <span style="backGround: #efe0b9">demo.vue</span>
 
-```react
+```html
 <script>
   import HelloWorld from './HelloWorld.vue';
 
@@ -1302,7 +1308,7 @@ module.export = {
 
 <span style="backGround: #efe0b9">HelloWorld.vue</span>
 
-```react
+```html
 <script>
   export default {
     render() {

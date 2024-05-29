@@ -195,7 +195,7 @@ module.exports = {
 
 ##### 更改model名称
 
-```react
+```html
 <ChildComponent v-model:title="pageTitle" />
 
 <!-- 是以下的简写: -->
@@ -205,7 +205,7 @@ module.exports = {
 
 ##### 使用多个v-model
 
-```react
+```html
 <ChildComponent v-model:title="pageTitle" v-model:content="pageContent" />
 
 <!-- 是以下的简写： -->
@@ -242,7 +242,7 @@ module.exports = {
 >
 > 现在以位于标签靠后的优先。
 
-```react
+```html
 <!-- template -->
 <div id="red" v-bind="{ id: 'blue' }"></div>
 <!-- result -->
@@ -259,7 +259,7 @@ module.exports = {
 >
 > 可以添加 `emits` 选项记录仅在当前组件触发的事件。
 
-```react
+```javascript
 // 父组件
 <my-component @close="mF" @mousedown="mF2" />
 
@@ -331,7 +331,7 @@ const asyncModalWithOptions = defineAsyncComponent({
 | beforeDestroy | beforeUnmount | 组件卸载前       |
 | hook:         | vnode-        | 监听组件生命周期 |
 
-```react
+```html
 <template>
   <child-component @hook:updated="onUpdated">
 </template>
@@ -356,7 +356,7 @@ const asyncModalWithOptions = defineAsyncComponent({
 | beforeUnmount | /                                                            | 在卸载元素之前调用                          |
 | unmounted     | unbind                                                       | /                                           |
 
-```react
+```javascript
 <p v-highlight="'yellow'">高亮显示此文本亮黄色</p>
 
 const app = Vue.createApp({})
@@ -410,7 +410,7 @@ watch: {
 >
 > 不再支持配置自定义别名的方法 `config.keyCodes` 。
 
-```react
+```html
 <!-- 键码版本，已废弃 -->
 <input v-on:keyup.13="submit" />
 

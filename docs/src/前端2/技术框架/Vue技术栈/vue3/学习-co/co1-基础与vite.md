@@ -44,7 +44,7 @@ Composition API 可以将相关代码放在一起进行处理
 
 - 在页面通过CDN的方式引入
 
-  ```react
+  ```html
   <script src="https://unpkg.com/vue@next"></script>
   ```
 
@@ -243,7 +243,7 @@ bind 会返回一个将调用者的 this 指向首参（对象）的方法
 当调用模板中的 @click="dos" 时，调用的就是 ctx[dos]
 ```
 
-```react
+```javascript
 const publicThis = instance.proxy // 代理，其中包含了实例的属性（如data中的数据）
 
 for(const key in methods) {
@@ -265,7 +265,7 @@ for(const key in methods) {
 
 在 Vue3 中已经不支持，建议使用计算属性/全局方法替代。
 
-```react
+```javascript
 formatPrice(price) {
   return "￥" + price;
 }
@@ -360,7 +360,7 @@ formatPrice(price) {
 
 #### v-once
 
-```react
+```html
 <!-- 初次渲染后，所有的子组件（节点）不随数据源变化而变化，可用于优化性能 -->
 <div v-once>{{ num }}</div>
 <!-- 随事件变化 -->
@@ -412,7 +412,7 @@ data() {
 
 ### v-on
 
-```react
+```html
 <!-- 绑定一个表达式: inline statement -->
 <button @click="counter++">{{counter}}</button>
 <button @click="modelView = true">展开</button>
@@ -425,7 +425,7 @@ data() {
 
 ### 遍历数字
 
-```react
+```html
 <ul>
   <li v-for="(num, index) in 10">{{num}}-{{index}}</li>
 </ul>
@@ -464,7 +464,7 @@ const vnode = {
 
 ### 浅拷贝
 
-```react
+```javascript
 const x = {a: 'value', b: '22', c: {cnode: 3}};
 const y = Object.assign({}, x); // 浅拷贝
 
@@ -507,19 +507,19 @@ app.mount('#app');
 
 ### Vue3对template的支持
 
-```react
+```elm
 npm install vue@next --save
 ```
 
 <span style="backGround: #efe0b9">index.html</span>
 
-```react
+```html
 <div id="app"></div>
 ```
 
 <span style="backGround: #efe0b9">main.js</span>
 
-```react
+```javascript
 import { createApp } from 'vue/dist/vue.esm-bundler'; // 需要使用运行时+编译器支持 template
 
 const app = createApp({
@@ -632,7 +632,7 @@ vue create xxname
 
 ### 技巧
 
-```react
+```javascript
 import HeyDemo from './HeyDemo.vue'
 ```
 
@@ -810,13 +810,13 @@ export default {
 
 <span style="backGround: #efe0b9">father.vue</span>
 
-```react
+```html
 <son />
 ```
 
 <span style="backGround: #efe0b9">son.vue</span>
 
-```react
+```javascript
 <h2>{{name}}-{{age}}</h2>
 
 export default {
@@ -992,7 +992,7 @@ emitter.off('foo', onFoo)  // 取消监听
 
 <span style="backGround: #efe0b9">son.vue</span>
 
-```react
+```html
 <header>
   <slot name="header"></slot>
 </header>
@@ -1107,7 +1107,7 @@ props: {
 
 <span style="backGround: #efe0b9">father.vue</span>
 
-```react
+```html
 <son :names="names">
   <template v-slot:demo="slotProps">
     <button>{{slotProps.item}}-{{slotProps.index}}</button>
@@ -1119,7 +1119,7 @@ props: {
 
  <span style="backGround: #efe0b9">son.vue</span>
 
-```react
+```html
 <template v-for="(item, index) in names" :key="item">
   <slot name="demo" :item="item" :index="index"></slot>
 </template>
@@ -1131,7 +1131,7 @@ props: {
 
 <span style="backGround: #efe0b9">father.vue</span>
 
-```react
+```html
 <son :names="names" v-slot="slotProps">
   <button>{{slotProps.item}}-{{slotProps.index}}</button>
 </son>
@@ -1341,7 +1341,7 @@ export default {
 
 #### 默认情况
 
-```react
+```html
 <ChildComponent v-model="pageTitle" />
 
 <!-- 相当于 2.X -->
@@ -1353,7 +1353,7 @@ export default {
 
 #### 更改model名称
 
-```react
+```html
 <ChildComponent v-model:title="pageTitle" />
 
 <!-- 是以下的简写: -->
@@ -1363,7 +1363,7 @@ export default {
 
 #### 使用多个v-model
 
-```react
+```html
 <ChildComponent v-model:title="pageTitle" v-model:content="pageContent" />
 
 <!-- 是以下的简写： -->
@@ -1378,7 +1378,7 @@ export default {
 
 写法一
 
-```react
+```javascript
 <input :value="modelValue" @input="btnClick">
 
 emits: ["update:modelValue"],
@@ -1394,7 +1394,7 @@ methods: {
 
 写法二
 
-```react
+```javascript
 <input v-model="aValue">
 
 emits: ["update:modelValue"],

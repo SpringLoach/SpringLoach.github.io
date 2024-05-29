@@ -113,7 +113,7 @@ where git
 
 > 就直接从项目那拿过来了，它已经引用了 `normalize.css`。
 
-```react
+```css
 /* App.vue */
 @import "./assets/css/base.css";
 ```
@@ -126,7 +126,7 @@ where git
 
 `vue.config.js` 可以将配置整合到默认配置上。
 
-```react
+```javascript
 module.exports = {
   configureWebpack: {
     resolve: {
@@ -213,7 +213,7 @@ CSS
 - network
   - home.js
 
-```react
+```javascript
 import {request} from "./request";
 
 export function getHomeMulidata() {
@@ -295,7 +295,7 @@ props: {
 
 导入 `home.vue` 并从父组件请求数据；
 
-```react
+```html
 <div class="recommond">
   <div v-for="item in recommends">
     <a :href="item.link">
@@ -315,7 +315,7 @@ props: {
     - childComps
       - FeatureView.vue
 
-```react
+```html
 <div class="feature">
   <a href="https://act.mogujie.com/zzlx67">
     <img src="~assets/img/home/recommend_bg.jpg" alt="">
@@ -369,7 +369,7 @@ goods：（流行/新款/精选）
 
 其中 `page` 用于记录当前的页数，`list` 用于记录已经加载的数据。
 
-```react
+```javascript
 goods: {
   'pop': {page: 5, list: [150]},
   'new': {page: 2, list: [60]},
@@ -379,7 +379,7 @@ goods: {
 
 初始化
 
-```react
+```javascript
 /* Home.vue */
 data() {
   return {
@@ -396,7 +396,7 @@ data() {
 
 封装请求并在 `Home.vue` 导出，只要传入特定的 `type` 和 `page` 就可以请求到对应的数据了。
 
-```react
+```javascript
 /* Home.js */
 export function getHomeGoods(type, page) {
   return request({
@@ -506,7 +506,7 @@ npm install --save better-scroll@1.13.2
 
 使用测试 `/* Category.vue */`
 
-```react
+```javascript
 import BScroll from 'better-scroll'
 
 data() {
@@ -541,7 +541,7 @@ mounted() {
 | click      | 设置为 true 时，除了 button 元素外，还监听浏览器的原生 `click` 事件 |
 | pullUpLoad | 设置为 true 时，监听 `pullingUp` 事件，滚动到底部时发生      |
 
-```react
+```javascript
 /* 引入文件后 */
 const bscroll = BetterScroll.createBScroll(document.querySelector('.wrapper'), {
   probeType: 3,
@@ -605,7 +605,7 @@ mounted() {
 
 定义的样式仅在当前组件中起作用
 
-```react
+```html
 <style scoped>
 .content {
   height: calc(100vh - 44px - 49px);
@@ -624,7 +624,7 @@ mounted() {
   - backTop
     - BackTop
 
-```react
+```html
 <div class="back-top">
   <img src="~assets/img/common/top.png" alt=""> 
 </div>
@@ -1235,7 +1235,7 @@ methods: {
 - 方法二：事件处理程序的注销。
   - 选择在 `Home.vue` 的 `deactivated` 的回调中，执行注销，有点像 DOM 的事件处理程序。
 
-```react
+```javascript
 this.$bus.$off('ItemImgLoad', 要注销的函数)
 ```
 
@@ -1615,7 +1615,7 @@ activated() {
 
 > 开发中，这种情况不能直接改变状态，而是应该先改变对象模型，再由模型改变状态。
 
-```react
+```javascript
 /* mutations.js */
 addToCart(state, payload) {
     payload.checked = false;

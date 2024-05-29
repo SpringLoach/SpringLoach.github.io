@@ -104,7 +104,7 @@
 
 `项目文件/build/webpack.base.conf.js` 中的有一个 `resolve` 对象，其中的 `alias` 属性为别名。
 
-```react
+```javascript
 resolve: {
     ...,
     alias: {
@@ -118,7 +118,7 @@ resolve: {
 
 使用别名
 
-```react
+```javascript
 /* src中使用需要前缀~ */
 src="~assets/img/tabber/home.svg"
 
@@ -136,7 +136,7 @@ import TabBar from 'components/tabbar/TabBar'
 
 1. 实例化 `promise` 类时，需要传入一个函数，这个函数有两个可选的参数 `resolve` 和 `reject`，它们是第二步的前提。
 
-```react
+```javascript
 new Promise((resolve,reject) => {
   
 )
@@ -146,7 +146,7 @@ new Promise((resolve,reject) => {
 2. 这里用 `setTimeout()` 模仿完成期约所需要的些许时间。
 3. `then()` 方法将在期约完成时被调用，该方法最多可接受两个函数作为参数。
 
-```react
+```javascript
 new Promise((resolve,reject) => {
   setTimeout(() => {
     console.log('Hello World!');
@@ -162,7 +162,7 @@ new Promise((resolve,reject) => {
 
 1. 可以将获取的数据作为 `resolve()` 的参数，它将作为参数传递给 `then()`方法。
 
-```react
+```javascript
 new Promise((resolve,reject) => {
   setTimeout(() => {
     console.log('Hello World!');
@@ -179,7 +179,7 @@ new Promise((resolve,reject) => {
 1. 链式传递，在 `Promise`的方法中获取数据；在 `then()` 中处理数据，有需要则再调用一次期约。
 2. 之所以能对 `then()` 调用 `then()`，是因为它自身返回的也是一个期约的完成。
 
-```react
+```javascript
 new Promise((resolve, reject) => {
   console.log('Hello World!');
   setTimeout(() => {
@@ -201,7 +201,7 @@ new Promise((resolve, reject) => {
 
 1. `then()` 方法中使用 `return` 时，某些返回值相当于解决了期约。
 
-```react
+```javascript
 new Promise((resolve, reject) => {
   console.log('Hello World!');
   setTimeout(() => {
@@ -219,7 +219,7 @@ new Promise((resolve, reject) => {
 
 1. 设置解决和拒绝处理程序的一个方法，`then()` 会将接受到的拒绝期约返回出去。
 
-```react
+```javascript
 new Promise((resolve, reject) => {
   console.log('Hello World!');
   reject('problem');
@@ -236,7 +236,7 @@ new Promise((resolve, reject) => {
 
 > `Promise.all()`方法接受一个可迭代对象，其中可包括多个期约实例，待所有期约解决后，返回一个新期约，并将可迭代对象中期约的解决值作为数组参数传过去。
 
-```react
+```javascript
 Promise.all([
     new Promise((solve) => {
       solve(2);
@@ -287,7 +287,7 @@ npm install vuex --save
   - store
     - index.js
 
-```react
+```javascript
 /* store 下的 index.js */
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -303,7 +303,7 @@ export default store
 
 :palm_tree: 单一状态树：将状态信息<span style="color: #ff0000">全部保存在一个 Store 对象中</span>，便于后期的管理和维护。
 
-```react
+```javascript
 /* src 下的 main.js */
 import store from './store'
 
@@ -315,7 +315,7 @@ new Vue({
 
 :palm_tree: 在 Vue 的原型上添加了 `$store`。
 
-```react
+```javascript
 /* store 下的 index.js */
 const store = new Vuex.Store({
   state: {},                // 保存的状态其它界面能共享
@@ -328,7 +328,7 @@ const store = new Vuex.Store({
 
 ### state属性
 
-```react
+```javascript
 /* store 下的 index.js */
 state: {counter: 101}, 
 ...
@@ -347,7 +347,7 @@ state: {counter: 101},
 
 > 用于同步操作中更新 `state` 的状态，默认参数为 state 对象。
 
-```react
+```javascript
 /* store 下的 index.js */
 mutations: {
   increment(state){
@@ -381,7 +381,7 @@ methods: {
 
 > 实际上，`this.$store.commit()` 还有其它的提交方式。
 
-```react
+```javascript
 mutations: {
   addCount(state, count){
     state.counter += count
@@ -416,7 +416,7 @@ methods: {
 
 > 需要提前在 store 中初始化所需的属性。
 
-```react
+```javascript
 state: {
   info: {
     name: 'Kaerx',
@@ -455,7 +455,7 @@ methods: {
 - store
   - mutations-types.js
 
-```react
+```javascript
 /* mutations-types.jc */
 export const INCREMENT = 'increment'  
 
@@ -487,7 +487,7 @@ mutations: {
 
 > 类似计算属性。多个页面需要获取处理后的状态时使用，第一个参数为 state 对象，第二个参数为 getters 对象。
 
-```react
+```javascript
 /* store 下的 index.js */
 getters: {
   powerCounter(state){
@@ -518,7 +518,7 @@ getters: {
 >
 > 待异步操作结束后，提交 mutation。
 
-```react
+```javascript
 /* Vue.js */
 <button @click="increment2">异步+</button>
 
@@ -544,7 +544,7 @@ actions: {
 
 > 可以通过返回期约的方式，告诉调用操作的地方异步操作的完成。
 
-```react
+```javascript
 /* Vue.js */
 methods: {
   increment2() {
@@ -578,7 +578,7 @@ actions: {
 
 > 这是 ES6 的简写语法。
 
-```react
+```javascript
 actions: {
     aChangeName({ state, commit, rootState }) {
       setTimeout(() => {
@@ -594,7 +594,7 @@ actions: {
 
 > 当需要管理的状态太多时，内容会显得臃肿，其实使用 `modules` 属性可以实现状态的分离。
 
-```react
+```javascript
 /* store 下的 index.js */
 const moduleA = {
   state: {...},
@@ -625,7 +625,7 @@ const store = new Vuex.Store({
 
 > 定义时一致；使用时，先取出模块（被放到了根 `state` 中），再从模块中取出。
 
-```react
+```javascript
 const moduleA = {
   state: {
     name: 'black'
@@ -641,7 +641,7 @@ const moduleA = {
 
 > 定义和使用方式与原先一致。
 
-```react
+```javascript
 const moduleA = {
   mutations: {
     ChangeName(state, payload) {
@@ -665,7 +665,7 @@ methods: {
 
 > 定义和使用方式与原先一致。
 
-```react
+```javascript
 const moduleA = {
   getters: {
     fullname(state) {
@@ -689,7 +689,7 @@ const moduleA = {
 
 > 定义和使用方式与原先一致。
 
-```react
+```javascript
 const moduleA = {
   actions: {
     aChangeName(context) {
@@ -728,7 +728,7 @@ methods: {
       - mutationA.js
       - mutationB.js
 
-```react
+```javascript
 /* index.js */
 import mutations from './mutations'
 import actions from './actions'
@@ -785,14 +785,14 @@ npm install axios --save
 
 配置
 
-```react
+```javascript
 /* main.js */
 import axios from 'axios'
 ```
 
 使用
 
-```react
+```javascript
 /* main.js */
 axios({
   url: 'http://123.207.32.32:8000/home/multidata'
@@ -807,7 +807,7 @@ axios({
 
 更改请求方式
 
-```react
+```javascript
 axios({
   url: 'http://123.207.32.32:8000/home/multidata',
   method: 'post'
@@ -825,7 +825,7 @@ axios({
 
 :bug: 错误接口 `123.207.32.32:8000/home/data?type=pop&page=1`
 
-```react
+```javascript
 axios({
   url: 'http://123.207.32.32:8000/home/data?type=pop&page=1'
 })
@@ -844,7 +844,7 @@ axios({
 
 ### axios发送并发请求后处理
 
-```react
+```javascript
 axios.all([axios(), axios()])
   .then(results => {
   ...
@@ -855,7 +855,7 @@ axios.all([axios(), axios()])
 
 直接取得对应的期约结果
 
-```react
+```javascript
 axios.all([axios(), axios()])
   .then(axios.spread((res1, res2) => {
   ...
@@ -864,7 +864,7 @@ axios.all([axios(), axios()])
 
 ### axios的配置相关信息
 
-```react
+```javascript
 axios.defaults.baseURL = 'xxxxx'
 axios.defaults.timeout = 5000
 
@@ -896,7 +896,7 @@ axios({
 
 > 全局配置会默认应用到所有 axios 请求中，但在后续开发中，有可能需要的配置会不一样，这时候就可以新建实例并传入属于该实例的默认信息。
 
-```react
+```javascript
 /* 创建 axios 实例 */
 const instance1 = axios.create({
   baseURL: 'xxx',
@@ -918,7 +918,7 @@ instance1({
 
 > 将第三方框架使用到多个模块是一件非常危险的事情，一旦框架不再维护，想要更替框架，工作量会非常大。
 
-```react
+```javascript
 /* Vue.js */
 import axios from 'axios'
 
@@ -940,7 +940,7 @@ created() {
 
 终极方案
 
-```react
+```javascript
 import axios from 'axios'
 
 export function request(config) {
@@ -971,7 +971,7 @@ created() {
 
 当新框架不支持 promise API 时，只需要将异步操作用期约包围即可。
 
-```react
+```javascript
 import axios from 'axios'
 
 export function request(config) {
@@ -996,7 +996,7 @@ export function request(config) {
 
 ### 回调函数简单栗子
 
-```react
+```javascript
 function makeData(x) {
   let a = 3;
   /* 调用函数x */
@@ -1035,7 +1035,7 @@ makeData((num) => {
 
 筛选响应信息
 
-```react
+```javascript
 /* 建立 instance 实例后 */
 instance.interceptors.response.use(res => {
   return res.data;

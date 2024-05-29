@@ -58,7 +58,7 @@
 
 ### 通过animation实现
 
-```react
+```html
 <transition name="bounce">
   <h2 v-if="show">hey</h2>
 </transition>
@@ -92,7 +92,7 @@
 
 #### 监听过渡/动画
 
-```react
+```html
 <transition type="transition">
   <h2 v-if="show">hey</h2>
 </transition>
@@ -104,7 +104,7 @@
 
 #### 显示的指定动画时间
 
-```react
+```html
 // 同时设置进入和离开的过渡时间
 <transition :duration="1000">
   <h2 v-if="show">hey</h2>
@@ -172,7 +172,7 @@ import "animation.css"
 > 使用方式一。
 
 
-```react
+```html
 <transition name="demo">
   <h2 v-if="show">hey</h2he>
 </transition>
@@ -241,13 +241,14 @@ npm install gsap
 
 #### 使用示例
 
-```react
+```html
 <transition @enter="enter"
             @leave="leave"
             :css="false">
   <h2 class="title" v-if="isShow">Hello World</h2>
 </transition>
-
+```
+```javascript
 import gsap from 'gsap';
 
 methods: {
@@ -313,7 +314,7 @@ methods: {
 
 ### (例)实现数字变化
 
-```react
+```html
 <input type="number" step="100" v-model="counter">
 <h2>当前计数: {{showCounter}}</h2>
     
@@ -367,7 +368,7 @@ methods: {
 npm install lodash
 ```
 
-```react
+```html
 <template>
   <div>
     <button @click="addNum">添加数字</button>
@@ -444,7 +445,7 @@ npm install lodash
 
 #### (例)提示项交替消失
 
-```react
+```html
 <template>
   <div>
     <input v-model="keyword">

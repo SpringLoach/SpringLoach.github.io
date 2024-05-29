@@ -591,7 +591,7 @@ Symbol
 
 <span style="backGround: #efe0b9">子组件</span>
 
-```react
+```javascript
 defineProps({
   disabled: Boolean
 })

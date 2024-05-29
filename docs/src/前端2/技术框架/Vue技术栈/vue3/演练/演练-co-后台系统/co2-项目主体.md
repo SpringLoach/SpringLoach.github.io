@@ -871,7 +871,7 @@ setup() {
 
 <span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
-```react
+```javascript
 import { useStore } from 'vuex'
 setup() {
   const store = useStore()
@@ -929,7 +929,7 @@ export function useStore(): Store<IStoreType> {
 
 <span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
-```react
+```javascript
 import { useStore } from '@/store'
 
 setup() {
@@ -1568,7 +1568,7 @@ setup() {
 
 <span style="backGround: #efe0b9">commom/search/src/search.vue</span>
 
-```react
+```javascript
 import { defineComponent, PropType } from 'vue'
 import { IFormItem } from '../types'
 
@@ -1709,7 +1709,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">views/main/system/user/config/search.ts</span>
 
-```react
+```javascript
 import { HSearch } from '@/commom/search'
 
 export const searchConfig: HSearch = {
