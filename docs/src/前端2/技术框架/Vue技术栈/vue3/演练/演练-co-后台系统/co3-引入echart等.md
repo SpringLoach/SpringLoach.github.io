@@ -6,7 +6,7 @@ npm install echarts
 
 <span style="backGround: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
 
-```react
+```html
 <template>
   <div class="dashboard">
     <div ref="divRef" :style="{ width: '600px', height: '500px' }"></div>
@@ -105,7 +105,7 @@ ECharts在不同的设备上，进行了性能的测试：
 
 <span style="backGround: #efe0b9">store/main/analysis/dashboard.ts</span>
 
-```react
+```javascript
 import { Module } from 'vuex'
 
 import { IDashboardState } from './types'
@@ -143,7 +143,7 @@ export interface IDashboardState {
 
 <span style="backGround: #efe0b9">store/index.ts</span>
 
-```react
+```javascript
 import dashboard from './main/analysis/dashboard'
 
 const store = createStore<IRootState>({
@@ -173,7 +173,7 @@ export interface IRootWithModule {
 
 <span style="backGround: #efe0b9">service/main/analysis/dashboard.ts</span>
 
-```react
+```javascript
 import baseRequest from '@/service'
 
 enum DashboardAPI {
@@ -214,7 +214,7 @@ export function getAddressGoodsSale() {
 
 <span style="backGround: #efe0b9">store/main/analysis/dashboard.ts</span>
 
-```react
+```javascript
 import {
   getCategoryGoodsCount,
   getCategoryGoodsSale,
@@ -260,7 +260,7 @@ export default dashboardModule
 
 <span style="backGround: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
 
-```react
+```javascript
 import { useStore } from '@/store'
 
 setup() {
@@ -286,7 +286,7 @@ setup() {
 
 <span style="backGround: #efe0b9">commom/card/src/card.vue</span>
 
-```react
+```html
 <el-card class="box-card">
   <template #header>
     <div class="card-header">
@@ -301,7 +301,7 @@ setup() {
 
 <span style="backGround: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
 
-```react
+```html
 <div class="dashboard">
   <el-row :gutter="10">
     <el-col :span="7">
@@ -403,7 +403,7 @@ onMounted(() => {
 
 <span style="backGround: #efe0b9">commom/echart/hooks/useEchart.ts</span>
 
-```react
+```javascript
 import * as echarts from 'echarts'
 
 import chinaMapData from '../data/china.json'
@@ -576,7 +576,7 @@ export { PieEchart, RoseEchart }
 
 <span style="backGround: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
 
-```react
+```html
 <template>
   <div class="dashboard">
     <el-row :gutter="10">

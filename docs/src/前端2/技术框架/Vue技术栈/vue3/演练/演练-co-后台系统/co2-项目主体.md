@@ -1904,7 +1904,7 @@ props: {
 
 <span style="backGround: #efe0b9">commom/search/src/search.vue</span>
 
-```react
+```html
 <div class="header">
   <slot name="header"></slot>
 </div>
@@ -1920,7 +1920,7 @@ props: {
 
 <span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
 
-```react
+```javascript
 props: {
   searchConfig: {
     type: Object,
@@ -2195,7 +2195,7 @@ export default systemModule
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```javascript
 import { defineComponent, computed } from 'vue'
 import { useStore } from '@/store'
 
@@ -2286,7 +2286,7 @@ export default HdTable
 
 <span style="backGround: #efe0b9">commom/table/src/table.vue</span>
 
-```react
+```html
 <template>
   <div class="table">
     <el-table :data="listData" border style="width: 100%">
@@ -2882,7 +2882,7 @@ setup() {
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```javascript
 setup(props) {
   // ...
   // 发送网络请求
@@ -3129,7 +3129,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">store/main/system/system.ts</span>
 
-```react
+```javascript
 state() {
   return {
     ...
@@ -3206,7 +3206,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">views/main/product/goods/goods.vue</span>
 
-```react
+```html
 <page-content :contentTableConfig="contentTableConfig" pageName="goods">
   <template #image="scope">
     <el-image
@@ -3245,7 +3245,7 @@ props: {
 
 <span style="backGround: #efe0b9">views/main/system/menu/config/content.ts</span>
 
-```react
+```javascript
 export const contentTableConfig = {
   ...,
   childrenProps: {
@@ -3276,7 +3276,7 @@ props: {
 
 <span style="backGround: #efe0b9">views/main/system/menu/config/content.ts</span>
 
-```react
+```javascript
 export const contentTableConfig = {
   ...,
   showFooter: false
@@ -3342,7 +3342,7 @@ mutations: {
 
 <span style="backGround: #efe0b9">store/login/types.ts</span>
 
-```react
+```javascript
 export interface ILoginState {
   ...
   permissions: string[]
@@ -3369,7 +3369,7 @@ export function usePermission(pageName: string, hanldeName: string) {
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```html
 <template #headerHandler>
   <el-button v-if="isCreate">新建用户</el-button>
 </template>
@@ -3441,7 +3441,7 @@ setup(props, { emit }) {
 
 <span style="backGround: #efe0b9">service/main/system/system.ts</span>
 
-```react
+```javascript
 // url: /users/id
 export function deletePageData(url: string) {
   return baseRequest.request<IDataType>({
@@ -3453,7 +3453,7 @@ export function deletePageData(url: string) {
 
 <span style="backGround: #efe0b9">store/main/system/system.ts</span>
 
-```react
+```javascript
 import { ..., deletePageData } from '@/service/main/system/system'
 
 actions: {
@@ -3559,7 +3559,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">views/main/system/user/config/modal.ts</span>
 
-```react
+```javascript
 import { HForm } from '@/commom/form'
 
 export const modalConfig: HForm = {
@@ -3709,7 +3709,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
-```react
+```html
 <el-dialog destroy-on-close></el-dialog>
 ```
 
@@ -3733,7 +3733,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">commom/form/types/index.ts</span>
 
-```react
+```javascript
 export interface IFormItem {
   ...
   isHidden?: boolean
@@ -3742,7 +3742,7 @@ export interface IFormItem {
 
 <span style="backGround: #efe0b9">views/main/system/user/config/modal.ts</span>
 
-```react
+```javascript
 export const modalConfig: HForm = {
   formItems: [
     {
@@ -3759,7 +3759,7 @@ export const modalConfig: HForm = {
 
 <span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
 
-```react
+```javascript
 setup() {
   const [pageContentRef, handleResetClick, handleQueryClick] = usePageSearch()
 
@@ -3817,7 +3817,7 @@ export function usePageModal(newCb?: CallbackFn, editCb?: CallbackFn) {
 
 <span style="backGround: #efe0b9">store/index.ts</span>
 
-```react
+```javascript
 import localCache from '@/utils/cache'
 
 import { getPageListData } from '@/service/main/system/system'
@@ -3878,7 +3878,7 @@ export function setupStore() {
 
 <span style="backGround: #efe0b9">store/types.ts</span>
 
-```react
+```javascript
 export interface IRootState {
   name: string
   age: number
@@ -3891,7 +3891,7 @@ export interface IRootState {
 
 <span style="backGround: #efe0b9">store/login/login.ts</span>
 
-```react
+```javascript
 actions: {
   async accountLoginAction({ commit, dispatch }, payload: IAccount) {
     // 实现登录逻辑
@@ -3952,7 +3952,7 @@ setup() {
 
 <span style="backGround: #efe0b9">service/main/system/system.ts</span>
 
-```react
+```javascript
 export function createPageData(url: string, data: any) {
   return baseRequest.request<IDataType>({
     method: 'post',
@@ -3974,7 +3974,7 @@ export function editPageData(url: string, data: any) {
 
 <span style="backGround: #efe0b9">store/main/system/system.ts</span>
 
-```react
+```javascript
 import { ..., createPageData, editPageData } from '@/service/main/system/system'
 
 state() {
@@ -4075,7 +4075,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```html
 <page-modal pageName="users"></page-modal>
 ```
 
@@ -4093,7 +4093,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
-```react
+```html
 <el-dialog>
   <hy-form></hy-form>
   <slot></slot>
@@ -4103,7 +4103,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">views/main/system/role/role.vue</span>
 
-```react
+```html
 <page-modal>
   <div class="menu-tree">demo</div>
 </page-modal>
@@ -4117,7 +4117,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">store/index.ts</span>
 
-```react
+```javascript
 import { getPageListData } from '@/service/main/system/system'
 
 state() {
@@ -4145,7 +4145,7 @@ actions: {
 
 <span style="backGround: #efe0b9">store/types.ts</span>
 
-```react
+```javascript
 export interface IRootState {
   ...
   entireMenu: any[]
@@ -4208,7 +4208,7 @@ setup() {
 
 <span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
-```react
+```javascript
 props: {
   otherInfo: {
     type: Object,
@@ -4245,7 +4245,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">utils/map-menus.ts</span>
 
-```react
+```javascript
 // 传入树形数据，传出叶子节点的id集合数组
 export function menuMapLeafKeys(menuList: any[]) {
   const leftKeys: number[] = []
@@ -4306,7 +4306,7 @@ setup() {
 
 <span style="backGround: #efe0b9">hooks/use-page-modal.ts</span>
 
-```react
+```typescript
 type CallbackFn = (item?: any) => void
 
 export function usePageModal(newCb?: CallbackFn, editCb?: CallbackFn) {
