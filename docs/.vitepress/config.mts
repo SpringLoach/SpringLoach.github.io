@@ -9,7 +9,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '业务', link: '/business/common' },
+      { text: '业务', link: '/business/computed' },
       {
         text: '前端',
         items: [
@@ -21,10 +21,11 @@ export default defineConfig({
       { 
         text: '技术框架',
         items: [
-          { text: '文档参考', link: '/前端2/文档参考' },
+          { text: '代码规范', link: '/前端2/代码规范/代码规范'},
           { text: '技术框架', link: '/前端2/技术框架/微信小程序/微信小程序' },
           { text: 'UI框架', link: '/前端2/UI框架/Element-UI/elementUI' },
           { text: '第三方库', link: '/前端2/第三方库/viewer.js/viewer.js' },
+          { text: '文档参考', link: '/前端2/文档参考' },
         ]
       },
       { text: '其他', link: '/expand/初始配置/计算机环境配置' }
@@ -185,7 +186,6 @@ export default defineConfig({
         }
       ],
       '/前端2/': [
-        { text: '文档参考', link: '/前端2/文档参考' },
         {
           text: '代码规范',
           collapsed: true,
@@ -231,16 +231,30 @@ export default defineConfig({
           text: '第三方库',
           collapsed: true,
           items: [
+            {  text: 'highlight.js', link: '/前端2/第三方库/highlight.js/highlight.js' },
             {  text: 'viewer.js', link: '/前端2/第三方库/viewer.js/viewer.js' },
             {  text: 'mockjs', link: '/前端2/第三方库/mockjs/mockjs' },
+            { 
+              text: 'ECharts',
+              collapsed: true,
+              items: [
+                {  text: '基本使用', link: '/前端2/第三方库/ECharts/基本使用' },
+                {  text: '南丁格尔图', link: '/前端2/第三方库/ECharts/南丁格尔图' },
+                {  text: '直角坐标系', link: '/前端2/第三方库/ECharts/直角坐标系' },
+                {  text: '实践', link: '/前端2/第三方库/ECharts/实践' },
+              ]
+            },
           ]
         },
+        { text: '文档参考', link: '/前端2/文档参考' },
       ],
       '/expand/': [
         {
           text: '初始配置',
+          collapsed: true,
           items: [
             { text: '计算机环境配置', link: '/expand/初始配置/计算机环境配置' },
+            { text: '编写规范', link: '/expand/初始配置/编写规范' },
           ]
         },
         {
@@ -270,7 +284,6 @@ export default defineConfig({
             { text: 'PicList', link: '/expand/相关技能/PicList/PicList' },
           ]
         },
-        { text: '编写规范', link: '/expand/编写规范' },
         { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },
         { text: '有兴趣就研究', link: '/expand/有兴趣就研究' },
       ]

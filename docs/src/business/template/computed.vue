@@ -36,12 +36,6 @@ const inputValue = ref('')
 const computedValue = ref('')
 const copyText = ref('复制')
 
-onMounted(() => {
-  console.log('====-----mount-----====')
-  import('./lib-that-access-window-on-import').then((module) => {
-    // use code
-  })
-})
 watch(computedValue, () => {
   copyText.value = '复制'
 })

@@ -1,6 +1,6 @@
 <script setup>
-import CustomComponent from '../template/computed.vue'
-import replaceComponent from '../template/replace.vue'
+import CustomComponent from './template/computed.vue'
+import replaceComponent from './template/replace.vue'
 </script>
 
 
