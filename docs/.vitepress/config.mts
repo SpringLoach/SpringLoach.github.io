@@ -24,7 +24,7 @@ export default defineConfig({
         items: [
           { text: '文档参考', link: '/前端2/技术框架/文档参考' },
           { text: '技术框架', link: '/前端2/技术框架/技术框架/微信小程序/微信小程序' },
-          { text: 'UI框架', link: '/前端2/技术框架/UI框架/Element-UI/elementUI' },
+          { text: 'UI框架', link: '/前端2/UI框架/Element-UI/elementUI' },
         ]
       },
       { text: '其他', link: '/expand/初始配置/计算机环境配置' }
@@ -185,7 +185,16 @@ export default defineConfig({
         }
       ],
       '/前端2/': [
-        { text: '文档参考', link: '/前端2/技术框架/文档参考' },
+        { text: '文档参考', link: '/前端2/文档参考' },
+        {
+          text: '代码规范',
+          collapsed: true,
+          items: [
+            {  text: '代码规范', link: '/前端2/代码规范/代码规范' },
+            {  text: '兼容性', link: '/前端2/代码规范/兼容性' },
+            {  text: '性能优化', link: '/前端2/代码规范/性能优化' },
+          ]
+        },
         {
           text: '技术框架',
           collapsed: true,
@@ -213,7 +222,7 @@ export default defineConfig({
             { 
               text: 'elementUI',
               items: [
-                { text: 'elementUI', link: '/前端2/技术框架/UI框架/Element-UI/elementUI' },
+                { text: 'elementUI', link: '/前端2/UI框架/Element-UI/elementUI' },
               ]
             },
           ]
