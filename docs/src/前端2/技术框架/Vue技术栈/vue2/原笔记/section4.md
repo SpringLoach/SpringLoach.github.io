@@ -264,7 +264,7 @@ created() {
 
 使用方法为 `swiper` （预留了插槽）包围 `swiper-item` 。由于有多个轮播图，可以直接[遍历](https://github.com/SpringLoach/Vue/blob/main/learning/section1.md#v-for遍历数组和对象)数组。轮播图可以实现链接的功能，所以用 `<a>` 包围 `<img>`。
 
-```react
+```html
 <swiper>
   <swiper-item v-for="item in banners :key="item.title">
     <a :href="item.link">
@@ -272,7 +272,8 @@ created() {
     </a>
   </swiper-item>
 </swiper>
-
+```
+```javascript
 /* 新增 option */
 props: {
   banners: {
@@ -336,7 +337,7 @@ props: {
 
 需要动态添加一个激活的类样式
 
-```react
+```html
 <div class="tab-control">
   <div v-for="(item, index) in titles"
       class="tab-control-item"
@@ -344,7 +345,8 @@ props: {
     <span>{{item}}</span>
   </div>
 </div>
-
+```
+```javascript
 data() {
   return {
     currentIndex: 0;
@@ -570,13 +572,14 @@ bscroll.on('pullingUp', () => {
   - scroll
     - Scroll.vue
 
-```react
+```html
 <div class="wrapper" ref="wrapper">
   <div class="content">
     <slot></slot>
   </div>
 </div>
-
+```
+```javascript
 import BScroll from 'better-scroll'
 
 data() {
@@ -596,7 +599,7 @@ mounted() {
 
 导入并使用该组件，并根据需求设置高度
 
-```react
+```html
 /* Home.vue */
 <scroll class="content">
   // 顶部导航栏和底部导航栏以外的内容
@@ -632,13 +635,14 @@ mounted() {
 
 当发生点击事件时，要调用 `scroll` 组件中 `scroll` 属性的 `scrollTo()` 方法。
 
-```react
+```html
 /* Home.vue */
 <scroll ref="scroll">
 ...
 <srcoll>
 <back-top @click.native="backClick"/>
-
+```
+```javascript
 backClick() {
   this.$refs.scroll.scroll.scrollTo(0, 0, 300)
 }
@@ -948,10 +952,11 @@ deactivated() {
 
 由于商品存在不同的 ID，可以使用[动态路由](https://github.com/SpringLoach/Vue/blob/main/learning/section2.md#动态路由的使用)并将 ID [传入](https://github.com/SpringLoach/Vue/blob/main/learning/section2.md#vue-router参数传递)详情页组件中。
 
-```react
+```html
 /* GoodsListItem.vue */
 <div class="list-item" @click="itemClick">
-
+```
+```javascript
 methods: {
   itemClick() {
     this.$router.push('/detail/' + this.good.iid);
@@ -1069,12 +1074,13 @@ created() {
   - childComps
     - DetailBaseInfo.vue
 
-```react
+```html
 /* 部分解释 */
 
 /* 仅当获取到数据后展示 */  
 <div v-if="Object.keys(goods).length !== 0">
-
+```
+```javascript
 /* 遍历数组的第一项外的所有项 */
 computed: {
   reservices() {
@@ -1281,14 +1287,15 @@ titleClick(index) {
 
 2. 在父组件监听事件添加跳转程序并标记需要定位的组件。
 
-```react
+```html
 /* Detail.vue */
 <detail-nav-bar @titleClick="titleClick">
 <scroll ref="scroll">
 <detail-params-info ref="params">
 <detail-comment-info ref="comment">
 <goods-list ref="recommend">
-
+```
+```javascript
 data() {
   return { themeTopTs: [] }
 },
@@ -1356,9 +1363,11 @@ c) 其它不能使用的方案
 
 2. 将 `DetailNavBar.vue` 中的 currentIndex 改为自定义属性，以便从 `Detail.vue` 中传值
 
-```react
+```html
 /* Detail.vue */
 <detail-nav-bar :currentIndex="currentIndex">
+```
+```javascript
 data() {
   return { currentIndex: 0 }
 }
@@ -1411,20 +1420,23 @@ methods: {
 
 1. 点击时发出事件并传到详情页组件，将需要展示到购物车的商品数据保存到变量中。
 
-```react
 /* DetailBottomBar.vue */
+```html
 <span @click="addToCart">加入购物车</span>
-
+```
+```javascript
 methods: {
   addToCart(){
     this.$emit('addCart');
   }
 }
-
+```
 
 /* Detail.vue */
+```html
 <detail-bottom-bar @addCart="addToCart"/>
-
+```
+```javascript
 methods: {
   addToCart(){
     const product = {};
@@ -1602,10 +1614,11 @@ computed: {
 
 > 由于对购物车组件添加了缓存，故每次进入该页面时需重新计算滚动高度。
 
-```react
+```html
 /* Cart.vue */
 <scroll ref="scroll">
-
+```
+```javascript
 activated() {
   this.$refs.scroll.scroll.refresh();
 }

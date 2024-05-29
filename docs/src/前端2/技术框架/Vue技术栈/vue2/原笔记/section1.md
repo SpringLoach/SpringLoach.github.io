@@ -1,14 +1,13 @@
 ## 简单栗子
 
-```react
-/* HTML */
+```html
 <script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
 
 <div id="demo">
   <p>{{text}}</p>
 </div>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({    // 新建 Vue 对象实例
   el: '#demo',            // 用于挂载被管理的元素，可以是string（CSS 选择器）或 Element
   data: {                 // 定义数据
@@ -25,16 +24,15 @@ const demo = new Vue({    // 新建 Vue 对象实例
 
 ## Vue列表显示
 
-```react
-/* HTML */
+```html
 <div id="demo">
   <p>{{text}}</p>
   <ul>
     <li v-for="item of colors">{{item}}</li>  // 迭代数组，并将每一个元素解析到对应位置
   </ul>
 </div>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
   el: '#demo',
   data: {
@@ -52,15 +50,15 @@ const demo = new Vue({
 
 ## 一次性计数器
 
-```react
-/* HTML */
+```html
 <div id="demo">
   <h3>当前计数:{{counter}}</h3>
   <button v-on:click="add">+</button>
   <button @click="counter--">-</button>    // 直接对 data 中的数据进行操作
 </div>
 
-/* Vue */
+```
+```javascript
 const demo = new Vue({
   el: '#demo',
   data: {
@@ -114,13 +112,14 @@ const demo = new Vue({
 
 > 即 Mustache 语法 (双大括号)，会将数据解释为普通文本。
 
-```react
+```html
 <div id="demo">
     <h3>{{type + ' ' + name}}</h3>
     <h3>明年{{counter + 1 + '岁'}}</h3>
 </div>
 
-/* Vue */
+```
+```javascript
 const demo = new Vue({
     el: '#demo',
     data: {
@@ -135,7 +134,7 @@ const demo = new Vue({
 
 > 能执行首次的插值，但当数据改变时，插值处的内容不会更新。
 
-```react
+```html
 <div id="demo">
     <h3 v-once>{{message}}</h3>
 </div>
@@ -145,10 +144,10 @@ const demo = new Vue({
 
 > 可以把内容当作原始 HTML 真正地输出。
 
-```react
+```html
 <p v-html="url"></p>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
     ...
     data: {
@@ -163,7 +162,7 @@ const demo = new Vue({
 
 > 更新（替换）元素的 textContent。
 
-```react
+```html
 <p v-text="lalala">被替代了</p>
 ```
 
@@ -171,7 +170,7 @@ const demo = new Vue({
 
 > 跳过这个元素和它的子元素的编译过程。可以用来显示原始 Mustache 标签，就像是取消了数据绑定。
 
-```react
+```html
 <span v-pre>{{ this will not be compiled }}</span>
 ```
 
@@ -181,13 +180,12 @@ const demo = new Vue({
 
 这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕。
 
-```react
-/* CSS */
+```css
 [v-cloak] {
   display: none;
 }
-
-/* HTML */
+```
+```html
 <div v-cloak>
   {{ message }}
 </div>
@@ -199,11 +197,11 @@ const demo = new Vue({
 
 > 使用 `v-bind` 指令，可以按需求更新属性的值。
 
-```react
+```html
 <img v-bind:src="myImg">
 <a :href="aHref">某个网站</a>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
     ...
     data: {
@@ -217,11 +215,11 @@ const demo = new Vue({
 
 #### 动态绑定属性_布尔属性
 
-```react
+```html
 // 布尔属性
 <button :hidden="isActive">Button</button>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
   ...
   data: {
@@ -238,7 +236,7 @@ const demo = new Vue({
 
 #### 绑定class_对象语法
 
-```react
+```html
 // 对象语法
 <p :class="{active: isActive}">abc</p>
 // 和普通的类可以同时存在，不冲突
@@ -249,8 +247,8 @@ const demo = new Vue({
 
 // 添加事件处理程序
 <button v-on:click="btnClick">按钮</button>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
     ...
     data: {
@@ -270,10 +268,10 @@ const demo = new Vue({
 
 #### 绑定class_数组语法
 
-```react
+```html
 <p  class="app" :class="['top', class1]">asdf</p>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
   ...
   data: {
@@ -291,13 +289,13 @@ const demo = new Vue({
 | class | 类名   | 布尔值（变量）         |
 | style | 属性名 | 属性值（字符串或变量） |
 
-```react
+```html
 <p :style="{fontSize: '50px'}">abc</p>
 <p :style="{fontSize: fontSize, color: currentColor}">abc</p>
 <p :style="style1">abc</p>
 <p :style="{fontSize: fontSize2 + 'px'}">abc</p>
-      
-/* Vue */
+```
+```javascript
 const demo = new Vue({
     ...
     data: {
@@ -319,7 +317,7 @@ const demo = new Vue({
 
 > 可以将多个样式对象应用到同一个元素上。
 
-```react
+```html
 <div v-bind:style="[style1, style2]"></div>
 ```
 
@@ -329,12 +327,11 @@ const demo = new Vue({
 
 > 对于任何复杂逻辑，都应当使用计算**属性**。
 
-```react
-/* HTML */
+```html
 <p>{{fullName}}</p>
 <p>{{getFullName()}}</p>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
     ...
     data: {
@@ -385,7 +382,7 @@ computed: {
 
 > 对于复杂的事件处理逻辑，可以在 `methods` 对象中定义方法。
 
-```react
+```html
 /* 方法不需要参数，可以省略括号 */
 <button @click="btnClick()">按钮</button>
 <button @click="btnClick">按钮</button>
@@ -403,7 +400,7 @@ computed: {
 
 ## v-on的修饰符
 
-```react
+```html
 <button @keyup.enter="onEnter">按钮</button>
 
 <!-- 修饰符可以串联，结果受顺序影响 -->
@@ -427,14 +424,13 @@ computed: {
 
 > 需要多个方案时，指令用到不同的同胞节点上。
 
-```react
-/* HTML */
+```html
 <p v-if="score>90">优秀</p>
 <p v-else-if="score>80">良好</p>
 <p v-else-if="score>60">及格</p>
 <p v-else>不及格</p>
-      
-/* Vue */
+```
+```javascript
 data: {
   score: 87
 }     
@@ -477,7 +473,7 @@ data: {
 >
 > `v-for...in` 和 `v-for...of` 两种写法都是允许且等价的。
 
-```react
+```html
 /* 遍历数组 */
 <li v-for="item in niuEr">{{item}}</li>
 
@@ -487,8 +483,8 @@ data: {
 <li v-for="value in niuEr">{{item}}</li>
 
 <li v-for="(value, key, index) in niuEr">{{item}}</li>
-
-/* Vue */
+```
+```javascript
 data: {
   niuEr: {
     Name: 'pangNiu',
@@ -559,10 +555,10 @@ this.obj = {...this.obj, newProp: 123};
 1. 当在对象/数组循环中，需要用到元素的索引时，在 `v-for` 传入即可获取。
 2. 使用过滤器，可以格式化数据。
 
-```react
+```html
 <span>{{totalPrice | showPrice}}</span>
-
-/* Vue */
+```
+```javascript
 /* 过滤器，将 | 前的值作为参数 */
 filters: {
   showPrice(price) {
@@ -587,7 +583,7 @@ filters: {
 | `<textarea>` | 文本区域                |
 | `<select>`   | 单选或多选下拉菜单      |
 
-```react
+```html
 /* 语法糖 */
 <input type="text" v-model="message">
 
@@ -599,15 +595,15 @@ filters: {
 
 ### 结合radio类型使用
 
-```react
+```html
 <label for="male">
     <input type="radio" id="male" value="男" name="sex">男孩
 </label>
 <label for="female">
     <input type="radio" id="female" value="女" name="sex">女孩
 </label>
-
-/* Vue */
+```
+```javascript
 data: {
     message: '女'
 }
@@ -628,7 +624,7 @@ data: {
 
 ### 结合checkbox类型使用
 
-```react
+```html
 /* 单选框 */
 <input type="checkbox" v-model="message">已阅读并同意相关协议
 
@@ -637,9 +633,8 @@ data: {
 <input type="checkbox" value="足球" v-model="hobbies">足球
 <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
 <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
-    
-
-/* Vue */
+```
+```javascript
 data: {
     message: false,
     hobbies: []
@@ -650,7 +645,7 @@ data: {
 
 ### 结合下拉菜单
 
-```react
+```html
 /* 单选 */
 <select  v-model="fruit">
     <option value="菠萝">菠萝</option>
@@ -668,8 +663,8 @@ data: {
     <option value="芒果">芒果</option>
 </select>
 <p>喜欢吃：{{fruits}}</p>
-
-/* Vue */
+```
+```javascript
 data: {
     fruit: '水蜜桃',
     fruits: []
@@ -678,13 +673,13 @@ data: {
 
 ### 列表渲染复选框
 
-```react
+```html
 <label v-for="item in fruits">
     <input type="checkbox" :value="item" v-model="likeFruit">{{item}}
  </label>
 <p>{{originFruit}}</p>
-    
-/* Vue */
+```
+```javascript
 data: {
     fruits: ['水蜜桃','菠萝','香蕉','哈密瓜'],
     likeFruit: []
@@ -714,13 +709,13 @@ data: {
 3.使用组件（在 Vue 实例的作用范围内）
 4.现在①、②步一般使用[语法糖](#组件基本步骤语法糖)
 
-```react
-/* HTML */
+```html
 /* 在被挂载的元素的 DOM 结构中使用组件 */
 <div id="demo">
     <my-cpn></my-cpn>
 </div>
-
+```
+```javascript
 /* 创建组件构造器对象 */
 const cpnC = Vue.extend ({
     template: `
@@ -765,13 +760,12 @@ const demo = new Vue({
 
 ### 父组件和子组件
 
-```react
-/* HTML */
+```html
 <div id="demo">
     <my-cpn2></my-cpn2>
 </div>
-
-/* Vue */
+```
+```javascript
 const cpnC1 = Vue.extend ({
     template: `
         <div>
@@ -830,7 +824,7 @@ components: {
 
 ### 模板的分离写法
 
-```react
+```html
 /* 方法1，用得较少 */
 <script type="text/x-template" id="myCpn">
     <div>
@@ -846,9 +840,8 @@ components: {
         <p>吃完饭了没有</p>
     </div>
 </template>
-
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
     el: '#demo',
     components: {
@@ -865,16 +858,14 @@ const demo = new Vue({
 
 > 组件是可复用的 Vue 实例，与 `new Vue` 接收相同的选项。仅有的例外是像 `el` 这样根实例特有的选项。
 
-```react
-/* HTML */
+```html
 <template id="myCpn">
     <div>
         <p>{{message}}</p>
     </div>
 </template>
-
-
-/* Vue */
+```
+```javascript
 Vue.component('my-cpn', {
     template: '#myCpn',
     data() {
@@ -898,7 +889,7 @@ Vue.component('my-cpn', {
 
 > 通过**动态绑定**自定义属性，并将父组件的数据传入到子组件。
 
-```react
+```html
 <div id="demo">
   <my-cpn :like="fruits"></my-cpn>
 </div>
@@ -909,8 +900,8 @@ Vue.component('my-cpn', {
     <p>{{like}}</p>
   </div>
 </template>
-
-/* Vue */
+```
+```javascript
 const demo = new Vue({
   el: '#demo',
   data: {
@@ -998,7 +989,7 @@ props: {
 
 <span style="backGround: #efe0b9">父组件</span>
 
-```react
+```html
 <demo menuTitle="你好" />
 <demo menu-title="你好" />
 ```
@@ -1012,7 +1003,7 @@ props: {
 - 在子组件中，通过 `$emit()` 来触发事件
 - 在父组件中，通过 `v-on` 来监听子组件事件
 
-```react
+```html
 // 在父组件的相应位置，监听自定义事件
 <div id="demo">
     <my-cpn @click-today="getToday"></my-cpn>
@@ -1025,7 +1016,8 @@ props: {
         <button @click="btnClick(today)">今天天气</button>
     </div>
 </template>
-
+```
+```javascript
 /* 子组件构造器对象 */
 const cpn = {
     template: '#myCpn',
@@ -1067,11 +1059,12 @@ const demo = new Vue({
 
 :herb: 表单元素不能在双向绑定的同时，又将 value 绑定为父的数据。
 
-```react
+```html
 /* 父组件 */
 <HelloWorld :fdata="fdata" @handleKeyup="handleKeyup" />
 <input type="text" v-model="fdata" />
-
+```
+```javascript
 data() {
   return {
     fdata: 'abc'
@@ -1105,13 +1098,14 @@ methods: {
 
 > 有 `$children` 和 `$refs` 两种方式，实际开发基本只使用 `$refs`。
 
-```react
+```html
 /* 根模板 */
 <div id="demo">
     <my-cpn></my-cpn>
     <button @click="btnClick">+</button>
 </div>
-
+```
+```javascript
 /* Vue根组件 */
 methods: {
     btnClick() {
@@ -1125,13 +1119,14 @@ methods: {
 
 :snowflake: 可以根据索引值来找到对应的子组件，访问其中的属性或方法。
 
-```react
+```html
 /* 根模板 */
 <div id="demo">
     <my-cpn ref="one"></my-cpn>
     <button @click="btnClick">+</button>
 </div>
-
+```
+```javascript
 /* Vue根组件 */
 methods: {
     btnClick() {
@@ -1147,12 +1142,13 @@ methods: {
 
 > 通过 `$children` 访问父组件，通过 `$root` 访问根组件。实际上，用得并不多。
 
-```react
+```html
 /* 子模板 */
 <template id="myCpn">
     <button @click="btnClick">+</button>
 </template>
-
+```
+```javascript
 /* 子组件 */
 methods: {
     btnClick() {

@@ -628,7 +628,7 @@ methods() {
 
 ### 常规用法
 
-```react
+```html
 // 直接在模板使用
 <h2>{{ $store.state.counter }}</h2>
 // 单个获取出来的使用
@@ -636,7 +636,8 @@ methods() {
 // 批量获取出来的使用
 <h2>{{counter}}</h2>
 <h2>{{name}}</h2>
-
+```
+```javascript
 import { mapState, useStore } from 'vuex'
 import { computed } from 'vue'
 
@@ -814,9 +815,10 @@ export {
 
 ### 常规写法
 
-```react
+```html
 <button @click="decrement">-1</button>
-
+```
+```javascript
 import { mapMutations } from 'vuex'
 
 setup() {
@@ -928,9 +930,10 @@ actions: {
 
 ### 常规写法
 
-```react
+```html
 <button @click="decrementAction">-1</button>
-
+```
+```javascript
 import { mapActions } from 'vuex'
 
 setup() {
@@ -1240,10 +1243,11 @@ setup() {
 
 <span style="backGround: #efe0b9">Demo.vue</span>
 
-```react
+```html
 <h2 class="title" ref="titleRef">{{message}}</h2>
 <button @click="addMessageContent">添加内容</button>
-
+```
+```javascript
 import { ref, nextTick } from "vue";
 
 export default {

@@ -372,16 +372,18 @@ formatPrice(price) {
 
 ### 动态属性
 
-```react
+```html
 <div :[name]="value">哈哈哈</div>
-
+```
+```javascript
 data() {
   return {
     name: "cba",
     value: "kobe"
   }
 }
-
+```
+```html
 <!-- 解析渲染后的效果 -->
 <div cba="kobe">哈哈哈</div>
 ```
@@ -392,9 +394,10 @@ data() {
 
 > 可以将对象上的属性一次性添加到标签上。
 
-```react
+```html
 <div v-bind="info">哈哈哈哈</div>
-
+```
+```javascript
 data() {
   return {
     info: {
@@ -403,7 +406,8 @@ data() {
     }
   }
 }
-
+```
+```html
 <!-- 解析渲染后的效果 -->
 <div name="why" age="18">哈哈哈</div>
 ```
@@ -440,10 +444,11 @@ data() {
 - 转化过程:  template -> VNode -> 真实DOM
 - 如果不只是一个简单的div，而是有一大堆的元素，那么它们应该会形成一个 VNode Tree ,即<span style="color: #ed5a65">虚拟DOM</span>
 
-```react
+```html
 // template,像 v-on, v-if, {{ }} 这些无法被浏览器直接解析
 <div class="title" style="font-size: 30px; color: red;">虎虎生威</div>
-
+```
+```javascript
 // VNode
 const vnode = {
   type: "div",
@@ -480,9 +485,10 @@ console.log(y.c.cnode); // 4
 
 ### Vue3全局注册组件
 
-```react
+```html
 <a-btn></a-btn>
-
+```
+```javascript
 const app = Vue.createApp(App);
 
 app.component("a-btn", {
@@ -689,13 +695,14 @@ import HeyDemo from './HeyDemo.vue'
 
 > 通过配置可以使组件的根元素不去继承attribute。
 
-```react
+```html
 <template>
   <div>
     <h2 :class="$attrs.class"></h2>
   </div>
 </template>
-
+```
+```javascript
 export default {
   inheritAttrs: false,
 }
@@ -736,10 +743,11 @@ export default {
 
 > 在 vue3 中，发送自定义事件还需要使用 `emits` 配置项进行记录。
 
-```react
+```html
 <button @click="clickAdd">+</button>
 <button @click="clickAddN">+</button>
-
+```
+```javascript
 export default {
   emits: ["add", "addN"],
   methdos: {
@@ -797,9 +805,10 @@ Mitt全局事件总线；
 
 <span style="backGround: #efe0b9">grandFather.vue</span>
 
-```react
+```html
 <father />
-
+```
+```javascript
 export default {
   provide: {
     name: "cat",
@@ -1030,11 +1039,12 @@ data() {
 
 <span style="backGround: #efe0b9">son.vue</span>
 
-```react
+```html
 <header>
   <slot :name="demoName"></slot>
 </header>
-
+```
+```javascript
 props: {
   demoName: {
     type: String,
@@ -1070,13 +1080,14 @@ props: {
 
 <span style="backGround: #efe0b9">father.vue</span>
 
-```react
+```html
 <son :names="names">
   <template v-slot="slotProps">
     <button>{{slotProps.item}}-{{slotProps.index}}</button>
   </template>
 </son>
-
+```
+```javascript
 data() {
   return {
     names: ['a', 'b']
@@ -1088,11 +1099,12 @@ data() {
 
  <span style="backGround: #efe0b9">son.vue</span>
 
-```react
+```html
 <template v-for="(item, index) in names" :key="item">
   <slot :item="item" :index="index"></slot>
 </template>
-
+```
+```javascript
 props: {
   names: {
     type: String,
@@ -1149,9 +1161,10 @@ props: {
 
 > 通过该技术可以动态切换需要渲染的组件，可以代替简单场景的”动态路由“。
 
-```react
+```html
 <component :is="currentTab" />
-
+```
+```javascript
 import Home from './Home.vue';
 import About from './About.vue';
 

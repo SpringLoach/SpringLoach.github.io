@@ -23,9 +23,10 @@ watchEffect(() => {
 
 ### 计算属性传参
 
-```react
+```html
 <span class="margin-left">{{pointStatus(item.statusCode)}}</span>
-
+```
+```javascript
 computed: {
   pointStatus() {
     return (text) => {

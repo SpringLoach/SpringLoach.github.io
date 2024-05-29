@@ -70,11 +70,12 @@ let {hi, show} = require('./a.js')
 1. `module` 类型能够将作用域隔离，因此哪怕在文件中使用 `var` 也不会产生冲突。
 2. 为了能够从其它文件获取需要的数据，需要通过 `export` 关键字导出，`import` 关键字导入。
 
-```react
+```html
 /* index.html */
 <script src="a.js" type="module"></script>
 <script src="b.js" type="module"></script>
-
+```
+```javascript
 /* a.js */
 let hi = 'nihao';
 let show = function() {
@@ -197,7 +198,7 @@ npm install style-loader@0.23.1 --save-dev
 
 > 创建 `module.exports` 并添加相应对象。
 
-```react
+```javascript
 module.exports = {
   module: {
     rules: [
@@ -281,7 +282,7 @@ npm install --save-dev file-loader@3.0.1
 
 > 其中的 `limit` 将限制图片文件大小。
 
-```react
+```javascript
 ...
 options: {
     limit: 17000
@@ -333,7 +334,7 @@ npm install --save-dev babel-loader@7.1.5 babel-core@6.26.3 babel-preset-es2015@
 
 1. 配置loader
 
-```react
+```javascript
 /* 按官网配置后，修改这个配置 */
 presets: ['es2015']
 ```
@@ -377,12 +378,13 @@ module.exports = {
 
 1. 举个栗子
 
-```react
+```html
 /* index.html */
 <div id="demo">
     <h2>{{message}}</h2>
 </div>
-
+```
+```javascript
 /* main.js */
 import Vue from 'vue'
 
@@ -402,10 +404,11 @@ new Vue({
 
 选项 `template` 中的内容会替换挂载元素。
 
-```react
+```html
 /* index.html */
 <div id="demo"></div>
-
+```
+```javascript
 /* main.js */
 import Vue from 'vue'
 
@@ -462,7 +465,7 @@ new Vue({
   - vue
     - app.js
 
-```react
+```javascript
 /* main.js */
 import Vue from 'vue'
 import cdiv from "./vue/app"
@@ -557,7 +560,7 @@ npm install
 
 > 在这里是可以不添加 `template` 选项滴。
 
-```react
+```html
 <template>
     <div><h2>{{message}}</h2></div>
 </template>
@@ -1187,12 +1190,13 @@ const router = new VueRouter({
 
 ### 通过代码跳转路由
 
-```react
+```html
 /* src 下的 App.vue */
 <template>
   <button @click="homeclick">主页</button>
 </template>
-
+```
+```javascript
 /* 新增 option */ 
 methods: {
   homeclick() {
@@ -1228,12 +1232,13 @@ const routes = [
 
 1. 添加到根组件，并用动态属性绑定
 
-```react
+```html
 /* src 下的 App.vue */
 <template>
   <router-link :to="'/user/' + userId">用户</router-link>
 </template>
-
+```
+```javascript
 /* 新增 option */
 data() {
   return {
@@ -1262,9 +1267,10 @@ createduserId {
 
 #### 动态路由的使用_通过代码跳转路由
 
-```react
+```html
 <div class="list-item" @click="itemClick">
-
+```
+```javascript
 methods: {
   itemClick() {
     this.$router.push('/detail/' + this.userId);
@@ -1288,7 +1294,7 @@ beforeRouteUpdate(to, from, next) {
 
 也可以在路由变化时，再次执行逻辑
 
-```react
+```javascript
 created () {
   this.fetchData()
 },
@@ -1343,7 +1349,7 @@ const routes = [
 
 1. 结合 Vue 的异步组件和 Webpack 的代码分割
 
-```react
+```javascript
 const Home = resolve => { require.ensure(['../components/Home.vue'], () => 
 { resolve(require('../components/Home.vue')) })}
 ```
@@ -1366,7 +1372,7 @@ const About = resolve => require(['../components/Home.vue'], resolve);
 
 1. 创建组件并配置路由的映射关系
 
-```react
+```javascript
 /* router 下的 index.js */
 const HomeMessage = () => import('../components/HomeMessage')
 const HomeNews = () => import('../components/HomeNews')
@@ -1412,7 +1418,7 @@ const routes = [
 
 > 如果路由存在嵌套子路由，要添加 `<router-view/>` 决定嵌套子路由渲染时在 HTML 中出现的位置。
 
-```react
+```html
 /* Home.vue */
 <div>
   <p>some text.</p>
@@ -1446,7 +1452,7 @@ section2Btn() {
 
 - 创建组件并配置映射关系后
 
-```react
+```html
 /* Vue.vue */
 <template>
   <router-link :to="{path: '/profile', query: {name: 'keluosi', age: 16, height: 1.52}}">
@@ -1467,10 +1473,11 @@ section2Btn() {
 
 #### 通过路由传递参数_通过代码跳转
 
-```react
+```html
 /* Vue.vue */
 <button @click="profileclick">按钮</button>
-
+```
+```javascript
 /* 添加 option */
 methods: {
   profileclick() {
@@ -1688,11 +1695,12 @@ router.push({ name: 'user', params: { userId: 123 } })
 >
 > 对于没有设置名字的 `<router-view>`，默认为 `default`。
 
-```react
+```html
 <router-view class="view one"></router-view>
 <router-view class="view two" name="main"></router-view>
 <router-view class="view three" name="siber"></router-view>
-
+```
+```javascript
 /* index.js */
 const router = new VueRouter({
   routes: [

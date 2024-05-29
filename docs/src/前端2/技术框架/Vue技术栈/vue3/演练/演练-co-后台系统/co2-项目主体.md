@@ -817,7 +817,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">views/main/main.vue</span>
 
-```react
+```html
 <div class="main">
   <el-container class="main-content">
     <el-aside :width="isCollapse ? '60px' : '210px'">
@@ -831,7 +831,8 @@ export default defineComponent({
     </el-container>
   </el-container>
 </div>
-
+```
+```javascript
 setup() {
   const isCollapse = ref(false)
 
@@ -1083,9 +1084,10 @@ mutations: {
 
 <span style="backGround: #efe0b9">src/components/nav-menu/nav-menu.vue</span>
 
-```react
+```html
 <el-menu-item @click="handleMenuItemClick(item)">{{ item.name }}</el-menu-item>
-
+```
+```javascript
 import { useRouter } from 'vue-router'
 
 setup() {
@@ -1140,9 +1142,10 @@ export function pathPathToMenu(userMenus: any[], currentPath: string): any {
 
 <span style="backGround: #efe0b9">src/components/nav-menu/nav-menu.vue</span>
 
-```react
+```html
 <el-menu :default-active="defaultValue">
-
+```
+```javascript
 import { defineComponent, ref, computed } from 'vue'
 import { useStore } from '@/store'
 import { useRouter, useRoute } from 'vue-router'
@@ -1325,7 +1328,7 @@ const routes: RouteRecordRaw[] = [
 
 <span style="backGround: #efe0b9">commom/breadcrumb/src/breadcrumb.vue</span>
 
-```react
+```html
 <template>
   <div class="breadcrumb">
     <el-breadcrumb separator="/">
@@ -1337,7 +1340,8 @@ const routes: RouteRecordRaw[] = [
     </el-breadcrumb>
   </div>
 </template>
-
+```
+```javascript
 import { defineComponent, PropType } from 'vue'
 import { IBreadcrumb } from '../types'
 
@@ -1422,7 +1426,7 @@ export function pathMapBreadcrumbs(userMenus: any[], currentPath: string) {
 
 <span style="backGround: #efe0b9">components/nav-header/src/nav-header.vue</span>
 
-```react
+```html
 <hd-breadcrumb class="breadcrumb" :breadcrumbs="breadcrumbs" />
 
 <script lang="ts">
@@ -1535,9 +1539,10 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">Demo.vue</span>
 
-```react
+```html
 <HdSearch :searchItems="searchItems" />
-
+```
+```javascript
 import HdSearch from '@/commom/search'
 
 setup() {
@@ -1675,7 +1680,7 @@ import HdSearch, { HSearch } from '@/commom/search'
 
 <span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
 
-```react
+```html
 <template>
   <div class="user">
     <hd-search v-bind="searchConfig" />
@@ -1802,9 +1807,10 @@ export const searchConfig: HSearch = {
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```html
 <hd-search v-bind="searchConfig" v-model="formData">
-
+```
+```javascript
 import { defineComponent, ref } from 'vue'
 setup() {
   const formData = ref({
@@ -1822,7 +1828,7 @@ setup() {
 
 <span style="backGround: #efe0b9">commom/search/src/search.vue</span>
 
-```react
+```html
 <el-form-item :label="item.label" :style="itemStyle">
   <template v-if="item.type === 'input'">
     <el-input
@@ -1831,8 +1837,8 @@ setup() {
     />
   </template>
 </el-form-item>
-...
-
+```
+```javascript
 import { defineComponent, PropType, ref, watch } from 'vue'
 props: {
   modelValue: {
@@ -1877,7 +1883,7 @@ setup(props, { emit }) {
 
 <span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
 
-```react
+```html
 <template>
   <div class="page-search">
     <hd-search v-bind="searchConfig" v-model="formData">
@@ -1893,7 +1899,8 @@ setup(props, { emit }) {
     </hd-search>
   </div>
 </template>
-
+```
+```javascript
 props: {
   searchConfig: {
     type: Object,
@@ -1950,9 +1957,10 @@ setup(props) {
 
 <span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
 
-```react
+```html
 <el-button @click="handleResetClick">重置</el-button>
-
+```
+```javascript
 setup(props) {
   // ...
   
@@ -1973,12 +1981,13 @@ setup(props) {
 
 <span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
 
-```react
+```html
 <hd-form v-bind="searchFormConfig" v-model="formData">
   ...
   <el-button @click="handleResetClick">重置</el-button>
 </hd-form>
-
+```
+```javascript
 setup(props) {
   // ...
   
@@ -1991,14 +2000,15 @@ setup(props) {
 
 <span style="backGround: #efe0b9">commom/search/src/search.vue</span>
 
-```react
+```html
 ...
 <el-input
   ...
   :model-value="modelValue[`${item.field}`]"
   @update:modelValue="handleValueChange($event, item.field)"
 />
-
+```
+```javascript
 emits: ['update:modelValue'],
 setup(props, { emit }) {
   const handleValueChange = (value: any, field: string) => {
@@ -2228,7 +2238,7 @@ setup() {
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```html
 <div class="content">
   <el-table :data="userList" border style="width: 100%">
     <template v-for="propItem in propList" :key="propItem.prop">
@@ -2236,7 +2246,8 @@ setup() {
     </template>
   </el-table>
 </div>
-
+```
+```javascript
 setup() {
   const store = useStore()
   store.dispatch('system/getPageListAction', {
@@ -2322,11 +2333,12 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```html
 <div class="content">
   <hd-table :listData="userList" :propList="propList"></hd-table>
 </div>
-
+```
+```javascript
 import HdTable from '@/commom/table'
 ```
 
@@ -2364,7 +2376,7 @@ el-table-column 的默认插槽中，能够拿到内部传递上来的 row 属�
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```html
 <div class="content">
   <hd-table :listData="userList" :propList="propList">
     <template #status="scope">
@@ -2375,7 +2387,8 @@ el-table-column 的默认插槽中，能够拿到内部传递上来的 row 属�
     </template>
   </hd-table>
 </div>
-
+```
+```javascript
 const propList = [
   { prop: 'name', label: '用户名', minWidth: '100' },
   { prop: 'realname', label: '真实姓名', minWidth: '100' },
@@ -2404,7 +2417,7 @@ const propList = [
 
 <span style="backGround: #efe0b9">commom/table/src/table.vue</span>
 
-```react
+```html
 <div class="table">
   <el-table :data="listData" border style="width: 100%" 
     @selection-change="handleSelectionChange">
@@ -2425,7 +2438,8 @@ const propList = [
     </template>
   </el-table>
 </div>
-
+```
+```javascript
 props: {
   showIndexColumn: {
     type: Boolean,
@@ -2452,7 +2466,7 @@ setup(props, { emit }) {
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```html
 <div class="content">
   <hd-table :listData="userList" :propList="propList" :showIndexColumn="true">
     <template #status="scope">
@@ -2474,7 +2488,8 @@ setup(props, { emit }) {
     </template>
   </hd-table>
 </div>
-
+```
+```javascript
 propList: [
   { prop: 'name', label: '用户名', minWidth: '100' },
   ...,
@@ -2488,7 +2503,7 @@ propList: [
 
 <span style="backGround: #efe0b9">commom/table/src/table.vue</span>
 
-```react
+```html
 <div class="table">
   <!-- 表格前的标题、按钮等 -->
   <div class="header">
@@ -2517,7 +2532,8 @@ propList: [
     </slot>
   </div>
 </div>
-
+```
+```javascript
 props: {
   title: {
     type: String,
@@ -2532,7 +2548,7 @@ props: {
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```html
 <div class="content">
   <hd-table :listData="userList" :propList="propList" :showIndexColumn="true">
     <!-- 1.header中的插槽 -->
@@ -2563,7 +2579,7 @@ props: {
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```html
 <template>
   <div class="page-content">
     <hd-table :listData="userList" v-bind="contentTableConfig">
@@ -2613,7 +2629,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">views/main/system/user/config/content.ts</span>
 
-```react
+```html
 <div class="user">
   <page-search :searchFormConfig="searchFormConfig" />
   <page-content
@@ -2621,7 +2637,8 @@ export default defineComponent({
     pageName="user"
   ></page-content>
 </div>
-
+```
+```javascript
 import PageContent from '@/components/page-content'
 
 import { contentTableConfig } from './config/content'
@@ -2754,7 +2771,7 @@ export interface ISystemState {
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```html
 <template>
   <div class="page-content">
     <hd-table :listData="dataList" v-bind="contentTableConfig">
@@ -2823,10 +2840,11 @@ emit ↗  ↘  调用查询列表的方法
 
 <span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
 
-```react
+```html
 <el-button @click="handleResetClick">重置</el-button>
 <el-button type="primary" @click="handleQueryClick">搜索</el-button>
-
+```
+```javascript
 emits: ['resetBtnClick', 'queryBtnClick'],
 setup(props, { emit }) {
   // ...
@@ -2850,7 +2868,7 @@ setup(props, { emit }) {
 
 <span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
 
-```react
+```html
 <div class="user">
   <page-search
     :searchConfig="searchConfig"
@@ -2863,7 +2881,8 @@ setup(props, { emit }) {
     pageName="user"
   ></page-content>
 </div>
-
+```
+```javascript
 setup() {
   const pageContentRef = ref<InstanceType<typeof PageContent>>()
   const handleResetClick = () => {
@@ -2952,7 +2971,7 @@ setup() {
 
 <span style="backGround: #efe0b9">store/main/system/system.ts</span>
 
-```react
+```javascript
 getters: {
   ...,
   pageListCount(state) {
@@ -2965,9 +2984,10 @@ getters: {
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```html
 <hd-table :listCount="listCount"></hd-table>
-
+```
+```javascript
 setup(props) {
   const store = useStore()
   
@@ -2980,7 +3000,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">commom/table/src/table.vue</span>
 
-```react
+```html
 <slot name="footer">
   <el-pagination
     ...
@@ -2988,7 +3008,8 @@ setup(props) {
   >
   </el-pagination>
 </slot>
-
+```
+```javascript
 props: {
   listCount: {
     type: Number,
@@ -3003,9 +3024,10 @@ props: {
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```html
 <hd-table v-model:page="pageInfo"></hd-table>
-
+```
+```javascript
 setup(props) {
   // ...
 
@@ -3036,7 +3058,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">commom/table/src/table.vue</span>
 
-```react
+```html
 <slot name="footer">
   <el-pagination
     @size-change="handleSizeChange"
@@ -3049,7 +3071,8 @@ setup(props) {
   >
   </el-pagination>
 </slot>
-
+```
+```javascript
 props: {
   page: {
     type: Object,
@@ -3092,7 +3115,7 @@ setup(props, { emit }) {
 
 <span style="backGround: #efe0b9">views/main/product/goods/goods.vue</span>
 
-```react
+```html
 <template>
   <div class="goods">
     <page-content :contentTableConfig="contentTableConfig" pageName="goods" />
@@ -3169,7 +3192,7 @@ export interface ISystemState {
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```html
 </hd-table>
   <!-- 其它插槽、固定插槽 -->
   ...
@@ -3182,7 +3205,8 @@ export interface ISystemState {
     <slot :name="item.slotName" :row="scope.row"></slot>
   </template>
 </hd-table>
-
+```
+```javascript
 setup(props) {
   // ...
 
@@ -3228,9 +3252,10 @@ setup(props) {
 
 <span style="backGround: #efe0b9">commom/table/src/table.vue</span>
 
-```react
+```html
 <el-table v-bind="childrenProps">...</el-table>
-
+```
+```javascript
 props: {
   childrenProps: {
     type: Object,
@@ -3263,9 +3288,10 @@ export const contentTableConfig = {
 
 <span style="backGround: #efe0b9">commom/table/src/table.vue</span>
 
-```react
+```html
 <div class="footer" v-if="showFooter">...</div>
-
+```
+```javascript
 props: {
   showFooter: {
     type: Boolean,
@@ -3295,7 +3321,7 @@ export const contentTableConfig = {
 
 > 取到的数据结构的特点为，权限保存在第三层级中。
 
-```react
+```javascript
 export function mapMenusToPermissions(userMenus: any[]) {
   const permissions: string[] = []
 
@@ -3353,7 +3379,7 @@ export interface ILoginState {
 
 <span style="backGround: #efe0b9">hooks/use-permission.ts</span> 
 
-```react
+```javascript
 import { useStore } from '@/store'
 
 export function usePermission(pageName: string, hanldeName: string) {
@@ -3414,13 +3440,14 @@ setup(props) {
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```html
 <template #handler="scope">
   <div class="handle-btns">
     <el-button @click="handleDeleteClick(scope.row)">删除</el-button>
   </div>
 </template>
-
+```
+```javascript
 setup(props, { emit }) {
   const store = useStore()
 
@@ -3495,9 +3522,10 @@ actions: {
 
 <span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
 
-```react
+```html
 <page-modal :modalConfig="modalConfig"></page-modal>
-
+```
+```javascript
 import PageModal from '@/components/page-modal'
 import { modalConfig } from './config/modal'
 
@@ -3511,7 +3539,7 @@ setup() {
 
 <span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
-```react
+```html
 <template>
   <div class="page-modal">
     <el-dialog title="新建用户" v-model="dialogVisible" width="30%" center>
@@ -3589,11 +3617,12 @@ emit ↗  ↘  显示编辑组件等
 
 <span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
 
-```react
+```html
 <el-button @click="handleNewClick">新建用户</el-button>
 ...
 <el-button @click="handleEditClick(scope.row)">编辑</el-button>
-
+```
+```javascript
 emits: ['newBtnClick', 'editBtnClick'],
 setup(props, { emit }) {
     
@@ -3616,13 +3645,14 @@ setup(props, { emit }) {
 
 <span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
 
-```react
+```html
 <page-content
   @newBtnClick="handleNewData"
   @editBtnClick="handleEditData"
 ></page-content>
 <page-modal ref="pageModalRef" :defaultInfo="defaultInfo"></page-modal>
-
+```
+```javascript
 import { usePageModal } from '@/hooks/use-page-modal'
 
 setup() {
@@ -3668,9 +3698,10 @@ export function usePageModal() {
 
 <span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
-```react
+```html
 <hd-form v-bind="modalConfig" v-model="formData"></hd-form>
-
+```
+```javascript
 props: {
   modalConfig: {
     type: Object,
@@ -3725,7 +3756,7 @@ setup(props) {
 
 <span style="backGround: #efe0b9">commom/form/src/form.vue</span>
 
-```react
+```html
 <el-form-item v-if="!item.isHidden"></el-form-item>
 ```
 
@@ -3912,9 +3943,10 @@ actions: {
 
 <span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
 
-```react
+```html
 <page-modal :modalConfig="modalConfigRef"></page-modal>
-
+```
+```javascript
 setup() {
   // 添加部门和角色列表
   const store = useStore()
@@ -4021,9 +4053,10 @@ actions: {
 
 <span style="backGround: #efe0b9">components\page-modal\src\page-modal.vue</span>
 
-```react
+```html
 <el-button type="primary" @click="handleConfirmClick">确 定</el-button>
-
+```
+```javascript
 props: {
   defaultInfo: {
     type: Object,
@@ -4156,7 +4189,7 @@ export interface IRootState {
 
 <span style="backGround: #efe0b9">views/main/system/role/role.vue</span>
 
-```react
+```html
 <page-modal
   ref="pageModalRef"
   :defaultInfo="defaultInfo"
@@ -4175,7 +4208,8 @@ export interface IRootState {
     </el-tree>
   </div>
 </page-modal>
-
+```
+```javascript
 setup() {
   const [pageModalRef, defaultInfo, handleNewData, handleEditData] =
     usePageModal()
@@ -4271,9 +4305,10 @@ export function menuMapLeafKeys(menuList: any[]) {
 
 <span style="backGround: #efe0b9">views/main/system/role/role.vue</span>
 
-```react
+```html
 <el-tree ref="elTreeRef">...</el-tree>
-
+```
+```javascript
 import { defineComponent, computed, ref, nextTick } from 'vue'
 
 import { menuMapLeafKeys } from '@/utils/map-menus'
@@ -4332,9 +4367,10 @@ export function usePageModal(newCb?: CallbackFn, editCb?: CallbackFn) {
 
 <span style="backGround: #efe0b9">components\nav-header\src\header-info.vue</span>
 
-```react
+```html
 <el-dropdown-item @click="handleExitClick">退出登录</el-dropdown-item>
-
+```
+```javascript
 import { defineComponent, computed } from 'vue'
 import { useStore } from '@/store'
 import { useRouter } from 'vue-router'
@@ -4463,11 +4499,12 @@ export function formatUtcString(utcString: string, format: string = DATE_TIME_FO
 >
 > <span style="backGround: #efe0b9">App.vue</span>
 
-```react
+```html
 <el-config-provider :locale="zhCn">
   <router-view />
 </el-config-provider>
-
+```
+```javascript
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
 export default defineComponent({
