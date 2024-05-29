@@ -20,11 +20,11 @@ export default defineConfig({
       },
       { 
         text: '技术框架',
-        // link: '/前端2/技术框架/文档参考',
         items: [
-          { text: '文档参考', link: '/前端2/技术框架/文档参考' },
+          { text: '文档参考', link: '/前端2/文档参考' },
           { text: '技术框架', link: '/前端2/技术框架/技术框架/微信小程序/微信小程序' },
           { text: 'UI框架', link: '/前端2/UI框架/Element-UI/elementUI' },
+          { text: '第三方库', link: '/前端2/第三方库/viewer.js/viewer.js' },
         ]
       },
       { text: '其他', link: '/expand/初始配置/计算机环境配置' }
@@ -226,7 +226,15 @@ export default defineConfig({
               ]
             },
           ]
-        }
+        },
+        {
+          text: '第三方库',
+          collapsed: true,
+          items: [
+            {  text: 'viewer.js', link: '/前端2/第三方库/viewer.js/viewer.js' },
+            {  text: 'mockjs', link: '/前端2/第三方库/mockjs/mockjs' },
+          ]
+        },
       ],
       '/expand/': [
         {
