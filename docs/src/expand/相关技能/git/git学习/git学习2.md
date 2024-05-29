@@ -309,7 +309,7 @@ git pull -- rebase
 > ```
 
 ### 示意图  
-```react
+```css
 git pull：  
 会尝试将 A的提交3 和 B的最终提交（从终端拉取）合并，并会产生 merge 的记录。
 

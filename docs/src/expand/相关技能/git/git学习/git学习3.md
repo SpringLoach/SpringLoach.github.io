@@ -94,7 +94,7 @@ $ git config --global color.ui true
 栗子：忽略一些 Windows，Python和自己定义的文件，最终得到一个完整的.gitignore文件：  
 > 把指定文件排除在.gitignore规则外的写法就是 `!+文件名`
 > 所有空行或者以 \# 开头的行都会被 Git 忽略。
-```react
+```sh
 # Windows:       // 指示win环境下忽略
 Thumbs.db     
 ehthumbs.db
@@ -136,7 +136,7 @@ $ git check-ignore -v 文件名
 ### 其他用法
 如果觉得要忽略的内容太多懒得管理, 可以采取全部忽略逐一排除的策略:
 先\*忽略全部, 之后再\!设定不被忽略的内容。
-```react
+```sh
 *          # 忽略全部
 
 ！/ch01/   # 不忽略的文件
