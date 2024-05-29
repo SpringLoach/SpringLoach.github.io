@@ -4,12 +4,13 @@
 >
 > 场景：成功上传后，会展示新添加的图片；添加N个图片后，上传按钮消失。
 
-```react
+```html
 <div class="uploadImg">
     <div class="img-list"></div>
 	<div id="upload-control"</div>
 </div>
-
+```
+```javascript
 data() {
     return {
         reverse: true

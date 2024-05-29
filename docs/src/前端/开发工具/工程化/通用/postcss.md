@@ -12,7 +12,7 @@ npm install postcss -D
 
 <span style="backGround: #efe0b9">postcss.config.js</span>
 
-```react
+```javascript
 module.exports = {
   // ...
 }
@@ -44,7 +44,7 @@ npm install postcss-preset-env -D
 
 <span style="backGround: #efe0b9">postcss.config.js</span>
 
-```react
+```javascript
 module.exports = {
   plugins: [
     require('postcss-preset-env')

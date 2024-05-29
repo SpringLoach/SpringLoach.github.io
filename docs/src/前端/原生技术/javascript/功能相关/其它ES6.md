@@ -94,7 +94,7 @@ set(target, key, value) {
 
 `api.js`
 
-```react
+```javascript
 /* 1. 返回期约 2. 解决处理程序中返回值进行传递 */
 getProfile(queryForm) {
   return getProfile(queryForm).then(r => r);
@@ -105,7 +105,7 @@ getProfile(queryForm) {
 
 `demo.vue`
 
-```react
+```javascript
 this.getProfile().then((r) => {
   console.log(r);
 });
@@ -115,7 +115,7 @@ this.getProfile().then((r) => {
 
 ### then合理获参
 
-```react
+```javascript
 getCoupons() {
   getCouponsByIds({ ids: this.coupon.ids }).then((r) => {
     if (r && r.data && r.data.data) {
@@ -129,7 +129,7 @@ getCoupons() {
 
 ### then合理收尾
 
-```react
+```javascript
 createPageSetting(request).then((r) => {
   this.id = r;
 }).catch((e) => {
@@ -141,7 +141,7 @@ createPageSetting(request).then((r) => {
 
 ### async合理收尾
 
-```react
+```javascript
 import { getReceiverInfo } from '@/api/orderCenter/afterSale'
 
 async getInfo() {
@@ -215,7 +215,7 @@ onshow Next
 
 ## 对象解构
 
-```react
+```javascript
 let { top } = { top:2, height: 'a' }
 console.log(top)  // 2
 ```
@@ -224,7 +224,7 @@ console.log(top)  // 2
 
 ### 示例—接口
 
-```react
+```javascript
 async getTabsHeight() {
   let { top, height } = await getNodeInfo()
   this.filterTop = top + height
@@ -235,7 +235,7 @@ async getTabsHeight() {
 
 ### 示例—获取函数入参
 
-```react
+```javascript
 onLoad(option) {
   this.getGiftcardCode(option)
 },
@@ -251,7 +251,7 @@ methods: {
 
 ### 示例—获取事件参数
 
-```react
+```javascript
 // uni-app 的某些原生事件参数
 change({ detail }) {
   this.current = detail.current + 1
@@ -262,7 +262,7 @@ change({ detail }) {
 
 ### 示例—补充对象属性
 
-```react
+```javascript
 async handleGiftGoods(allGiftGoods) {
   // 补全赠品信息，这里为每个赠品发送一次请求
   allGiftGoods.forEach((item, index) => {
@@ -290,7 +290,7 @@ async completeGift(item, index) {
 
 ### 添加额外属性
 
-```react
+```javascript
 form = {...form, isSelect: false};      // 额外添加属性
 
 form = {...form, id: form.uid};         // 拷贝自身属性

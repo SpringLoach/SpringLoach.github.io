@@ -1,6 +1,6 @@
 ### 基本文档
 
-```react
+```html
 <html>
 <head>
   <title>文档标题</title>
@@ -13,7 +13,7 @@
 
 ----
 ### 文本元素  
-```react
+```html
 <p>段落</p>
 <br>  换行
 <hr>  水平线
@@ -22,14 +22,14 @@
 
 ----
 ### 实体样式
-```react
+```html
 <b>加粗</b>
 <i>斜体</i>
 ```
 
 ----
 ### 链接与锚  
-```react
+```html
 <a href="http://www.example.com/">链接提示</a>
 
 <a href="http://www.example.com/"><img src="URL" alt="替代文本"></a>
@@ -48,7 +48,7 @@
 
 #### 无序列表  
 
-```react
+```html
 <ul>
     <li>第一项</li>
     <li>第二项</li>
@@ -57,7 +57,7 @@
 
 ----
 #### 有序列表  
-```react
+```html
 <ol>
     <li>第一项</li>
     <li>第二项</li>
@@ -66,7 +66,7 @@
 
 ----
 #### 定义列表  
-```react
+```html
 <dl>
     <dt>第一项</dt>
         <dd>定义内容</dd>
@@ -78,7 +78,7 @@
 ----
 ### 表格    
 > 如果不定义边框属性，表格将不显示边框。
-```react
+```html
 <table border="1">
 <tr>
     <th>标题一</th>
@@ -163,7 +163,7 @@ HTML5 增加了多个新的[输入类型](https://www.w3school.com.cn/html/html_
 **<datalist\>**  
 > HTML5 添加。为 `<input>` 元素规定预定义选项列表， `<input>` 的 list 属性必须引用 `<datalist>` 的 id 属性，在 `<datalist>`内部使用 `<option>`来添加预定义选项。  
 
-```react
+```html
 <form action="action_page.php">
 <input list="browsers">
 <datalist id="browsers">
@@ -188,7 +188,7 @@ HTML5 增加了多个新的[输入类型](https://www.w3school.com.cn/html/html_
 
 ----
 ### 框架  
-```react
+```html
 <frameset cols="25%,75%">
     <frame src="页面1.htm">
     <frame src="页面2.htm">
@@ -197,7 +197,7 @@ HTML5 增加了多个新的[输入类型](https://www.w3school.com.cn/html/html_
 
 ----
 ### 逻辑样式
-```react
+```html
 <em>强调的部分</em>    // 表现为斜体
 <strong>强的语气</strong>  // 表现为加粗
 <code>computer code</code>
@@ -205,7 +205,7 @@ HTML5 增加了多个新的[输入类型](https://www.w3school.com.cn/html/html_
 
 ----
 ### 其他元素
-```react
+```html
 <!-- 一些备注 -->
 <blockquote>引用的内容</blockquote>
 ```
@@ -298,10 +298,11 @@ drop | 当放开被拖数据时触发
   - 通过 `dataTransfer.getData()` 方法获得被拖的数据  
   - 将被拖元素追加到放置元素中  
 
-```react
+```html
 <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69"> 
-    
+```
+```javascript
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -377,7 +378,7 @@ SVG
 window.localStorage | 当用户通过浏览器清理时删除
 window.sessionStorage | 关闭标签页时删除数据
 
-```react
+```javascript
 // 存储的两种方式
 localStorage.setItem("lastname", "Gates");
 localStorage.lastname = "Gates";
@@ -402,12 +403,13 @@ localStorage.removeItem("lastname");
 2. 已缓存资源加载得更快  
 3. 减少服务器负载
 
-```react
+```html
 <!DOCTYPE HTML>
 <html manifest="demoName.appcache">
 ...
 </html> 
-    
+```
+```
 /* manifest 文件 */
     
 CACHE MANIFEST
