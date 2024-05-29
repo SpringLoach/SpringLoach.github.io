@@ -847,12 +847,13 @@ data() {
 
 ### Rate评分
 
-```react
+```html
 // 无颜色差异
 <el-rate v-model="value1"></el-rate>
 // 有颜色差异
 <el-rate v-model="value2" :colors="colors"></el-rate>
-      
+```
+```javascript
 data() {
   return {
     value1: null,
@@ -880,9 +881,10 @@ data() {
 
 > 可以提供 `score-template` 作为显示模板，`{value}` 会被解析为分值。
 
-```react
+```html
 <el-rate v-model="value" disabled show-score text-color="#ff9900" score-template="{value}分"></el-rate>
-
+```
+```javascript
 data() {
   return {
     value1: 3.7
@@ -896,13 +898,14 @@ data() {
 >
 > 如输入框、选择器、开关、单选框、多选框等。
 
-```react
+```html
 <el-form ref="form" :model="form" label-width="80px">
   <el-form-item label="活动名称">
     <el-input v-model="form.name"></el-input>
   </el-form-item>
 </el-form>
-
+```
+```javascript
 data() {
   return {
     form: {
@@ -974,13 +977,14 @@ rules: {
 
 > 项标签的 `prop` 属性接收数据源的项属性作为列内容。
 
-```react
+```html
 <el-table :data="tableData" style="width: 100%">
   <el-table-column type="index" label="#" width="180"></el-table-column>
   <el-table-column prop="date" label="日期" width="180"></el-table-column>
   <el-table-column prop="name" label="姓名"></el-table-column>
 </el-table>
-
+```
+```javascript
 data() {
   return {
     tableData: [
@@ -1047,7 +1051,7 @@ data() {
 
 ### Tag标签
 
-```react
+```html
 <el-tag>标签一</el-tag>
 <el-tag type="success">标签二</el-tag>
 ```
@@ -1072,9 +1076,10 @@ data() {
 
 ### Tree树形控件
 
-```react
+```html
 <el-tree :data="data" :props="defaultProps"></el-tree>  
-
+```
+```javascript
  data() {
   return {
     data: [{
@@ -1129,12 +1134,13 @@ data() {
 
 ### Pagination分页
 
-```react
+```html
 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
   :current-page="queryInfo.page" :page-sizes="[5, 8, 10]" :total="total"
   :page-size="queryInfo.size" layout="total, sizes, prev, pager, next, jumper">
 </el-pagination>
-
+```
+```javascript
 data() {
   return {
     queryInfo: {
@@ -1203,9 +1209,10 @@ methods: {
 
 ### Avatar头像
 
-```react
+```html
 <el-avatar size="large" :src="circleUrl"></el-avatar>
-
+```
+```javascript
 data() {
   return {
     circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
@@ -1249,14 +1256,15 @@ data() {
 
 #### 切换渲染状态
 
-```react
+```html
 <el-skeleton style="width: 240px" :loading="loading">
   // 占位DOM
   <template slot="template">...</template>
   // 真实DOM
   <template>...</template>
 </el-skeleton>
-
+```
+```javascript
 data() {
   return {
     loading: true
@@ -1318,12 +1326,13 @@ data() {
 >
 > 默认状况下，Loading 遮罩会插入到绑定元素的子节点。
 
-```react
+```html
 <p v-loading="loading">anything</p>
 
 // 全屏，锁定屏幕，会添加到 body 上
 <p v-loading.fullscreen.lock="loading">anything</p>
-
+```
+```javascript
 data() {
   return {
     loading: true
@@ -1355,7 +1364,7 @@ data() {
 >
 > 默认全屏。
 
-```react
+```javascript
 const loading = this.$loading({
   lock: true,
   text: 'Loading',
@@ -1379,9 +1388,10 @@ setTimeout(() => {
 
 > 常用于主动操作后的反馈提示。
 
-```react
+```html
 <el-button @click="clickBtn">提交</el-button>
-
+```
+```javascript
 methods: {
   clickBtn() {
     this.$message('这是一条消息提示');
@@ -1417,9 +1427,10 @@ this.$message({
 
 > 点击了确定后，将执行 `then` 部分的程序。
 
-```react
+```html
 <el-button @click="open">删除</el-button>
-
+```
+```javascript
 methods: {
   open() {
     this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
