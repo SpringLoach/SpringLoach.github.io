@@ -4,7 +4,7 @@
 
 `定义`
 
-```react
+```javascript
 /* 编辑个人信息 */
 export function demoPost(data) {
   return axios({
@@ -17,7 +17,7 @@ export function demoPost(data) {
 
 `使用`
 
-```react
+```javascript
 this.form = {
   name: 'xx',
   age: 2
@@ -208,7 +208,7 @@ request.interceptors.response.use((response) => {
 
 方式三
 
-```react
+```javascript
 import notification from 'ant-design-vue/es/notification'
 
 request.interceptors.response.use((response) => {
@@ -256,7 +256,7 @@ request.interceptors.response.use((response) => {
 
 ### 处理文件下载时的返回值
 
-```react
+```javascript
 request.interceptors.response.use((response) => {
   if (response.data instanceof ArrayBuffer || typeof response.data === 'string' || response.data instanceof Blob) {
   // 处理文件下载

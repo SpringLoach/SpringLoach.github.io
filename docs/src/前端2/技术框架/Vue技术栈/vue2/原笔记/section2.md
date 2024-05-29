@@ -8,7 +8,7 @@
 
 > ES5 及以前，只能通过下面这样通过匿名函数实现闭包（立即执行）的方式来避免全局变量的问题。
 
-```react
+```javascript
 (function() {
     var hi = 'nihao';
     var show = function() {
@@ -19,7 +19,7 @@
 
 但此时，其它 `.js` 文件要复用这些变量，只能重新创建。所以最好将需要的变量返回到一个对象中，用模块专属的全局变量接受。
 
-```react
+```javascript
 /* a.js */
 var adata = (function() {
   var out = {};
@@ -47,7 +47,7 @@ var adata = (function() {
 
 > 这种模块化规范被 Node.js 很好的实现了。当然了，缺乏底层支撑原生的 Javascript 不能直接这样做。
 
-```react
+```javascript
 /* 从a.js导出 */
 var hi = 'nihao';
 var show = function() {
@@ -184,7 +184,7 @@ require("./css/normal.css")
 
 1. 安装loader
 
-```react
+```elm
 /* 项目文件下 */
 /* css-loader，负责将 css 文件进行加载 */
 npm install css-loader@2.0.2 --save-dev
@@ -230,14 +230,14 @@ body {
 
 > 在 `main.js` 最后加上这段代码，为指定 less文件添加依赖。
 
-```react
+```javascript
 require("./css/special.less")
 document.writeln("<h2>你好，生活！</h2>");
 ```
 
 1. 安装loader
 
-```react
+```elm
 /* less-loader */
 npm install --save-dev less-loader@4.1.0 less@3.9.0
 ```
@@ -299,7 +299,7 @@ options: {
   - 需要使用 `file-loader` 模块进行加载。且将会在 `dist` 目录下，生成一个通过哈希算法命名的图片文件。
   - 由于此时的 `index.html`文件不在 `dist` 中，默认找的路径不对。需要在 `webpack.config.js` 中添加如下代码，拼接路径。
 
-```react
+```javascript
 output: {
     ...
     publicPath: 'dist/'
@@ -363,7 +363,7 @@ npm install vue@2.5.21 --save
 
 由于默认导出的版本为 `runtime-only`，所以需要更改它的配置。
 
-```react
+```javascript
 /* webpack.config.js */
 module.exports = {
     ...
@@ -429,7 +429,7 @@ new Vue({
 
 可以将子组件当作根实例的模板使用。
 
-```react
+```javascript
 /* 子组件cdiv */
 const cdiv = {
   template:`
@@ -503,7 +503,7 @@ Tips: 后面有更具体的[Vue文件的用法](https://github.com/SpringLoach/V
 
 在源文件中依赖 `vue` 文件
 
-```react
+```javascript
 /* main.js */
 import Vue from 'vue'
 import cdiv from "./vue/App.vue"
@@ -526,7 +526,7 @@ npm install --save-dev vue-loader@15.4.2 vue-template-compiler@2.5.21
 
 1. 配置loader
 
-```react
+```javascript
 {
   test: /\.vue$/,
   use: ['vue-loader']
@@ -539,7 +539,7 @@ npm install --save-dev vue-loader@15.4.2 vue-template-compiler@2.5.21
 
 此时可能会有版本冲突的问题，要作如下修改：
 
-```react
+```javascript
 /* packge.json */
 "vue-loader": "^13.0.0",
 
@@ -583,13 +583,13 @@ export default {
 
 > 没有[配置文件后缀](https://github.com/SpringLoach/Vue/blob/main/learning/section2.md#配置文件后缀)前，不能缩写。
 
-```react
+```javascript
 import Appc from "./Appc.vue"
 ```
 
 1. 给 `export default` 对象添加组件选项（局部注册）
 
-```react
+```javascript
 components: {
     Appc
 }
@@ -597,7 +597,7 @@ components: {
 
 1. 在 `<template>` 标签中使用子组件
 
-```react
+```html
 <Appc/>
 ```
 
@@ -735,7 +735,7 @@ vue-cli2初始化项目弹出选项
 
 > 在安装了 `ESLint` 后取消该规范：在 `config` - `index.js` 中
 
-```react
+```javascript
 useEslint: flase
 ```
 
@@ -760,7 +760,7 @@ useEslint: flase
 | 可选 | 对象，传入属性 |
 | 可选 | 数组，传入内容 |
 
-```react
+```javascript
 render: function(createElement) {
   return createElement('h2',
     {class: 'box'},
@@ -773,7 +773,7 @@ render: function(createElement) {
 
 传入组件对象。
 
-```react
+```javascript
 new Vue({
     el: '#app',
     render: function(h) {
@@ -826,7 +826,7 @@ new Vue({
 
 > 实际上不一定在这个文件里，可以启用终端查看默认位置。
 
-```react
+```
 /* 删除这个文件里的预设对象 */
 C:/Users/Administrator/.vuerc
 ```
@@ -875,7 +875,7 @@ npm run dev
 
 ### cli3_`main.js`的变化
 
-```react
+```javascript
 /* 查看构建信息 */ 
 Vue.config.productionTip = false
 
@@ -968,7 +968,7 @@ module.exports = {
 
 > 若更改 url 的 `hash` ，<span style="color: #ff0000">网页将不会刷新</span>。在路由的映射关系中找到相应的组件后，取得组件并渲染到页面。
 
-```react
+```javascript
 /* js中或控制台 */
 location.hash = 'xxx'
 ```
@@ -1011,7 +1011,7 @@ npm install vue-router --save
     - router
       - index.js
 
-```react
+```javascript
 /* 配置路由相关的信息 */
 import VueRouter from 'vue-router'
 import Vue from 'vue'
@@ -1034,7 +1034,7 @@ export default router
 
 1. 在 Vue 实例中**挂载**创建的路由实例
 
-```react
+```javascript
 /* main.js */
 import 'router' from './router'
 
@@ -1049,7 +1049,7 @@ new Vue({
 
 ### 在vue-cli3模块化工程中使用vue-router(vue2)
 
-```react
+```javascript
 /* router 下的 index.js */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -1084,7 +1084,7 @@ new Vue({
 
 1. 配置路由的映射关系
 
-```react
+```javascript
 /* router 下的 index.js */
 import Home from '../components/Home'
 import About from '../components/About'
@@ -1105,7 +1105,7 @@ const routes = [
 
 > `vue-router` 自动注册了两个全局组件。`router-link` 用于选择渲染的组件，默认渲染为 a 标签，`router-view>` 则决定了组件渲染时在 HTML 中出现的位置。
 
-```react
+```html
 /* src 下的 App.vue */
 <template>
   <div id="app">
@@ -1124,7 +1124,7 @@ const routes = [
 >
 > 此时为 `/a` 路由添加 beforeEnter 守卫并不会有任何效果。
 
-```react
+```javascript
 const router = new VueRouter({
   routes: [
     { path: '/a', redirect: '/b' },
@@ -1141,7 +1141,7 @@ const router = new VueRouter({
 
 1. 添加路由的默认映射
 
-```react
+```javascript
 /* router 下的 index.js */
 const routers = [
   {
@@ -1158,7 +1158,7 @@ const routers = [
 
 > 默认使用哈希模式。
 
-```react
+```javascript
 /* router 下的 index.js */
 const router = new VueRouter({
     ...,
@@ -1177,7 +1177,7 @@ const router = new VueRouter({
 
 修改所有router-link标签活跃时的类名
 
-```react
+```javascript
 /* router 下的 index.js */
 const router = new VueRouter({
     ...,
@@ -1213,7 +1213,7 @@ methods: {
 
 1. 创建组件并添加到路由
 
-```react
+```javascript
 /* router 下的 index.js */
 import User from '../components/User'
 
@@ -1244,7 +1244,7 @@ data() {
 
 1. 在目标组件获取动态路由的参数
 
-```react
+```javascript
 /* User.vue */
 data() {
   return {
@@ -1278,7 +1278,7 @@ methods: {
 
 复用组件时，如果想对参数变化作出响应，可以使用 `beforeRouteUpdate` [导航守卫](https://router.vuejs.org/zh/guide/advanced/navigation-guards.html)。
 
-```react
+```javascript
 data() {},
 beforeRouteUpdate(to, from, next) {
   // do something
@@ -1322,7 +1322,7 @@ watch: {
 
 ES6
 
-```react
+```javascript
 /* router 下的 index.js */
 // import Home from '../components/Home'
 
@@ -1350,7 +1350,7 @@ const Home = resolve => { require.ensure(['../components/Home.vue'], () =>
 
 1. AMD写法
 
-```react
+```javascript
 const About = resolve => require(['../components/Home.vue'], resolve);
 ```
 
@@ -1399,7 +1399,7 @@ const routes = [
 
 1. 添加到父组件
 
-```react
+```html
 /* Home.vue */
 <template>
   <router-link to="/home/message">消息</router-link>
@@ -1424,7 +1424,7 @@ const routes = [
 >
 > 想要跳转到子路由时，根路径不能省
 
-```react
+```html
 /* HelloWorld.vue */
 <div>
   <button @click="section1Btn">section1</button>
@@ -1458,7 +1458,7 @@ section2Btn() {
 
 - 使用参数
 
-```react
+```html
 /* Profile.vue */
 <p>{{$route.query.name}}<p>
 <p>{{$route.query.age}}<p>
@@ -1518,7 +1518,7 @@ Router.install(Vue)
 
 #### 改变文档标题
 
-```react
+```javascript
 /* About.vue */
 
 export default {
@@ -1533,7 +1533,7 @@ export default {
 
 这种情况下，我们可以使用全局导航守卫，然后给每个一级 `route` 添加元数据。
 
-```react
+```javascript
 /* router 下的 index.js */
 const routes = [
   {
@@ -1575,7 +1575,7 @@ export default router
 
 #### 路由元信息_实现登录认证
 
-```react
+```javascript
 const router = new VueRouter({
   routes: [
     {
@@ -1615,7 +1615,7 @@ router.beforeEach((to, from, next) => {
 
 > 正常情况下，在路由之间跳转，会导致原组件的销毁，但被 `<keep-alive>` 标签包围后，组件将会缓存。
 
-```react
+```html
 /* App.vue */
 <template>
   <keep-alive>
@@ -1628,7 +1628,7 @@ router.beforeEach((to, from, next) => {
 
 离开首页时，在首页记录离开时的路径
 
-```react
+```javascript
 /* Home.vue中添加option */
 activated() {
   this.$router.push(this.path);
@@ -1649,7 +1649,7 @@ beforeRouteLeave(to, from, next) {
 | include | 字符串或正则表达式 | 只有匹配的组件会被缓存 |
 | exclude | 字符串或正则表达式 | 匹配的组件不会被缓存   |
 
-```react
+```html
 /* App.vue */
 <keep-alive exclude="Profile,User">
   <router-view/>
@@ -1664,7 +1664,7 @@ beforeRouteLeave(to, from, next) {
 
 > 也可以通过名称来标识路由，以实现跳转。
 
-```react
+```javascript
 const router = new VueRouter({
   routes: [
     {
@@ -1720,7 +1720,7 @@ const router = new VueRouter({
 | ②    | 在created钩子获取数据          |
 | ③    | 请求到数据后，改变渲染条件     |
 
-```react
+```html
 <div class="post">
   <div v-if="loading" class="loading">
     Loading...

@@ -33,7 +33,7 @@ new Vue({
 
 > 按需引入时，通常先导入，然后安装/添加到原型。
 
-```react
+```javascript
 import {Dialog, Message} from 'element-ui';
 
 /* 安装 */
@@ -47,7 +47,7 @@ Vue.prototype.$message = Message;
 
 > 在导入组件后，安装组件前进行配置。
 
-```react
+```javascript
 // 拥有 size 属性的组件的默认尺寸均为 'small'，弹框的初始 z-index 为 3000。
 Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 };
 ```
@@ -125,7 +125,7 @@ Vue.use(Col);
 >
 > 当存在顶栏或低栏容器时，子元素垂直上下排列，否则水平排列。
 
-```react
+```javascript
 import {Container, Header, Aside, Main, Footer,} from 'element-ui';
 
 Vue.use(Container);
@@ -927,7 +927,7 @@ data() {
 
 #### 验证规则
 
-```react
+```javascript
 // 验证规则可以有多个。  
 // require：必填  message：错误信息  trigger：验证时机  min：最小字符数  max：最大字符数
 
@@ -1008,7 +1008,7 @@ data() {
 
 > 通过模板标签中的 `slot-scope` 可以在内部用 `row` 取到相应项，用 `store` 取到状态管理等。
 
-```react
+```html
 <el-table :data="tableData" style="width: 100%">
   <el-table-column label="日期">
     <template slot-scope="scope">
@@ -1381,7 +1381,7 @@ methods: {
 
 使用主题
 
-```react
+```javascript
 this.$message.error('错了哦，这是一条错误消息');
 
 this.$message({
@@ -1441,7 +1441,7 @@ methods: {
 
 > 悬浮出现在页面角落的全局通知。
 
-```react
+```javascript
 this.$notify({
   title: '紧急通知',
   message: '番禺区大雨蓝色预警'

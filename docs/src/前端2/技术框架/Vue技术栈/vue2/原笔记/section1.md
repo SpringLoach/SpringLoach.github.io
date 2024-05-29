@@ -96,7 +96,7 @@ const demo = new Vue({
 
 > 每个 Vue 实例在被创建时都要经过一系列的初始化过程，在这些过程当中也会运行一些叫做生命周期钩子的函数，可以给这些钩子**添加函数**，它们将会被用作回调。
 
-```react
+```javascript
 /* Vue */
 const demo = new Vue({
   el: '#demo',
@@ -359,7 +359,7 @@ const demo = new Vue({
 
 计算属性默认只有 `getter`，不过在需要时你也可以提供一个 `setter`。
 
-```react
+```javascript
 computed: {
   fullName: {
     get: function () {
@@ -446,7 +446,7 @@ data: {
 
 > Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。
 
-```react
+```html
 <template v-if="loginType === 'username'">
   <label>Username</label>
   <input placeholder="Enter your username" key="username-input">  // 拥有不同 key 值的元素将不会复用
@@ -508,7 +508,7 @@ data: {
 
 建议尽可能在使用 v-for 时提供拥有**唯一值**的`key`，它是 Vue 识别节点的一个通用机制，从而重用和重新排序现有元素。
 
-```react
+```html
 /* 遍历数组 */
 <li v-for="item in niuEr" :key="item.id">{{item}}</li>
 ```
@@ -535,7 +535,7 @@ data: {
 
 > 使用其它返回新数组的非变更方法时，可以用新数组代替旧数组。这是非常高效的操作。
 
-```react
+```javascript
 this.anyt = this.anyt.filter(item => {
   return item > 7;
 })
@@ -543,14 +543,14 @@ this.anyt = this.anyt.filter(item => {
 
 ### 修改数组
 
-```react
+```javascript
 this.anyt[5] = 7;
 this.anyt = [...this.anyt];
 ```
 
 ### 修改对象
 
-```react
+```javascript
 this.obj = {...this.obj, newProp: 123};
 ```
 
@@ -615,7 +615,7 @@ data: {
 
 :snowflake: 为了让选项互斥，一般会给它们加上拥有相同值的 `name` 属性，这里用 `v-model` 也可以达到同样效果。
 
-```react
+```html
 <label for="male">
     <input type="radio" id="male" value="男" v-model="message">男性
 </label>
@@ -740,7 +740,7 @@ Vue.component('my-cpn', cpnC);  // 第一个参数为注册组件的标签名
 
 > 使用组件时，若不需要传递什么东西，可以使用单标签
 
-```react
+```html
 <div id="demo">
     <my-cpn/>
 </div>
@@ -750,7 +750,7 @@ Vue.component('my-cpn', cpnC);  // 第一个参数为注册组件的标签名
 
 需要局部注册时，在 Vue 实例中加上 `components` 选项。此时，只有该实例中才能使用被注册的组件。
 
-```react
+```javascript
 Vue.component('my-cpn', cpnC);
 
 const demo = new Vue({
@@ -804,7 +804,7 @@ const demo = new Vue({
 
 ### 组件基本步骤语法糖
 
-```react
+```javascript
 /* 全局注册 */
 Vue.component('my-cpn', {
     template: `
@@ -943,7 +943,7 @@ const demo = new Vue({
 
 <span style="backGround: #efe0b9">子组件</span>
 
-```react
+```javascript
 props: {
     like1: String，
     like2: {
@@ -979,7 +979,7 @@ props: {
 
 <span style="backGround: #efe0b9">子组件</span>
 
-```react
+```javascript
 props: ['like1', 'like2']
 ```
 
@@ -1175,7 +1175,7 @@ methods: {
 1. 插槽 `<slot>` 定义到模块内的某个位置（根元素内），组件标签中添加的内容会替换到相应的位置。
 2. 插槽内部有内容时，默认渲染。组件标签中有内容时（甚至允许为组件），则会替代插槽的内容。
 
-```react
+```html
 <div id="demo">
     <my-cpn></my-cpn>
     <my-cpn>b</my-cpn>
@@ -1197,7 +1197,7 @@ methods: {
 
 > 给 `<slot>` 添加 `name` 属性。并在模板需要的地方添加 `slot` 属性。
 
-```react
+```html
 <div id="demo">
     <my-cpn></my-cpn>
     <my-cpn>
@@ -1220,7 +1220,7 @@ methods: {
 
 > 某一模板中的变量，匹配自身组件（作用域）中的值。
 
-```react
+```html
 <div id="demo">
     <my-cpn v-show="isShow"></my-cpn>
 </div>
@@ -1236,7 +1236,7 @@ methods: {
 2. 在父模板的对应位置添加 `<template>`，并添加一个 `slot-scope` 属性，它的值将供内部使用，值的具体属性由子插槽提供
 3. 即数据由子组件提供。`<slot>` 内的内容会被替代
 
-```react
+```html
 /* 父组件模板 */
 <div id="demo">
   <my-cpn></my-cpn>
