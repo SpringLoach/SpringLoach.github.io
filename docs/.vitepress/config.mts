@@ -207,6 +207,16 @@ export default defineConfig({
               ]
             },
             { 
+              text: 'Vue技术栈',
+              collapsed: true,
+              items: [
+                {
+                  text: 'vue2', link: '/前端2/技术框架/Vue技术栈/vue2/知识沉淀' },
+                { text: 'vuex', link: '/前端2/技术框架/Vue技术栈/vuex/知识沉淀' },
+                { text: 'vue-router', link: '/前端2/技术框架/Vue技术栈/vue-router/知识沉淀' },
+              ]
+            },
+            { 
               text: '微信小程序',
               collapsed: true,
               items: [
@@ -225,6 +235,8 @@ export default defineConfig({
                 { text: 'elementUI', link: '/前端2/UI框架/Element-UI/elementUI' },
               ]
             },
+            { 
+              text: 'vant', link: '/前端2/UI框架/vant/vant' },
           ]
         },
         {
