@@ -22,7 +22,7 @@ export default defineConfig({
         text: '技术框架',
         items: [
           { text: '文档参考', link: '/前端2/文档参考' },
-          { text: '技术框架', link: '/前端2/技术框架/技术框架/微信小程序/微信小程序' },
+          { text: '技术框架', link: '/前端2/技术框架/微信小程序/微信小程序' },
           { text: 'UI框架', link: '/前端2/UI框架/Element-UI/elementUI' },
           { text: '第三方库', link: '/前端2/第三方库/viewer.js/viewer.js' },
         ]
@@ -203,14 +203,14 @@ export default defineConfig({
               text: 'React',
               collapsed: true,
               items: [
-                { text: 'HOOK.md', link: '/前端2/技术框架/技术框架/React技术栈/React/HOOK.md' },
+                { text: 'HOOK.md', link: '/前端2/技术框架/React技术栈/React/HOOK.md' },
               ]
             },
             { 
               text: '微信小程序',
               collapsed: true,
               items: [
-                { text: '微信小程序', link: '/前端2/技术框架/技术框架/微信小程序/微信小程序' },
+                { text: '微信小程序', link: '/前端2/技术框架/微信小程序/微信小程序' },
               ]
             }
           ]

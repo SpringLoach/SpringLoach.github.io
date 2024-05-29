@@ -583,5 +583,13 @@ export default
 
 
 
+### 疏远组件通信
+
+可以通过 `vuex`、`缓存`、`Vue.prototype`、`eventBus` 实现；
+
+其中 `eventBus`、`vuex` 更容易实现实时的监听，其余的适合 `延迟动作`
+
+
+
 
 
