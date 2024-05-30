@@ -60,3 +60,22 @@ export default DefaultTheme
 ### xx语言不能高亮
 
 可以先将这部分语言[指定为其他可正常高亮语言](https://github.com/vuejs/vitepress/issues/3259)
+
+```javascript
+// .vitepress/config.ts
+
+export default defineConfig({
+  markdown: {
+    languageAlias: {
+      'svg': 'html'
+    }
+  }
+})
+```
+
+
+
+### 右上角自定义svg适配光暗
+
+将找到的 svg 代码中的 `fill` 属性删除
+
