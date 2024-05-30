@@ -57,7 +57,7 @@
 
 #### 基本使用
 
-```vue
+```html
 <!-- MyBook.vue -->
 <template>
   <div>{{ readersNumber }} {{ book.title }}</div>
@@ -282,7 +282,7 @@ watchEffect(async onInvalidate => {
 
 副作用函数会被缓存，并异步调用，来避免同个 “tick” 中由于多个状态改变导致的重复调用。
 
-```vue
+```html
 <template>
   <div>{{ count }}</div>
 </template>

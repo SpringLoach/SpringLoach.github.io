@@ -12,7 +12,7 @@
 
 ###  useState
 
-```react
+```jsx
 import React, {useState} from 'react';
 
 export default function CounterHook() {
@@ -49,7 +49,7 @@ export default function CounterHook() {
 
 #### 复杂状态的修改
 
-```react
+```jsx
 import React, { useState } from 'react'
 
 export default function ComplexHookState() {
@@ -101,7 +101,7 @@ export default function ComplexHookState() {
 
 #### 修改状态的合并
 
-```react
+```jsx
 const [count, setCount] = useState(() => 10);
 
 // 首次调用结果为20
@@ -113,7 +113,7 @@ function handleBtnClick() {
 }
 ```
 
-```react
+```jsx
 const [count, setCount] = useState(() => 10);
 
 // 首次调用结果为 50
@@ -135,7 +135,7 @@ function handleBtnClick() {
 
 #### 案例-根据状态修改文档标题
 
-```react
+```jsx
 import React, { useState, useEffect } from 'react'
 
 export default function HookCounterChangeTitle() {
@@ -162,7 +162,7 @@ export default function HookCounterChangeTitle() {
 
 #### 案例-订阅/取消订阅
 
-```react
+```jsx
 import React, { useEffect, useState } from 'react'
 
 export default function EffectHookCancelDemo() {
@@ -197,7 +197,7 @@ export default function EffectHookCancelDemo() {
 
 #### 案例-多次调用处理不同逻辑
 
-```react
+```jsx
 import React, { useState, useEffect } from 'react'
 
 export default function MultiEffectHookDemo() {
@@ -248,7 +248,7 @@ export default function MultiEffectHookDemo() {
 
 **祖先传递**
 
-```react
+```jsx
 import React, { useState, createContext } from 'react';
 import ContextHookDemo from './useContext/useContext';
 
@@ -270,7 +270,7 @@ export default function App() {
 
 **后代获取**
 
-```react
+```jsx
 import React, { useContext } from 'react';
 
 import { UserContext, ThemeContext } from "../App";
@@ -301,7 +301,7 @@ export default function ContextHookDemo(props) {
 | 返回值   | 状态，dispatch 方法                                        |
 | 修改状态 | 如果状态是引用类型，在修改状态时，注意避免使用相同的引用值 |
 
-```react
+```jsx
 import React, { useState, useReducer } from 'react';
 
 import reducer from './reducer';
@@ -319,7 +319,7 @@ export default function Home() {
 }
 ```
 
-```react
+```jsx
 export default function reducer(state, action) {
   switch(action.type) {
     case "increment":
@@ -346,7 +346,7 @@ export default function reducer(state, action) {
 
 该例子中，increment1 是普通的函数， increment2 是通过 useCallback 处理的函数。
 
-```react
+```jsx
 import React, {useState, useCallback, memo} from 'react';
 
 const HYButton = memo((props) => {
@@ -395,7 +395,7 @@ export default function CallbackHookDemo02() {
 
 #### 案例-缓存计算结果
 
-```react
+```jsx
 import React, {useState, useMemo} from 'react';
 
 function calcNumber(count) {
@@ -433,7 +433,7 @@ export default function MemoHookDemo01() {
 
 #### 案例-保持子组件不更新
 
-```react
+```jsx
 import React, { useState, memo, useMemo } from 'react';
 
 const HYInfo = memo((props) => {
@@ -475,7 +475,7 @@ export default function MemoHookDemo02() {
 
 #### 案例-引用DOM
 
-```react
+```jsx
 import React, { useRef } from 'react';
 
 class TestCpn extends React.Component {
@@ -511,7 +511,7 @@ export default function RefHookDemo01() {
 
 #### 案例-保存更新前的状态
 
-```react
+```jsx
 import React, { useRef, useState, useEffect } from 'react'
 
 export default function RefHookDemo02() {
@@ -550,7 +550,7 @@ export default function RefHookDemo02() {
 
 #### 回顾-forwardRef的用法
 
-```react
+```jsx
 import React, { useRef, forwardRef } from 'react';
 
 const HYInput = forwardRef((props, ref) => {
@@ -573,7 +573,7 @@ export default function ForwardRefDemo() {
 
 #### 案例-限制对引用dom的行为
 
-```react
+```jsx
 import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 
 const HYInput = forwardRef((props, ref) => {
@@ -617,7 +617,7 @@ export default function UseImperativeHandleHookDemo() {
 | useEffect       | 在组件更新后执行             |
 | useLayoutEffect | 在组件更新前执行，会阻塞渲染 |
 
-```react
+```jsx
 import React, { useState, useEffect, useLayoutEffect } from 'react'
 
 export default function LayoutEffectCounterDemo() {
@@ -655,7 +655,7 @@ export default function LayoutEffectCounterDemo() {
 
 ### 案例-组件创建/销毁时打印
 
-```react
+```jsx
 import React, { useEffect } from 'react';
 
 const Home = (props) => {
@@ -696,7 +696,7 @@ function useLoggingLife(name) {
 
 需要将多个关联的 context 实例，引入到组件中使用；比起使用高阶组件，用自定义 hook 要简介得多。
 
-```react
+```jsx
 - src 
   + hooks
     - info-hook.js
@@ -705,7 +705,7 @@ function useLoggingLife(name) {
 
 <span style="backGround: #efe0b9">src\App.js</span>
 
-```react
+```jsx
 import React, { useState, createContext } from 'react';
 
 export const UserContext = createContext();
@@ -726,7 +726,7 @@ export default function App() {
 
 <span style="backGround: #efe0b9">src\hooks\info-hook.js</span>
 
-```react
+```jsx
 import { useContext } from "react";
 import { UserContext, TokenContext } from "../App";
 
@@ -742,7 +742,7 @@ export default useUserContext;
 
 <span style="backGround: #efe0b9">使用</span>
 
-```react
+```jsx
 import React, { useContext } from 'react';
 import useUserContext from '../hooks/user-hook';
 
@@ -764,7 +764,7 @@ export default function CustomContextShareHook() {
 
 <span style="backGround: #efe0b9">src\hooks\scroll-position-hook.js</span>
 
-```react
+```jsx
 import { useState, useEffect } from 'react';
 
 function useScrollPosition() {
@@ -789,7 +789,7 @@ export default useScrollPosition;
 
 <span style="backGround: #efe0b9">使用</span>
 
-```react
+```jsx
 import React, { useEffect, useState } from 'react'
 import useScrollPosition from '../hooks/scroll-position-hook'
 
@@ -832,7 +832,7 @@ export default useLocalStorage;
 
 <span style="backGround: #efe0b9">使用</span>
 
-```react
+```jsx
 import React, { useState, useEffect } from 'react';
 
 import useLocalStorage from '../hooks/local-store-hook';

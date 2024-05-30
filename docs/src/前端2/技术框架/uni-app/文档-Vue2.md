@@ -6,7 +6,7 @@
 2. 相比web平台，在小程序和App端部分功能[受限](https://uniapp.dcloud.io/vue-api)（devtools工具、nextTick、activated钩子、v-html指令等）。
 3. 仍完整支持Vue模板语法（允许为表达式插值和指令）。
 
-```vue
+```html
  <view>{{ ok ? 'YES' : 'NO' }}</view>
  <view>{{ message.split('').reverse().join('') }}</view>
 ```
@@ -80,7 +80,7 @@ data () {
 
 ### 事件处理器
 
-```vue
+```html
 <!-- 可以接受 JavaScript 代码、方法名称、调用方法 -->
 <button @click="formView = true">打开弹窗</button>
 
@@ -141,7 +141,7 @@ data () {
 
 > v-model 会忽略所有表单元素的 `value`、`checked`、`selected` attribute 的初始值而将 Vue 实例的数据作为数据来源，需在 `data` 中初始化。
 
-```vue
+```html
 <input v-model="message" />
 ```
 
@@ -249,7 +249,7 @@ watch: {
 >
 > 组件的根节点为 `<template>`，这个 `<template>` 下只能且**必须有一个**根 `<view>` 组件。
 
-```vue
+```html
 <template>
   <view>
     ...
@@ -305,7 +305,7 @@ Vue.component('page-head', pageHead)
 
 `demo.vue`
 
-```vue
+```html
 <template>
   <view>
     <page-head></page-head>
@@ -325,7 +325,7 @@ Vue.component('page-head', pageHead)
 
 > 与常规 vue 相似，可以设置类型检测，默认值，限制为必填项等。
 
-```vue
+```html
 <!-- 如果父组件只传该属性，意味着赋值为true -->
 <blog-post is-published></blog-post>
 ```
@@ -334,7 +334,7 @@ Vue.component('page-head', pageHead)
 
 > 可以传入一个对象的所有属性，但微信小程序不支持。
 
-```vue
+```html
  <blog-post v-bind="post"></blog-post>
 
 <!-- 上面的模板等价于： -->
@@ -418,7 +418,7 @@ methods:{
 
 `子组件`
 
-```vue
+```html
 <view>
   <slot :user="user">{{user.lastName}}</slot>
 </view>
@@ -426,7 +426,7 @@ methods:{
 
 `父组件`
 
-```vue
+```html
 <view>
   <current-user>
     <template v-slot:default="slotProps">

@@ -728,7 +728,7 @@ createApp(App).use(router).mount('#app')
 
 <span style="backGround: #efe0b9">vue模板</span>
 
-```vue
+```html
 <template>
   <div class=""></div>
 </template>
@@ -841,7 +841,7 @@ app.mount('#app')
 
 也就是在开发中用到某个组件对某个组件进行引入：
 
-```vue
+```html
 <template>
   <div id="app">
     <el-button>默认按钮</el-button>

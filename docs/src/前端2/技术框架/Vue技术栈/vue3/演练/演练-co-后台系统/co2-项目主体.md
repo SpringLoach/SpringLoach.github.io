@@ -23,7 +23,7 @@
 
 <span style="backGround: #efe0b9">views/login/login.vue</span>
 
-```vue
+```html
 <template>
   <div class="login">
     <login-panel />
@@ -49,7 +49,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">views/login/components/login-panel.vue</span>
 
-```vue
+```html
 <template>
   <div class="login-pannel">
     <h1 class="title">后台管理系统</h1>
@@ -103,7 +103,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">login-account.vue</span>
 
-```vue
+```html
 <template>
   <div class="login-account">
     <el-form :model="account" label-width="60px" :rules="rules" ref="formRef">
@@ -533,7 +533,7 @@ setupStore()
 
 ### 账号登录实现
 
-```vue
+```html
 <template>
   <div class="login-panel">
     <h1 class="title">后台管理系统</h1>
@@ -597,7 +597,7 @@ export default defineComponent({
 
 
 
-```vue
+```html
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
 import { ElForm } from 'element-plus'
@@ -654,7 +654,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">views/main/main.vue</span>
 
-```vue
+```html
 <template>
   <div class="main">
     <el-container class="main-content">
@@ -698,7 +698,7 @@ export default NavMenu
 
 <span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
-```vue
+```html
 <template>
   <div class="nav-menu">
     <div class="menu-logo">
@@ -744,7 +744,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
-```vue
+```html
 <el-menu
   class="el-menu"
   unique-opened
@@ -778,7 +778,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">components/nav-header/src/nav-header.vue</span>
 
-```vue
+```html
 <template>
   <div class="nav-header">
     <el-icon class="expand-icon" @click="handleFoldClick">
@@ -1480,7 +1480,7 @@ export default defineComponent({
 
 <span style="backGround: #efe0b9">commom/search/src/search.vue</span>
 
-```vue
+```html
 <template>
   <div class="search">
     <el-form :label-width="labelWidth">
@@ -4487,7 +4487,7 @@ export function formatUtcString(utcString: string, format: string = DATE_TIME_FO
 
 **:trident:使用**
 
-```vue
+```html
 <span>{{ $filters.formatTime(text) }}</span>
 ```
 

@@ -142,7 +142,7 @@ export default defineConfig({
 
 <span style="backGround: #efe0b9">src/App.vue</span>
 
-```vue
+```html
 <template>
   <div class="page-wrapper">
     <p>Vite是一种新型前端构建工具，能够显著提升前端开发体验。</p>

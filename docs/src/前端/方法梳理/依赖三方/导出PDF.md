@@ -137,7 +137,7 @@ import Print from 'vue-print-nb'
 Vue.use(Print);
 ```
 
-```vue
+```html
 <el-button plain v-print="'#resume'">下载简历</el-button>
 <div id="resume">我要被打印啦</div>
 ```

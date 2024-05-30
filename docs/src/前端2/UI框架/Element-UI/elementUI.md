@@ -195,7 +195,7 @@ function customColorMethod(percentage: number) {
 
 #### 原生表格选择（包含部分禁用、全选）控制
 
-```vue
+```html
 <el-checkbox
     :value="checkAll"
     class="t-checkbox"

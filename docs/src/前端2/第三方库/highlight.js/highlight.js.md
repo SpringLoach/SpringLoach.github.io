@@ -8,7 +8,7 @@ npm install highlight.js
 
 使用
 
-```vue
+```html
 <template>
   <div ref="preCode" style="white-space: pre">{{ code }}</div>
 </template>

@@ -40,7 +40,7 @@
 
 #### 初体验
 
-```react
+```jsx
 <!-- 不要忘记引入依赖的库 -->
 <div id="app">将会被替代的内容</div>
 
@@ -58,7 +58,7 @@
 
 #### 实例-更改数据（缺陷）
 
-```react
+```jsx
 <script type="text/babel">
   let message = "Hello World";
 
@@ -84,7 +84,7 @@
 
 #### 实例-更改数据
 
-```react
+```jsx
 <script type="text/babel">
   let message = "Hello World";
 
@@ -114,7 +114,7 @@
 
 #### 组件化实现（缺陷）
 
-```react
+```jsx
 <script type="text/babel">
   // 封装App组件
   class App extends React.Component {
@@ -156,7 +156,7 @@
 
 #### 组件化实现
 
-```react
+```jsx
 <script type="text/babel">
   class App extends React.Component {
     constructor() {
@@ -198,7 +198,7 @@
 
 #### 案例-列表
 
-```react
+```jsx
 <script type="text/babel">
   class App extends React.Component {
     constructor() {
@@ -235,7 +235,7 @@
 
 #### 案例-列表（优化）
 
-```react
+```jsx
 render() {
   return (
     <div>
@@ -258,7 +258,7 @@ render() {
 
 #### jsx-语法
 
-```react
+```jsx
 <script type="text/babel">
   const element = <h2>Hello World</h2>;
   ReactDOM.render(element, document.getElementById("app"));
@@ -271,7 +271,7 @@ render() {
 
 #### jsx-注释
 
-```react
+```jsx
 render() {
   return (
     <div>
@@ -290,7 +290,7 @@ render() {
 
 这里嵌入的数据，指的是放入 jsx 的 `{}` 的内容。
 
-```react
+```jsx
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -323,7 +323,7 @@ class App extends React.Component {
 
 :ghost: 对于不显示的几种类型，可以将其转化为字符串后进行显示
 
-```react
+```jsx
 {this.state.demo.toString()}
 
 {this.state.demo + ''}
@@ -335,7 +335,7 @@ class App extends React.Component {
 
 #### jsx-嵌入表达式
 
-```react
+```jsx
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -381,7 +381,7 @@ class App extends React.Component {
 
 #### jsx-绑定属性
 
-```react
+```jsx
 function demo(imgUrl) {
   return imgUrl + ''
 }
@@ -419,7 +419,7 @@ class App extends React.Component {
 
 #### jsx-绑定类/样式
 
-```react
+```jsx
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -464,7 +464,7 @@ class App extends React.Component {
 
 **方式一**
 
-```react
+```jsx
 // 通过 bind 绑定 this (显示绑定)
 class App extends React.Component {
   constructor(props) {
@@ -488,7 +488,7 @@ class App extends React.Component {
 }
 ```
 
-```react
+```jsx
 // 通过 bind 绑定 this (显示绑定)
 class App extends React.Component {
   constructor(props) {
@@ -514,7 +514,7 @@ class App extends React.Component {
 
 **方式二**
 
-```react
+```jsx
 // 定义为箭头函数
 class App extends React.Component {
   constructor(props) {
@@ -540,7 +540,7 @@ class App extends React.Component {
 
 **方式三**
 
-```react
+```jsx
 // 在表达式内传入箭头函数
 class App extends React.Component {
   constructor(props) {
@@ -568,7 +568,7 @@ class App extends React.Component {
 
 #### jsx-绑定事件-传参
 
-```react
+```jsx
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -604,7 +604,7 @@ class App extends React.Component {
 - 三目运算符，较为清晰
 - 逻辑与，适合于仅渲染/不渲染的情况
 
-```react
+```jsx
 // 通过 if 判断，适合逻辑代码较多的情况
 class App extends React.Component {
   constructor(props) {
@@ -642,7 +642,7 @@ class App extends React.Component {
 
 :european_castle: 通过 jsx 的语法，可以直接将“标签”赋值给变量。
 
-```react
+```jsx
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -669,7 +669,7 @@ class App extends React.Component {
 
 #### jsx-条件展示
 
-```react
+```jsx
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -696,7 +696,7 @@ class App extends React.Component {
 
 #### jsx-列表渲染
 
-```react
+```jsx
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -749,7 +749,7 @@ React.createElement(component, props, ...children)
 
 
 
-```react
+```jsx
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <!-- 使用jsx时需要额外引入 -->
@@ -811,7 +811,7 @@ jsx -> createElement函数 -> ReactElement(对象树) -> ReactDOM.render -> 真�
 
 #### 代码结构
 
-```react
+```jsx
 <script src="./format-utils.js"></script>
 
 <script type="text/babel">
@@ -855,7 +855,7 @@ function formatPrice(price) {
 
 :trident: 以下为组件 App 类中的内容
 
-```react
+```jsx
 render() {
   return (
     <div>
@@ -911,7 +911,7 @@ getTotalPrice() {
 
 :trident: 以下为组件 App 类中的内容
 
-```react
+```jsx
 renderBooks() {
   return  (
     <div>

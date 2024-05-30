@@ -33,7 +33,7 @@ import "antd/dist/antd.css"
 
 使用[示例](https://ant.design/components/overview-cn/)
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 import { Button } from 'antd';
 import { PoweroffOutlined } from '@ant-design/icons';
@@ -153,7 +153,7 @@ import HYTitle from "components/title/title.js";
 
 ### 组件使用-两种方式
 
-```react
+```jsx
 import { Input } from "antd";
 const { TextArea } = Input;
 
@@ -289,7 +289,7 @@ yarn add react-transition-group
 | appear        | 挂载时触发动画           | false  |
 | onEnter等钩子 | 特点时机触发，参数为 dom |        |
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 // 1.引入组件
@@ -371,7 +371,7 @@ export default class CSSTransitionDemo extends PureComponent {
 
 ### CSSTransition-动画钩子
 
-```react
+```jsx
 <CSSTransition in={isShow}
                 classNames="card"
                 timeout={5000}
@@ -396,7 +396,7 @@ export default class CSSTransitionDemo extends PureComponent {
 | -------- | ----------------------------- | ------ |
 | mode     | 表示新旧组件，移除/新建的顺序 | out-in |
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import "./SwitchTransition.css";
@@ -463,7 +463,7 @@ export default class SwitchTransitionDemo extends PureComponent {
 
 ### TransitionGroup-基本使用
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -748,7 +748,7 @@ store.dispatch(incAction());
 
 **使用**
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import store from '../store';
@@ -803,7 +803,7 @@ export default class Home extends PureComponent {
 
 <span style="backGround: #efe0b9">src\utils\connect.js</span>
 
-```react
+```jsx
 import React, { PureComponent } from "react";
 
 // 获取封装好的实例
@@ -850,7 +850,7 @@ export function connect(mapStateToProps, mapDispachToProp) {
 
 <span style="backGround: #efe0b9">使用</span>
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import {connect} from '../utils/connect';
@@ -904,7 +904,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 <span style="backGround: #efe0b9">src\index.js</span>
 
-```react
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -924,7 +924,7 @@ ReactDOM.render(
 
 <span style="backGround: #efe0b9">src\utils\context.js</span>
 
-```react
+```jsx
 import React from 'react';
 
 const StoreContext = React.createContext(); 
@@ -936,7 +936,7 @@ export {
 
 <span style="backGround: #efe0b9">src\utils\connect.js</span>
 
-```react
+```jsx
 import React, { PureComponent } from "react";
 
 import { StoreContext } from './context';
@@ -995,7 +995,7 @@ yarn add react-redux
 
 <span style="backGround: #efe0b9">src\index.js</span>
 
-```react
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -1017,7 +1017,7 @@ ReactDOM.render(
 
 <span style="backGround: #efe0b9">使用</span>
 
-```react
+```jsx
 // import { connect } from '../utils/connect';
 import { connect } from 'react-redux';
 ```
@@ -1036,7 +1036,7 @@ export const CHANGE_BANNERS = "CHANGE_BANNERS";
 
 <span style="backGround: #efe0b9">src\store\actionCreators.js</span>
 
-```react
+```jsx
 import {
   CHANGE_BANNERS
 } from './constants.js';
@@ -1049,7 +1049,7 @@ export const changeBannersAction = (banners) => ({
 
 <span style="backGround: #efe0b9">src\store\reducer.js</span>
 
-```react
+```jsx
 import {
   CHANGE_BANNERS
 } from './constants.js';
@@ -1074,7 +1074,7 @@ export default reducer;
 
 
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import { connect } from 'react-redux';
@@ -1131,7 +1131,7 @@ yarn add redux-thunk
 
 <span style="backGround: #efe0b9">src\store\index.js</span>
 
-```react
+```jsx
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
@@ -1147,7 +1147,7 @@ export default store;
 
 <span style="backGround: #efe0b9">src\store\actionCreators.js</span>
 
-```react
+```jsx
 import axios from 'axios';
 
 import {
@@ -1174,7 +1174,7 @@ export const getHomeMultidataAction = (dispatch, getState) => {
 
 :ghost: 此时 dispatch 允许接收 <span style="color: #ff0000">func</span> 形式的 action，可以在异步获取到数据后执行相应的 action。
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import { connect } from 'react-redux';
@@ -1217,7 +1217,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 <span style="backGround: #efe0b9">src\store\index.js</span>
 
-```react
+```jsx
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
@@ -1247,7 +1247,7 @@ yarn add redux-saga
 
 <span style="backGround: #efe0b9">src\store\index.js</span>
 
-```react
+```jsx
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
@@ -1320,7 +1320,7 @@ export default mySaga;
 
 <span style="backGround: #efe0b9">src\store\constants.js</span>
 
-```react
+```jsx
 export const ADD_NUMBER = "ADD_NUMBER";
 
 export const FETCH_HOME_MULTIDATA = "FETCH_HOME_MULTIDATA";
@@ -1341,7 +1341,7 @@ export const fetchHomeMultidataAction = {
 
 **使用**
 
-```react
+```jsx
 // 组件内部
 componentDidMount() {
   this.props.getHomeMultidata();
@@ -1369,7 +1369,7 @@ const mapDispatchToProps = dispatch => ({
 | monkeyingpatch | 可以通过一个中间变量，给原本的 api 重新赋值为函数A         |
 | monkeyingpatch | 将monkeyingpatch这一部分单独封装到函数里，用户调用即可生效 |
 
-```react
+```jsx
 function patchLogging(store) {
   const next = store.dispatch;
   function dispatchAndLogging(action) {
@@ -1385,7 +1385,7 @@ function patchLogging(store) {
 
 ### reducer 与 reduce
 
-```react
+```jsx
 (previousState = defaultState, action) => nextState
 ```
 
@@ -1415,7 +1415,7 @@ function patchLogging(store) {
 
 <span style="backGround: #efe0b9">src\store\reducer.js</span>
 
-```react
+```jsx
 import { combineReducers } from 'redux';
 
 import { reducer as counterReducer } from './counter';

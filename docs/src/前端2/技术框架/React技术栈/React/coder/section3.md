@@ -20,7 +20,7 @@
 
 ### 对比不同/相同类型元素
 
-```react
+```jsx
 <div>
   <Counter />
 </div>
@@ -32,7 +32,7 @@
 </span>
 ```
 
-```react
+```jsx
 // React 知道只需要修改 DOM 元素上的 className 属性
 <div className="before" title="stuff" />
 <div className="after" title="stuff" />
@@ -58,7 +58,7 @@
 
 ### 控制重新渲染-钩子
 
-```react
+```jsx
 export default class App extends Component {
   constructor(props) {/**/}
 
@@ -91,7 +91,7 @@ export default class App extends Component {
 
 只有自身的 props 或 state 发生变化时（浅层比较），才会触发组件的重新渲染。
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 export default class App extends PureComponent {
@@ -109,7 +109,7 @@ export default class App extends PureComponent {
 
 ### 优化重新渲染-函数组件
 
-```react
+```jsx
 import React, { PureComponent, memo } from 'react';
 
 const MemoHeader = memo(function Header() {
@@ -143,7 +143,7 @@ export default class App extends PureComponent {
 
 #### 错误操作
 
-```react
+```jsx
 export default class App extends Component {
   constructor(props) {/**/}
 
@@ -175,7 +175,7 @@ export default class App extends Component {
 
 #### 正确操作
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 export default class App extends PureComponent {
@@ -213,7 +213,7 @@ export default class App extends PureComponent {
 
 **方式一**
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 export default class App extends PureComponent {
@@ -238,7 +238,7 @@ export default class App extends PureComponent {
 
 **方式二**
 
-```react
+```jsx
 import React, { PureComponent, createRef } from 'react';
 
 export default class App extends PureComponent {
@@ -267,7 +267,7 @@ export default class App extends PureComponent {
 
 **方式三**
 
-```react
+```jsx
 import React, { PureComponent, createRef } from 'react';
 
 export default class App extends PureComponent {
@@ -298,7 +298,7 @@ export default class App extends PureComponent {
 
 #### 引用子组件
 
-```react
+```jsx
 import React, { PureComponent, createRef } from 'react';
 
 // 子组件
@@ -354,7 +354,7 @@ export default class App extends PureComponent {
 
 #### ref的转发
 
-```react
+```jsx
 import React, { PureComponent, createRef, forwardRef } from 'react';
 
 class Home extends PureComponent {
@@ -404,7 +404,7 @@ export default class App extends PureComponent {
 | 受控组件   | 通过 state 维护表单控件的值（推荐） |
 | 非受控组件 | 通过 dom 节点维护表单数据           |
 
-```react
+```jsx
 import React, { PureComponent } from 'react'
 
 export default class App extends PureComponent {
@@ -453,7 +453,7 @@ export default class App extends PureComponent {
 
 实际上就是通过原生的表单方式，配合 refs 进行操作，不推荐。
 
-```react
+```jsx
 import React, { PureComponent, createRef } from 'react'
 
 export default class App extends PureComponent {
@@ -496,7 +496,7 @@ export default class App extends PureComponent {
 
 ### 高阶组件-定义方式
 
-```react
+```jsx
 import React, { PureComponent } from 'react'
 
 class App extends PureComponent {
@@ -524,7 +524,7 @@ export default EnhanceComponent;
 
 **也支持函数式组件**
 
-```react
+```jsx
 function enhanceComponent(WrappedComponent) {
   function NewComponent(props) {
     return <WrappedComponent {...props}/>
@@ -543,7 +543,7 @@ function enhanceComponent(WrappedComponent) {
 
 场景：给组件增加一个 props 属性： region="中国"
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 // 定义高阶组件
@@ -583,7 +583,7 @@ export default App;
 
 场景：将 context 对象上的属性传递到 props 上，可以简化中间的传递流程。
 
-```react
+```jsx
 import React, { PureComponent, createContext } from 'react';
 
 // 定义高阶组件
@@ -638,7 +638,7 @@ export default App;
 
 场景：未登录跳转到登录页，有登录就跳转购物车
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 class LoginPage extends PureComponent {
@@ -684,7 +684,7 @@ export default class App extends PureComponent {
 
 ### 应用-生命周期劫持
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 // 创建高阶组件
@@ -746,7 +746,7 @@ export default class App extends PureComponent {
 | 首参     | 任何可渲染的 React 子元素，例如一个元素，字符串或 fragment  |
 | 第二参   | DOM 元素；默认是 id 为 root 的 DOM 元素                     |
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 // 1.引入
 import ReactDOM from 'react-dom';
@@ -783,7 +783,7 @@ export default class App extends PureComponent {
 
 本质上，与小程序的 block，非常相似；用于添加一个不会实际渲染的根组件。
 
-```react
+```jsx
 // 引入组件
 import React, { PureComponent, Fragment } from 'react';
 
@@ -806,7 +806,7 @@ export default class App extends PureComponent {
 
 :ghost: 可以给 Fragment 标签添加 key 属性（作为列表项时优化更新）
 
-```react
+```jsx
 render() {
   return (
     <>
@@ -834,7 +834,7 @@ render() {
 | 检查内容 | findDOMNode                                        | /                         |
 | 检查内容 | 过时的 context API                                 | /                         |
 
-```react
+```jsx
 return (
   <div>
     <h2>雨我无瓜</h2>
@@ -868,7 +868,7 @@ React官方并没有给出在React中统一的样式风格，因此存在的方�
 
 ### 内联样式
 
-```react
+```jsx
 export default class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -910,7 +910,7 @@ export default class App extends PureComponent {
   + style.css
 ```
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import './style.css';
@@ -945,7 +945,7 @@ export default class App extends PureComponent {
 
 <span style="backGround: #efe0b9">home\index.js</span>
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import homeStyle from './style.module.css';
@@ -997,7 +997,7 @@ yarn add styled-components
 
 <span style="backGround: #efe0b9">app\index.js</span>
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 // 引入
@@ -1037,7 +1037,7 @@ export default class App extends PureComponent {
 
 <span style="backGround: #efe0b9">profile\index.js</span>
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
@@ -1084,7 +1084,7 @@ export default class Profile extends PureComponent {
 
 #### 使用主题
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import styled, { ThemeProvider } from 'styled-components';
@@ -1117,7 +1117,7 @@ export default class App extends PureComponent {
 
 <span style="backGround: #efe0b9">home\index.js</span>
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 // 引入样式组件后使用
@@ -1144,7 +1144,7 @@ export default class Home extends PureComponent {
 
 <span style="backGround: #efe0b9">home\style.js</span>
 
-```react
+```jsx
 import styled from 'styled-components';
 
 // 定义样式组件
@@ -1187,7 +1187,7 @@ export const TitleWrapper = styled.h2`
 
 ### 普通方式
 
-```react
+```jsx
 render() {
   const { isActive } = this.state;
   return (
@@ -1212,7 +1212,7 @@ render() {
 yarn add classnames
 ```
 
-```react
+```jsx
 // 顶层引入
 import classNames from 'classnames';
 

@@ -116,7 +116,7 @@ yarn add react-router-dom
 
 ### 基本使用
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import {
@@ -163,7 +163,7 @@ class App extends PureComponent {
 | NavLink | activeClassName 活跃时添加的class          |
 | NavLink | exact 是否精准匹配；默认为模糊匹配         |
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import {
@@ -203,7 +203,7 @@ export default class App extends PureComponent {
 | ------ | ---------------------------------- |
 | Switch | 只渲染首个匹配条件的路由，由上往下 |
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import {
@@ -251,7 +251,7 @@ export default class App extends PureComponent {
 
 父组件
 
-```react
+```jsx
 <Switch>
   <Route exact path="/" component={Home} />
   <Route path="/user" component={User} />
@@ -260,7 +260,7 @@ export default class App extends PureComponent {
 
 业务组件
 
-```react
+```jsx
 import { Redirect } from 'react-router-dom';
 
 export default class User extends PureComponent {
@@ -289,7 +289,7 @@ export default class User extends PureComponent {
 
 父组件
 
-```react
+```jsx
 <Switch>
   <Route exact path="/" component={Home} />
   <Route path="/about" component={About} />
@@ -298,7 +298,7 @@ export default class User extends PureComponent {
 
 子组件
 
-```react
+```jsx
 export default class About extends PureComponent {
   render() {
     return (
@@ -326,7 +326,7 @@ export default class About extends PureComponent {
 
 #### 路由组件
 
-```react
+```jsx
 export default class About extends PureComponent {
   render() {
     return (
@@ -355,7 +355,7 @@ export default class About extends PureComponent {
 
 #### 非路由组件
 
-```react
+```jsx
 ReactDOM.render(
   <BrowserRouter>
     <App/>
@@ -364,7 +364,7 @@ ReactDOM.render(
 );
 ```
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 import {
@@ -411,7 +411,7 @@ export default withRouter(App);
 
 <span style="backGround: #efe0b9">父组件</span>
 
-```react
+```jsx
 class App extends PureComponent {
   render() {
     const id = "123";
@@ -430,7 +430,7 @@ class App extends PureComponent {
 
 <span style="backGround: #efe0b9">子组件</span>
 
-```react
+```jsx
 export default class Detail extends PureComponent {
   render() {
     const match = this.props.match;
@@ -456,7 +456,7 @@ export default class Detail extends PureComponent {
 
 父组件
 
-```react
+```jsx
 <NavLink to={`/detail2?name=why&age=18`}>详情2</NavLink>
 
 <Route path="/detail2" component={Detail2} />
@@ -464,7 +464,7 @@ export default class Detail extends PureComponent {
 
 子组件
 
-```react
+```jsx
 export default class Detail2 extends PureComponent {
   render() {
     return (
@@ -483,7 +483,7 @@ export default class Detail2 extends PureComponent {
 
 <span style="backGround: #efe0b9">父组件</span>
 
-```react
+```jsx
 // 事先声明
 const info = {name: "why", age: 18, height: 1.88};
 <NavLink to={{
@@ -499,7 +499,7 @@ const info = {name: "why", age: 18, height: 1.88};
 
 <span style="backGround: #efe0b9">子组件</span>
 
-```react
+```jsx
 import React, { PureComponent } from 'react'
 
 export default class Detail3 extends PureComponent {
@@ -535,7 +535,7 @@ yarn add react-router-config
 
 <span style="backGround: #efe0b9">src\router\index.js</span>
 
-```react
+```jsx
 import Home from '../pages/home';
 // 引入其它子组件
 
@@ -579,7 +579,7 @@ export default routes;
 
 <span style="backGround: #efe0b9">包含顶层路由的组件</span>
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 // 1. 引入方法
 import { renderRoutes } from 'react-router-config';
@@ -610,7 +610,7 @@ export default withRouter(App);
 
 <span style="backGround: #efe0b9">非顶层路由组件</span>
 
-```react
+```jsx
 import React, { PureComponent } from 'react'
 import { NavLink } from 'react-router-dom';
 // 1. 引入方法
@@ -639,7 +639,7 @@ export default class About extends PureComponent {
 
 **路由映射**
 
-```react
+```jsx
 import React from 'react';
 
 // import Home from '@/pages/home';
@@ -654,7 +654,7 @@ export default routes;
 
 **根组件处理**
 
-```react
+```jsx
 import React, { Suspense } from 'react';
 import { renderRoutes } from 'react-router-config';
 
@@ -675,7 +675,7 @@ export default memo(function App() {
 
 ### 路由重定向
 
-```react
+```jsx
 import { Redirect } from "react-router-dom";
 
 // ...

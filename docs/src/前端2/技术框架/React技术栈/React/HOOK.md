@@ -2,7 +2,7 @@
 
 > Hook 将组件中相互关联的部分拆分成更小的函数
 
-```react
+```jsx
 import React, { useState } from 'react';
 
 function Example() {
@@ -30,7 +30,7 @@ useState 唯一的参数就是初始 state。在上面的例子中，我们的�
 
 > 也可以在一个组件中多次使用 State Hook
 
-```react
+```jsx
 function ExampleWithManyStates() {
   // 声明多个 state 变量！
   const [age, setAge] = useState(42);
@@ -46,7 +46,7 @@ useState 可以接收数字、字符串或对象等，这不同于 class 。
 
 ### 理解
 
-```react
+```jsx
 import React, { useState } from 'react'; // ①
 
 function Example() {
@@ -78,13 +78,13 @@ function Example() {
 
 **class**
 
-```react
+```jsx
 <p>You clicked {this.state.count} times</p>
 ```
 
 **函数**
 
-```react
+```jsx
 <p>You clicked {count} times</p>
 ```
 
@@ -96,7 +96,7 @@ function Example() {
 
 **class**
 
-```react
+```jsx
 <button onClick={() => this.setState({ count: this.state.count + 1 })}>
   Click me
 </button>
@@ -104,7 +104,7 @@ function Example() {
 
 **函数**
 
-```react
+```jsx
 <button onClick={() => setCount(count + 1)}>
   Click me
 </button>
@@ -116,7 +116,7 @@ function Example() {
 
 ### Effect Hook
 
-```react
+```jsx
 import React, { useState, useEffect } from 'react';
 
 function Example() {
@@ -143,7 +143,7 @@ function Example() {
 
 #### 消除副作用
 
-```react
+```jsx
 useEffect(() => {
   function handleStatusChange(status) {
     setIsOnline(status.isOnline);
@@ -186,7 +186,7 @@ tip：如果我们想要有条件地执行一个 effect，可以将判断放到 
 
 #### 定义
 
-```react
+```jsx
 import { useState, useEffect } from 'react';
 
 function useFriendStatus(friendID) {
@@ -219,7 +219,7 @@ function useFriendStatus(friendID) {
 
 我们将使用聊天程序中的另一个组件来说明这一点。这是一个聊天消息接收者的选择器，它会显示当前选定的好友是否在线:
 
-```react
+```jsx
 const friendList = [
   { id: 1, name: 'Phoebe' },
   { id: 2, name: 'Rachel' },
@@ -256,14 +256,14 @@ function ChatRecipientPicker() {
 
 #### `useState`
 
-```react
+```jsx
 const [state, setState] = useState(initialState);
 ```
 
 如果新的 state 需要通过使用先前的 state 计算得出，那么可以将函数传递给 setState。
 该函数将接收先前的 state，并返回一个更新后的值。下面的计数器组件示例展示了 setState 的两种用法：
 
-```react
+```jsx
 function Counter({initialCount}) {
   const [count, setCount] = useState(initialCount);
   return (
@@ -281,7 +281,7 @@ function Counter({initialCount}) {
 
 与 class 组件中的 `setState` 方法不同，`useState` 不会自动合并更新对象。你可以用函数式的 `setState` 结合展开运算符来达到合并更新对象的效果。
 
-```react
+```jsx
 setState(prevState => {
   // 也可以使用 Object.assign
   return {...prevState, ...updatedValues};

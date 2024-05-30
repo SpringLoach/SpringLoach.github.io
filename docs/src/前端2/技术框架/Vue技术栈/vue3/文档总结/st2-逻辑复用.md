@@ -49,7 +49,7 @@ export function useMouse() {
 
 *使用*
 
-```vue
+```html
 <script setup>
 import { useMouse } from './mouse.js'
 
@@ -135,7 +135,7 @@ const myDirective = app.directive('my-directive')
 
 如果指令需要多个值，可以传入对象
 
-```vue
+```html
 <div v-demo="{ color: 'white', text: 'hello!' }"></div>
 ```
 
@@ -167,7 +167,7 @@ app.directive('focus', {
 })
 ```
 
-```vue
+```html
 <input v-focus />
 ```
 
@@ -192,14 +192,14 @@ app.directive('pin', {
 
 **使用**
 
-```vue
+```html
 <!-- 模板 -->
 <p v-pin:right="200">I am pinned onto the page at 200px to the left.</p>
 ```
 
 或使用[动态参数](https://v3.cn.vuejs.org/guide/template-syntax.html#动态参数)
 
-```vue
+```html
 <!-- 模板 -->
 <p v-pin:[direction]="200">I am pinned onto the page at 200px to the left.</p>
 
@@ -234,7 +234,7 @@ app.directive('pin', {
 
 **使用**
 
-```vue
+```html
 <!-- 模板 -->
 <p v-pin:[direction]="pinPadding">I am pinned onto the page at 200px to the left.</p>
 <input type="range" min="0" max="500" v-model="pinPadding" />
@@ -282,7 +282,7 @@ app.directive('copy', {
 })
 ```
 
-```vue
+```html
 <p v-copy="text">{{ text }}</p>
 ```
 
@@ -488,14 +488,14 @@ app.use(demo, {
 
 基本使用
 
-```vue
+```html
 <!-- 非活跃的组件将会被销毁 -->
 <component :is="activeComponent" />
 ```
 
 默认情况下，组件实例在被替换掉后会被销毁
 
-```vue
+```html
 <!-- 非活跃的组件将会被缓存 -->
 <KeepAlive>
   <component :is="activeComponent" />

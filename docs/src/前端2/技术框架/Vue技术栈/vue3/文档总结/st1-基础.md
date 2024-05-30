@@ -152,7 +152,7 @@ console.log(books[0].value) // 0
 
 #### 访问事件参数
 
-```vue
+```html
 <!-- 使用特殊的 $event 变量 -->
 <button @click="dos('add', $event)">
   Submit
@@ -207,11 +207,11 @@ console.log(books[0].value) // 0
 
 下面两者等价
 
-```vue
+```html
 <CustomInput v-model="searchText" />
 ```
 
-```vue
+```html
 <CustomInput
   :modelValue="searchText"
   @update:modelValue="newValue => searchText = newValue"
@@ -223,7 +223,7 @@ console.log(books[0].value) // 0
 1. 将内部原生 `input` 元素的 `value` 属性绑定到自定义属性 `modelValue` 
 2. 输入新的值时在 `input` 元素上触发 `update:modelValue` 事件
 
-```vue
+```html
 <!-- CustomInput.vue -->
 <script setup>
 defineProps(['modelValue'])
@@ -242,7 +242,7 @@ defineEmits(['update:modelValue'])
 
 `get` 方法需返回自定义属性 `modelValue`，而 `set` 方法需触发相应的事件：
 
-```vue
+```html
 <!-- CustomInput.vue -->
 <script setup>
 import { computed } from 'vue'
@@ -269,11 +269,11 @@ const value = computed({
 
 #### 自行指定参数
 
-```vue
+```html
 <MyComponent v-model:title="bookTitle" />
 ```
 
-```vue
+```html
 <!-- MyComponent.vue -->
 <script setup>
 defineProps(['title'])
@@ -293,14 +293,14 @@ defineEmits(['update:title'])
 
 #### 多个 v-model 绑定
 
-```vue
+```html
 <UserName
   v-model:first-name="first"
   v-model:last-name="last"
 />
 ```
 
-```vue
+```html
 <script setup>
 defineProps({
   firstName: String,
@@ -330,11 +330,11 @@ defineEmits(['update:firstName', 'update:lastName'])
 
 例子：创建一个自定义的修饰符 `capitalize`，它会自动将字符串值首字母转为大写
 
-```vue
+```html
 <MyComponent v-model.capitalize="myText" />
 ```
 
-```vue
+```html
 <script setup>
 const props = defineProps({
   modelValue: String,
@@ -440,7 +440,7 @@ watch(
 
 #### 基本使用
 
-```vue
+```html
 <script setup>
 import { ref, onMounted } from 'vue'
 
@@ -459,7 +459,7 @@ onMounted(() => {
 
 #### 列表中的模板引用
 
-```vue
+```html
 <script setup>
 import { ref, onMounted } from 'vue'
 
@@ -599,7 +599,7 @@ defineProps({
 
 <span style="backGround: #efe0b9">父组件</span>
 
-```vue
+```html
 <!-- 等同于传入 :disabled="true" -->
 <MyComponent disabled />
 
@@ -660,7 +660,7 @@ defineProps({
 
 #### 具名插槽
 
-```vue
+```html
 <div class="container">
   <header>
     <slot name="header"></slot>
@@ -676,7 +676,7 @@ defineProps({
 
 定义具名插槽，添加 name 属性；
 
-```vue
+```html
 <template v-slot:header>
   <h1>Here might be a page title</h1>
 </template>
@@ -699,7 +699,7 @@ defineProps({
 
 子组件
 
-```vue
+```html
 <ul>
   <li v-for="( item, index ) in items">
     <slot :item="item"></slot>
@@ -709,7 +709,7 @@ defineProps({
 
 父组件
 
-```vue
+```html
 <todo-list>
   <template v-slot:default="slotProps">
     <i class="fas fa-check"></i>
@@ -722,7 +722,7 @@ defineProps({
 
 #### 独占默认插槽的缩写语法
 
-```vue
+```html
 <todo-list v-slot="slotProps">
   <i class="fas fa-check"></i>
   <span class="green">{{ slotProps.item }}</span>
@@ -733,7 +733,7 @@ defineProps({
 
 #### 动态插槽名
 
-```vue
+```html
 <base-layout>
   <template v-slot:[dynamicSlotName]>
     ...
@@ -756,7 +756,7 @@ defineProps({
 
 #### Provide(提供)
 
-```vue
+```html
 <script setup>
 import { provide } from 'vue'
 
@@ -783,7 +783,7 @@ app.provide(/* 注入名 */ 'message', /* 值 */ 'hello!')
 
 #### Inject (注入)
 
-```vue
+```html
 <script setup>
 import { inject } from 'vue'
 
@@ -812,7 +812,7 @@ app.component('MyComponent', defineAsyncComponent(() =>
 
 **局部注册**
 
-```vue
+```html
 <script setup>
 import { defineAsyncComponent } from 'vue'
 

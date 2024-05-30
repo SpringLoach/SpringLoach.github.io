@@ -6,7 +6,7 @@
 
 ### 基本使用
 
-```vue
+```html
 <template>
   <h1 @click="handleAxios">发起请求</h1>
 </template>
@@ -37,7 +37,7 @@ function handleAxios() {
 
 ### 稍微封装
 
-```vue
+```html
 <template>
   <h1 @click="handleAxios">发起请求</h1>
 </template>

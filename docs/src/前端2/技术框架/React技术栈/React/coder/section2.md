@@ -88,7 +88,7 @@ yarn eject
 
 src/index.js
 
-```react
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -107,7 +107,7 @@ ReactDOM.render(<h2>Hello React</h2>, document.getElementById("root"));
 
 <span style="backGround: #efe0b9">src/index.js</span>
 
-```react
+```jsx
 import React from 'react';
 import ReactDOM from "react-dom";
 
@@ -120,7 +120,7 @@ ReactDOM.render(<App/>, document.getElementById("root"));
 
 <span style="backGround: #efe0b9">src/App.js</span>
 
-```react
+```jsx
 import React from 'react';
 const { Component } = React;
 
@@ -141,7 +141,7 @@ export default class App extends React.Component {
 
 **优化结构**
 
-```react
+```jsx
 import React, { Component } from 'react';
 
 export default class App extends Component {
@@ -194,7 +194,7 @@ export default class App extends Component {
 
 ### 函数式组件-示例
 
-```react
+```jsx
 import React from 'react';
 
 export default function App() {
@@ -254,7 +254,7 @@ export default function App() {
 
 ### 常见钩子-例子
 
-```react
+```jsx
 export default class App extends Component {
   constructor() {
     super();
@@ -314,7 +314,7 @@ export default class App extends Component {
 
 ### 父传子-类组件
 
-```react
+```jsx
 import React, { Component } from 'react';
 
 // 子类
@@ -348,7 +348,7 @@ export default class App extends Component {
 
 :ghost: 如果在子类（派生类）中不显性定义构造函数，实际上会有以下默认行为。
 
-```react
+```jsx
 constructor(props) {
   super(props); // 子类（派生类）默认将所有参数传递给super
 }
@@ -356,7 +356,7 @@ constructor(props) {
 
 :ghost: 就算不定义 constructor，不将 props 传递给 super 也没问题，源码内部做了<span style="color: #ff0000">双重保险</span>，在某个时机给实例添加了 props 属性。
 
-```react
+```jsx
 constructor() {
   super();
   // 不能通过 this.props 获取
@@ -375,7 +375,7 @@ render() {
 
 ### 父传子-函数组件
 
-```react
+```jsx
 import React, { Component } from 'react';
 
 // 子类
@@ -408,7 +408,7 @@ export default class App extends Component {
 
 > 更多示例可以查看[文档](https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html)，实际上用 ts 也可以实现对传递属性的验证效果。
 
-```react
+```jsx
 import React, { Component } from 'react';
 
 // 组件验证需要引入
@@ -456,7 +456,7 @@ export default class App extends Component {
 
 **类组件中的定义方式**
 
-```react
+```jsx
 class ChildCpn2 extends Component {
   static propTypes = {}
   static defaultProps = {}
@@ -469,7 +469,7 @@ class ChildCpn2 extends Component {
 
 这里以 类组件 为例子，编写子传父。
 
-```react
+```jsx
 // 子组件
 class CounterButton extends Component {
   render() {
@@ -515,7 +515,7 @@ yarn add events
 
 使用频率较高的一个第三方库
 
-```react
+```jsx
 import React, { PureComponent } from 'react';
 
 // 1. 引入三方库的类
@@ -584,7 +584,7 @@ export default class App extends PureComponent {
 
 <span style="backGround: #efe0b9">父组件</span>
 
-```react
+```jsx
 import TabControl from './TabControl';
 import './style.css';
 
@@ -621,7 +621,7 @@ export default class App extends Component {
 
 <span style="backGround: #efe0b9">子组件</span>
 
-```react
+```jsx
 export default class TabControl extends Component {
   constructor(props) {
     super(props);
@@ -673,7 +673,7 @@ export default class TabControl extends Component {
 
 <span style="backGround: #efe0b9">父组件</span>
 
-```react
+```jsx
 import NavBar from './NavBar';
 
 export default class App extends Component {
@@ -696,7 +696,7 @@ export default class App extends Component {
 
 <span style="backGround: #efe0b9">子组件</span>
 
-```react
+```jsx
 export default class NavBar extends Component {
   render() {
     return (
@@ -726,7 +726,7 @@ export default class NavBar extends Component {
 
 <span style="backGround: #efe0b9">父组件</span>
 
-```react
+```jsx
 import NavBar from './NavBar';
 
 export default class App extends Component {
@@ -747,7 +747,7 @@ export default class App extends Component {
 
 <span style="backGround: #efe0b9">子组件</span>
 
-```react
+```jsx
 export default class NavBar2 extends Component {
   render() {
     const {leftSlot, centerSlot, rightSlot} = this.props;
@@ -784,7 +784,7 @@ export default class NavBar2 extends Component {
 
 该方案会产生冗余的代码，因为中间层不得不进行一个转承。
 
-```react
+```jsx
 // 孙
 function ProfileHeader(props) {
   return (
@@ -836,7 +836,7 @@ export default class App extends Component {
 
 标签属性[展开](https://zh-hans.reactjs.org/docs/jsx-in-depth.html#spread-attributes)，为 jsx 中的语法糖。
 
-```react
+```jsx
 function App() {
   return <Greeting firstName="Ben" lastName="Hector">;
 }
@@ -850,7 +850,7 @@ function App() {
 
 上面的例子可以改写如下：
 
-```react
+```jsx
 // 孙
 function ProfileHeader(props) {
   return (
@@ -896,7 +896,7 @@ export default class App extends Component {
 
 ### 跨组件通信-context-类组件
 
-```react
+```jsx
 // 1. 创建 Context 对象（默认值）
 const UserContext = React.createContext({
   nickname: "aaaa",
@@ -962,7 +962,7 @@ export default class App extends Component {
 
 ### 跨组件通信-context-函数组件
 
-```react
+```jsx
 // 1. 创建 Context 对象（默认值）
 const UserContext = React.createContext({
   nickname: "aaaa",
@@ -1025,7 +1025,7 @@ export default class App extends Component {
 
 :hammer_and_wrench: 由于要进行嵌套才能传递多个 context 对象，实际开发不推荐用这种。
 
-```react
+```jsx
 // 1. 创建 Context 对象（默认值）
 const UserContext = React.createContext({
   nickname: "aaaa",
@@ -1112,7 +1112,7 @@ export default class App extends Component {
 
 ### setState-异步执行
 
-```react
+```jsx
 <button onClick={e => this.changeText()}>改变文本</button>
 
 // 合成事件
@@ -1130,7 +1130,7 @@ changeText() {
 
 ### setState-获取更新后的值
 
-```react
+```jsx
 // 方式二：钩子中获取
 componentDidUpdate() {
   console.log(this.state.message);
@@ -1151,7 +1151,7 @@ changeText() {
 
 ### setState-同步执行
 
-```react
+```jsx
 <button id="btn">改变文本</button>
 
 componentDidMount() {
@@ -1179,7 +1179,7 @@ changeText() {
 
 ### setState-数据的合并
 
-```react
+```jsx
 constructor(props) {
   super(props);
 
@@ -1206,7 +1206,7 @@ changeText() {
 
 ### setState-本身的合并
 
-```react
+```jsx
 // 假设 state.counter 本来的值是0，更新后的结果将为 1
 increment() {
   this.setState({
@@ -1227,7 +1227,7 @@ increment() {
 
 ### setState-避免本身合并
 
-```react
+```jsx
 // 假设 state.counter 本来的值是0，更新后的结果将为 3
 increment() {
   this.setState((prevState, props) => {

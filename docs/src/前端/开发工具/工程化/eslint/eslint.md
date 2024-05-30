@@ -61,7 +61,7 @@ some code
 some code
 ```
 
-```vue
+```html
 <!--  eslint-disable-->
 <template></template>
 ...

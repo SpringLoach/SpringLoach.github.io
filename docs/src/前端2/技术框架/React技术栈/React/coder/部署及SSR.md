@@ -113,7 +113,7 @@ http://localhost:3000/about
 
 pages\index.js
 
-```react
+```jsx
 import Link from 'next/link';
 
 export default function Home() {
@@ -133,7 +133,7 @@ export default function Home() {
 
 pages\index.js
 
-```react
+```jsx
 import Head from 'next/head';
 
 export default function Home() {
@@ -165,7 +165,7 @@ export default function Home() {
 
 components\app-layout\index.js
 
-```react
+```jsx
 import React, { memo } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -198,7 +198,7 @@ export default memo(function AppLayout(props) {
 
 pages\index.js
 
-```react
+```jsx
 import AppLayout from '../components/app-layout';
 
 export default function Home() {
@@ -222,7 +222,7 @@ export default function Home() {
 
 pages/\_app.js
 
-```react
+```jsx
 import '../styles/globals.css';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -295,7 +295,7 @@ styles\Home.module.css
 
 pages\index.js
 
-```react
+```jsx
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -313,7 +313,7 @@ export default function Home() {
 
 pages\about.js
 
-```react
+```jsx
 import React, { memo } from 'react';
 import AppLayout from '../components/app-layout';
 
@@ -379,7 +379,7 @@ yarn add babel-plugin-styled-components
 
 pages\profile\index.js
 
-```react
+```jsx
 import React, { memo } from 'react';
 
 import { ProfileWrapper } from './style';
@@ -430,7 +430,7 @@ export const ProfileWrapper = styled.div`
 
 pages\profile\layout\index.js
 
-```react
+```jsx
 import React, { memo } from 'react';
 
 import Link from 'next/link';
@@ -455,7 +455,7 @@ export default memo(function ProfileLayout(props) {
 
 pages\profile\index.js
 
-```react
+```jsx
 import React, { memo } from 'react';
 
 import Layout from './layout';
@@ -471,7 +471,7 @@ export default memo(function Profile() {
 
 pages\profile\settings\index.js
 
-```react
+```jsx
 import React, { memo } from 'react';
 
 import Layout from '../layout';
@@ -491,7 +491,7 @@ export default memo(function ProfileSettings() {
 
 #### 通过组件跳转
 
-```react
+```jsx
 export default function Home() {
   const item = 123
   return (
@@ -506,7 +506,7 @@ export default function Home() {
 
 #### 通过代码跳转
 
-```react
+```jsx
 import Router from 'next/router';
 
 export default function Home() {
@@ -528,7 +528,7 @@ export default function Home() {
 
 #### 接收参数
 
-```react
+```jsx
 import React, { memo } from 'react';
 
 import { useRouter } from 'next/router';
@@ -553,7 +553,7 @@ export default memo(function Recommend() {
 yarn add axios
 ```
 
-```react
+```jsx
 import axios from 'axios';
 
 const Home = function (props) {

@@ -17,7 +17,7 @@
 
 ###  基本语法
 
-```vue
+```html
 <script setup>
   console.log('hello script setup')
 </script>
@@ -31,7 +31,7 @@
 
 ####  模板可使用顶层的绑定
 
-```vue
+```html
 <script setup>
 // 引入
 import { capitalize } from './helpers'
@@ -57,7 +57,7 @@ function log() {
 
 ### 响应式
 
-```vue
+```html
 <script setup>
 import { ref } from 'vue'
 
@@ -75,7 +75,7 @@ const count = ref(0)
 
 ###  使用组件
 
-```vue
+```html
 <script setup>
 import MyComponent from './MyComponent.vue'
 </script>
@@ -93,7 +93,7 @@ import MyComponent from './MyComponent.vue'
 
 ####  动态组件
 
-```vue
+```html
 <script setup>
 import Foo from './Foo.vue'
 import Bar from './Bar.vue'
@@ -123,7 +123,7 @@ import { FooBar as FooBarChild } from './components'
 
 #### 命名空间组件
 
-```vue
+```html
 <script setup>
 import * as Form from './form-components'
 </script>
@@ -143,7 +143,7 @@ import * as Form from './form-components'
 
 全局注册的自定义指令将以符合预期的方式工作，且本地注册的指令可以直接在模板中使用。
 
-```vue
+```html
 <script setup>
 const vMyDirective = {
   beforeMount: (el) => {
@@ -158,7 +158,7 @@ const vMyDirective = {
 
 :turtle: 命名本地自定义指令时，必须采用 <span style="color: #ff0000">`vNameOfDirective`</span> 的形式。
 
-```vue
+```html
 <script setup>
   // 导入的指令同样能够工作，并且能够通过重命名来使其符合命名规范
   import { myDirective as vMyDirective } from './MyDirective.js'
@@ -169,7 +169,7 @@ const vMyDirective = {
 
 ### defineProps 和 defineEmits
 
-```vue
+```html
 <script setup>
 const props = defineProps({
   foo: String
@@ -196,7 +196,7 @@ error 'defineProps' is not defined  no-undef
 
 通过模板 ref，默认是<span style="color: #ff0000">获取不到</span> `script setup` 中声明的绑定的，为了将其暴露，需要使用 <span style="color: #a50">defineExpose</span> 编译器宏。
 
-```vue
+```html
 <script setup>
 import { ref } from 'vue'
 
@@ -216,7 +216,7 @@ defineExpose({
 
 ### useSlots 和 useAttrs
 
-```vue
+```html
 <script setup>
 import { useSlots, useAttrs } from 'vue'
 
@@ -237,7 +237,7 @@ const attrs = useAttrs()
 - 声明命名导出；
 - 运行副作用或者创建只需要执行一次的对象。
 
-```vue
+```html
 <script>
 // 普通 <script>, 在模块范围下执行(只执行一次)
 runSideEffectOnce()
@@ -266,7 +266,7 @@ export default {
 
 #### 仅限类型的 props/emit 声明
 
-```vue
+```html
 const props = defineProps<{
   foo: string
   bar?: number
@@ -310,7 +310,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 > `is` - ` string | Component | VNode `
 
-```vue
+```html
 <!-- 也能够渲染注册过的组件或 prop 传入的组件-->
 <component :is="$options.components.child"></component>
 
@@ -327,7 +327,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 被 vue3 抛弃的写法
 
-```vue
+```html
 <keep-alive>
   <router-view />
 </keep-alive>
@@ -342,7 +342,7 @@ Use slot props instead:
 
 vue3 支持的写法
 
-```vue
+```html
 <router-view v-slot="{ Component }">
   <keep-alive>
     <component :is="Component" />
@@ -398,7 +398,7 @@ vue add typescript
 
 组件使用
 
-```vue
+```html
 <script lang="ts">
   ...
 </script>
@@ -406,7 +406,7 @@ vue add typescript
 
 结合JSX
 
-```vue
+```html
 <script lang="tsx">
   ...
 </script>
@@ -430,7 +430,7 @@ const Component = defineComponent({
 
 vue
 
-```vue
+```html
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
@@ -774,7 +774,7 @@ export default defineComponent({
 
 在处理原生 DOM 事件的时候，正确地为处理函数的参数添加类型或许会是有用的。
 
-```vue
+```html
 <template>
   <input type="text" @change="handleChange" />
 </template>
@@ -885,7 +885,7 @@ h(
 
 > 某些情况下，在 Vue 中使用 JSX 语法比渲染函数要更简单，想使用需要[安装插件](https://github.com/vuejs/babel-plugin-jsx/blob/dev/packages/babel-plugin-jsx/README-zh_CN.md)。
 
-```vue
+```html
 import AnchoredHeading from './AnchoredHeading.vue'
 
 const app = createApp({
