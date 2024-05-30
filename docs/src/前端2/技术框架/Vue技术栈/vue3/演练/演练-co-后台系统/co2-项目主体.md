@@ -1314,7 +1314,7 @@ const routes: RouteRecordRaw[] = [
 
 #### 面包屑的配置
 
-```embeddedjs
+```elm
 - commom
   + breadcrumb
     - src

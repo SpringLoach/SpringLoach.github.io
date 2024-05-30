@@ -20,7 +20,7 @@
 
 `成功提示`
 
-```xml-dtd
+```sh
 [HBuilder] 12:03:16.513 项目 uni-app-test [__UNI__1EC844A]打自定义调试基座包成功：
     路径为: D:/项目相关/做试验/uni-app/uni-app-test/unpackage/debug/android_debug.apk
 选择菜单“运行->运行到手机或模拟器->运行基座选择->自定义调试基座”后再次运行项目，即可通过自定义调试基座查看日志

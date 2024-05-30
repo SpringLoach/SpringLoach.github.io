@@ -323,5 +323,6 @@ export default defineConfig({
 
   markdown: {
     // theme: 'github-dark'
+    // theme: 'dracula'
   }
 })

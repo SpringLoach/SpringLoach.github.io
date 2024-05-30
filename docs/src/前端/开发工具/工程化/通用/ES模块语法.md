@@ -226,7 +226,7 @@ require(X)
 
 X不是一个核心模块，会沿着路径找 <span style="color: #a50">node_modules</span> 文件，找不到会去上级文件找，直至顶层。
 
-```reStructuredText
+```javascript
 require(X)
 ```
 
