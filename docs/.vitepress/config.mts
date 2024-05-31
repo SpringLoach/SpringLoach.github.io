@@ -257,6 +257,7 @@ export default defineConfig({
                 {  text: '实践', link: '/前端2/第三方库/ECharts/实践' },
               ]
             },
+            {  text: 'vconsole', link: '/前端2/第三方库/vconsole' },
           ]
         },
         { text: '文档参考', link: '/前端2/文档参考' },

@@ -89,6 +89,20 @@ client!.multipartUpload()
 
 
 
+### 对象剩余属性
+
+```typescript
+export interface ICardItem {
+  id: string | number;
+  url: string;
+  width: number;
+  height: number;
+  [key: string]: any;
+}
+```
+
+
+
 ## 低频情景
 
 ### 给对象的动态属性赋值
