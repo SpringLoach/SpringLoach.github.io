@@ -297,6 +297,16 @@ export default defineConfig({
             { text: 'PicList', link: '/expand/相关技能/PicList/PicList' },
           ]
         },
+        {
+          text: '烤冷面',
+          collapsed: true,
+          items: [
+            { text: '待整理', link: '/expand/烤冷面/待整理' },
+            { text: '高频知识点', link: '/expand/烤冷面/高频知识点' },
+            { text: '核心问题', link: '/expand/烤冷面/核心问题' },
+            { text: '总结', link: '/expand/烤冷面/总结' },
+          ]
+        },
         { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },
         { text: '有兴趣就研究', link: '/expand/有兴趣就研究' },
       ]
