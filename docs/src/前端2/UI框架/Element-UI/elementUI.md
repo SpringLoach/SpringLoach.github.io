@@ -447,3 +447,39 @@ function handleChangeValue() {
 </el-popconfirm>
 ```
 
+
+
+#### 内容超出宽展示el-tooltip
+
+```html
+<el-tooltip :disabled="setDisable" :content="text">
+    <p class="single-row" @mouseover="toolTipVisibleChange($event)">{{ text }}</p>
+</el-tooltip>
+
+<script>
+const setDisable = ref(true)
+function toolTipVisibleChange(event) {
+    const ev = event.target
+    const evWeight = ev.scrollWidth
+
+    const contentWeight = ev.clientWidth
+    if (evWeight > contentWeight) {
+        // 实际宽度 > 可视宽度  文字溢出
+        setDisable.value = false
+    } else {
+        // 否则为不溢出
+        setDisable.value = true
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+.single-row {
+    width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style>
+```
+
