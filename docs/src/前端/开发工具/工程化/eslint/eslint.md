@@ -8,6 +8,8 @@
 
 ## 配置eslint语法规则
 
+<span style="backGround: #efe0b9">.eslintrc.js</span>
+
 ```json
 module.exports = {
   // ...

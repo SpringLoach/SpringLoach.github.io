@@ -7,7 +7,36 @@
    - 大写开头的驼峰
    - 组件-xxComponent 实例-xxInstance 方法-xxFn、自定义属性-xxProps 数组项-xxItem 配置-xxOptions 状态-xxStatus 列表-xxList、xxs
 
+3. ```elm
+   项目
+     - pages
+       + about
+       + mine
+         - types
+           + index.d.ts
+     - types
+       + common.d.ts
+   ```
 
+   `common.d.ts`
+
+   ```typescript
+   declare namespace CommonType {
+       // ...
+       
+       interface HrType {
+           so?: string
+       }
+   }
+   ```
+
+   `业务.vue`
+
+   ```typescript
+   let obj: CommonType.Hr = {}
+   ```
+
+   
 
 
 
@@ -16,6 +45,8 @@
 ```typescript
 // 期约
 Promise<unknown>
+// div dom
+HTMLDivElement
 ```
 
 

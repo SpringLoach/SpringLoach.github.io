@@ -190,6 +190,41 @@ const emit = defineEmits(['change', 'delete'])
 error 'defineProps' is not defined  no-undef
 ```
 
+**实践**
+
+```typescript
+import { PropType } from 'vue'
+
+const props = defineProps({
+    demoList: {
+        type: Array as PropType<DemoType[]>,
+        required: true,
+    },
+    apiParams: {
+        type: Object as PropType<ParamsType | undefined>,
+        default: () => ({}),
+    },
+    pageNum: {
+        type: Number,
+        default: 1,
+    },
+})
+
+console.log(props.pageNum)
+
+watch(
+    () => props.apiParams,
+    val => {
+        val && getList()
+    },
+    {
+        immediate: true,
+    }
+)
+```
+
+
+
 
 
 ### defineExpose
