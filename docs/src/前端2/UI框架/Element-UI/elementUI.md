@@ -483,3 +483,72 @@ function toolTipVisibleChange(event) {
 </style>
 ```
 
+
+
+#### 列表搜索展开收起
+
+```html
+<el-form class="list" label-width="80px">
+    <el-form-item>...</el-form-item>
+    <el-form-item>...</el-form-item>
+    <el-form-item>...</el-form-item>
+    <template v-if="isScreen">
+        <el-form-item>...</el-form-item>
+    </template>
+    <el-form-item label-width="0" :class="{ 'fill-row': isScreen }">
+        <div class="search-row">
+            <!-- 查询、充值按钮 -->
+            <!-- 展开收起 isScreen=!isScreen -->
+        </div>
+    </el-form-item>
+</el-form>
+```
+
+```less
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .el-form-item {
+        width: 25%;
+        margin-bottom: 20px;
+        &:nth-child(4n + 1) {
+            padding-right: 30px;
+        }
+        &:nth-child(4n + 2) {
+            padding: 0 15px;
+        }
+        &:nth-child(4n + 3) {
+            padding: 0 15px;
+        }
+        &:nth-child(4n + 4) {
+            padding-left: 30px;
+        }
+
+        ::v-deep .el-form-item__label {
+            font-family: MicrosoftYaHei;
+            font-size: 14px;
+            font-weight: normal;
+            font-style: normal;
+            color: #333333;
+            &::after {
+                content: ':';
+                display: inline-block;
+            }
+        }
+
+    }
+    .fill-row {
+        width: 100%;
+        padding-right: 0 !important;
+    }
+    .search-row {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        text-align: right;
+    }
+}
+```
+
