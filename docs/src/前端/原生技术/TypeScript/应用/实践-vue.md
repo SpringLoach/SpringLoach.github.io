@@ -5,7 +5,7 @@
 2. 类型/声明命名习惯 函数/简单类型/实例用类型；对象用接口
 
    - 大写开头的驼峰
-   - 组件-xxComponent 实例-xxInstance 方法-xxFn、自定义属性-xxProps 数组项-xxItem 配置-xxOptions 状态-xxStatus 列表-xxList、xxs
+   - 组件-xxComponent 实例-xxInstance 方法-xxFn、自定义属性-xxProps 数组项-xxItem 配置-xxOptions 状态-xxStatus 列表-xxList、xxs 枚举-xxEnum
 
 3. ```elm
    项目
