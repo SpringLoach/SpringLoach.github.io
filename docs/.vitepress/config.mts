@@ -91,6 +91,7 @@ export default defineConfig({
                 { text: '兼容性', link: '/前端/业务实现/兼容性' },
                 { text: 'vue', link: '/前端/业务实现/vue' },
                 { text: '界面', link: '/前端/业务实现/界面' },
+                { text: 'dom', link: '/前端/业务实现/dom' },
               ]
             },
           ]
