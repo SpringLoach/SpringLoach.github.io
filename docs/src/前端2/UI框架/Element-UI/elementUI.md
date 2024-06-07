@@ -486,7 +486,7 @@ function toolTipVisibleChange(event) {
 
 
 #### 列表搜索展开收起
-
+> 让搜索按钮组，每次都出现在额外行的最后一位。
 ```html
 <el-form class="list" label-width="80px">
     <el-form-item>...</el-form-item>

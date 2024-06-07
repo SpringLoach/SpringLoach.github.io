@@ -1270,7 +1270,7 @@ export const itemListenerMixin = {
 import {itemListenerMixin} from 'common/mixin'
 
 data() {return{color: 'some'}},
-mixin: [itemListenerMixin],
+mixins: [itemListenerMixin],
 ```
 
 #### 详情页_主题跳转
