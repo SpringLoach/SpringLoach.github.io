@@ -1,3 +1,9 @@
+<script setup>
+import CheckOutComponent from './template/checkOut.vue'
+</script>
+
+<CheckOutComponent />
+
 ### 重要接口
 
 订单详情-详情
