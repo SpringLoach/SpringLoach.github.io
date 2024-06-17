@@ -552,3 +552,24 @@ function toolTipVisibleChange(event) {
 }
 ```
 
+
+
+#### 修复 el-badge 不圆
+
+```css
+// 官方默认的盒子类型
+.el-badge__content.is-fixed {
+    box-sizing: content-box;
+}
+```
+
+
+
+#### el-table 暂无数据居中
+
+```css
+.el-table__empty-block {
+    width: 100% !important;
+}
+```
+

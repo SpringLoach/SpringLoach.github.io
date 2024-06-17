@@ -142,3 +142,14 @@ app.use(ImagePreview);
 
 
 
+### van-field 设置最小最大高度
+
+> 根据设计稿 `1rem=75px`，而 vant 内部设置 `1rem=37.5px` 把对应的数值调整小一半就可以了
+
+```html
+<van-field
+    type="textarea"
+    :autosize="{ maxHeight: 200, minHeight: 120 }"
+/>
+```
+
