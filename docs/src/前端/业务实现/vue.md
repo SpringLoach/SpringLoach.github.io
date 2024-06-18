@@ -384,6 +384,78 @@ export default {
 
 
 
+### 传递自定义组件/事件
+
+`父组件`
+
+```html
+<reduceDialog
+	text="减少配置"
+	width="100px"
+	:show-close="false"
+	@click="dos"
+/>
+
+<script>
+export default {
+    methods: {
+        dos() {
+            console.log('--- 点击按钮回调 ---')
+        }
+    }
+}
+</script>
+```
+
+`子组件`
+
+```html
+<template>
+    <div>
+        <span
+            v-on="$listeners"
+            @click="reduce"
+        >
+            {{ text }}
+        </span>
+        <el-dialog
+            :visible.sync="dialogVisible"
+            v-bind="$attrs"
+        >
+            ...
+        </el-dialog>
+    </div>
+</template>
+
+<script>
+
+
+export default {
+    props: {
+        text: {
+            type: String
+        },
+    },
+    data() {
+        return {
+            dialogVisible: false,
+        }
+    },
+    methods: {
+        reduce() {
+            this.dialogVisible = true
+        },
+    }
+}
+</script>
+```
+
+`v-bind="$attrs"` 可以指定父组件传入的自定义属性重新绑定到哪个元素上；
+
+`v-on="$listeners"` 可以指定哪个子组件去触发写在父组件上的事件。
+
+
+
 ### 获取距截止时间差
 
 ```html
