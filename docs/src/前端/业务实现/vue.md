@@ -206,6 +206,184 @@ export default {
 
 
 
+### 自定义组件的v-model
+
+`父组件`
+
+```html
+<title-dialog
+    v-model="isShow"
+/>
+
+<script>
+export default {
+    data() {
+        return {
+            isShow: false
+        }
+    },
+    methods: {
+        open() {
+            this.isShow = true
+        }
+    }
+}
+</script>
+```
+
+`子组件`
+
+```html
+<template>
+    <van-dialog v-model="show">
+        ...
+    </van-dialog>
+</template>
+
+<script>
+export default {
+    name: 'TitleDialog',
+    model: {
+        prop: 'show',
+        event: 'change'
+    },
+    props: {
+        // 是否展示【变量名和model选项的prop属性一致，就相当于被父组件v-model绑定的值】
+        show: {
+            type: Boolean,
+            default: false
+        },
+    },
+    methods: {
+        cancel() {
+            this.$emit('change', false)
+        },
+        confirm() {
+            this.$emit('confirm')
+            this.$emit('change', false)
+        }
+    }
+}
+</script>
+```
+
+
+
+### 嵌套 v-model 的修改
+
+`爷组件`
+
+```html
+<title-dialog-wrap
+    v-model="isShow"
+    @confirmChange="xxx"
+/>
+
+<script>
+export default {
+    data() {
+        return {
+            isShow: false
+        }
+    },
+    methods: {
+        open() {
+            this.isShow = true
+        },
+        xxx() {
+            // ...
+            this.isShow = false
+        },
+    }
+}
+</script>
+```
+
+`父组件`
+
+```html
+<template>
+    <title-dialog
+        v-model="show"
+        @cancel="cancel"
+        @confirm="confirmChange"
+    />
+</template>
+
+<script>
+export default {
+    name: 'TitleDialog',
+    model: {
+        prop: 'show',
+        event: 'change'
+    },
+    props: {
+        // 是否展示【变量名和model选项的prop属性一致，就相当于被父组件v-model绑定的值】
+        show: {
+            type: Boolean,
+            default: false
+        },
+    },
+    methods: {
+        cancel() {
+            this.$emit('change', false)
+        },
+        confirm() {
+            this.$emit('confirm')
+        }
+    }
+}
+</script>
+```
+
+`子组件`
+
+```html
+<template>
+    <van-dialog v-model="show">
+        ...
+    </van-dialog>
+</template>
+
+<script>
+export default {
+    name: 'TitleDialog',
+    model: {
+        prop: 'show',
+        event: 'change'
+    },
+    props: {
+        // 是否展示【变量名和model选项的prop属性一致，就相当于被父组件v-model绑定的值】
+        show: {
+            type: Boolean,
+            default: false
+        },
+        // 不方便向上改变value值，适合多层级v-model的情况
+        notChange: {
+            type: Boolean,
+            default: false
+        },
+    },
+    methods: {
+        cancel() {
+            this.$emit('cancel')
+            if (!this.notChange) {
+                this.$emit('change', false)
+            }
+        },
+        confirm() {
+            this.$emit('confirm')
+            if (!this.notChange) {
+                this.$emit('change', false)
+            }
+        }
+    }
+}
+</script>
+```
+
+
+
 ### 获取距截止时间差
 
 ```html
