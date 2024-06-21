@@ -215,6 +215,28 @@ module.exports = hljs;
 
 
 
+### 管理版本的问题
+
+> 案例：同时将某依赖从 `2.6.8` 升级为 `2.12.2`，后面发现升级依赖会带来一些问题，遂修改依赖版本到 `2.6.8`，并重新 `npm i`
+
+`package.json`
+
+```json
+"vant": 2.6.8
+```
+
+> 此时发现依赖版本并未更新，是因为 `package.lock.json` 中锁定了具体版本，故
+
+```elm
+npm unintall vant
+```
+
+```elm
+npm install vant@2.6.8
+```
+
+
+
 
 
 ## 附录

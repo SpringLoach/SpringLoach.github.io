@@ -15,8 +15,9 @@ fi
 current_branch=$(git branch --show-current)
 
 #Push local branch to test branch
-git checkout .				            # 丢弃本地修改
-git switch ${target_test_branch}       # 切换到测试分支
+git checkout .				               # 丢弃本地修改
+git push                             # 推送当前分支到远端
+git switch ${target_test_branch}     # 切换到测试分支
 
 
 # 切换后的分支
@@ -32,7 +33,7 @@ fi
 
 git pull                                # 从远程拉取最新代码到本地
 echo "当前需要合并的分支: ${current_branch}"
-git merge ${current_branch} --no-edit # 将本地原分支合并到测试分支-不加评价
+git merge ${current_branch} --no-edit   # 将本地原分支合并到测试分支-不加评价
 
 # 检查是否存在冲突
 if git diff --quiet --cached; then
