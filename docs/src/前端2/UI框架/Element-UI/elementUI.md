@@ -573,3 +573,16 @@ function toolTipVisibleChange(event) {
 }
 ```
 
+
+
+#### 嵌套弹窗、后续弹窗遮罩层没遮住首个弹窗
+
+```html
+<el-table />
+<el-table
+  :append-to-body="true"
+/>
+```
+
+
+

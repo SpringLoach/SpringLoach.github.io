@@ -841,5 +841,113 @@ export default
 
 
 
+### 公共校验-步骤抽离封装
+
+`父组件`
+
+```html
+<!-- 校验 -->
+<son-valid ref="sonRef" />
+```
+
+```javascript
+submit() {
+    const res = await this.$refs.sonRef.assignValid()
+    if (res != 'pass') {
+        return
+    }
+    // ...
+}
+```
+
+`子组件`
+
+```html
+<script>
+export default {
+    data() {
+        return {
+            resolve: null,
+            reject: null,
+        }
+    },
+    methods: {
+        async assignValid() {
+            this.$refs.dialogRef.showDialog()
+            const asyncFn = new Promise((resolve, reject) => {
+                this.resolve = resolve
+                this.reject = reject
+            })
+            
+            const operateResult = await asyncFn.then(() => {
+                this.$refs.dialogRef.hideDialog()
+                return 'pass'
+            }, err => {
+                return 'cancel'
+            })
+
+            return operateResult
+            
+        },
+        // 对应弹窗按钮点击事件
+        confirm() {
+            this.resolve()
+        },
+        cancel() {
+            this.reject()
+        },
+    }
+}
+</script>
+```
+
+**动态校验的情况**
+
+> 即不一定需要弹窗校验，在写法上的改动：父组件调用时传入参数，子组件修改对应方法即可
+
+```javascript
+async assignValid({ workerInfo, orderId }) {
+    if (!workerInfo) {
+        this.$message.warning('请输入')
+        return Promise.reject('cancel')
+    }
+    const params = {
+        workerInfo,
+        orderId, // 订单id
+    }
+    let res = await demoApi(params)
+
+    if (res.data.code == 200) {
+        const result = res.data.data
+        if (!result.serviceSameOrder) {
+            return Promise.resolve('pass')
+        }
+    } else {
+        this.$message({
+            type: 'error',
+            message: res.data.msg
+        })
+        return Promise.reject('cancel')
+    }
+
+    this.$refs.dialogRef.showDialog()
+    const asyncFn = new Promise((resolve, reject) => {
+        this.resolve = resolve
+        this.reject = reject
+    })
+
+    const operateResult = await asyncFn.then(() => {
+        this.$refs.dialogRef.hideDialog()
+        return 'pass'
+    }, err => {
+        return 'cancel'
+    })
+
+    return operateResult
+}
+```
+
+
+
 
 
