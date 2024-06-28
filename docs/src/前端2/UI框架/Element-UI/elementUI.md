@@ -586,3 +586,47 @@ function toolTipVisibleChange(event) {
 
 
 
+#### 表单-规则切换
+
+```html
+<el-form ref="ruleForm" :model="form" :rules="rules" />
+
+<script>
+export default {
+    data () {
+        return {
+            useRulesFirst: true,
+            commonRules: {
+                name: [{ required: true, message: '请选择名称', trigger: 'change' }],
+                sort: [{ required: true, message: '请选择分类', trigger: 'change' }],
+            },
+            haoTaitaiRules: {
+                name: [{ required: true, message: '请选择名称', trigger: 'change' }],
+                goodsNo: [{ required: false, message: '请填写编号', trigger: 'blur' }]
+            },
+        }
+    },
+    computed: {
+        rules() {
+            if (!this.useRulesFirst) {
+                return this.commonRules
+            } else {
+                return this.haoTaitaiRules
+            }
+        },
+    },
+    methods: {
+        showDialog() {
+            this.$nextTick(() => {
+                if (this.$refs['ruleForm']) {
+                    this.$refs['ruleForm'].resetFields()
+                }
+            })
+        },
+    },
+}
+</script>
+```
+
+
+
