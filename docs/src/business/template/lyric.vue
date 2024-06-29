@@ -9,6 +9,7 @@
 import { onMounted, ref, watch } from 'vue'
 
 const lyricShow = ref(false)
+const useControll = ref(false)
 const arr = [
 '天真得只有你',
 '令神仙鱼归天要怪谁',
@@ -72,10 +73,13 @@ const currentIndex = ref(0)
 
 onMounted(() => {
   document.addEventListener("keydown", function(event) {
-		if (event.keyCode === 17) {
+    if (event.keyCode === 17) {
       lyricShow.value = true
 		}
-    if (lyricShow.value) {
+    if (event.keyCode === 18) {
+      useControll.value = !useControll.value
+		}
+    if (useControll.value) {
       if (event.keyCode === 90) {
         currentIndex.value = currentIndex.value == 0 ? 0 : (currentIndex.value - 1) % arr.length
       }
