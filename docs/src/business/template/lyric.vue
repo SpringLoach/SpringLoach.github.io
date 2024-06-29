@@ -9,7 +9,7 @@
 import { onMounted, ref, watch } from 'vue'
 
 const lyricShow = ref(false)
-const useControll = ref(false)
+const useControll = ref(true)
 const arr = [
 '天真得只有你',
 '令神仙鱼归天要怪谁',
