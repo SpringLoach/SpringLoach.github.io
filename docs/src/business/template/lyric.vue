@@ -76,7 +76,7 @@ onMounted(() => {
     if (event.keyCode === 17) {
       lyricShow.value = true
 		}
-    if (event.keyCode === 18) {
+    if (event.keyCode === 16) {
       useControll.value = !useControll.value
 		}
     if (useControll.value) {
