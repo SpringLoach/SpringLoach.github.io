@@ -1,6 +1,7 @@
 <script setup>
 import CustomComponent from './template/computed.vue'
 import replaceComponent from './template/replace.vue'
+import lyricComponent from './template/lyric.vue'
 </script>
 
 
@@ -12,6 +13,7 @@ import replaceComponent from './template/replace.vue'
 
 <replaceComponent />
 
+<lyricComponent />
 
 
 ### w3s代码调试
