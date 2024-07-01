@@ -92,6 +92,7 @@ export default defineConfig({
                 { text: 'vue', link: '/前端/业务实现/vue' },
                 { text: '界面', link: '/前端/业务实现/界面' },
                 { text: 'dom', link: '/前端/业务实现/dom' },
+                { text: '第三方对接', link: '/前端/业务实现/第三方对接' },
               ]
             },
           ]
