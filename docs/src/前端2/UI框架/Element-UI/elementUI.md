@@ -630,3 +630,65 @@ export default {
 
 
 
+#### 选项禁止重复选
+
+> 这里选项为多选
+
+```html
+<div v-for="(item, index) in form.zzz">
+    <el-select
+        v-model="item.qqq"
+        placeholder="请选择适用的一级品类"
+        multiple
+        collapse-tags
+        clearable
+    >
+        <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+            :disabled="checkDisabled(item, index)"
+        />
+    </el-select>
+</div>
+    
+<script>
+export default {
+    data() {
+        return {
+            options: serviceCategory, //订单品类
+            form: {
+                zzz: [
+                    {
+                        qqq: null,
+                        www: ''
+                    }
+                ]
+            },
+        }
+    },
+    methods: {
+        checkDisabled(option, i) {
+            const selectCateIdList = this.form.zzz.reduce((pre, item, index) => {
+                if (i !== index) {
+                    return [
+                        ...pre,
+                        ...(item.qqq || [])
+                    ]
+                // 当前控件不需禁用
+                } else {
+                    return pre
+                }
+            }, [])
+
+            if (selectCateIdList.includes(option.value)) {
+                return true
+            }
+            return false
+        }
+    }
+}
+</script>
+```
+
