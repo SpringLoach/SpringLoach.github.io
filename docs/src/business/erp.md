@@ -12,6 +12,14 @@ import CheckOutComponent from './template/checkOut.vue'
 getOrderDetail
 ```
 
+若干接口区分平台/商家端
+
+| 字段        | 平台端 | 商家端 |
+| ----------- | ------ | ------ |
+| sourceIsVip | 0      | 1      |
+
+
+
 
 
 ### 内部规则
