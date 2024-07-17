@@ -538,3 +538,26 @@ function showTips(obj, row) {
 
 只设置 `v-maxSet`，在测试中途输入中文、英文时，可能导致双向绑定失效从而展示出不合预期的值，所以在失焦时增加处理，后续可以看看 `maxlength` 是否可以去掉
 
+
+
+#### 限制输入最大值&&小数
+
+输入框，限制输入数字，最大值999，支持两位小数（不允许输入999.01）
+
+```html
+<el-input
+    v-model="form.xxx"
+    @input="form.xxx = decimal(form.xxx, { maxValue: 10000000 })"
+    @blur="form.xxx = removeEndSymbol(form.xxx)"
+/>
+
+<script>
+import { decimal, removeEndSymbol } from '@/utils/baseHandled'
+export default {
+    methods: {
+        decimal,
+        removeEndSymbol
+    }
+}
+</script>
+```

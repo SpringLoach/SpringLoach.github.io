@@ -949,5 +949,83 @@ async assignValid({ workerInfo, orderId }) {
 
 
 
+### 字符串转化为标签
+
+应用场景：将日志列表中可能存在的图片字符串转化为图片元素展示
+
+```html
+<div v-html="scope.row.content" @click="(e) => { handleClickContent(e, scope) }"></div>
+```
+
+```javascript
+queryList() {
+    const reulst = [
+        {
+            id: 1,
+            content: '标题：abc，图片凭证：@@http://xxx.png@@,操作者：乔家劲'
+        },
+        {
+            id: 2,
+            content: '标题：abc，图片凭证：@@http://xxx.png,http://yyy.png@@,齐夏'
+        },
+    ]
+    const tableData = result.map(_ => {
+        const { content } = _
+
+        function getParamsFromRule(str) {
+            const res = str.match(/\@\@(.*)\@\@/)
+            // 返回上一次匹配模式中的首个分组
+            return RegExp.$1
+        }
+        // 获取 @@**@@ 中 ** 的内容 
+        let srcListStr = getParamsFromRule(content)
+
+        if (srcListStr) {
+            // 获取图片地址数组
+            const srcList = srcListStr.split(',')
+            // 组装html格式的图片内容，scoped包围的类名样式在这里不起作用，所以手动加样式
+            const srcHtmlSrc = srcList.reduce((pre, item, index) => {
+                const newItem =
+                    index == srcList.length - 1
+                    ?
+                    `<img src="${item}" style="width: 40px; height: 40px; vertical-align: middle; border-radius: 4px; object-fit: cover; cursor: pointer" />`
+                    :
+                    `<img src="${item}" style="width: 40px; height: 40px; vertical-align: middle; border-radius: 4px; object-fit: cover; cursor: pointer; margin-right: 6px" />`
+                return pre += newItem
+            }, '')
+            // 替换内容
+            const newContent = content.replace(`@@${srcListStr}@@`, srcHtmlSrc)
+            return {
+                ..._,
+                content: newContent,
+                srcList
+            }
+        } else {
+            return _
+        } 
+    })
+}
+```
+
+**添加预览图片处理**
+
+```javascript
+handleClickContent(e, scope) {
+    const { row } = scope
+    
+    if (e.target.tagName.toLowerCase() === 'img') {
+        const targetSrc = e.target.src
+        const targetIndex = row.srcList.findIndex(_ => _ == targetSrc)
+        // 预览图片的第三方API
+        this.$previewImage({
+            previewSrcList: row.srcList,
+            initialIndex: targetIndex,
+        })
+    }
+}
+```
+
+
+
 
 
