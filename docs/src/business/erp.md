@@ -403,6 +403,38 @@ src\views\operations\msgPromotion\ruleList\components\addRule.vue
 src\views\workermanange\workerOrderManange\workOrderConfig\components\workOrderCreatorConfig.vue
 ```
 
+确认删除弹窗
+
+信用分/费用退款管理条例-费用退款规则-删除
+
+```
+src\views\workermanange\creditmanange\FeeRefundRules\index.vue
+```
+
+
+
+搜索项-关联省市区（级级多选）【师傅管理-费用退款列表】
+
+```
+src\views\workermanange\feeRefund\index.vue
+```
+
+
+
+搜索项-取平台端和商家端的所有一级品类【师傅管理-费用退款列表】
+
+```
+src\views\workermanange\feeRefund\index.vue
+```
+
+
+
+列表项-查看电话（师傅电话）【师傅管理-费用退款列表】
+
+```
+src\views\workermanange\feeRefund\index.vue
+```
+
 
 
 #### 简易弹窗列表
@@ -478,6 +510,38 @@ export default {
 <style lang="scss" scoped>
 @import '@/styles/revision-2023.scss';
 </style>
+```
+
+
+
+#### 确认删除弹窗
+
+```html
+<el-button @click="delectHandle(scope.row)">删除</el-button>
+```
+
+```javascript
+delectHandle(row) {
+    const { id } = row
+    this.$msgbox.confirm('确定删除这条规则吗?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        center: true
+    }).then(() => {
+        demoApi({ id })
+            .then(({ data }) => {
+                if (data.code === 200) {
+                    this.getPage() // 查询分页
+                    this.$message.success('删除规则成功!')
+                } else {
+                    this.$message.error(data.msg)
+                }
+            })
+            .catch(err => {
+                this.$message.error(err.msg)
+            })
+    })
+}
 ```
 
 
@@ -561,3 +625,31 @@ export default {
 }
 </script>
 ```
+
+
+
+#### 支持输入正整数-最多10位
+
+```html
+<el-input
+    v-model.trim="form.ruleNum"
+    v-int
+    maxlength="10"
+    show-word-limit
+    placeholder="请输入数字编号"
+    clearable
+/>
+```
+
+#### 支持输入3位以内正整数
+
+```html
+<el-input
+    v-model="form.dat"
+    v-int
+    placeholder="请输入天数"
+    maxlength="3"
+    clearable
+/>
+```
+
