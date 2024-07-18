@@ -2,6 +2,7 @@
 import CustomComponent from './template/computed.vue'
 import replaceComponent from './template/replace.vue'
 import lyricComponent from './template/lyric.vue'
+import showColorComponent from './template/showColor.vue'
 </script>
 
 
@@ -12,6 +13,10 @@ import lyricComponent from './template/lyric.vue'
 ### 全局替换
 
 <replaceComponent />
+
+### 颜色展示
+
+<showColorComponent />
 
 <lyricComponent />
 
