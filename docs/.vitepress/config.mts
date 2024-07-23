@@ -253,6 +253,7 @@ export default defineConfig({
               text: 'ECharts',
               collapsed: true,
               items: [
+                {  text: 'base', link: '/前端2/第三方库/ECharts/base' },
                 {  text: '基本使用', link: '/前端2/第三方库/ECharts/基本使用' },
                 {  text: '南丁格尔图', link: '/前端2/第三方库/ECharts/南丁格尔图' },
                 {  text: '直角坐标系', link: '/前端2/第三方库/ECharts/直角坐标系' },
