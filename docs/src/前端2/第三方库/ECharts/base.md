@@ -71,9 +71,7 @@
 xAxis: {
     axisTick: {
     	show: true,
-        // 保证刻度线和标签对齐
-        alignWithLabel: true,
-        // 设置长度和样式
+        alignWithLabel: true, // [!code ++]
         length: 6,
         lineStyle: {
             color: '#E5E6EC'
@@ -141,17 +139,30 @@ legend: {
 
 
 
+#### 柱形图使用渐变色
 
+> 设置后，对应图例的图标也会采用相同的颜色
 
-el-table flex:1 无效
-
-https://zhuanlan.zhihu.com/p/649052365
-
-```diff
-.table-wrap {
-    flex: 1;
-+     min-width: 0;
-}
+```javascript
+series: [
+    {
+        type: 'bar',
+        // 线性渐变，从上往下，由红到蓝渐变
+        color: {
+            type: 'linear',
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [{
+                offset: 0, color: 'red' // 0% 处的颜色
+            }, {
+                offset: 1, color: 'blue' // 100% 处的颜色
+            }],
+            global: false // 缺省为 false
+        }
+    }
+]
 ```
 
 

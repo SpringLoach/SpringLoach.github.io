@@ -692,3 +692,16 @@ export default {
 </script>
 ```
 
+
+
+#### el-table flex:1 仍超长
+
+https://zhuanlan.zhihu.com/p/649052365
+
+```diff
+.table-wrap {
+    flex: 1;
++   min-width: 0;
+}
+```
+
