@@ -28,7 +28,8 @@ export default defineConfig({
           { text: '文档参考', link: '/前端2/文档参考' },
         ]
       },
-      { text: '其他', link: '/expand/初始配置/计算机环境配置' }
+      { text: '其他', link: '/expand/初始配置/计算机环境配置' },
+      { text: '开发账号', link: '/business/开发账号' }
     ],
 
     sidebar: {
