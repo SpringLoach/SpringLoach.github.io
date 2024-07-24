@@ -84,5 +84,75 @@ xAxis: {
 
 
 
+#### 双Y轴图表刻度对齐
+
+https://blog.csdn.net/shanghai597/article/details/136172810
+
+```javascript
+yAxis: [
+    {
+        type: 'value',
+        name: '水量',
+        alignTicks: true,  // [!code ++]
+        axisLabel: {
+            formatter: '{value} ml'
+        }
+    },
+    {
+        type: 'value',
+        name: '温度',
+        alignTicks: true,  // [!code ++]
+        axisLabel: {
+            formatter: '{value} °C'
+        }
+    }
+]
+```
+
+
+
+
+
+#### 图例图标修改为长方形
+
+```javascript
+legend: {
+    icon: 'path://M0 12.5h18v3h-18z'
+}
+```
+
+**含义**
+
+这个路径（`path`）数据是用来绘制矢量图形的，通常用于SVG（可缩放矢量图形）中。它描述了一条直线的绘制路径。下面是对路径数据 `M0 12.5h18v3h-18z` 的解释：
+
+1. `M0 12.5`：移动到坐标 (0, 12.5)。这是绘图开始的起点。
+2. `h18`：从当前点水平向右移动18个单位。
+3. `v3`：从当前点垂直向下移动3个单位。
+4. `h-18`：从当前点水平向左移动18个单位。
+5. `z`：关闭路径，即从当前点绘制一条直线回到起点 (0, 12.5)。
+
+综合起来，这段路径数据描述的是从 (0, 12.5) 开始绘制一个宽18个单位、高3个单位的矩形。
+
+| 序号 | 值                         | 说明            |
+| ---- | -------------------------- | --------------- |
+| ①    | `path://M0 12.5h18v3h-18z` |                 |
+| ②    | `path://M0 0h18v3h-18z`    | 跟①表现一致     |
+| ③    | `path://M0 0h6v1h-6z`      | 测试时，与②一致 |
+
+
+
+
+
+el-table flex:1 无效
+
+https://zhuanlan.zhihu.com/p/649052365
+
+```diff
+.table-wrap {
+    flex: 1;
++     min-width: 0;
+}
+```
+
 
 
