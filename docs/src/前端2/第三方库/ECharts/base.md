@@ -168,3 +168,25 @@ series: [
 
 
 
+#### 自定义tooltip
+
+```javascript
+tooltip: {
+    formatter: (params) => {
+        const title = `<div style="margin-bottom: 10px">${params[0].name}</div>`
+
+        let otherContent = ''
+        const result = params.forEach(p => {
+            const type = `<span style="color: #ccc">${p.seriesName}</span>`
+            const value = `<span style="color: red">${p.data}</span>`
+        
+            otherContent += `<div>${type}: ${value}</div>`
+      })
+      
+        return title + otherContent
+    }
+}
+```
+
+如果对系列设置了[渐变色](https://echarts.apache.org/zh/option.html#color)，那从 params 中的 `color` 属性会获取到对应的颜色对象，否则会获取到字符串
+
