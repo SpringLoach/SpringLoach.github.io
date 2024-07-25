@@ -705,3 +705,35 @@ https://zhuanlan.zhihu.com/p/649052365
 }
 ```
 
+
+
+#### 禁用2023-今年外的年份
+
+```html
+<el-date-picker
+    value-format="yyyy"
+    format="yyyy"
+    :picker-options="pickerOptions"
+></el-date-picker>
+
+<script>
+export default {
+    data() {
+        pickerOptions: {
+            disabledDate(time) {
+                // 获取当前年份
+                const currentYear = new Date().getFullYear()
+                // 设置最小年份和最大年份
+                const minYear = 2023 // 最小年份
+                const maxYear = currentYear // 最大年份
+                // 将时间转为年份
+                const year = time.getFullYear()
+                // 禁用超出范围的日期
+                return year < minYear || year > maxYear
+            },
+        },
+    }
+}
+</script>
+```
+
