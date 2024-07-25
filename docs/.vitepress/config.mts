@@ -250,6 +250,7 @@ export default defineConfig({
             {  text: 'highlight.js', link: '/前端2/第三方库/highlight.js/highlight.js' },
             {  text: 'viewer.js', link: '/前端2/第三方库/viewer.js/viewer.js' },
             {  text: 'mockjs', link: '/前端2/第三方库/mockjs/mockjs' },
+            {  text: 'html2canvas', link: '/前端2/第三方库/html2canvas/html2canvas' },
             { 
               text: 'ECharts',
               collapsed: true,
