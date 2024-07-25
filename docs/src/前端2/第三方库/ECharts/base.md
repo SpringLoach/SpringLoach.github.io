@@ -188,5 +188,5 @@ tooltip: {
 }
 ```
 
-如果对系列设置了[渐变色](https://echarts.apache.org/zh/option.html#color)，那从 params 中的 `color` 属性会获取到对应的颜色对象，否则会获取到字符串
+如果对系列设置了[渐变色](https://echarts.apache.org/zh/option.html#color)，那 params 中的遍历对象的 `color` 属性会获取到对应的颜色对象，否则会获取到字符串
 
