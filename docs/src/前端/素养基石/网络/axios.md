@@ -411,6 +411,8 @@ document.getElementById("input").addEventListener("change",function (e) {
 
 ### 下载excel
 
+> 二进制流数据
+
 ```javascript
 export async function handleExport(config, fileName) {
   // 下载
@@ -433,6 +435,86 @@ export async function handleExport(config, fileName) {
 ```
 
 window.URL.createObjectURL介绍 https://www.cnblogs.com/mark5/p/13321460.html?ivk_sa=1024320u
+
+
+
+### 下载excel二
+
+二进制流数据，跟上面的方案有重复
+
+```javascript
+import axios from 'axios'
+import { getToken } from '@/utils/auth'
+
+// 导出
+export function demoExportApi(data) {
+    return axios({
+        method: 'post',
+        headers: {
+            token: getToken(),
+        },
+        url: '/xx/demoExportApi',
+        data,
+        responseType: 'blob', // [!code highlight]
+    })
+}
+```
+
+**方式一**
+
+```javascript
+test() {
+    demoExportApi({})
+        .then(response => {
+            const blob = new Blob([response.data], {
+                type: 'xlsx/plain',
+            })
+            const link = document.createElement('a')
+            link.style.display = 'none'
+            link.href = window.URL.createObjectURL(blob)
+            link.download = '示例表格.xlsx'
+            document.body.appendChild(link)
+            link.click()
+            setTimeout(function () {
+                window.URL.revokeObjectURL(blob)
+                document.body.removeChild(link)
+            }, 0)
+        })
+        .catch(error => {
+            this.$message.error('文件下载失败')
+        })
+}
+```
+
+**方式二**
+
+```javascript
+test() {
+    demoExportApi({})
+        .then(result => {
+            const blob = new Blob([result.data], {
+                type: 'xlsx/plain',
+            }) // 通过返回的流数据 手动构建blob流
+            const reader = new FileReader()
+            reader.readAsDataURL(blob)
+            reader.onload = e => {
+                // 转换完成，创建一个a标签用于下载
+                const a = document.createElement('a')
+                a.download = '示例表格.xlsx'
+                if (typeof e.target.result === 'string') {
+                    a.href = e.target.result
+                }
+                a.click()
+            }
+            this.$message.success('导出成功！')
+        })
+        .catch(error => {
+            this.$message.error('文件下载失败')
+        })
+}
+```
+
+
 
 
 
