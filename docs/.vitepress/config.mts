@@ -292,7 +292,6 @@ export default defineConfig({
             { 
               text: 'markdown', 
               items: [
-                { text: '风格规范', link: '/expand/相关技能/markdown/风格规范' },
                 { text: 'markdown', link: '/expand/相关技能/markdown/markdown' },
               ]
             },
@@ -313,6 +312,7 @@ export default defineConfig({
             { text: '总结', link: '/expand/烤冷面/总结' },
           ]
         },
+        { text: '风格规范', link: '/expand/风格规范' },
         { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },
         { text: '有兴趣就研究', link: '/expand/有兴趣就研究' },
       ]
