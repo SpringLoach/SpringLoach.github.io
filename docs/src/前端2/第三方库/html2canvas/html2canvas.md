@@ -63,3 +63,27 @@ http://www.360doc.com/content/23/0720/11/12185854_1089341734.shtml
 **相关文档**
 
 https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled
+
+
+
+#### 批量下载图片
+
+```javascript
+async downloadImage(list) {
+    for(let i = 0; i < list.length; i++) {
+        if (i> 5) {
+            await new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve()
+                }, 2000)
+            })
+        }
+        const item = list[i]
+        canvasImageToDownload(`${item.name}.png`, item.value)
+    }
+}
+```
+
+:octopus: 因为浏览器的特殊限制，当连续下载且下载数量＞10时，后面的下载操作会被忽略；
+
+:octopus: 这里不能用 forEach，因为 forEach 不能实现异步。
