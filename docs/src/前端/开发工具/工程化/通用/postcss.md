@@ -10,7 +10,7 @@ npm install postcss -D
 
 <span style="color: slategray">配置</span>
 
-<span style="backGround: #efe0b9">postcss.config.js</span>
+<span style="background: #efe0b9">postcss.config.js</span>
 
 ```javascript
 module.exports = {
@@ -42,7 +42,7 @@ npm install postcss-preset-env -D
 
 <span style="color: #3a84aa">配置</span>
 
-<span style="backGround: #efe0b9">postcss.config.js</span>
+<span style="background: #efe0b9">postcss.config.js</span>
 
 ```javascript
 module.exports = {
@@ -89,7 +89,7 @@ module.exports = {
 
 在 `.browserslistrc` 中配置
 
-<span style="backGround: #efe0b9">.browserslistrc</span>
+<span style="background: #efe0b9">.browserslistrc</span>
 
 ```javascript
 last 2 version
@@ -100,7 +100,7 @@ last 2 version
 
 在 `package.json` 中配置 `browserslist`
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```javascript
 "browserslist": [
@@ -123,7 +123,7 @@ npm install postcss-pxtorem --save-dev
 
 **配置**
 
-<span style="backGround: #efe0b9">[root]/postcss.config.js</span>
+<span style="background: #efe0b9">[root]/postcss.config.js</span>
 
 ```javascript
 module.exports = {

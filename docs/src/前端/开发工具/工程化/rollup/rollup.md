@@ -170,7 +170,7 @@ npm install --save-dev @rollup/plugin-json
 
 <span style="color: #3a84aa">使用</span>
 
-<span style="backGround: #efe0b9">src/main.js</span>
+<span style="background: #efe0b9">src/main.js</span>
 
 ```javascript
 import { version } from '../package.json';
@@ -182,7 +182,7 @@ export default function () {
 
 <span style="color: #3a84aa">配置</span>
 
-<span style="backGround: #efe0b9">rollup.config.js</span>
+<span style="background: #efe0b9">rollup.config.js</span>
 
 ```javascript
 import json from '@rollup/plugin-json';
@@ -209,7 +209,7 @@ npm install --save-dev rollup-plugin-terser
 
 <span style="color: #3a84aa">配置</span>
 
-<span style="backGround: #efe0b9">rollup.config.js</span>
+<span style="background: #efe0b9">rollup.config.js</span>
 
 ```javascript
 import {terser} from 'rollup-plugin-terser';
@@ -238,7 +238,7 @@ export default {
 npm install the-answer
 ```
 
-<span style="backGround: #efe0b9">src/main.js</span>
+<span style="background: #efe0b9">src/main.js</span>
 
 ```javascript
 import answer from 'the-answer';
@@ -254,7 +254,7 @@ export default function () {
 npm install --save-dev @rollup/plugin-node-resolve
 ```
 
-<span style="backGround: #efe0b9">rollup.config.js</span>
+<span style="background: #efe0b9">rollup.config.js</span>
 
 ```javascript
 import resolve from '@rollup/plugin-node-resolve';
@@ -332,7 +332,7 @@ npm i -D @rollup/plugin-babel @rollup/plugin-node-resolve
 npm i -D @babel/core @babel/preset-env
 ```
 
-<span style="backGround: #efe0b9">rollup.config.js</span>
+<span style="background: #efe0b9">rollup.config.js</span>
 
 ```javascript
 import resolve from '@rollup/plugin-node-resolve';
@@ -353,7 +353,7 @@ export default {
 
 <span style="color: #3a84aa">配置 babel</span>
 
-<span style="backGround: #efe0b9">src/.babelrc.json</span>
+<span style="background: #efe0b9">src/.babelrc.json</span>
 
 ```javascript
 {
@@ -369,7 +369,7 @@ export default {
 
 <span style="color: #3a84aa">添加es6语法以方便测试</span>
 
-<span style="backGround: #efe0b9">src/main.js</span>
+<span style="background: #efe0b9">src/main.js</span>
 
 ```javascript
 import answer from 'the-answer';
@@ -413,7 +413,7 @@ gulp.task('build', async function () {
 
 ## 示例一
 
-<span style="backGround: #efe0b9">rollup.config.js</span>
+<span style="background: #efe0b9">rollup.config.js</span>
 
 ```javascript
 import resolve from '@rollup/plugin-node-resolve';
@@ -451,7 +451,7 @@ export default [
 
 :whale: 示例项目安装了外部依赖 `ms`，并引入到 `src/main.js` 文件中。
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 "scripts": {
@@ -468,7 +468,7 @@ export default [
 
 ## 示例二
 
-<span style="backGround: #efe0b9">rollup.config.js</span>
+<span style="background: #efe0b9">rollup.config.js</span>
 
 ```javascript
 import resolve from '@rollup/plugin-node-resolve';
@@ -495,7 +495,7 @@ export default {
 
 :whale: 示例项目安装了外部依赖 `date-fns/format`，并作为 `src/main.js` 的深层依赖。
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 "scripts": {

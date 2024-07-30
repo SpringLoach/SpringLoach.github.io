@@ -61,7 +61,7 @@ create-next-app next-demo
 
 
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 "scripts": {

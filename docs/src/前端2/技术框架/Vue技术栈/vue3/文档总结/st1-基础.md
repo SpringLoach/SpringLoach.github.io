@@ -589,7 +589,7 @@ Symbol
 
 #### Boolean 类型语法糖
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```javascript
 defineProps({
@@ -597,7 +597,7 @@ defineProps({
 })
 ```
 
-<span style="backGround: #efe0b9">父组件</span>
+<span style="background: #efe0b9">父组件</span>
 
 ```html
 <!-- 等同于传入 :disabled="true" -->

@@ -24,7 +24,7 @@ cnpm install react react-dom -D -S
 
 <span style="color: #3a84aa">在目录下新建文件</span>
 
-<span style="backGround: #efe0b9">app.jsx</span>
+<span style="background: #efe0b9">app.jsx</span>
 
 ```javascript
 import * as React from 'react'
@@ -36,7 +36,7 @@ console.log(Server.renderToString(<Greet />))
 
 <span style="color: #3a84aa">构建输出</span>
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 "scripts": {

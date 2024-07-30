@@ -841,7 +841,7 @@ jsx -> createElement函数 -> ReactElement(对象树) -> ReactDOM.render -> 真�
 
 :ghost: 引入其它脚本后，可以直接使用其中的变量。
 
-<span style="backGround: #efe0b9">./format-utils.js</span>
+<span style="background: #efe0b9">./format-utils.js</span>
 
 ```javascript
 function formatPrice(price) {

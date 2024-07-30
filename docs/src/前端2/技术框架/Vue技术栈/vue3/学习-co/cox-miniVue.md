@@ -28,7 +28,7 @@ Reactivity模块：响应式系统
 
 ### 渲染系统
 
-<span style="backGround: #efe0b9">index.html</span>
+<span style="background: #efe0b9">index.html</span>
 
 作为入口文件，使用自定义的方法模拟Vue。
 
@@ -50,7 +50,7 @@ Reactivity模块：响应式系统
 </script>
 ```
 
-<span style="backGround: #efe0b9">renderer.js</span>
+<span style="background: #efe0b9">renderer.js</span>
 
 ```javascript
 const h = (tag, props, children) => {
@@ -128,7 +128,7 @@ const mount = (vnode, container) => {
 
 #### patch函数的实现
 
-<span style="backGround: #efe0b9">index.html</span>
+<span style="background: #efe0b9">index.html</span>
 
 ```javascript
 // 1. 创建新旧vnode
@@ -153,7 +153,7 @@ setTimeout(() => {
 
 
 
-<span style="backGround: #efe0b9">renderer.js</span>
+<span style="background: #efe0b9">renderer.js</span>
 
 ```javascript
 const patch = (n1, n2) => {
@@ -420,7 +420,7 @@ obj: {
 
 #### proxy版
 
-<span style="backGround: #efe0b9">reactive.js</span>
+<span style="background: #efe0b9">reactive.js</span>
 
 ```javascript
 class Dep {
@@ -512,7 +512,7 @@ function reactive(raw) {
 
 ### Mini-Vue
 
-<span style="backGround: #efe0b9">index.html</span>
+<span style="background: #efe0b9">index.html</span>
 
 ```html
 <body>
@@ -549,7 +549,7 @@ function reactive(raw) {
 </body>
 ```
 
-<span style="backGround: #efe0b9">index.js</span>
+<span style="background: #efe0b9">index.js</span>
 
 - createApp用于创建一个app对象
 

@@ -517,13 +517,13 @@ app.mount('#app');
 npm install vue@next --save
 ```
 
-<span style="backGround: #efe0b9">index.html</span>
+<span style="background: #efe0b9">index.html</span>
 
 ```html
 <div id="app"></div>
 ```
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 import { createApp } from 'vue/dist/vue.esm-bundler'; // 需要使用运行时+编译器支持 template
@@ -667,13 +667,13 @@ import HeyDemo from './HeyDemo.vue'
 
 #### Attribute继承
 
-<span style="backGround: #efe0b9">父组件</span>
+<span style="background: #efe0b9">父组件</span>
 
 ```html
 <demo class="demo-content" />
 ```
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```html
 <template>
@@ -681,7 +681,7 @@ import HeyDemo from './HeyDemo.vue'
 </template>
 ```
 
-<span style="backGround: #efe0b9">子组件部分转化为DOM</span>
+<span style="background: #efe0b9">子组件部分转化为DOM</span>
 
 ```html
 <div data-v-xxxx class="demo-content">...</div>
@@ -803,7 +803,7 @@ Mitt全局事件总线；
 
 ### Provide和Inject基本使用
 
-<span style="backGround: #efe0b9">grandFather.vue</span>
+<span style="background: #efe0b9">grandFather.vue</span>
 
 ```html
 <father />
@@ -817,13 +817,13 @@ export default {
 }
 ```
 
-<span style="backGround: #efe0b9">father.vue</span>
+<span style="background: #efe0b9">father.vue</span>
 
 ```html
 <son />
 ```
 
-<span style="backGround: #efe0b9">son.vue</span>
+<span style="background: #efe0b9">son.vue</span>
 
 ```javascript
 <h2>{{name}}-{{age}}</h2>
@@ -898,7 +898,7 @@ npm install mitt
 
 **预定义**
 
-<span style="backGround: #efe0b9">utils/eventbus.js</span>
+<span style="background: #efe0b9">utils/eventbus.js</span>
 
 方式一
 
@@ -923,7 +923,7 @@ export const emitter2 = mitt();
 
 **使用**
 
-<span style="backGround: #efe0b9">me.vue</span>
+<span style="background: #efe0b9">me.vue</span>
 
 ```javascript
 import emitter from './utils/eventbus';
@@ -941,7 +941,7 @@ export default {
 
 :ghost:  像这种事件名，可以新建一个文档用常量名来保存，使用时导入，防止冲突。
 
-<span style="backGround: #efe0b9">borther.vue</span>
+<span style="background: #efe0b9">borther.vue</span>
 
 ```javascript
 import emitter from './utils/eventbus';
@@ -982,7 +982,7 @@ emitter.off('foo', onFoo)  // 取消监听
 
 #### 具名插槽
 
-<span style="backGround: #efe0b9">father.vue</span>
+<span style="background: #efe0b9">father.vue</span>
 
 ```html
 <son>
@@ -999,7 +999,7 @@ emitter.off('foo', onFoo)  // 取消监听
 ```
 :star2: <span style="color: #ff0000">与已经废弃的vue2中使用的 `slot` 不同</span>，vue3 需要使用 <span style="color: #ff0000">`v-slot `</span> 且只能添加在 `<template>` 上。
 
-<span style="backGround: #efe0b9">son.vue</span>
+<span style="background: #efe0b9">son.vue</span>
 
 ```html
 <header>
@@ -1021,7 +1021,7 @@ emitter.off('foo', onFoo)  // 取消监听
 
 > 由父组件进行配置，控制插槽命名的方案雏形。
 
-<span style="backGround: #efe0b9">father.vue</span>
+<span style="background: #efe0b9">father.vue</span>
 
 ```html
 <son :name="demoName">
@@ -1037,7 +1037,7 @@ data() {
 }
 ```
 
-<span style="backGround: #efe0b9">son.vue</span>
+<span style="background: #efe0b9">son.vue</span>
 
 ```html
 <header>
@@ -1057,7 +1057,7 @@ props: {
 
 #### 具名插槽的缩写使用
 
-<span style="backGround: #efe0b9">father.vue</span>
+<span style="background: #efe0b9">father.vue</span>
 
 ```html
 <son :name="demoName">
@@ -1078,7 +1078,7 @@ props: {
 >
 >  vue2 中原本用的属性被废弃了。
 
-<span style="backGround: #efe0b9">father.vue</span>
+<span style="background: #efe0b9">father.vue</span>
 
 ```html
 <son :names="names">
@@ -1097,7 +1097,7 @@ data() {
 
 :turtle: 此处的 `slotProps` 可以看作一个对象，它拥有子组件对应插槽中传递上来的属性，对象的命名任意。
 
- <span style="backGround: #efe0b9">son.vue</span>
+ <span style="background: #efe0b9">son.vue</span>
 
 ```html
 <template v-for="(item, index) in names" :key="item">
@@ -1117,7 +1117,7 @@ props: {
 
 ##### 具名插槽写法
 
-<span style="backGround: #efe0b9">father.vue</span>
+<span style="background: #efe0b9">father.vue</span>
 
 ```html
 <son :names="names">
@@ -1129,7 +1129,7 @@ props: {
 
 :turtle: 此处的 `slotProps` 可以看作一个对象，它拥有子组件对应插槽中传递上来的属性，对象的命名任意。
 
- <span style="backGround: #efe0b9">son.vue</span>
+ <span style="background: #efe0b9">son.vue</span>
 
 ```html
 <template v-for="(item, index) in names" :key="item">
@@ -1141,7 +1141,7 @@ props: {
 
 ##### 独占默认插槽的缩写
 
-<span style="backGround: #efe0b9">father.vue</span>
+<span style="background: #efe0b9">father.vue</span>
 
 ```html
 <son :names="names" v-slot="slotProps">
@@ -1179,7 +1179,7 @@ export default {
 
 #### 动态组件的属性传递
 
-<span style="backGround: #efe0b9">father.vue</span>
+<span style="background: #efe0b9">father.vue</span>
 
 ```html
 <component :is="currentTab"
@@ -1187,7 +1187,7 @@ export default {
            @clickSon="clickSon" />
 ```
 
- <span style="backGround: #efe0b9">son.vue</span>
+ <span style="background: #efe0b9">son.vue</span>
 
 ```javascript
 props: ['age']

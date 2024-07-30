@@ -113,7 +113,7 @@ export default something;
 export { name, age } from './bar.js'
 ```
 
-:whale: 通常将  <span style="backGround: #efe0b9">index.js</span> 作为该出口。
+:whale: 通常将  <span style="background: #efe0b9">index.js</span> 作为该出口。
 
 
 
@@ -121,7 +121,7 @@ export { name, age } from './bar.js'
 
 ES 模块导出的是 <span style="color: #ed5a65">动态绑定</span>，而不是值，因此在最初导入值后，可以对其进行更改，示例：
 
-<span style="backGround: #efe0b9">incrementer.js</span>
+<span style="background: #efe0b9">incrementer.js</span>
 
 ```javascript
 export let count = 0;
@@ -131,7 +131,7 @@ export function increment() {
 }
 ```
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 import { count, increment } from './incrementer.js';
@@ -153,7 +153,7 @@ Node 实现 CommonJS 的本质就是对象的引用赋值。
 
 ## export
 
-<span style="backGround: #efe0b9">bar.js</span>
+<span style="background: #efe0b9">bar.js</span>
 
 ```javascript
 const name = 'demo';
@@ -169,7 +169,7 @@ export.hey = hey
 
 :whale: 所以在每个模块都隐式存在 exports 属性，默认值为 `{}`
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 // 相当于 bar = exports
@@ -258,13 +258,13 @@ X前带有路径，即以 `./` 或 `../` 或 `/`（根目录）开头。
 
 1. 引入即执行
 
-   <span style="backGround: #efe0b9">bar.js</span>
+   <span style="background: #efe0b9">bar.js</span>
 
    ```javascript
    console.log(123)
    ```
 
-   <span style="backGround: #efe0b9">main.js</span>
+   <span style="background: #efe0b9">main.js</span>
 
    ```javascript
    require(./bar); // 123
@@ -279,13 +279,13 @@ X前带有路径，即以 `./` 或 `../` 或 `/`（根目录）开头。
 
 3. 多次被引入，只执行一次
 
-   <span style="backGround: #efe0b9">main.js</span>
+   <span style="background: #efe0b9">main.js</span>
 
    ```javascript
    require(./bar);
    ```
 
-   <span style="backGround: #efe0b9">foo.js</span>
+   <span style="background: #efe0b9">foo.js</span>
 
    ```javascript
    require(./bar);

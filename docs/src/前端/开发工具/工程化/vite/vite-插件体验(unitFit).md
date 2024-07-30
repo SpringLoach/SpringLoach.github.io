@@ -30,7 +30,7 @@ npm create vite@latest my-vue-app -- --template vue
 
 ### <span style="color: #3a84aa">二、编写插件结构</span>
 
-<span style="backGround: #efe0b9">plugin/unitFix/index.js</span>
+<span style="background: #efe0b9">plugin/unitFix/index.js</span>
 
 ```javascript
 export default function unitFitPlugin(config) {
@@ -63,7 +63,7 @@ export default function unitFitPlugin(config) {
 
 ④ 设计稿宽度默认为 1920，允许用户提供不同的值，作为插件参数传入。
 
-<span style="backGround: #efe0b9">plugin/unitFix/index.js</span>
+<span style="background: #efe0b9">plugin/unitFix/index.js</span>
 
 ```javascript
 /** 设计稿宽度 */
@@ -118,7 +118,7 @@ export default function unitFitPlugin({ viewportWidth }) {
 
 ### <span style="color: #3a84aa">四、引用插件</span>
 
-<span style="backGround: #efe0b9">vite.config.js</span>
+<span style="background: #efe0b9">vite.config.js</span>
 
 ```javascript
 import { defineConfig } from "vite";
@@ -140,7 +140,7 @@ export default defineConfig({
 
 ### <span style="color: #3a84aa">五、测试插件效果</span>
 
-<span style="backGround: #efe0b9">src/App.vue</span>
+<span style="background: #efe0b9">src/App.vue</span>
 
 ```html
 <template>

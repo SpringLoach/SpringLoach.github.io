@@ -159,7 +159,7 @@ npm install animation.css
 
 **引入**
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```
 import "animation.css"
@@ -517,7 +517,7 @@ npm install lodash
 
 #### 基本使用
 
-<span style="backGround: #efe0b9">mixins/demoMixin.js</span>
+<span style="background: #efe0b9">mixins/demoMixin.js</span>
 
 ```javascript
 export const demoMixin = {
@@ -527,7 +527,7 @@ export const demoMixin = {
 }
 ```
 
-<span style="backGround: #efe0b9">demo.vue</span>
+<span style="background: #efe0b9">demo.vue</span>
 
 ```javascript
 import { demoMixin } from './mixins/demoMixin';
@@ -562,7 +562,7 @@ export default {
 
 #### 全局混入
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 const app = createApp(App);

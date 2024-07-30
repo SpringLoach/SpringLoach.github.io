@@ -29,7 +29,7 @@
 - slots：父组件传递过来的插槽（在以渲染函数返回时会用）；
 - emit：当组件内部需要发出事件时会用到 emit 。
 
-<span style="backGround: #efe0b9">Father.vue</span>
+<span style="background: #efe0b9">Father.vue</span>
 
 ```html
 <home demo="hey" />
@@ -44,7 +44,7 @@ export default {
 }
 ```
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 export default {
@@ -60,7 +60,7 @@ export default {
 }
 ```
 
-:star2: 在 setup 的内部，不能通过 <span style="backGround: pink">this</span> 去获取组件实例。
+:star2: 在 setup 的内部，不能通过 <span style="background: pink">this</span> 去获取组件实例。
 
 
 
@@ -440,7 +440,7 @@ val = isRef(val) ? val.value : val
 
 ##### (例)双向绑定节流
 
-<span style="backGround: #efe0b9">hook/useDebounceRef.js</span>
+<span style="background: #efe0b9">hook/useDebounceRef.js</span>
 
 ```javascript
 import { customRef } from 'vue';
@@ -950,7 +950,7 @@ setup() {
 
 ## compositionAPI练习
 
-<span style="backGround: #efe0b9">demo.vue</span>
+<span style="background: #efe0b9">demo.vue</span>
 
 ```html
 <h2>当前计数: {{counter}}</h2>
@@ -984,7 +984,7 @@ setup() {
 
 
 
-<span style="backGround: #efe0b9">hooks/useCounter.js</span>
+<span style="background: #efe0b9">hooks/useCounter.js</span>
 
 ```javascript
 import { ref, computed } from 'vue';
@@ -1009,7 +1009,7 @@ export default function() {
 
 ### (例)设置文档标题
 
-<span style="backGround: #efe0b9">demo.vue</span>
+<span style="background: #efe0b9">demo.vue</span>
 
 ```javascript
 import { useTitle } from './hooks/useTitle';
@@ -1024,7 +1024,7 @@ setup() {
 }
 ```
 
-<span style="backGround: #efe0b9">hooks/useTitle.js</span>
+<span style="background: #efe0b9">hooks/useTitle.js</span>
 
 ```javascript
 import { ref, watch } from 'vue';
@@ -1046,7 +1046,7 @@ export default function(title = "默认的title") {
 
 ### (例)使用本地缓存
 
-<span style="backGround: #efe0b9">demo.vue</span>
+<span style="background: #efe0b9">demo.vue</span>
 
 ```javascript
 import { useLocalStorage } from './hooks/useLocalStorage';
@@ -1059,7 +1059,7 @@ setup() {
 }
 ```
 
-<span style="backGround: #efe0b9">hooks/useLocalStorage.js</span>
+<span style="background: #efe0b9">hooks/useLocalStorage.js</span>
 
 ```javascript
 import { ref, watch } from 'vue';
@@ -1094,7 +1094,7 @@ export default function(key, value) {
   - useA.js
   - useB.js
 
-<span style="backGround: #efe0b9">hooks/index.js</span>
+<span style="background: #efe0b9">hooks/index.js</span>
 
 ```javascript
 import useA from './useA';
@@ -1106,7 +1106,7 @@ export {
 }
 ```
 
-<span style="backGround: #efe0b9">demo.vue</span>
+<span style="background: #efe0b9">demo.vue</span>
 
 ```javascript
 import {
@@ -1206,7 +1206,7 @@ import {
 
 ## 渲染组件及插槽使用
 
-<span style="backGround: #efe0b9">demo.vue</span>
+<span style="background: #efe0b9">demo.vue</span>
 
 ```html
 <script>
@@ -1231,7 +1231,7 @@ import {
 
 :whale: 在第三个参数中指定插槽，并在方法（值）返回一个 Vnode 对象。它的参数在子组件调用时传递。
 
-<span style="backGround: #efe0b9">HelloWorld.vue</span>
+<span style="background: #efe0b9">HelloWorld.vue</span>
 
 ```html
 <script>
@@ -1260,7 +1260,7 @@ import {
 npm install @vue/babel-plugin-jsx -D
 ```
 
-<span style="backGround: #efe0b9">babel.config.js</span>
+<span style="background: #efe0b9">babel.config.js</span>
 
 ```javascript
 module.export = {
@@ -1270,7 +1270,7 @@ module.export = {
 }
 ```
 
-<span style="backGround: #efe0b9">demo.vue</span>
+<span style="background: #efe0b9">demo.vue</span>
 
 ```html
 <script>
@@ -1307,7 +1307,7 @@ module.export = {
 
 
 
-<span style="backGround: #efe0b9">HelloWorld.vue</span>
+<span style="background: #efe0b9">HelloWorld.vue</span>
 
 ```html
 <script>

@@ -4,7 +4,7 @@
 npm install echarts
 ```
 
-<span style="backGround: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
+<span style="background: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
 
 ```html
 <template>
@@ -103,7 +103,7 @@ ECharts在不同的设备上，进行了性能的测试：
 
 **新建模块存储图像相关数据**
 
-<span style="backGround: #efe0b9">store/main/analysis/dashboard.ts</span>
+<span style="background: #efe0b9">store/main/analysis/dashboard.ts</span>
 
 ```javascript
 import { Module } from 'vuex'
@@ -128,7 +128,7 @@ const dashboardModule: Module<IDashboardState, IRootState> = {
 export default dashboardModule
 ```
 
-<span style="backGround: #efe0b9">store/main/analysis/types.ts</span>
+<span style="background: #efe0b9">store/main/analysis/types.ts</span>
 
 ```javascript
 export interface IDashboardState {
@@ -141,7 +141,7 @@ export interface IDashboardState {
 
 **根状态中注册模块**
 
-<span style="backGround: #efe0b9">store/index.ts</span>
+<span style="background: #efe0b9">store/index.ts</span>
 
 ```javascript
 import dashboard from './main/analysis/dashboard'
@@ -155,7 +155,7 @@ const store = createStore<IRootState>({
 })
 ```
 
-<span style="backGround: #efe0b9">store/types.ts</span>
+<span style="background: #efe0b9">store/types.ts</span>
 
 ```javascript
 import { IDashboardState } from './main/analysis/types'
@@ -171,7 +171,7 @@ export interface IRootWithModule {
 
 ### 数据请求
 
-<span style="backGround: #efe0b9">service/main/analysis/dashboard.ts</span>
+<span style="background: #efe0b9">service/main/analysis/dashboard.ts</span>
 
 ```javascript
 import baseRequest from '@/service'
@@ -212,7 +212,7 @@ export function getAddressGoodsSale() {
 }
 ```
 
-<span style="backGround: #efe0b9">store/main/analysis/dashboard.ts</span>
+<span style="background: #efe0b9">store/main/analysis/dashboard.ts</span>
 
 ```javascript
 import {
@@ -258,7 +258,7 @@ const dashboardModule: Module<IDashboardState, IRootState> = {
 export default dashboardModule
 ```
 
-<span style="backGround: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
+<span style="background: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
 
 ```javascript
 import { useStore } from '@/store'
@@ -284,7 +284,7 @@ setup() {
     - index.ts
 ```
 
-<span style="backGround: #efe0b9">commom/card/src/card.vue</span>
+<span style="background: #efe0b9">commom/card/src/card.vue</span>
 
 ```html
 <el-card class="box-card">
@@ -299,7 +299,7 @@ setup() {
 </el-card>
 ```
 
-<span style="backGround: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
+<span style="background: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
 
 ```html
 <div class="dashboard">
@@ -360,7 +360,7 @@ npm install @vue/compiler-sfc
 
 
 
-<span style="backGround: #efe0b9">commom/echart/src/base-echart.vue</span>
+<span style="background: #efe0b9">commom/echart/src/base-echart.vue</span>
 
 ```html
 <template>
@@ -401,7 +401,7 @@ onMounted(() => {
 
 :european_castle: 在 <span style="color: #a50">onMounted</span> 中才能确保获取到 DOM。
 
-<span style="backGround: #efe0b9">commom/echart/hooks/useEchart.ts</span>
+<span style="background: #efe0b9">commom/echart/hooks/useEchart.ts</span>
 
 ```javascript
 import * as echarts from 'echarts'
@@ -507,7 +507,7 @@ withDefaults(
     - index.ts               # 统一导出
 ```
 
-<span style="backGround: #efe0b9">components/page-echarts/src/pie-echart.vue</span>
+<span style="background: #efe0b9">components/page-echarts/src/pie-echart.vue</span>
 
 ```html
 <template>
@@ -554,7 +554,7 @@ const options = computed(() => {
 </script>
 ```
 
-<span style="backGround: #efe0b9">components/page-echarts/types/index.ts</span>
+<span style="background: #efe0b9">components/page-echarts/types/index.ts</span>
 
 ```javascript
 export interface IDataType {
@@ -563,7 +563,7 @@ export interface IDataType {
 }
 ```
 
-<span style="backGround: #efe0b9">components/page-echarts/index.ts</span>
+<span style="background: #efe0b9">components/page-echarts/index.ts</span>
 
 ```javascript
 import PieEchart from './src/pie-echart.vue'
@@ -574,7 +574,7 @@ export { PieEchart, RoseEchart }
 
 ### 使用
 
-<span style="backGround: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
+<span style="background: #efe0b9">views/main/analysis/dashboard/dashboard.vue</span>
 
 ```html
 <template>

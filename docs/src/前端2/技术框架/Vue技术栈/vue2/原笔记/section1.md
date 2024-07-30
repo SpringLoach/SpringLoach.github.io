@@ -932,7 +932,7 @@ const demo = new Vue({
 5. 多个可能的类型
 6. 验证自定义属性的值是否与某项匹配
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```javascript
 props: {
@@ -968,7 +968,7 @@ props: {
 
 > 真实开发一般不会这么使用，这样定义不会限制它的类型。
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```javascript
 props: ['like1', 'like2']
@@ -976,7 +976,7 @@ props: ['like1', 'like2']
 
 #### Prop的大小写
 
-<span style="backGround: #efe0b9">demo.vue</span>
+<span style="background: #efe0b9">demo.vue</span>
 
 ```javascript
 props: {
@@ -987,7 +987,7 @@ props: {
 }
 ```
 
-<span style="backGround: #efe0b9">父组件</span>
+<span style="background: #efe0b9">父组件</span>
 
 ```html
 <demo menuTitle="你好" />

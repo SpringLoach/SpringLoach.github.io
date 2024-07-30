@@ -54,13 +54,13 @@ export default {
 
 #### 全局指令
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```html
 <input type="text" v-focus>
 ```
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 import { createApp } from 'vue'
@@ -128,7 +128,7 @@ directives: {
 npm install dayjs
 ```
 
-<span style="backGround: #efe0b9">directives/format-time.js</span>
+<span style="background: #efe0b9">directives/format-time.js</span>
 
 ```javascript
 import dayjs from 'dayjs';
@@ -152,7 +152,7 @@ export default function(app) {
 
 :whale: 传入参数时，使用参数格式，否则使用默认格式。
 
-<span style="backGround: #efe0b9">directives/index.js</span>
+<span style="background: #efe0b9">directives/index.js</span>
 
 ```javascript
 import registerFormatTime from './format-time';
@@ -164,7 +164,7 @@ export default function registerDirectives(app) {
 
 :whale: 作为自定义指令的整合文件，可以清晰明了的查看（决定）注册哪些指令。
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 import { createApp } from 'vue'
@@ -178,7 +178,7 @@ registerDirectives(app);
 app.mount('#app');
 ```
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```html
 <h2 v-format-time="'YYYY/MM/DD'">{{timestamp}}</h2>

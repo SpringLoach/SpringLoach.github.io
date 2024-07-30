@@ -943,7 +943,7 @@ export default class App extends PureComponent {
   + style.modules.css
 ```
 
-<span style="backGround: #efe0b9">home\index.js</span>
+<span style="background: #efe0b9">home\index.js</span>
 
 ```jsx
 import React, { PureComponent } from 'react';
@@ -964,7 +964,7 @@ export default class Home extends PureComponent {
 }
 ```
 
-<span style="backGround: #efe0b9">home\index.js</span>
+<span style="background: #efe0b9">home\index.js</span>
 
 ```css
 .title {
@@ -995,7 +995,7 @@ yarn add styled-components
   + style.css      // 定义样式组件
 ```
 
-<span style="backGround: #efe0b9">app\index.js</span>
+<span style="background: #efe0b9">app\index.js</span>
 
 ```jsx
 import React, { PureComponent } from 'react';
@@ -1035,7 +1035,7 @@ export default class App extends PureComponent {
 
 #### 其它特性
 
-<span style="backGround: #efe0b9">profile\index.js</span>
+<span style="background: #efe0b9">profile\index.js</span>
 
 ```jsx
 import React, { PureComponent } from 'react';
@@ -1115,7 +1115,7 @@ export default class App extends PureComponent {
 
 #### 开发规范
 
-<span style="backGround: #efe0b9">home\index.js</span>
+<span style="background: #efe0b9">home\index.js</span>
 
 ```jsx
 import React, { PureComponent } from 'react';
@@ -1142,7 +1142,7 @@ export default class Home extends PureComponent {
 
 :ghost: 实际上开发时，可以将样式组件的定义逻辑进行抽离。
 
-<span style="backGround: #efe0b9">home\style.js</span>
+<span style="background: #efe0b9">home\style.js</span>
 
 ```jsx
 import styled from 'styled-components';

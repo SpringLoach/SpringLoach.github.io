@@ -57,7 +57,7 @@ function handleAxios() {
 </script>
 ```
 
-<span style="backGround: #efe0b9">mockData.js</span>
+<span style="background: #efe0b9">mockData.js</span>
 
 ```javascript
 import Mock from 'mockjs'

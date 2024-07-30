@@ -703,7 +703,7 @@ function useLoggingLife(name) {
   + App.js
 ```
 
-<span style="backGround: #efe0b9">src\App.js</span>
+<span style="background: #efe0b9">src\App.js</span>
 
 ```jsx
 import React, { useState, createContext } from 'react';
@@ -724,7 +724,7 @@ export default function App() {
 }
 ```
 
-<span style="backGround: #efe0b9">src\hooks\info-hook.js</span>
+<span style="background: #efe0b9">src\hooks\info-hook.js</span>
 
 ```jsx
 import { useContext } from "react";
@@ -740,7 +740,7 @@ function useUserContext() {
 export default useUserContext;
 ```
 
-<span style="backGround: #efe0b9">使用</span>
+<span style="background: #efe0b9">使用</span>
 
 ```jsx
 import React, { useContext } from 'react';
@@ -762,7 +762,7 @@ export default function CustomContextShareHook() {
 
 ### 案例-获取滚动位置
 
-<span style="backGround: #efe0b9">src\hooks\scroll-position-hook.js</span>
+<span style="background: #efe0b9">src\hooks\scroll-position-hook.js</span>
 
 ```jsx
 import { useState, useEffect } from 'react';
@@ -787,7 +787,7 @@ function useScrollPosition() {
 export default useScrollPosition;
 ```
 
-<span style="backGround: #efe0b9">使用</span>
+<span style="background: #efe0b9">使用</span>
 
 ```jsx
 import React, { useEffect, useState } from 'react'
@@ -808,7 +808,7 @@ export default function CustomScrollPositionHook() {
 
 ### 案例-localStorage存储
 
-<span style="backGround: #efe0b9">src\hooks\local-store-hook.js</span>
+<span style="background: #efe0b9">src\hooks\local-store-hook.js</span>
 
 ```javascript
 import {useState, useEffect} from 'react';
@@ -830,7 +830,7 @@ export default useLocalStorage;
 
 ```
 
-<span style="backGround: #efe0b9">使用</span>
+<span style="background: #efe0b9">使用</span>
 
 ```jsx
 import React, { useState, useEffect } from 'react';

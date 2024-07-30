@@ -25,7 +25,7 @@ yarn add @ant-design/icons
 
 样式也需要自行引入
 
-<span style="backGround: #efe0b9">src\index.js</span>
+<span style="background: #efe0b9">src\index.js</span>
 
 ```javascript
 import "antd/dist/antd.css"
@@ -64,7 +64,7 @@ export default class App extends PureComponent {
 yarn add @craco/craco
 ```
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```elm
 "script": {
@@ -76,7 +76,7 @@ yarn add @craco/craco
 
 :ghost: 这样执行的脚本，将会读取根目录下的 craco.config.js，用于合并配置
 
-<span style="backGround: #efe0b9">craco.config.js</span>
+<span style="background: #efe0b9">craco.config.js</span>
 
 ```
 module.exports = {
@@ -94,7 +94,7 @@ module.exports = {
 yarn add craco-less
 ```
 
-<span style="backGround: #efe0b9">craco.config.js</span>
+<span style="background: #efe0b9">craco.config.js</span>
 
 ```javascript
 const CracoLessPlugin = require('craco-less');
@@ -118,7 +118,7 @@ module.exports = {
 
 还需要修改引入的组件库样式文件
 
-<span style="backGround: #efe0b9">src\index.js</span>
+<span style="background: #efe0b9">src\index.js</span>
 
 ```javascript
 // import 'antd/dist/antd.css';
@@ -179,7 +179,7 @@ render () {
 
 **moment 库使用中文格式**
 
-<span style="backGround: #efe0b9">src\index.js</span>
+<span style="background: #efe0b9">src\index.js</span>
 
 ```javascript
 import 'moment/locale/zh-hk';
@@ -242,7 +242,7 @@ async componentDidMount() {
 
 ### 封装使用
 
-<span style="backGround: #efe0b9">src\service\request.js</span>
+<span style="background: #efe0b9">src\service\request.js</span>
 
 ```javascript
 import axios from 'axios';
@@ -327,7 +327,7 @@ export default class CSSTransitionDemo extends PureComponent {
 
 <span style="color: #f7534f;font-weight:600">timeout</span> 控制类切换的时间
 
-<span style="backGround: #efe0b9">CSSTransition.css</span>
+<span style="background: #efe0b9">CSSTransition.css</span>
 
 ```less
 // 进入状态开始时添加，结束时移除
@@ -433,7 +433,7 @@ export default class SwitchTransitionDemo extends PureComponent {
 
 :ghost: 被包裹的组件不再使用 <span style="color: #a50">in</span> 来判断状态，而是通过 <span style="color: #ff0000">key</span> 来判断。
 
-<span style="backGround: #efe0b9">SwitchTransition.css</span>
+<span style="background: #efe0b9">SwitchTransition.css</span>
 
 ```less
 .btn-enter {
@@ -512,7 +512,7 @@ export default class TransitionGroupDemo extends PureComponent {
 
 :octopus: 忽略添加 key，可能导致动画相关的类添加到不符预期的元素上。
 
-<span style="backGround: #efe0b9">TransitionGroup.css</span>
+<span style="background: #efe0b9">TransitionGroup.css</span>
 
 ```less
 .item-enter {
@@ -643,7 +643,7 @@ store.dispatch(action4);
 - index.js               // 使用（该文件不固定）
 ```
 
-<span style="backGround: #efe0b9">store\actionCreators.js</span>
+<span style="background: #efe0b9">store\actionCreators.js</span>
 
 ```javascript
 import {
@@ -663,14 +663,14 @@ export const incAction = () => ({
 
 :turtle: 箭头函数：直接返回对象时，使用小括号包裹，可以省略 return
 
-<span style="backGround: #efe0b9">store\constants.js</span>
+<span style="background: #efe0b9">store\constants.js</span>
 
 ```javascript
 export const ADD_NUMBER = "ADD_NUMBER";
 export const INCREMENT = "INCREMENT";
 ```
 
-<span style="backGround: #efe0b9">store\reducer.js</span>
+<span style="background: #efe0b9">store\reducer.js</span>
 
 ```javascript
 import {
@@ -696,7 +696,7 @@ function reducer(state = defaultState, action) {
 export default reducer;
 ```
 
-<span style="backGround: #efe0b9">store\index.js</span>
+<span style="background: #efe0b9">store\index.js</span>
 
 ```javascript
 import redux from 'redux';
@@ -712,7 +712,7 @@ export default store;
 
 **使用**
 
-<span style="backGround: #efe0b9">index.js</span>
+<span style="background: #efe0b9">index.js</span>
 
 ```javascript
 import store from './store/index.js';
@@ -801,7 +801,7 @@ export default class Home extends PureComponent {
 
 ### 封装逻辑
 
-<span style="backGround: #efe0b9">src\utils\connect.js</span>
+<span style="background: #efe0b9">src\utils\connect.js</span>
 
 ```jsx
 import React, { PureComponent } from "react";
@@ -848,7 +848,7 @@ export function connect(mapStateToProps, mapDispachToProp) {
 
 :european_castle: 而高阶组件是参数为组件，返回值为新组件的函数（通过加一个中间组件增强？）
 
-<span style="backGround: #efe0b9">使用</span>
+<span style="background: #efe0b9">使用</span>
 
 ```jsx
 import React, { PureComponent } from 'react';
@@ -902,7 +902,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 让 connect 方法所在的文件，不直接依赖业务内容（store）
 
-<span style="backGround: #efe0b9">src\index.js</span>
+<span style="background: #efe0b9">src\index.js</span>
 
 ```jsx
 import React from 'react';
@@ -922,7 +922,7 @@ ReactDOM.render(
 );
 ```
 
-<span style="backGround: #efe0b9">src\utils\context.js</span>
+<span style="background: #efe0b9">src\utils\context.js</span>
 
 ```jsx
 import React from 'react';
@@ -934,7 +934,7 @@ export {
 }
 ```
 
-<span style="backGround: #efe0b9">src\utils\connect.js</span>
+<span style="background: #efe0b9">src\utils\connect.js</span>
 
 ```jsx
 import React, { PureComponent } from "react";
@@ -993,7 +993,7 @@ export function connect(mapStateToProps, mapDispachToProp) {
 yarn add react-redux
 ```
 
-<span style="backGround: #efe0b9">src\index.js</span>
+<span style="background: #efe0b9">src\index.js</span>
 
 ```jsx
 import React from 'react';
@@ -1015,7 +1015,7 @@ ReactDOM.render(
 
 :whale: 这里传递的属性由 value 改成了 store，其实内部接收的还是 value
 
-<span style="backGround: #efe0b9">使用</span>
+<span style="background: #efe0b9">使用</span>
 
 ```jsx
 // import { connect } from '../utils/connect';
@@ -1028,13 +1028,13 @@ import { connect } from 'react-redux';
 
 流程：定义常量、定义 action、添加 reduce 内部处理、组件传递action、在合适时机调用 dispatch
 
-<span style="backGround: #efe0b9">src\store\constants.js</span>
+<span style="background: #efe0b9">src\store\constants.js</span>
 
 ```
 export const CHANGE_BANNERS = "CHANGE_BANNERS";
 ```
 
-<span style="backGround: #efe0b9">src\store\actionCreators.js</span>
+<span style="background: #efe0b9">src\store\actionCreators.js</span>
 
 ```jsx
 import {
@@ -1047,7 +1047,7 @@ export const changeBannersAction = (banners) => ({
 });
 ```
 
-<span style="backGround: #efe0b9">src\store\reducer.js</span>
+<span style="background: #efe0b9">src\store\reducer.js</span>
 
 ```jsx
 import {
@@ -1129,7 +1129,7 @@ yarn add redux-thunk
 
 :ghost: dispatch 只允许接收对象，但应用该中间件后，被赋予了接收函数的能力。
 
-<span style="backGround: #efe0b9">src\store\index.js</span>
+<span style="background: #efe0b9">src\store\index.js</span>
 
 ```jsx
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -1145,7 +1145,7 @@ const store = createStore(reducer, storeEnhancer);
 export default store;
 ```
 
-<span style="backGround: #efe0b9">src\store\actionCreators.js</span>
+<span style="background: #efe0b9">src\store\actionCreators.js</span>
 
 ```jsx
 import axios from 'axios';
@@ -1215,7 +1215,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 可以安装浏览器插件 <span style="color: #a50">Redux DevTools</span>，在 Redux 一栏，追踪状态的变化；需要在代码额外配置。
 
-<span style="backGround: #efe0b9">src\store\index.js</span>
+<span style="background: #efe0b9">src\store\index.js</span>
 
 ```jsx
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -1245,7 +1245,7 @@ export default store;
 yarn add redux-saga
 ```
 
-<span style="backGround: #efe0b9">src\store\index.js</span>
+<span style="background: #efe0b9">src\store\index.js</span>
 
 ```jsx
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -1273,7 +1273,7 @@ export default store;
 
 :whale: 该库需要引入、创建中间件、添加中间件、最后调用执行，才生效。
 
-<span style="backGround: #efe0b9">saga.js</span>
+<span style="background: #efe0b9">saga.js</span>
 
 ```javascript
 import { takeEvery, put, all, takeLatest } from 'redux-saga/effects';
@@ -1318,7 +1318,7 @@ export default mySaga;
 
 :ghost: put 方法可以直接传入 action，内部会进行 <span style="color: #a50">dispatch</span> 处理。
 
-<span style="backGround: #efe0b9">src\store\constants.js</span>
+<span style="background: #efe0b9">src\store\constants.js</span>
 
 ```jsx
 export const ADD_NUMBER = "ADD_NUMBER";
@@ -1326,7 +1326,7 @@ export const ADD_NUMBER = "ADD_NUMBER";
 export const FETCH_HOME_MULTIDATA = "FETCH_HOME_MULTIDATA";
 ```
 
-<span style="backGround: #efe0b9">src\store\actionCreators.js</span>
+<span style="background: #efe0b9">src\store\actionCreators.js</span>
 
 ```javascript
 import {
@@ -1413,7 +1413,7 @@ function patchLogging(store) {
 
 事实上，redux 提供了 combineReducers 函数可以方便的让我们对多个 reducer 进行合并
 
-<span style="backGround: #efe0b9">src\store\reducer.js</span>
+<span style="background: #efe0b9">src\store\reducer.js</span>
 
 ```jsx
 import { combineReducers } from 'redux';

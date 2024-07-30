@@ -1,10 +1,10 @@
-<span style="backGround: #efe0b9">.browserslistrc</span>
+<span style="background: #efe0b9">.browserslistrc</span>
 
 决定适配的浏览器范围，像babel转化es6->es5，css添加浏览器前缀的时候，会找到该文件作为配置范围。
 
 
 
-<span style="backGround: #efe0b9">tsconfig.json</span>
+<span style="background: #efe0b9">tsconfig.json</span>
 
 ```json
 {

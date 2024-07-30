@@ -41,7 +41,7 @@ vue create manageS
 
 1.新增文件
 
-<span style="backGround: #efe0b9">项目/.editorconfig</span>
+<span style="background: #efe0b9">项目/.editorconfig</span>
 
 ```yaml
 # http://editorconfig.org
@@ -79,7 +79,7 @@ npm install prettier -D
 
 2.新增配置文件
 
-<span style="backGround: #efe0b9">项目/.prettierrc</span>
+<span style="background: #efe0b9">项目/.prettierrc</span>
 
 ```json
 {
@@ -94,7 +94,7 @@ npm install prettier -D
 
 3.新增配置忽略文件
 
-<span style="backGround: #efe0b9">项目/.prettierignore</span>
+<span style="background: #efe0b9">项目/.prettierignore</span>
 
 ```
 /dist/*
@@ -112,7 +112,7 @@ npm install prettier -D
 
 5.配置统一格式命令
 
-<span style="backGround: #efe0b9">项目/package.json</span>
+<span style="background: #efe0b9">项目/package.json</span>
 
 ```json
 "script": {
@@ -136,7 +136,7 @@ npm i eslint-plugin-prettier eslint-config-prettier -D
 
 配置prettier插件：
 
-<span style="backGround: #efe0b9">项目/.eslintrc.js</span>
+<span style="background: #efe0b9">项目/.eslintrc.js</span>
 
 ```javascript
   extends: [
@@ -159,7 +159,7 @@ npm i eslint-plugin-prettier eslint-config-prettier -D
 npx husky-init '&&' npm install
 ```
 
-<span style="backGround: #efe0b9">项目/.husky/pre-commit</span>
+<span style="background: #efe0b9">项目/.husky/pre-commit</span>
 
 ```
 #!/bin/sh
@@ -188,7 +188,7 @@ npm install commitizen -D
 npx commitizen init cz-conventional-changelog --save-dev --save-exact
 ```
 
-<span style="backGround: #efe0b9">项目/package.json</span>
+<span style="background: #efe0b9">项目/package.json</span>
 
 ```json
 "scripts": {
@@ -208,7 +208,7 @@ npm i @commitlint/config-conventional @commitlint/cli -D
 
 2.在根目录创建commitlint.config.js文件，配置commitlint
 
-<span style="backGround: #efe0b9">项目/commitlint.config.js</span>
+<span style="background: #efe0b9">项目/commitlint.config.js</span>
 
 ```js
 module.exports = {
@@ -222,7 +222,7 @@ module.exports = {
 npx husky add .husky/commit-msg
 ```
 
-<span style="backGround: #efe0b9">项目/.husky/commit-msg</span>
+<span style="background: #efe0b9">项目/.husky/commit-msg</span>
 
 ```
 #!/bin/sh
@@ -251,7 +251,7 @@ npm install element-plus
 npm install -D unplugin-vue-components unplugin-auto-import
 ```
 
-<span style="backGround: #efe0b9">项目/vue.config.js</span>
+<span style="background: #efe0b9">项目/vue.config.js</span>
 
 ```javascript
 const AutoImport = require('unplugin-auto-import/webpack')
@@ -284,7 +284,7 @@ npm install axios
 
 封装axios：
 
-<span style="backGround: #efe0b9">src/service/request/index.ts</span>
+<span style="background: #efe0b9">src/service/request/index.ts</span>
 
 ```ts
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
@@ -342,7 +342,7 @@ class Request {
 export default Request
 ```
 
-<span style="backGround: #efe0b9">src/service/request/config.ts</span>
+<span style="background: #efe0b9">src/service/request/config.ts</span>
 
 ```javascript
 // 手动的切换不同的环境(不推荐)
@@ -364,7 +364,7 @@ const TIME_OUT = 10000
 export { BASE_URL, BASE_NAME, TIME_OUT }
 ```
 
-<span style="backGround: #efe0b9">src/service/index.ts</span>
+<span style="background: #efe0b9">src/service/index.ts</span>
 
 ```javascript
 import Request from './request'
@@ -378,7 +378,7 @@ const baseRequest = new Request({
 export default baseRequest
 ```
 
-<span style="backGround: #efe0b9">Demo.ts</span>
+<span style="background: #efe0b9">Demo.ts</span>
 
 ```javascript
 import baseRequest from './service'
@@ -393,9 +393,9 @@ baseRequest.request({
 
 ## 三. 样式集成
 
-前往 [github](https://github.com/necolas/normalize.css) 下载，复制代码到 <span style="backGround: #efe0b9">src/assets/css/normalize.css</span>
+前往 [github](https://github.com/necolas/normalize.css) 下载，复制代码到 <span style="background: #efe0b9">src/assets/css/normalize.css</span>
 
-<span style="backGround: #efe0b9">src/assets/css/base.less</span>
+<span style="background: #efe0b9">src/assets/css/base.less</span>
 
 ```css
 body {
@@ -411,14 +411,14 @@ html, body, #app {
 
 统一导出导入
 
-<span style="backGround: #efe0b9">src/assets/css/index.less</span>
+<span style="background: #efe0b9">src/assets/css/index.less</span>
 
 ```less
 @import "./normalize.css";
 @import "./base.less";
 ```
 
-<span style="backGround: #efe0b9">src/main.ts</span>
+<span style="background: #efe0b9">src/main.ts</span>
 
 ```javascript
 import './assets/css/index.less'
@@ -455,7 +455,7 @@ Editor: Format On Type
 
 2.`Ctrl` + `Shift` + `P` - 搜索 *Open WorkSpace Settings(JSON)* 
 
-<span style="backGround: #efe0b9">.vscode/settings.json</span>
+<span style="background: #efe0b9">.vscode/settings.json</span>
 
 ```json
 {
@@ -498,7 +498,7 @@ Editor: Format On Type
 
 2.将内容粘贴到配置文件
 
-- <span style="backGround: #efe0b9">eslintrc.js</span> 
+- <span style="background: #efe0b9">eslintrc.js</span> 
 
 ```javascript
 module.exports = {

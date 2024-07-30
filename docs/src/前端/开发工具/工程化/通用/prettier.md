@@ -22,7 +22,7 @@ echo {}> .prettierrc.json
 
 <span style="color: #3a84aa">三、配置忽略文件</span>
 
-<span style="backGround: #efe0b9">.prettierignore</span>
+<span style="background: #efe0b9">.prettierignore</span>
 
 ```
 node_modules

@@ -95,7 +95,7 @@ npm install vue-router@4
 
 :whale: 将会安装该大版本(4)下的最新版本。
 
-<span style="backGround: #efe0b9">项目/router/index.js</span>
+<span style="background: #efe0b9">项目/router/index.js</span>
 
 ```javascript
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
@@ -120,7 +120,7 @@ export default router
 
 :ghost: 需要指定路由的模式时，其方式与 vue2 有所不同。
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 import { createApp } from 'vue'
@@ -132,7 +132,7 @@ createApp(App).use(router).mount('#app');
 
 :whale: 在安装插件的过程中，已经全局注册了 <span style="color: #a50">\<router-view\></span> 等。
 
-<span style="backGround: #efe0b9">App.vue</span>
+<span style="background: #efe0b9">App.vue</span>
 
 ```html
 <template>
@@ -152,7 +152,7 @@ createApp(App).use(router).mount('#app');
 
 ## 默认路由-重定向
 
-<span style="backGround: #efe0b9">router/index.js</span>
+<span style="background: #efe0b9">router/index.js</span>
 
 ```javascript
 const routes = [
@@ -230,7 +230,7 @@ const routes = [
 
 > 通过路由懒加载，能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，可以提高首屏的渲染效率。
 
-<span style="backGround: #efe0b9">router/index.js</span>
+<span style="background: #efe0b9">router/index.js</span>
 
 ```javascript
 const routes = [
@@ -244,7 +244,7 @@ const routes = [
 
 ### 分包命名
 
-<span style="backGround: #efe0b9">router/index.js</span>
+<span style="background: #efe0b9">router/index.js</span>
 
 ```javascript
 const routes = [
@@ -266,7 +266,7 @@ const routes = [
 
 ## name和meta
 
-<span style="backGround: #efe0b9">router/index.js</span>
+<span style="background: #efe0b9">router/index.js</span>
 
 ```javascript
 const routes = [
@@ -289,7 +289,7 @@ const routes = [
 
 ### 动态路由的基本匹配
 
-<span style="backGround: #efe0b9">router/index.js</span>
+<span style="background: #efe0b9">router/index.js</span>
 
 ```javascript
 { 
@@ -298,7 +298,7 @@ const routes = [
 },
 ```
 
-<span style="backGround: #efe0b9">App.vue</span>
+<span style="background: #efe0b9">App.vue</span>
 
 ```html
 <router-link to="/user/master">用户</router-link>
@@ -310,7 +310,7 @@ const routes = [
 
 ### 获取动态路由的值
 
-<span style="backGround: #efe0b9">User.vue</span>
+<span style="background: #efe0b9">User.vue</span>
 
 ```html
 <script>
@@ -334,7 +334,7 @@ const routes = [
 
 ## (例)NotFound
 
-<span style="backGround: #efe0b9">router/index.js</span>
+<span style="background: #efe0b9">router/index.js</span>
 
 ```javascript
 const routes = [
@@ -352,7 +352,7 @@ const routes = [
 
 :ghost: 如果没有任意路径与之匹配，将使用最后一项。
 
-<span style="backGround: #efe0b9">NotFound.vue</span>
+<span style="background: #efe0b9">NotFound.vue</span>
 
 ```html
 <template>
@@ -420,7 +420,7 @@ if(管理员) {
 app.use(router);
 ```
 
-<span style="backGround: #efe0b9">router/index.js</span>
+<span style="background: #efe0b9">router/index.js</span>
 
 ```javascript
 const routes = [...]
@@ -561,7 +561,7 @@ yarn run build
 npm install vuex@next
 ```
 
-<span style="backGround: #efe0b9">项目/store/index.js</span>
+<span style="background: #efe0b9">项目/store/index.js</span>
 
 ```javascript
 import { createStore } from 'vuex'
@@ -571,7 +571,7 @@ const store = createStore({})
 export default store
 ```
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 import { createApp } from 'vue'
@@ -585,7 +585,7 @@ createApp(App).use(store).mount('#app')
 
 ### state 的类型
 
-<span style="backGround: #efe0b9">store/index.js</span>
+<span style="background: #efe0b9">store/index.js</span>
 
 ```javascript
 import { createStore } from 'vuex'
@@ -611,7 +611,7 @@ export default store
 
 :ghost: 以往，state 选项往往写成对象，现在也支持函数形式，并且更推荐。
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 methods() {
@@ -674,7 +674,7 @@ setup() {
 
 ### 封装使用
 
-<span style="backGround: #efe0b9">项目/hooks/useState.js</span>
+<span style="background: #efe0b9">项目/hooks/useState.js</span>
 
 ```javascript
 import { computed } from 'vue'
@@ -697,7 +697,7 @@ export function useState(mapper) {
 }
 ```
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 import { useState } from '../hooks/useState'
@@ -726,7 +726,7 @@ setup() {
 
 ### 常规用法
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 import { computed } from 'vue'
@@ -746,7 +746,7 @@ setup() {
 
 ### 封装使用
 
-<span style="backGround: #efe0b9">hooks/useMapper.js</span>
+<span style="background: #efe0b9">hooks/useMapper.js</span>
 
 ```javascript
 import { computed } from 'vue'
@@ -769,7 +769,7 @@ export function useMapper(mapper, mapFn) {
 
 :ghost: 封装 getters 和封装 state，唯一的差别在于①处调用的方法，故可以对这部分代码进行公共使用。
 
-<span style="backGround: #efe0b9">hooks/useGetters.js</span>
+<span style="background: #efe0b9">hooks/useGetters.js</span>
 
 ```javascript
 import { mapGetters } from 'vuex'
@@ -780,7 +780,7 @@ export function useGetters(mapper) {
 }
 ```
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 import { useGetters } from '../hooks/useGetters'
@@ -797,7 +797,7 @@ setup() {
 
 ###  导出出口
 
-<span style="backGround: #efe0b9">hooks/index.js</span>
+<span style="background: #efe0b9">hooks/index.js</span>
 
 ```javascript
 import { useGetters } from './useGetters';
@@ -840,7 +840,7 @@ setup() {
 
 > 可以在组件中调用接口，拿到回调后使用 muation 提交，但既然改变的是 vuex 中的状态，调用接口的部分让它内部实现也可以。
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 mounted() {
@@ -848,7 +848,7 @@ mounted() {
 }
 ```
 
-<span style="backGround: #efe0b9">store/index.js</span>
+<span style="background: #efe0b9">store/index.js</span>
 
 ```javascript
 import axios from 'axios'
@@ -874,7 +874,7 @@ actions: {
 
 ### (例)返回Promise
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 mounted() {
@@ -887,7 +887,7 @@ mounted() {
 }
 ```
 
-<span style="backGround: #efe0b9">store/index.js</span>
+<span style="background: #efe0b9">store/index.js</span>
 
 ```javascript
 actions: {
@@ -959,7 +959,7 @@ setup() {
   + index.js
 ```
 
-<span style="backGround: #efe0b9">store/index.js</span>
+<span style="background: #efe0b9">store/index.js</span>
 
 ```javascript
 import { createStore } from "vuex"
@@ -982,7 +982,7 @@ const store = createStore({
 export default store;
 ```
 
-<span style="backGround: #efe0b9">home.js</span>
+<span style="background: #efe0b9">home.js</span>
 
 ```javascript
 const homeModule = {
@@ -1001,7 +1001,7 @@ export default homeModule
 
 #### 默认使用
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```html
 // 根部的状态
@@ -1053,7 +1053,7 @@ export default homeModule
 
 :ghost: 添加了命名空间后，不能再像根部的 getter/方法 那样去使用了，会导致找不到。
 
-<span style="backGround: #efe0b9">home.js</span>
+<span style="background: #efe0b9">home.js</span>
 
 ```javascript
 const homeModule = {
@@ -1073,7 +1073,7 @@ export default homeModule
 
 #### 使用根部的方法
 
-<span style="backGround: #efe0b9">home.js</span>
+<span style="background: #efe0b9">home.js</span>
 
 ```javascript
 const homeModule = {
@@ -1166,7 +1166,7 @@ export default {
 
 #### composition  API
 
-<span style="backGround: #efe0b9">hooks/useGetters.js</span>
+<span style="background: #efe0b9">hooks/useGetters.js</span>
 
 ```javascript
 import { mapGetters, createNamespacedHelpers } from 'vuex'
@@ -1186,7 +1186,7 @@ export function useGetters(moduleName, mapper) {
 
 :whale:  原先定义的方法，只能对根部的状态进行处理，故需要添加处理模块状态的能力。
 
-<span style="backGround: #efe0b9">hooks/useState.js</span>
+<span style="background: #efe0b9">hooks/useState.js</span>
 
 ```javascript
 import { mapState, createNamespacedHelpers } from 'vuex'
@@ -1204,7 +1204,7 @@ export function useState(moduleName, mapper) {
 }
 ```
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 import { useState, useGetters } from '../hooks/index'
@@ -1241,7 +1241,7 @@ setup() {
 
 > 情景： 在操作元素后，获取该元素的高度。
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```html
 <h2 class="title" ref="titleRef">{{message}}</h2>
@@ -1312,7 +1312,7 @@ export default {
 
 使用 `npm run dev` 不会出现这种情况，是因为 vue-cli 默认配置了 webpack 的 historyApiFallback，让它匹配不到资源时自动返回 index.html 的内容。
 
-<span style="backGround: #efe0b9">vue.config.js</span>
+<span style="background: #efe0b9">vue.config.js</span>
 
 ```javascript
 module.expoets = {

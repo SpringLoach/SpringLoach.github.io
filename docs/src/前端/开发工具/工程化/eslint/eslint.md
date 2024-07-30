@@ -8,7 +8,7 @@
 
 ## 配置eslint语法规则
 
-<span style="backGround: #efe0b9">.eslintrc.js</span>
+<span style="background: #efe0b9">.eslintrc.js</span>
 
 ```json
 module.exports = {
@@ -34,7 +34,7 @@ module.exports = {
 
 ### 忽略多个文件
 
-<span style="backGround: #efe0b9">[root]/.eslintignore</span>
+<span style="background: #efe0b9">[root]/.eslintignore</span>
 
 ```shell
 # 忽略build目录下类型为js的文件
@@ -129,7 +129,7 @@ npm install eslint --save-dev
 npm run ./node_modules/.bin/eslint --init
 ```
 
-<span style="backGround: #efe0b9">.eslintrc.js</span>
+<span style="background: #efe0b9">.eslintrc.js</span>
 
 ```javascript
 module.exports = {
@@ -144,7 +144,7 @@ module.exports = {
 
 <span style="color: #3a84aa">编写例子用于测试</span>
 
-<span style="backGround: #efe0b9">demo.js</span>
+<span style="background: #efe0b9">demo.js</span>
 
 ```javascript
 function dos() {
@@ -159,7 +159,7 @@ dos()
 
 <span style="color: #3a84aa">配置并启用脚本</span>
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 "scripts": {

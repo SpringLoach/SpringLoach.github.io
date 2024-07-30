@@ -97,7 +97,7 @@ git commit -m "yolo!" --no-verify
 
 这种配置方式在 v6 版本已经被废弃了，故不能生效
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 {
@@ -126,7 +126,7 @@ npx husky add .husky/pre-commit "npm test"
 
 <span style="color: #3a84aa">二、启用脚本</span>
 
-<span style="backGround: #efe0b9">.husky/pre-commit</span>
+<span style="background: #efe0b9">.husky/pre-commit</span>
 
 ```elm
 #!/usr/bin/env sh
@@ -141,7 +141,7 @@ npm run lint-staged
 npm install lint-staged -D -S
 ```
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 {
@@ -203,7 +203,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 
 :octopus: 如果使用 window，需手动创建一下这个文件；默认生成的 `utf-16` 格式是有问题的。
 
-<span style="backGround: #efe0b9">commitlint.config.js</span>
+<span style="background: #efe0b9">commitlint.config.js</span>
 
 ```javascript
 module.exports = { extends: ['@commitlint/config-conventional'] }

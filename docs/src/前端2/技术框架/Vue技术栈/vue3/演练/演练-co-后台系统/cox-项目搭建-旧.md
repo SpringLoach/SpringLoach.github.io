@@ -8,7 +8,7 @@
 
 声明 $store
 
-<span style="backGround: #efe0b9">shims-vue.d.ts</span>
+<span style="background: #efe0b9">shims-vue.d.ts</span>
 
 ```javascript
 declare let $store: any
@@ -93,7 +93,7 @@ axios.interceptors.response.use(响应成功拦截, 响应失败拦截)
 
 方式三：编写不同的环境变量配置文件（较麻烦）；
 
-<span style="backGround: #efe0b9">src/service/config.js</span>
+<span style="background: #efe0b9">src/service/config.js</span>
 
 ```
 // 1.方式一: 手动的切换不同的环境(不推荐)
@@ -107,7 +107,7 @@ const BASE_NAME = 'coderwhy'
 // const BASE_NAME = 'james'
 ```
 
-<span style="backGround: #efe0b9">src/service/config.js</span>
+<span style="background: #efe0b9">src/service/config.js</span>
 
 ```
 // 2.根据process.env.NODE_ENV区分
@@ -130,7 +130,7 @@ export { BASE_URL, BASE_NAME }
 
 
 
-<span style="backGround: #efe0b9">项目/.env.development</span>
+<span style="background: #efe0b9">项目/.env.development</span>
 
 ```
 VUE_APP_BASE_URL=https://coderwhy.org/dev
@@ -139,21 +139,21 @@ VUE_APP_BASE_NAME=coderwhy
 
 :whale: Vue-Cli 支持，对导出的变量名有限制，但可以设置格式为 `VUE_APP_XX` 来自定义变量。
 
-<span style="backGround: #efe0b9">项目/.env.production</span>
+<span style="background: #efe0b9">项目/.env.production</span>
 
 ```
 VUE_APP_BASE_URL=https://coderwhy.org/prod
 VUE_APP_BASE_NAME=kobe
 ```
 
-<span style="backGround: #efe0b9">项目/.env.test</span>
+<span style="background: #efe0b9">项目/.env.test</span>
 
 ```
 VUE_APP_BASE_URL=https://coderwhy.org/test
 VUE_APP_BASE_NAME=james
 ```
 
-<span style="backGround: #efe0b9">Demo.js</span>
+<span style="background: #efe0b9">Demo.js</span>
 
 ```
 console.log(process.env.VUE_APP_BASE_URL)
@@ -191,7 +191,7 @@ export default demo
 
 EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的编码风格。
 
-<span style="backGround: #efe0b9">项目/.editorconfig</span>
+<span style="background: #efe0b9">项目/.editorconfig</span>
 
 ```yaml
 # http://editorconfig.org
@@ -247,7 +247,7 @@ npm install prettier -D
 
 * semi：语句末尾是否要加分号，默认值true，选择false表示不加；
 
-<span style="backGround: #efe0b9">项目/.prettierrc</span>
+<span style="background: #efe0b9">项目/.prettierrc</span>
 
 ```json
 {
@@ -264,7 +264,7 @@ npm install prettier -D
 
 3.创建.prettierignore忽略文件
 
-<span style="backGround: #efe0b9">项目/.prettierignore</span>
+<span style="background: #efe0b9">项目/.prettierignore</span>
 
 ```
 /dist/*
@@ -290,7 +290,7 @@ npm install prettier -D
 
 5.格式化所有文件
 
-<span style="backGround: #efe0b9">项目/package.json</span>
+<span style="background: #efe0b9">项目/package.json</span>
 
 ```json
 "script": {
@@ -319,7 +319,7 @@ Editor: Format On Type
 
 2.`Ctrl` + `Shift` + `P` - 搜索 *Open WorkSpace Settings(JSON)* 
 
-<span style="backGround: #efe0b9">.vscode/settings.json</span>
+<span style="background: #efe0b9">.vscode/settings.json</span>
 
 ```json
 {
@@ -354,7 +354,7 @@ npm i eslint-plugin-prettier eslint-config-prettier -D
 
 配置prettier插件：
 
-<span style="backGround: #efe0b9">项目/.eslintrc.js</span>
+<span style="background: #efe0b9">项目/.eslintrc.js</span>
 
 ```javascript
   extends: [
@@ -521,7 +521,7 @@ npm i @commitlint/config-conventional @commitlint/cli -D
 
 2.在根目录创建commitlint.config.js文件，配置commitlint
 
-<span style="backGround: #efe0b9">项目/commitlint.config.js</span>
+<span style="background: #efe0b9">项目/commitlint.config.js</span>
 
 ```js
 module.exports = {
@@ -543,7 +543,7 @@ npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 npx husky add .husky/commit-msg
 ```
 
-<span style="backGround: #efe0b9">项目/.husky/commit-msg</span>
+<span style="background: #efe0b9">项目/.husky/commit-msg</span>
 
 ```
 #!/bin/sh
@@ -564,7 +564,7 @@ npx --no-install commitlint --edit $1
 
 ### 2.1. vue.config.js配置
 
-<span style="backGround: #efe0b9">vue.config.js</span> 有三种配置方式：
+<span style="background: #efe0b9">vue.config.js</span> 有三种配置方式：
 
 * 方式一：直接通过 CLI 提供给我们的选项来配置：
 
@@ -642,7 +642,7 @@ module.exports = {
 
 2.将内容粘贴到配置文件
 
-- <span style="backGround: #efe0b9">eslintrc.js</span> 
+- <span style="background: #efe0b9">eslintrc.js</span> 
 
 ```javascript
 module.exports = {
@@ -669,7 +669,7 @@ npm install vue-router@next
 
 创建router对象：
 
-<span style="backGround: #efe0b9">src/router/index.ts</span>
+<span style="background: #efe0b9">src/router/index.ts</span>
 
 ```ts
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -702,7 +702,7 @@ export default router
 
 安装router：
 
-<span style="backGround: #efe0b9">src/main.ts</span>
+<span style="background: #efe0b9">src/main.ts</span>
 
 ```ts
 import router from './router'
@@ -712,7 +712,7 @@ createApp(App).use(router).mount('#app')
 
 配置跳转：
 
-<span style="backGround: #efe0b9">项目/App.vue</span>
+<span style="background: #efe0b9">项目/App.vue</span>
 
 ```html
 <template>
@@ -726,7 +726,7 @@ createApp(App).use(router).mount('#app')
 
 组件格式
 
-<span style="backGround: #efe0b9">vue模板</span>
+<span style="background: #efe0b9">vue模板</span>
 
 ```html
 <template>
@@ -751,7 +751,7 @@ export default defineComponent({
 
 :ghost: defineComponent  将值返回并定义类型，它可以帮助我们限制、推导类型。
 
-:whale: 项目下的 <span style="backGround: #efe0b9">shims-vue.d.ts</span> 中包含了对 `.vue` 文件的声明。
+:whale: 项目下的 <span style="background: #efe0b9">shims-vue.d.ts</span> 中包含了对 `.vue` 文件的声明。
 
 
 
@@ -765,7 +765,7 @@ npm install vuex@next
 
 创建store对象：
 
-<span style="backGround: #efe0b9">src/store/index.ts</span>
+<span style="background: #efe0b9">src/store/index.ts</span>
 
 ```ts
 import { createStore } from 'vuex'
@@ -783,7 +783,7 @@ export default store
 
 安装store：
 
-<span style="backGround: #efe0b9">src/main.ts</span>
+<span style="background: #efe0b9">src/main.ts</span>
 
 ```ts
 import store from './store'
@@ -793,7 +793,7 @@ createApp(App).use(router).use(store).mount('#app')
 
 使用
 
-<span style="backGround: #efe0b9">src/App.vue</span>
+<span style="background: #efe0b9">src/App.vue</span>
 
 ```html
 <h2>{{ $store.state.name }}</h2>
@@ -817,7 +817,7 @@ npm install element-plus
 
 一种引入element-plus的方式是全局引入，代表的含义是所有的组件和插件都会被自动<span style="color: #ff0000">全局注册</span>：
 
-<span style="backGround: #efe0b9">src/main.ts</span>
+<span style="background: #efe0b9">src/main.ts</span>
 
 ```js
 import ElementPlus from 'element-plus'
@@ -901,7 +901,7 @@ module.exports = {
 * 这些组件我们在多个页面或者组件中使用的时候，都需要导入并且在components中进行注册；
 * 所以我们可以将它们在全局注册一次；
 
-<span style="backGround: #efe0b9">src/main.ts</span>
+<span style="background: #efe0b9">src/main.ts</span>
 
 ```ts
 import 'element-plus/lib/theme-chalk/base.css' // 按需引入时，基础样式还需额外引入
@@ -938,7 +938,7 @@ for (const cpn of components) {
   + ...
 ```
 
-<span style="backGround: #efe0b9">src/global/index.ts</span>
+<span style="background: #efe0b9">src/global/index.ts</span>
 
 ```javascript
 import { App } from 'vue'  // 类型
@@ -949,7 +949,7 @@ export function globalRegister(app: App): void {
 }
 ```
 
-<span style="backGround: #efe0b9">src/global/register-element.ts</span>
+<span style="background: #efe0b9">src/global/register-element.ts</span>
 
 ```javascript
 import { App } from 'vue'
@@ -971,7 +971,7 @@ export default function (app: App): void {
 }
 ```
 
-<span style="backGround: #efe0b9">src/main.ts</span>
+<span style="background: #efe0b9">src/main.ts</span>
 
 ```javascript
 import { createApp } from 'vue'
@@ -1002,7 +1002,7 @@ app.mount('#app')
 npm install -D unplugin-vue-components unplugin-auto-import
 ```
 
-<span style="backGround: #efe0b9">项目/vue.config.js</span>
+<span style="background: #efe0b9">项目/vue.config.js</span>
 
 ```javascript
 const AutoImport = require('unplugin-auto-import/webpack')

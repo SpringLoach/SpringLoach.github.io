@@ -52,7 +52,7 @@ yarn start
 
 - 该技术可以将网页应用添加至主屏幕，开启推送，使用离线功能等；
 
-- React 脚手架创建的项目，自带 PWA 相关的文件，分别是 <span style="backGround: #efe0b9">serviceWorker.js</span> 和 <span style="backGround: #efe0b9">manifest.json</span>；
+- React 脚手架创建的项目，自带 PWA 相关的文件，分别是 <span style="background: #efe0b9">serviceWorker.js</span> 和 <span style="background: #efe0b9">manifest.json</span>；
 
 - 默认情况下，没有启用该功能。
 
@@ -68,7 +68,7 @@ yarn eject
 
 :turtle: 通过该命令，可以显示配置相关信息，该过程是不可逆的；
 
-:turtle: 此时会在项目下生成 <span style="backGround: #efe0b9">config</span> 和 <span style="backGround: #efe0b9">script</span> 文件夹，并且 <span style="backGround: #efe0b9">package.json</span> 中暴露更多原始信息。
+:turtle: 此时会在项目下生成 <span style="background: #efe0b9">config</span> 和 <span style="background: #efe0b9">script</span> 文件夹，并且 <span style="background: #efe0b9">package.json</span> 中暴露更多原始信息。
 
 
 
@@ -105,7 +105,7 @@ ReactDOM.render(<h2>Hello React</h2>, document.getElementById("root"));
 
 ### 初步封装
 
-<span style="backGround: #efe0b9">src/index.js</span>
+<span style="background: #efe0b9">src/index.js</span>
 
 ```jsx
 import React from 'react';
@@ -118,7 +118,7 @@ ReactDOM.render(<App/>, document.getElementById("root"));
 
 <span style="color: #f7534f;font-weight:600">ReactDOM.render</span> 也可以接收组件；将组件分离到别的文件，结构更清晰。
 
-<span style="backGround: #efe0b9">src/App.js</span>
+<span style="background: #efe0b9">src/App.js</span>
 
 ```jsx
 import React from 'react';
@@ -582,7 +582,7 @@ export default class App extends PureComponent {
 
 :whale: 这里通过子组件维护 currentIndex，其实感觉由父组件维护该状态更合理；
 
-<span style="backGround: #efe0b9">父组件</span>
+<span style="background: #efe0b9">父组件</span>
 
 ```jsx
 import TabControl from './TabControl';
@@ -619,7 +619,7 @@ export default class App extends Component {
 }
 ```
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```jsx
 export default class TabControl extends Component {
@@ -671,7 +671,7 @@ export default class TabControl extends Component {
 
 ### 通过标签内容传递
 
-<span style="backGround: #efe0b9">父组件</span>
+<span style="background: #efe0b9">父组件</span>
 
 ```jsx
 import NavBar from './NavBar';
@@ -694,7 +694,7 @@ export default class App extends Component {
 
 :ghost: 双标签内的内容，会传递给子组件。
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```jsx
 export default class NavBar extends Component {
@@ -724,7 +724,7 @@ export default class NavBar extends Component {
 
 ### 通过标签属性传递
 
-<span style="backGround: #efe0b9">父组件</span>
+<span style="background: #efe0b9">父组件</span>
 
 ```jsx
 import NavBar from './NavBar';
@@ -745,7 +745,7 @@ export default class App extends Component {
 
 :ghost:  jsx 本身也可以<span style="color: #ff0000">作为标签属性</span>传递。
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```jsx
 export default class NavBar2 extends Component {

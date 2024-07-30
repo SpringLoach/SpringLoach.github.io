@@ -190,3 +190,94 @@ tooltip: {
 
 如果对系列设置了[渐变色](https://echarts.apache.org/zh/option.html#color)，那 params 中的遍历对象的 `color` 属性会获取到对应的颜色对象，否则会获取到字符串
 
+
+
+### 基础
+
+
+
+#### 添加多个系列
+
+```javascript
+var option = {
+    title: {
+        text: '柱线混合图'
+    },
+    legend: {
+        data: ['学习时长'] // [!code --]
+        data: ['学习时长', '熟练程度', '需求占比'] // [!code ++]
+    },
+    xAxis: {
+        data: ['javascript', 'vue', 'react', 'nodejs', 'java', 'mysql']
+    },
+    yAxis: {}
+    series: [
+        {
+            name: '学习时长',
+            type: 'bar',
+            data: [8, 20, 36, 10, 10, 20]
+        },
+        { // [!code ++]
+            name: '熟练程度', // [!code ++]
+            type: 'bar', // [!code ++]
+            data: [5, 18, 30, 8, 8, 13] // [!code ++]
+        }, // [!code ++]
+        { // [!code ++]
+            name: '需求占比', // [!code ++]
+            type: 'line', // [!code ++]
+            data: [99, 85, 20, 15, 95, 40], // [!code ++]
+        } // [!code ++]
+    ]
+}
+```
+
+#### 添加刻度对齐的双Y轴
+
+```javascript
+var option = {
+    title: {
+        text: '柱线混合图'
+    },
+    legend: {
+        data: ['学习时长', '熟练程度', '需求占比']
+    },
+    xAxis: {
+        data: ['javascript', 'vue', 'react', 'nodejs', 'java', 'mysql']
+    },
+    yAxis: {}, // [!code --]
+    yAxis: [ // [!code ++]
+      { // [!code ++]
+        alignTicks: true, // [!code ++]
+      }, // [!code ++]
+      { // [!code ++]
+        alignTicks: true, // [!code ++]
+      }    // [!code ++]
+    ],   // [!code ++]
+    series: [
+        {
+            name: '学习时长',
+            type: 'bar',
+            data: [8, 20, 36, 10, 10, 20]
+        },
+        {
+            name: '熟练程度',
+            type: 'bar',
+            data: [5, 18, 30, 8, 8, 13]
+        },
+        {
+            name: '需求占比',
+            type: 'line',
+            data: [99, 85, 20, 15, 95, 40],
+            yAxisIndex: 1 // [!code ++]
+        }
+    ]
+}
+```
+
+
+
+### 其他
+
+#### 本地快速创建项目调试
+
+https://echarts.apache.org/handbook/zh/get-started/

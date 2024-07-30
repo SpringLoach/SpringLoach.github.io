@@ -30,7 +30,7 @@ npm install rimraf -S -D
 
 <span style="color: #3a84aa">脚本配置</span>
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 "scripts": {
@@ -157,7 +157,7 @@ npm install npm-run-all -S -D
   + pacakage.json
 ```
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```json
 {
@@ -194,7 +194,7 @@ npm install npm-run-all -S -D
 
 在写好commonJS的前提下，转化为es似乎只需要对出口导出文件做转化就可以了
 
-<span style="backGround: #efe0b9">es/index.js</span>
+<span style="background: #efe0b9">es/index.js</span>
 
 ```javascript
 import HighlightJS from '../lib/index.js';
@@ -202,7 +202,7 @@ export { HighlightJS };
 export default HighlightJS;
 ```
 
-<span style="backGround: #efe0b9">lib/index.js</span>
+<span style="background: #efe0b9">lib/index.js</span>
 
 ```javascript
 var hljs = require('./core');

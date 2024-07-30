@@ -336,7 +336,7 @@ App.directive('copy', {
   + index.js // 出口
 ```
 
-<span style="backGround: #efe0b9">directives/index.js</span>
+<span style="background: #efe0b9">directives/index.js</span>
 
 ```javascript
 import copy from './copy';
@@ -354,7 +354,7 @@ export default {
 };
 ```
 
-<span style="backGround: #efe0b9">directives/copy/index.js</span>
+<span style="background: #efe0b9">directives/copy/index.js</span>
 
 ```javascript
 /* 对应 app.directive 的第二个参数 */
@@ -363,7 +363,7 @@ const Copy = {/* code */};
 export default Copy;
 ```
 
-<span style="backGround: #efe0b9">main.ts</span>
+<span style="background: #efe0b9">main.ts</span>
 
 ```javascript
 import directives from './directives';
@@ -395,7 +395,7 @@ app.use(directives);
 
 ### 编写函数类型
 
-<span style="backGround: #efe0b9">plugins/plugins_function.js</span>
+<span style="background: #efe0b9">plugins/plugins_function.js</span>
 
 ```javascript
 export default function(app) {
@@ -407,7 +407,7 @@ export default function(app) {
 
 ### 编写对象类型
 
-<span style="backGround: #efe0b9">plugins/plugins_object.js</span>
+<span style="background: #efe0b9">plugins/plugins_object.js</span>
 
 ```javascript
 export default {
@@ -421,7 +421,7 @@ export default {
 
 ### 安装插件
 
-<span style="backGround: #efe0b9">main.js</span>
+<span style="background: #efe0b9">main.js</span>
 
 ```javascript
 import { createApp } from 'vue'
@@ -511,7 +511,7 @@ app.use(demo, {
 | 使用场景      | 子组件添加到文档的指定位置，方便控制布局。仍能与父组件正常通信 |
 | 禁用 Teleport | 不同终端需要使用不同布局效果时，可以添加 disabled 属性动态禁用 Teleport |
 
-<span style="backGround: #efe0b9">index.html</span>
+<span style="background: #efe0b9">index.html</span>
 
 ```html
 <body>
@@ -520,7 +520,7 @@ app.use(demo, {
 </body>
 ```
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```html
 <template>

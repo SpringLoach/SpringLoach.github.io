@@ -14,7 +14,7 @@
 
 **方式一**
 
-<span style="backGround: #efe0b9">[root]/.browserslistrc</span>
+<span style="background: #efe0b9">[root]/.browserslistrc</span>
 
 ```css
 # Browsers that we support
@@ -26,7 +26,7 @@ not dead
 
 **方式二**
 
-<span style="backGround: #efe0b9">package.json</span>
+<span style="background: #efe0b9">package.json</span>
 
 ```javascript
 "browserslist": [

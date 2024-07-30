@@ -409,7 +409,7 @@ export default withRouter(App);
 
 ### 动态路由
 
-<span style="backGround: #efe0b9">父组件</span>
+<span style="background: #efe0b9">父组件</span>
 
 ```jsx
 class App extends PureComponent {
@@ -428,7 +428,7 @@ class App extends PureComponent {
 }
 ```
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```jsx
 export default class Detail extends PureComponent {
@@ -481,7 +481,7 @@ export default class Detail2 extends PureComponent {
 
 ### 传参-state
 
-<span style="backGround: #efe0b9">父组件</span>
+<span style="background: #efe0b9">父组件</span>
 
 ```jsx
 // 事先声明
@@ -497,7 +497,7 @@ const info = {name: "why", age: 18, height: 1.88};
 <Route path="/detail3" component={Detail3} />
 ```
 
-<span style="backGround: #efe0b9">子组件</span>
+<span style="background: #efe0b9">子组件</span>
 
 ```jsx
 import React, { PureComponent } from 'react'
@@ -533,7 +533,7 @@ yarn add react-router-config
 
 :hammer_and_wrench: 创建一个专门的文件，用于集中管理路由映射关系。
 
-<span style="backGround: #efe0b9">src\router\index.js</span>
+<span style="background: #efe0b9">src\router\index.js</span>
 
 ```jsx
 import Home from '../pages/home';
@@ -577,7 +577,7 @@ export default routes;
 
 :turtle: 默认情况下，路由项使用的是模糊匹配。
 
-<span style="backGround: #efe0b9">包含顶层路由的组件</span>
+<span style="background: #efe0b9">包含顶层路由的组件</span>
 
 ```jsx
 import React, { PureComponent } from 'react';
@@ -608,7 +608,7 @@ class App extends PureComponent {
 export default withRouter(App);
 ```
 
-<span style="backGround: #efe0b9">非顶层路由组件</span>
+<span style="background: #efe0b9">非顶层路由组件</span>
 
 ```jsx
 import React, { PureComponent } from 'react'

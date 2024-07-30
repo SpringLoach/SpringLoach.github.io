@@ -22,7 +22,7 @@
 
 ① 引入插件到项目
 
-<span style="backGround: #efe0b9">vite.config.js</span>
+<span style="background: #efe0b9">vite.config.js</span>
 
 ```javascript
 import { defineConfig } from "vite";
@@ -78,7 +78,7 @@ md.use(emoji);
 
 ① 先删除原本添加的默认样式；
 
-<span style="backGround: #efe0b9">plugin/markdown/index.js</span>
+<span style="background: #efe0b9">plugin/markdown/index.js</span>
 
 ```javascript
 import { style } from "./assets/juejin.style";

@@ -21,7 +21,7 @@
 
 ### 初始架构
 
-<span style="backGround: #efe0b9">views/login/login.vue</span>
+<span style="background: #efe0b9">views/login/login.vue</span>
 
 ```html
 <template>
@@ -47,7 +47,7 @@ export default defineComponent({
 
 
 
-<span style="backGround: #efe0b9">views/login/components/login-panel.vue</span>
+<span style="background: #efe0b9">views/login/components/login-panel.vue</span>
 
 ```html
 <template>
@@ -101,7 +101,7 @@ export default defineComponent({
 
 ### 规则的导入及表单验证
 
-<span style="backGround: #efe0b9">login-account.vue</span>
+<span style="background: #efe0b9">login-account.vue</span>
 
 ```html
 <template>
@@ -154,7 +154,7 @@ export default defineComponent({
 
 
 
-<span style="backGround: #efe0b9">views/login/config/account-config.ts</span>
+<span style="background: #efe0b9">views/login/config/account-config.ts</span>
 
 ```javascript
 // 编写好规则
@@ -226,7 +226,7 @@ export default new LocalCache()
 
 ### 接口
 
-<span style="backGround: #efe0b9">service/login/login.ts</span>
+<span style="background: #efe0b9">service/login/login.ts</span>
 
 ```javascript
 import baseRequest from '../index'
@@ -262,7 +262,7 @@ export function requestUserMenusByRoleId(id: number) {
 }
 ```
 
-<span style="backGround: #efe0b9">service/login/type.ts</span>
+<span style="background: #efe0b9">service/login/type.ts</span>
 
 ```typescript
 export interface IAccount {
@@ -290,7 +290,7 @@ export interface IDataType<T = any> {
 
 #### 跨域解决
 
-<span style="backGround: #efe0b9">vue.config.js</span>
+<span style="background: #efe0b9">vue.config.js</span>
 
 ```javascript
 module.exports = {
@@ -308,7 +308,7 @@ module.exports = {
 }
 ```
 
-<span style="backGround: #efe0b9">service/request/config.ts</span>
+<span style="background: #efe0b9">service/request/config.ts</span>
 
 ```javascript
 const condition = 1
@@ -330,7 +330,7 @@ export { BASE_URL, TIME_OUT }
 
 #### 携带token
 
-<span style="backGround: #efe0b9">src/service/request/index.ts</span>
+<span style="background: #efe0b9">src/service/request/index.ts</span>
 
 ```javascript
 import localCache from '@/utils/cache'
@@ -373,7 +373,7 @@ export default Request
   + types.ts
 ```
 
-<span style="backGround: #efe0b9">store/index.ts</span>
+<span style="background: #efe0b9">store/index.ts</span>
 
 ```javascript
 import { createStore } from 'vuex'
@@ -403,7 +403,7 @@ export function setupStore() {
 export default store
 ```
 
-<span style="backGround: #efe0b9">store/types.ts</span>
+<span style="background: #efe0b9">store/types.ts</span>
 
 ```javascript
 export interface IRootState {
@@ -419,7 +419,7 @@ export interface IRootState {
 
 > 请求并保存 token，请求并保存用户信息，请求并保存菜单路由信息，跳转首页
 
-<span style="backGround: #efe0b9">store/login/login.ts</span>
+<span style="background: #efe0b9">store/login/login.ts</span>
 
 ```javascript
 import { Module } from 'vuex'
@@ -503,7 +503,7 @@ export default loginModule
 
 第一个类型对应该模块的 state ，第二个类型对应根部的 state。
 
-<span style="backGround: #efe0b9">store/login/types.ts</span>
+<span style="background: #efe0b9">store/login/types.ts</span>
 
 ```javascript
 export interface ILoginState {
@@ -519,7 +519,7 @@ export interface ILoginState {
 
 #### 刷新时读取状态
 
-<span style="backGround: #efe0b9">src/main.ts</span>
+<span style="background: #efe0b9">src/main.ts</span>
 
 ```
 import { setupStore } from './store'
@@ -652,7 +652,7 @@ export default defineComponent({
 
 ### 基本骨架
 
-<span style="backGround: #efe0b9">views/main/main.vue</span>
+<span style="background: #efe0b9">views/main/main.vue</span>
 
 ```html
 <template>
@@ -686,7 +686,7 @@ export default defineComponent({
 
 ### 侧边栏骨架
 
-<span style="backGround: #efe0b9">components/nav-menu/index.ts</span>
+<span style="background: #efe0b9">components/nav-menu/index.ts</span>
 
 ```javascript
 import NavMenu from './src/nav-menu.vue'
@@ -696,7 +696,7 @@ export default NavMenu
 
 
 
-<span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
+<span style="background: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
 ```html
 <template>
@@ -742,7 +742,7 @@ export default defineComponent({
 
 
 
-<span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
+<span style="background: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
 ```html
 <el-menu
@@ -776,7 +776,7 @@ export default defineComponent({
 
 **发射事件**
 
-<span style="backGround: #efe0b9">components/nav-header/src/nav-header.vue</span>
+<span style="background: #efe0b9">components/nav-header/src/nav-header.vue</span>
 
 ```html
 <template>
@@ -815,7 +815,7 @@ export default defineComponent({
 
 **传递自定义属性**
 
-<span style="backGround: #efe0b9">views/main/main.vue</span>
+<span style="background: #efe0b9">views/main/main.vue</span>
 
 ```html
 <div class="main">
@@ -852,7 +852,7 @@ setup() {
 
 
 
-<span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
+<span style="background: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
 ```less
 <el-menu :collapse="collapse"></el-menu>
@@ -870,7 +870,7 @@ setup() {
 
 #### 原有方式
 
-<span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
+<span style="background: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
 ```javascript
 import { useStore } from 'vuex'
@@ -890,7 +890,7 @@ setup() {
 
 #### 添加能力
 
-<span style="backGround: #efe0b9">store/type.ts</span>
+<span style="background: #efe0b9">store/type.ts</span>
 
 ```javascript
 import { ILoginState } from './login/types'
@@ -911,7 +911,7 @@ export type IStoreType = IRootState & IRootWithModule
 
 
 
-<span style="backGround: #efe0b9">store/index.ts</span>
+<span style="background: #efe0b9">store/index.ts</span>
 
 ```javascript
 import { Store, useStore as useVuexStore } from 'vuex'
@@ -928,7 +928,7 @@ export function useStore(): Store<IStoreType> {
 
 
 
-<span style="backGround: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
+<span style="background: #efe0b9">components/nav-menu/src/nav-menu.vue</span>
 
 ```javascript
 import { useStore } from '@/store'
@@ -990,7 +990,7 @@ setup() {
 
 #### 整理导航级别路由
 
-<span style="backGround: #efe0b9">router/main/index.ts</span>
+<span style="background: #efe0b9">router/main/index.ts</span>
 
 ```javascript
 // analysis
@@ -1017,7 +1017,7 @@ export default { dashboard, overview }
 
 #### 筛选路由
 
-<span style="backGround: #efe0b9">utils/map-menus.ts</span>
+<span style="background: #efe0b9">utils/map-menus.ts</span>
 
 ```javascript
 import { RouteRecordRaw } from 'vue-router'
@@ -1059,7 +1059,7 @@ export function mapMenusToRoutes(userMenus: any[]): RouteRecordRaw[] {
 
 #### 注册路由
 
-<span style="backGround: #efe0b9">store/login/login.ts</span>
+<span style="background: #efe0b9">store/login/login.ts</span>
 
 ```javascript
 import { mapMenusToRoutes } from '@/utils/map-menus'
@@ -1082,7 +1082,7 @@ mutations: {
 
 #### 导航栏互动
 
-<span style="backGround: #efe0b9">src/components/nav-menu/nav-menu.vue</span>
+<span style="background: #efe0b9">src/components/nav-menu/nav-menu.vue</span>
 
 ```html
 <el-menu-item @click="handleMenuItemClick(item)">{{ item.name }}</el-menu-item>
@@ -1104,7 +1104,7 @@ setup() {
 
 #### (tip)路由的执行顺序
 
-<span style="backGround: #efe0b9">main.ts</span>
+<span style="background: #efe0b9">main.ts</span>
 
 ```javascript
 setupStore() // 读取缓存中的个人信息等，也会动态注册路由
@@ -1122,7 +1122,7 @@ app.use(store).use(router).mount('#app')
 
 > 通过路径，在权限菜单的数据中找到匹配项，绑定相应值到<span style="color: #a50">默认激活菜单项</span>的属性上。
 
-<span style="backGround: #efe0b9">utils/map-menus.ts</span>
+<span style="background: #efe0b9">utils/map-menus.ts</span>
 
 ```javascript
 // 传入菜单数据和当前路径，返回当前菜单项
@@ -1140,7 +1140,7 @@ export function pathPathToMenu(userMenus: any[], currentPath: string): any {
 }
 ```
 
-<span style="backGround: #efe0b9">src/components/nav-menu/nav-menu.vue</span>
+<span style="background: #efe0b9">src/components/nav-menu/nav-menu.vue</span>
 
 ```html
 <el-menu :default-active="defaultValue">
@@ -1188,7 +1188,7 @@ export default defineComponent({
 
 #### 路由校验token
 
-<span style="backGround: #efe0b9">router/index.ts</span>
+<span style="background: #efe0b9">router/index.ts</span>
 
 ```javascript
 import localCache from '@/utils/cache'
@@ -1215,7 +1215,7 @@ export default router
 
 > 由于使用权限菜单充当路由，首页的重定向不能写死，应为权限菜单的第一项。
 
-<span style="backGround: #efe0b9">utils/map-menus.ts</span>
+<span style="background: #efe0b9">utils/map-menus.ts</span>
 
 在筛选路由的同时，取出权限菜单的第一项
 
@@ -1255,7 +1255,7 @@ export function mapMenusToRoutes(userMenus: any[]): RouteRecordRaw[] {
 export { firstMenu }
 ```
 
-<span style="backGround: #efe0b9">router/index.ts</span>
+<span style="background: #efe0b9">router/index.ts</span>
 
 在注册路由前，就进行了权限菜单路由的初始化，所以 firstMenu 能够拿到
 
@@ -1281,7 +1281,7 @@ router.beforeEach((to) => {
 
 #### 不存在的页面
 
-<span style="backGround: #efe0b9">router/index.ts</span>
+<span style="background: #efe0b9">router/index.ts</span>
 
 ```javascript
 const routes: RouteRecordRaw[] = [
@@ -1326,7 +1326,7 @@ const routes: RouteRecordRaw[] = [
 
 **雏形**
 
-<span style="backGround: #efe0b9">commom/breadcrumb/src/breadcrumb.vue</span>
+<span style="background: #efe0b9">commom/breadcrumb/src/breadcrumb.vue</span>
 
 ```html
 <template>
@@ -1360,7 +1360,7 @@ setup() {
 
 
 
-<span style="backGround: #efe0b9">commom/breadcrumb/types/index.ts</span>
+<span style="background: #efe0b9">commom/breadcrumb/types/index.ts</span>
 
 ```javascript
 export interface IBreadcrumb {
@@ -1371,7 +1371,7 @@ export interface IBreadcrumb {
 
 
 
-<span style="backGround: #efe0b9">commom/breadcrumb/index.ts</span>
+<span style="background: #efe0b9">commom/breadcrumb/index.ts</span>
 
 ```javascript
 import HdBreadcrumb from './src/breadcrumb.vue'
@@ -1385,7 +1385,7 @@ export default HdBreadcrumb
 
 **根据当前路径及权限菜单获取层级信息**
 
-<span style="backGround: #efe0b9">utils/map-menus.ts</span>
+<span style="background: #efe0b9">utils/map-menus.ts</span>
 
 ```javascript
 import { IBreadcrumb } from '@/commom/breadcrumb'
@@ -1424,7 +1424,7 @@ export function pathMapBreadcrumbs(userMenus: any[], currentPath: string) {
 
 **使用**
 
-<span style="backGround: #efe0b9">components/nav-header/src/nav-header.vue</span>
+<span style="background: #efe0b9">components/nav-header/src/nav-header.vue</span>
 
 ```html
 <hd-breadcrumb class="breadcrumb" :breadcrumbs="breadcrumbs" />
@@ -1478,7 +1478,7 @@ export default defineComponent({
 
 ### 基本骨架
 
-<span style="backGround: #efe0b9">commom/search/src/search.vue</span>
+<span style="background: #efe0b9">commom/search/src/search.vue</span>
 
 ```html
 <template>
@@ -1537,7 +1537,7 @@ export default defineComponent({
 
 
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```html
 <HdSearch :searchItems="searchItems" />
@@ -1571,7 +1571,7 @@ setup() {
 
 ### 自定义属性的类型
 
-<span style="backGround: #efe0b9">commom/search/src/search.vue</span>
+<span style="background: #efe0b9">commom/search/src/search.vue</span>
 
 ```javascript
 import { defineComponent, PropType } from 'vue'
@@ -1589,7 +1589,7 @@ props: {
 
 
 
-<span style="backGround: #efe0b9">commom/search/types/index.ts</span>
+<span style="background: #efe0b9">commom/search/types/index.ts</span>
 
 ```javascript
 type IFormType = 'input' | 'password' | 'select' | 'datepicker'
@@ -1618,7 +1618,7 @@ export interface HSearch {
 
 **导出**
 
-<span style="backGround: #efe0b9">commom/search/index.ts</span>
+<span style="background: #efe0b9">commom/search/index.ts</span>
 
 ```javascript
 import HdSearch from './src/search.vue'
@@ -1630,7 +1630,7 @@ export default HdSearch
 
 **导入**
 
-<span style="backGround: #efe0b9">Demo.vue</span>
+<span style="background: #efe0b9">Demo.vue</span>
 
 ```javascript
 import HdSearch, { HSearch } from '@/commom/search'
@@ -1678,7 +1678,7 @@ import HdSearch, { HSearch } from '@/commom/search'
 
 > 将配置对象分离，同时将所有属性传入。
 
-<span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
+<span style="background: #efe0b9">views/system/main/user/user.vue</span>
 
 ```html
 <template>
@@ -1712,7 +1712,7 @@ export default defineComponent({
 
 
 
-<span style="backGround: #efe0b9">views/main/system/user/config/search.ts</span>
+<span style="background: #efe0b9">views/main/system/user/config/search.ts</span>
 
 ```javascript
 import { HSearch } from '@/commom/search'
@@ -1769,7 +1769,7 @@ export const searchConfig: HSearch = {
 
 **类型添加属性**
 
-<span style="backGround: #efe0b9">commom/search/types/index.ts</span>
+<span style="background: #efe0b9">commom/search/types/index.ts</span>
 
 ```javascript
 type IFormType = 'input' | 'password' | 'select' | 'datepicker'
@@ -1784,7 +1784,7 @@ export interface HSearch { ... }
 
 **配置添加属性**
 
-<span style="backGround: #efe0b9">views/main/system/user/config/search.ts</span>
+<span style="background: #efe0b9">views/main/system/user/config/search.ts</span>
 
 ```javascript
 import { HSearch } from '@/commom/search'
@@ -1805,7 +1805,7 @@ export const searchConfig: HSearch = {
 
 **传入属性**
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```html
 <hd-search v-bind="searchConfig" v-model="formData">
@@ -1826,7 +1826,7 @@ setup() {
 
 **拷贝传入值做双向绑定**
 
-<span style="backGround: #efe0b9">commom/search/src/search.vue</span>
+<span style="background: #efe0b9">commom/search/src/search.vue</span>
 
 ```html
 <el-form-item :label="item.label" :style="itemStyle">
@@ -1881,7 +1881,7 @@ setup(props, { emit }) {
 
 通过插槽添加一些通用部分，同时将搜索组件进行再次封装（包括绑定值）
 
-<span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
+<span style="background: #efe0b9">components/page-search/src/page-search.vue</span>
 
 ```html
 <template>
@@ -1909,7 +1909,7 @@ props: {
 },
 ```
 
-<span style="backGround: #efe0b9">commom/search/src/search.vue</span>
+<span style="background: #efe0b9">commom/search/src/search.vue</span>
 
 ```html
 <div class="header">
@@ -1925,7 +1925,7 @@ props: {
 
 ### 绑定表单的动态生成
 
-<span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
+<span style="background: #efe0b9">components/page-search/src/page-search.vue</span>
 
 ```javascript
 props: {
@@ -1955,7 +1955,7 @@ setup(props) {
 
 **方法一**
 
-<span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
+<span style="background: #efe0b9">components/page-search/src/page-search.vue</span>
 
 ```html
 <el-button @click="handleResetClick">重置</el-button>
@@ -1979,7 +1979,7 @@ setup(props) {
 
 **方法二**
 
-<span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
+<span style="background: #efe0b9">components/page-search/src/page-search.vue</span>
 
 ```html
 <hd-form v-bind="searchFormConfig" v-model="formData">
@@ -1998,7 +1998,7 @@ setup(props) {
 }
 ```
 
-<span style="backGround: #efe0b9">commom/search/src/search.vue</span>
+<span style="background: #efe0b9">commom/search/src/search.vue</span>
 
 ```html
 ...
@@ -2047,7 +2047,7 @@ setup(props, { emit }) {
 
 ### 创建模块
 
-<span style="backGround: #efe0b9">store/main/system/system.ts</span>
+<span style="background: #efe0b9">store/main/system/system.ts</span>
 
 ```javascript
 import { Module } from 'vuex'
@@ -2071,7 +2071,7 @@ export default systemModule
 
 
 
-<span style="backGround: #efe0b9">store/main/system/types.ts</span>
+<span style="background: #efe0b9">store/main/system/types.ts</span>
 
 ```java
 export interface ISystemState {
@@ -2082,7 +2082,7 @@ export interface ISystemState {
 
 
 
-<span style="backGround: #efe0b9">store/index.ts</span>
+<span style="background: #efe0b9">store/index.ts</span>
 
 ```javascript
 import login from './login/login'
@@ -2098,7 +2098,7 @@ const store = createStore<IRootState>({
 
 
 
-<span style="backGround: #efe0b9">store/types.ts</span>
+<span style="background: #efe0b9">store/types.ts</span>
 
 ```javascript
 import { ILoginState } from './login/types'
@@ -2132,7 +2132,7 @@ export type IStoreType = IRootState & IRootWithModule
   + types.ts
 ```
 
-<span style="backGround: #efe0b9">service/types.ts</span>
+<span style="background: #efe0b9">service/types.ts</span>
 
 ```javascript
 export interface IDataType<T = any> {
@@ -2141,7 +2141,7 @@ export interface IDataType<T = any> {
 }
 ```
 
-<span style="backGround: #efe0b9">service/main/system/system.ts</span>
+<span style="background: #efe0b9">service/main/system/system.ts</span>
 
 ```javascript
 import baseRequest from '@/service'
@@ -2159,7 +2159,7 @@ export function getPageListData(url: string, data: any) {
 
 **保存请求数据**
 
-<span style="backGround: #efe0b9">store/main/system/system.ts</span>
+<span style="background: #efe0b9">store/main/system/system.ts</span>
 
 ```javascript
 import { Module } from 'vuex'
@@ -2203,7 +2203,7 @@ export default systemModule
 
 **页面发起请求**
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```javascript
 import { defineComponent, computed } from 'vue'
@@ -2236,7 +2236,7 @@ setup() {
 
 替代掉多个标签，通过对象的方式去配置表格的信息。
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```html
 <div class="content">
@@ -2287,7 +2287,7 @@ setup() {
 
 **封装**
 
-<span style="backGround: #efe0b9">commom/index.ts</span>
+<span style="background: #efe0b9">commom/index.ts</span>
 
 ```javascript
 import HdTable from './src/table.vue'
@@ -2295,7 +2295,7 @@ import HdTable from './src/table.vue'
 export default HdTable
 ```
 
-<span style="backGround: #efe0b9">commom/table/src/table.vue</span>
+<span style="background: #efe0b9">commom/table/src/table.vue</span>
 
 ```html
 <template>
@@ -2331,7 +2331,7 @@ export default defineComponent({
 
 **调用**
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```html
 <div class="content">
@@ -2348,7 +2348,7 @@ import HdTable from '@/commom/table'
 
 **封装**
 
-<span style="backGround: #efe0b9">commom/table/src/table.vue</span>
+<span style="background: #efe0b9">commom/table/src/table.vue</span>
 
 ```html
 <div class="table">
@@ -2374,7 +2374,7 @@ el-table-column 的默认插槽中，能够拿到内部传递上来的 row 属�
 
 **调用**
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```html
 <div class="content">
@@ -2415,7 +2415,7 @@ const propList = [
 
 ### 筛选&序号&操作
 
-<span style="backGround: #efe0b9">commom/table/src/table.vue</span>
+<span style="background: #efe0b9">commom/table/src/table.vue</span>
 
 ```html
 <div class="table">
@@ -2464,7 +2464,7 @@ setup(props, { emit }) {
 
 :whale: 选中列发生改变时，能够在 <span style="color: #a50">el-table</span> 上接受到事件，获取到项数据。
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```html
 <div class="content">
@@ -2501,7 +2501,7 @@ propList: [
 
 ### 头尾插槽
 
-<span style="backGround: #efe0b9">commom/table/src/table.vue</span>
+<span style="background: #efe0b9">commom/table/src/table.vue</span>
 
 ```html
 <div class="table">
@@ -2546,7 +2546,7 @@ props: {
 
 **使用示例**
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```html
 <div class="content">
@@ -2577,7 +2577,7 @@ props: {
 
 
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```html
 <template>
@@ -2627,7 +2627,7 @@ export default defineComponent({
 
 **使用**
 
-<span style="backGround: #efe0b9">views/main/system/user/config/content.ts</span>
+<span style="background: #efe0b9">views/main/system/user/config/content.ts</span>
 
 ```html
 <div class="user">
@@ -2655,7 +2655,7 @@ setup() {
 
 :point_down: pageName 属性是提供给<span style="background: pink">接口抽离</span>时使用的。
 
-<span style="backGround: #efe0b9">views/main/system/user/config/content.ts</span>
+<span style="background: #efe0b9">views/main/system/user/config/content.ts</span>
 
 ```javascript
 export const contentTableConfig = {
@@ -2688,7 +2688,7 @@ export const contentTableConfig = {
 
 ### 请求数据的封装
 
-<span style="backGround: #efe0b9">store/main/system/system.ts</span>
+<span style="background: #efe0b9">store/main/system/system.ts</span>
 
 ```javascript
 import { Module } from 'vuex'
@@ -2756,7 +2756,7 @@ export default systemModule
 
 :hammer_and_wrench: 实际上的接口并不一定严格有序，可以通过 switch 或 枚举值等方式匹配请求路径。
 
-<span style="backGround: #efe0b9">store/main/system/types.ts</span>
+<span style="background: #efe0b9">store/main/system/types.ts</span>
 
 ```
 export interface ISystemState {
@@ -2769,7 +2769,7 @@ export interface ISystemState {
 
 这里添加一个列表的数据
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```html
 <template>
@@ -2838,7 +2838,7 @@ emit ↗  ↘  调用查询列表的方法
    搜索   列表
 ```
 
-<span style="backGround: #efe0b9">components/page-search/src/page-search.vue</span>
+<span style="background: #efe0b9">components/page-search/src/page-search.vue</span>
 
 ```html
 <el-button @click="handleResetClick">重置</el-button>
@@ -2866,7 +2866,7 @@ setup(props, { emit }) {
 }
 ```
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```html
 <div class="user">
@@ -2899,7 +2899,7 @@ setup() {
 
 :european_castle: 引用组件时，添加对应的类型，可以提示（检测）内部的属性和方法。
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```javascript
 setup(props) {
@@ -2926,7 +2926,7 @@ setup(props) {
 
 ### 搜索和重置的抽离
 
-<span style="backGround: #efe0b9">src/hooks/use-page-search.ts</span>
+<span style="background: #efe0b9">src/hooks/use-page-search.ts</span>
 
 ```javascript
 import { ref } from 'vue'
@@ -2948,7 +2948,7 @@ export function usePageSearch() {
 
 :whale: 导出的方式可以为数组（元组），也可以为对象。
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```javascript
 import { usePageSearch } from '@/hooks/use-page-search'
@@ -2969,7 +2969,7 @@ setup() {
 
 ### 获取分页数量
 
-<span style="backGround: #efe0b9">store/main/system/system.ts</span>
+<span style="background: #efe0b9">store/main/system/system.ts</span>
 
 ```javascript
 getters: {
@@ -2982,7 +2982,7 @@ getters: {
 },
 ```
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```html
 <hd-table :listCount="listCount"></hd-table>
@@ -2998,7 +2998,7 @@ setup(props) {
 }
 ```
 
-<span style="backGround: #efe0b9">commom/table/src/table.vue</span>
+<span style="background: #efe0b9">commom/table/src/table.vue</span>
 
 ```html
 <slot name="footer">
@@ -3022,7 +3022,7 @@ props: {
 
 ### 分页的联动
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```html
 <hd-table v-model:page="pageInfo"></hd-table>
@@ -3056,7 +3056,7 @@ setup(props) {
 }
 ```
 
-<span style="backGround: #efe0b9">commom/table/src/table.vue</span>
+<span style="background: #efe0b9">commom/table/src/table.vue</span>
 
 ```html
 <slot name="footer">
@@ -3113,7 +3113,7 @@ setup(props, { emit }) {
 
 **搭建页面**
 
-<span style="backGround: #efe0b9">views/main/product/goods/goods.vue</span>
+<span style="background: #efe0b9">views/main/product/goods/goods.vue</span>
 
 ```html
 <template>
@@ -3150,7 +3150,7 @@ export default defineComponent({
 
 > 按理来说，应该新建一个 product 文件夹用于储存的。
 
-<span style="backGround: #efe0b9">store/main/system/system.ts</span>
+<span style="background: #efe0b9">store/main/system/system.ts</span>
 
 ```javascript
 state() {
@@ -3171,7 +3171,7 @@ mutations: {
 },
 ```
 
-<span style="backGround: #efe0b9">store/main/system/types.ts</span>
+<span style="background: #efe0b9">store/main/system/types.ts</span>
 
 ```javascript
 export interface ISystemState {
@@ -3190,7 +3190,7 @@ export interface ISystemState {
 
 多层级嵌套下，页面定义自身独特插槽的方案。
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```html
 </hd-table>
@@ -3228,7 +3228,7 @@ setup(props) {
 
 :turtle: 排除了固定（通用）插槽和不使用插槽的项。
 
-<span style="backGround: #efe0b9">views/main/product/goods/goods.vue</span>
+<span style="background: #efe0b9">views/main/product/goods/goods.vue</span>
 
 ```html
 <page-content :contentTableConfig="contentTableConfig" pageName="goods">
@@ -3250,7 +3250,7 @@ setup(props) {
 
 > 也许会存在一两个表格，需要特殊的功能，如为树形数据的表格。
 
-<span style="backGround: #efe0b9">commom/table/src/table.vue</span>
+<span style="background: #efe0b9">commom/table/src/table.vue</span>
 
 ```html
 <el-table v-bind="childrenProps">...</el-table>
@@ -3268,7 +3268,7 @@ props: {
 
 搭建菜单页面，[细节略](#快速搭建页面（表格）)
 
-<span style="backGround: #efe0b9">views/main/system/menu/config/content.ts</span>
+<span style="background: #efe0b9">views/main/system/menu/config/content.ts</span>
 
 ```javascript
 export const contentTableConfig = {
@@ -3286,7 +3286,7 @@ export const contentTableConfig = {
 
 ### 可选的分页页脚
 
-<span style="backGround: #efe0b9">commom/table/src/table.vue</span>
+<span style="background: #efe0b9">commom/table/src/table.vue</span>
 
 ```html
 <div class="footer" v-if="showFooter">...</div>
@@ -3300,7 +3300,7 @@ props: {
 },
 ```
 
-<span style="backGround: #efe0b9">views/main/system/menu/config/content.ts</span>
+<span style="background: #efe0b9">views/main/system/menu/config/content.ts</span>
 
 ```javascript
 export const contentTableConfig = {
@@ -3317,7 +3317,7 @@ export const contentTableConfig = {
 
 **定义获取权限的方法**
 
-<span style="backGround: #efe0b9">utils/map-menus.ts</span>
+<span style="background: #efe0b9">utils/map-menus.ts</span>
 
 > 取到的数据结构的特点为，权限保存在第三层级中。
 
@@ -3342,7 +3342,7 @@ export function mapMenusToPermissions(userMenus: any[]) {
 
 **获取并保存权限**
 
-<span style="backGround: #efe0b9">store/login/login.ts</span>
+<span style="background: #efe0b9">store/login/login.ts</span>
 
 ```javascript
 import { ..., mapMenusToPermissions } from '@/utils/map-menus'
@@ -3366,7 +3366,7 @@ mutations: {
 },
 ```
 
-<span style="backGround: #efe0b9">store/login/types.ts</span>
+<span style="background: #efe0b9">store/login/types.ts</span>
 
 ```javascript
 export interface ILoginState {
@@ -3377,7 +3377,7 @@ export interface ILoginState {
 
 **定义判断权限的方法**
 
-<span style="backGround: #efe0b9">hooks/use-permission.ts</span> 
+<span style="background: #efe0b9">hooks/use-permission.ts</span> 
 
 ```javascript
 import { useStore } from '@/store'
@@ -3393,7 +3393,7 @@ export function usePermission(pageName: string, hanldeName: string) {
 
 **使用权限判断**
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```html
 <template #headerHandler>
@@ -3438,7 +3438,7 @@ setup(props) {
 
 ### 删除功能的实现
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```html
 <template #handler="scope">
@@ -3466,7 +3466,7 @@ setup(props, { emit }) {
 
 :european_castle: 在插槽中获取到传递上来的当前项数据备用。
 
-<span style="backGround: #efe0b9">service/main/system/system.ts</span>
+<span style="background: #efe0b9">service/main/system/system.ts</span>
 
 ```javascript
 // url: /users/id
@@ -3478,7 +3478,7 @@ export function deletePageData(url: string) {
 }
 ```
 
-<span style="backGround: #efe0b9">store/main/system/system.ts</span>
+<span style="background: #efe0b9">store/main/system/system.ts</span>
 
 ```javascript
 import { ..., deletePageData } from '@/service/main/system/system'
@@ -3520,7 +3520,7 @@ actions: {
     - index.ts
 ```
 
-<span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
+<span style="background: #efe0b9">views/system/main/user/user.vue</span>
 
 ```html
 <page-modal :modalConfig="modalConfig"></page-modal>
@@ -3537,7 +3537,7 @@ setup() {
 }
 ```
 
-<span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
+<span style="background: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
 ```html
 <template>
@@ -3585,7 +3585,7 @@ export default defineComponent({
 </script>
 ```
 
-<span style="backGround: #efe0b9">views/main/system/user/config/modal.ts</span>
+<span style="background: #efe0b9">views/main/system/user/config/modal.ts</span>
 
 ```javascript
 import { HForm } from '@/commom/form'
@@ -3615,7 +3615,7 @@ emit ↗  ↘  显示编辑组件等
    列表   编辑组件
 ```
 
-<span style="backGround: #efe0b9">components/page-content/src/page-content.vue</span>
+<span style="background: #efe0b9">components/page-content/src/page-content.vue</span>
 
 ```html
 <el-button @click="handleNewClick">新建用户</el-button>
@@ -3643,7 +3643,7 @@ setup(props, { emit }) {
 
 **用hook抽离公共变量和函数**
 
-<span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
+<span style="background: #efe0b9">views/system/main/user/user.vue</span>
 
 ```html
 <page-content
@@ -3667,7 +3667,7 @@ setup() {
 }
 ```
 
-<span style="backGround: #efe0b9">hooks/use-page-modal.ts</span> 
+<span style="background: #efe0b9">hooks/use-page-modal.ts</span> 
 
 ```javascript
 import { ref } from 'vue'
@@ -3696,7 +3696,7 @@ export function usePageModal() {
 
 编辑的方法中，拿到的参数为回传上来的表单项的数据。
 
-<span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
+<span style="background: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
 ```html
 <hd-form v-bind="modalConfig" v-model="formData"></hd-form>
@@ -3738,7 +3738,7 @@ setup(props) {
 
 ### 回显的数据变更
 
-<span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
+<span style="background: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
 ```html
 <el-dialog destroy-on-close></el-dialog>
@@ -3754,7 +3754,7 @@ setup(props) {
 
 **动态显示**
 
-<span style="backGround: #efe0b9">commom/form/src/form.vue</span>
+<span style="background: #efe0b9">commom/form/src/form.vue</span>
 
 ```html
 <el-form-item v-if="!item.isHidden"></el-form-item>
@@ -3762,7 +3762,7 @@ setup(props) {
 
 **增加配置项**
 
-<span style="backGround: #efe0b9">commom/form/types/index.ts</span>
+<span style="background: #efe0b9">commom/form/types/index.ts</span>
 
 ```javascript
 export interface IFormItem {
@@ -3771,7 +3771,7 @@ export interface IFormItem {
 }
 ```
 
-<span style="backGround: #efe0b9">views/main/system/user/config/modal.ts</span>
+<span style="background: #efe0b9">views/main/system/user/config/modal.ts</span>
 
 ```javascript
 export const modalConfig: HForm = {
@@ -3788,7 +3788,7 @@ export const modalConfig: HForm = {
 
 **添加页面级处理（钩子）**
 
-<span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
+<span style="background: #efe0b9">views/system/main/user/user.vue</span>
 
 ```javascript
 setup() {
@@ -3817,7 +3817,7 @@ setup() {
 
 :whale: 这里确定对象有相应属性，使用了断言。
 
-<span style="backGround: #efe0b9">hooks/use-page-modal.ts</span> 
+<span style="background: #efe0b9">hooks/use-page-modal.ts</span> 
 
 ```javascript
 type CallbackFn = () => void
@@ -3846,7 +3846,7 @@ export function usePageModal(newCb?: CallbackFn, editCb?: CallbackFn) {
 
 **刷新时获取数据**
 
-<span style="backGround: #efe0b9">store/index.ts</span>
+<span style="background: #efe0b9">store/index.ts</span>
 
 ```javascript
 import localCache from '@/utils/cache'
@@ -3907,7 +3907,7 @@ export function setupStore() {
 
 :turtle: 需要刷新页面才能在其它页面中获取到最新数据。
 
-<span style="backGround: #efe0b9">store/types.ts</span>
+<span style="background: #efe0b9">store/types.ts</span>
 
 ```javascript
 export interface IRootState {
@@ -3920,7 +3920,7 @@ export interface IRootState {
 
 **登录时获取数据**
 
-<span style="backGround: #efe0b9">store/login/login.ts</span>
+<span style="background: #efe0b9">store/login/login.ts</span>
 
 ```javascript
 actions: {
@@ -3941,7 +3941,7 @@ actions: {
 
 **获取数据并使用**
 
-<span style="backGround: #efe0b9">views/system/main/user/user.vue</span>
+<span style="background: #efe0b9">views/system/main/user/user.vue</span>
 
 ```html
 <page-modal :modalConfig="modalConfigRef"></page-modal>
@@ -3982,7 +3982,7 @@ setup() {
 
 **定义接口**
 
-<span style="backGround: #efe0b9">service/main/system/system.ts</span>
+<span style="background: #efe0b9">service/main/system/system.ts</span>
 
 ```javascript
 export function createPageData(url: string, data: any) {
@@ -4004,7 +4004,7 @@ export function editPageData(url: string, data: any) {
 
 **定义业务行为**
 
-<span style="backGround: #efe0b9">store/main/system/system.ts</span>
+<span style="background: #efe0b9">store/main/system/system.ts</span>
 
 ```javascript
 import { ..., createPageData, editPageData } from '@/service/main/system/system'
@@ -4051,7 +4051,7 @@ actions: {
 
 **调用接口**
 
-<span style="backGround: #efe0b9">components\page-modal\src\page-modal.vue</span>
+<span style="background: #efe0b9">components\page-modal\src\page-modal.vue</span>
 
 ```html
 <el-button type="primary" @click="handleConfirmClick">确 定</el-button>
@@ -4106,7 +4106,7 @@ setup(props) {
 
 借助判断 defaultInfo 中，是否存在属性，来判断操作为新建还是编辑。
 
-<span style="backGround: #efe0b9">views/main/system/user/user.vue</span>
+<span style="background: #efe0b9">views/main/system/user/user.vue</span>
 
 ```html
 <page-modal pageName="users"></page-modal>
@@ -4124,7 +4124,7 @@ setup(props) {
 
 ### 编辑组件的动态插槽
 
-<span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
+<span style="background: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
 ```html
 <el-dialog>
@@ -4134,7 +4134,7 @@ setup(props) {
 </el-dialog>
 ```
 
-<span style="backGround: #efe0b9">views/main/system/role/role.vue</span>
+<span style="background: #efe0b9">views/main/system/role/role.vue</span>
 
 ```html
 <page-modal>
@@ -4148,7 +4148,7 @@ setup(props) {
 
 **将数据保存到vuex**
 
-<span style="backGround: #efe0b9">store/index.ts</span>
+<span style="background: #efe0b9">store/index.ts</span>
 
 ```javascript
 import { getPageListData } from '@/service/main/system/system'
@@ -4176,7 +4176,7 @@ actions: {
 }
 ```
 
-<span style="backGround: #efe0b9">store/types.ts</span>
+<span style="background: #efe0b9">store/types.ts</span>
 
 ```javascript
 export interface IRootState {
@@ -4187,7 +4187,7 @@ export interface IRootState {
 
 **拼接请求参数**
 
-<span style="backGround: #efe0b9">views/main/system/role/role.vue</span>
+<span style="background: #efe0b9">views/main/system/role/role.vue</span>
 
 ```html
 <page-modal
@@ -4240,7 +4240,7 @@ setup() {
 }
 ```
 
-<span style="backGround: #efe0b9">components/page-modal/src/page-modal.vue</span>
+<span style="background: #efe0b9">components/page-modal/src/page-modal.vue</span>
 
 ```javascript
 props: {
@@ -4277,7 +4277,7 @@ setup(props) {
 
 **获取叶子节点**
 
-<span style="backGround: #efe0b9">utils/map-menus.ts</span>
+<span style="background: #efe0b9">utils/map-menus.ts</span>
 
 ```javascript
 // 传入树形数据，传出叶子节点的id集合数组
@@ -4303,7 +4303,7 @@ export function menuMapLeafKeys(menuList: any[]) {
 
 
 
-<span style="backGround: #efe0b9">views/main/system/role/role.vue</span>
+<span style="background: #efe0b9">views/main/system/role/role.vue</span>
 
 ```html
 <el-tree ref="elTreeRef">...</el-tree>
@@ -4339,7 +4339,7 @@ setup() {
 
 **改良编辑的公共勾子**
 
-<span style="backGround: #efe0b9">hooks/use-page-modal.ts</span>
+<span style="background: #efe0b9">hooks/use-page-modal.ts</span>
 
 ```typescript
 type CallbackFn = (item?: any) => void
@@ -4365,7 +4365,7 @@ export function usePageModal(newCb?: CallbackFn, editCb?: CallbackFn) {
 
 ### 退出登录
 
-<span style="backGround: #efe0b9">components\nav-header\src\header-info.vue</span>
+<span style="background: #efe0b9">components\nav-header\src\header-info.vue</span>
 
 ```html
 <el-dropdown-item @click="handleExitClick">退出登录</el-dropdown-item>
@@ -4412,7 +4412,7 @@ setup() {
 
 **定义配置内容**
 
-<span style="backGround: #efe0b9">global/register-properties.ts</span>
+<span style="background: #efe0b9">global/register-properties.ts</span>
 
 ```javascript
 import { App } from 'vue'
@@ -4436,7 +4436,7 @@ export default function registerProperties(app: App) {
 
  **统一安装入口**
 
-<span style="backGround: #efe0b9">global/index.ts</span>
+<span style="background: #efe0b9">global/index.ts</span>
 
 ```javascript
 import { App } from 'vue'
@@ -4449,7 +4449,7 @@ export function globalRegister(app: App): void {
 
 **安装**
 
-<span style="backGround: #efe0b9">main.ts</span>
+<span style="background: #efe0b9">main.ts</span>
 
 ```javascript
 import { globalRegister } from './global'
@@ -4468,7 +4468,7 @@ app.mount('#app')
 npm install dayjs 
 ```
 
-<span style="backGround: #efe0b9">utils/date-format.ts</span>
+<span style="background: #efe0b9">utils/date-format.ts</span>
 
 ```javascript
 import dayjs from 'dayjs'
@@ -4497,7 +4497,7 @@ export function formatUtcString(utcString: string, format: string = DATE_TIME_FO
 
 > element plus 的功能，能够让被包裹的组件应用为设置的语言。
 >
-> <span style="backGround: #efe0b9">App.vue</span>
+> <span style="background: #efe0b9">App.vue</span>
 
 ```html
 <el-config-provider :locale="zhCn">
