@@ -110,6 +110,25 @@ yAxis: [
 
 
 
+#### 刻度标签值格式化
+
+```javascript
+yAxis: {
+	axisLabel: {
+        // 在数额过小的时候，会有bug，如 0.5.00
+        formatter: '{value}.00', // [!code --]
+        formatter: v => {
+            // 不对0进行处理
+            if (v == 0) {
+                return v
+            }
+            // 数额过小时不处理，避免 0.00
+            return Number(v) > 0.01 ? Number(v).toFixed(2) : v
+        },
+    }
+}
+```
+
 
 
 #### 图例图标修改为长方形
