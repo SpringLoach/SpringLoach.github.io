@@ -262,3 +262,64 @@ export const searchControlMixin = {
 }
 ```
 
+
+
+### 子绝父相的替代方案
+
+>  可以用作为子绝父相的替代方案；在父元素添加了 `overflow: hidden` 时，也不会被限制展示。
+
+```html
+<template>
+    <div
+        v-for="(item, index) in list"
+        ref="itemRef"
+        @mouseenter="handleMouseEnter(index)"
+        @mouseleave="handleMouseLeave"
+    >
+        <div>普通内容</div>
+        <div class="extra-info-wrap" :style="{ top: topValue, left: leftValue }">...</div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            currentIndex: -1,
+            topValue: 0,
+            leftValue: 0,
+        }
+    },
+    methods: {
+        handleMouseEnter(index) {
+            this.currentIndex = index
+            const targetEl = this.$refs.itemRef[index]
+            if (targetEl) {
+                const info = targetEl.getBoundingClientRect() // 可以获取到元素的宽高、距离视口（注意视口不等于页面）位置
+                const diff = (194 - info.width) / 2
+                
+                this.topValue = `${info.top - 205}px`
+                this.leftValue = `${info.left - diff}px`
+            }
+        },
+        handleMouseLeave() {
+            this.currentIndex = -1
+        }
+    },
+    // 避免页面滚动时，反应不及时
+    mounted() {
+        window.addEventListener('scroll', this.handleMouseLeave);
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleMouseLeave);
+    },
+}
+</script>
+
+<style scoped lang="scss">
+.extra-info-wrap {
+    position: fixed;
+}
+</style>
+```
+
