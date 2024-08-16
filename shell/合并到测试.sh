@@ -16,6 +16,7 @@ current_branch=$(git branch --show-current)
 
 #Push local branch to test branch
 git checkout .				               # 丢弃本地修改
+# 有待完善，如果没有关联过远程分支，应该先关联推送
 git push                             # 推送当前分支到远端
 git switch ${target_test_branch}     # 切换到测试分支
 
