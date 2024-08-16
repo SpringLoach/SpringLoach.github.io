@@ -653,3 +653,11 @@ export default {
 />
 ```
 
+#### 超出字数溢出隐藏&tooltip
+
+```html
+<el-tooltip :content="demoStr" :disabled="demoStr.length <= 10" placement="top">
+    <el-ellipsis :max-length="10">{{demoStr}}</el-ellipsis>
+</el-tooltip>
+```
+

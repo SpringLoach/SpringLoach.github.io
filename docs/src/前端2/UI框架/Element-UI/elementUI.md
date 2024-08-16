@@ -737,3 +737,26 @@ export default {
 </script>
 ```
 
+
+
+#### 超出字数溢出隐藏&tooltip
+
+```html
+<el-tooltip effect="dark" :content="demoStr" placement="top" :disabled="v.length <= 11">
+    <div>{{ treatTntercept(demoStr, 11) }}</div>
+</el-tooltip>
+```
+
+```javascript
+function treatTntercept(text, len) {
+    if (!text || !text.length) {
+        return text
+    }
+    if (text.length <= len) {
+        return text
+    } else {
+        return `${text.substring(0, len)}...`
+    }
+}
+```
+
