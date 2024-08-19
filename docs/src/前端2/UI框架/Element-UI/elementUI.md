@@ -764,7 +764,7 @@ function treatTntercept(text, len) {
 
 #### 选项联动文本
 
-![image-20240816102407741](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240816102407741.png)
+![image-20240816102407741](https://raw.githubusercontent.com/SpringLoach/img_store/main/img/image-20240816102407741.png)
 
 ```javascript
 handleSelectItem(flag, item) {
