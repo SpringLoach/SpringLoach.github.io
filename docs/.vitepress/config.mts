@@ -197,6 +197,7 @@ export default defineConfig({
             {  text: '代码规范', link: '/前端2/代码规范/代码规范' },
             {  text: '兼容性', link: '/前端2/代码规范/兼容性' },
             {  text: '性能优化', link: '/前端2/代码规范/性能优化' },
+            {  text: '安全性', link: '/前端2/代码规范/安全性' },
           ]
         },
         {

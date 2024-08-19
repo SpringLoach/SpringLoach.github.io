@@ -1027,5 +1027,47 @@ handleClickContent(e, scope) {
 
 
 
+### 触发防抖
+
+`utils/index.js`
+
+```javascript
+export function debounce(fn, time) {
+    let timer = -1
+    return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            fn.apply(this, arguments)
+        }, time)
+    }
+}
+```
+
+`test.vue`
+
+```html
+<template>
+    <div @click="test">连续点击不触发事件</div>
+</template>
+
+<script>
+import { debounce } from '@/utils/index.js'
+export default {
+    data() {
+        return {
+            record: []
+        }
+    },
+    methods: {
+        test: debounce(async function(e) {
+            this.searchText = e.target.value
+            const data = await []
+            this.record = data
+        }, 300)
+    }
+}
+</script>
+```
+
 
 
