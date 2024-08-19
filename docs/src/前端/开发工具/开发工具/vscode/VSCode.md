@@ -82,6 +82,14 @@
 
 
 
+#### 插件eslint失效
+
+> `Ctrl` + `~`  - 输出 - 选择EsLint - 查看插件启动情况；排查是版本不匹配，需要更新 VSCode
+
+```elm
+The language client requires VS Code version ^1.82.0 but received version 1.78.0
+```
+
 
 
 

@@ -1,0 +1,39 @@
+{
+  // Place your snippets for wxml here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // },
+  "微信小程序标签": {
+    "prefix": "view",
+    "body": ["<view class=\"$1\">$0</view>"],
+    "description": "微信小程序标签"
+  },
+  "wxml-注释": {
+    "prefix": "<!",
+    "body": ["<!--  -->"],
+    "description": "wxml-注释"
+  },
+  "image标准标签": {
+    "prefix": "image",
+    "body": [
+      "<image class=\"\" src=\"\" />"
+    ],
+    "description": "image标准标签"
+  },
+  "image标准标签-带图": {
+    "prefix": "image",
+    "body": [
+      "<image src=\" https://lbdj.oss-cn-beijing.aliyuncs.com/upload/order/20220823/A5CF77EF04622CB88240C3ACA777836C_p93.jpeg\" />"
+    ],
+    "description": "image标准标签-带图"
+  }
+}
