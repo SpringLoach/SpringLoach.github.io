@@ -25,6 +25,20 @@ JavaScript | `// 单行` `/* 多行 */`
 
 
 
+#### 获取原生输入框中的值
+
+> 结合 vue
+
+```html
+<input @input="handleInput"/>
+```
+
+```javascript
+function handleInput(e) {
+    const text = e.target.value
+}
+```
+
 
 
 

@@ -760,3 +760,89 @@ function treatTntercept(text, len) {
 }
 ```
 
+
+
+#### 选项联动文本
+
+![image-20240816102407741](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240816102407741.png)
+
+```javascript
+handleSelectItem(flag, item) {
+    const combineText = `${item.label}（${item.remark}）；`
+    // 选中处理
+    if (flag) {
+        // 已经有内容时，才需要加入换行符
+        let newContent = ''
+        if (this.form.yy) {
+            newContent = this.form.yy + `\n${combineText}`
+        } else {
+            newContent = this.form.yy + `${combineText}`
+        }
+        if (newContent.length > 200) {
+            this.$message.warning('文本长度即将超出限制，内容添加失败')
+        } else {
+            this.form.yy = newContent
+        }
+    }
+    // 选择选项添加
+    // 取消处理
+    if (!flag) {
+        if (this.form.yy.indexOf(combineText) != -1) {
+            // 首行还需要将（如果存在）下一行的起始换行符去掉
+            if (this.form.yy.indexOf(combineText) == 0) {
+                const temp = this.form.yy.replace(new RegExp(`${combineText}\n`, 'g'), '')
+                this.form.yy = temp.replace(new RegExp(combineText, 'g'), '')
+            } else {
+                const temp = this.form.yy.replace(new RegExp(`\n${combineText}`, 'g'), '')
+                this.form.yy = temp.replace(new RegExp(combineText, 'g'), '')
+            }
+        }
+    }
+}
+```
+
+
+
+#### el-input 文本域换行
+
+```javascript
+const remark = '一些内容'
+this.value = `\n${remark}`
+```
+
+
+
+#### el-popover 设置多个自定义类名
+
+```html
+<el-popover popper-class="a b"></el-popover>
+```
+
+
+
+#### el-popover 右侧悬浮间隙大易消失问题
+
+> 添加一个透明内容
+
+```html
+<el-popover popper-class="right-popver" placement="right"></el-popover>
+
+<style lang="scss">
+.right-popver {
+    &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: -12px;
+        z-index: 3;
+        width: 12px;
+        height: 100%;
+        background-color: transparent;
+        background-color: red;
+        transform: translateY(-50%);
+    }
+}
+</style>
+```
+

@@ -1,3 +1,16 @@
+### 遍历元素集合
+
+> 部分低版本浏览器的 dom 集合不支持 forEach 方法
+
+```javascript
+let elements = document.querySelectorAll('.some-class');
+for (let i = 0; i < elements.length; i++) {
+    console.log(elements[i]);
+}
+```
+
+
+
 ### 修改dom中子元素的所在位置
 
 > 将公共组件中的上传按钮由置后改为置前
@@ -321,5 +334,36 @@ export default {
     position: fixed;
 }
 </style>
+```
+
+
+
+### 监听是否在元素外点击
+
+DOM的 `contains` 方法用于检测当前DOM对象是否包含指定的节点，‌返回`true`或`false`。‌
+
+```html
+<script>
+export default {
+    mounted() {
+        document.addEventListener('click', this.beginClickListener)
+    },
+    beforeDestroy() {
+        document.removeEventListener('click', this.beginClickListener)
+    },
+    methods: {
+        beginClickListener({ target }) {
+            const wrapEl = document.getElementById('demo')
+            if (!wrapEl) {
+                return
+            }
+            // 当点击目标元素以外的区域时
+            if (!wrapEl.contains(target)) {
+                // ...
+            }
+        }
+    }
+}
+</script>
 ```
 
