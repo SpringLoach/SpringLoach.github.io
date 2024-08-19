@@ -7,7 +7,7 @@
 
         <div v-if="colorValue" class="color-box" :style="{ 'background': colorValue }"></div>
     </div>
-</template>
+</template> 
 
 <script setup>
 import { onMounted, ref, watch } from 'vue'
