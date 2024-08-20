@@ -377,6 +377,82 @@ async downloadErrorList() {
 
 #### 总览
 
+**列表**
+
+列表页-常规【费用退款列表】
+
+```
+src\views\workermanange\feeRefund\index.vue
+```
+
+列表页-带tab【运营管理-我的工单】
+
+> tab带数量
+
+```
+src\views\operations\merchantOpertion\workOrder\MyWorkOrder\index.vue
+```
+
+搜索项-关联省市区（级级多选）【费用退款列表】
+
+```
+src\views\workermanange\feeRefund\index.vue
+```
+
+搜索项-取平台端和商家端的所有一级品类【费用退款列表】
+
+```
+src\views\workermanange\feeRefund\index.vue
+```
+
+搜索项-联动提供不同的筛选结果【运营管理-我的工单|商家端口-分层标签、商家品类、商家标记】
+
+```
+src\views\operations\merchantOpertion\workOrder\MyWorkOrder\components\pendingList.vue
+```
+
+列表项-查看电话（师傅电话、不拨号）【费用退款列表】
+
+```
+src\views\workermanange\feeRefund\index.vue
+```
+
+
+
+**编辑**
+
+省市-关联选择器【师傅短信促单列表-创建规则/编辑】
+
+> 可回显，改变省级会取消所有市级选择
+
+```
+src\views\operations\msgPromotion\ruleList\components\addRule.vue
+```
+
+省市-级联选择器【师傅管理-师傅工单管理-工单生成规则配置】
+
+```
+src\views\workermanange\workerOrderManange\workOrderConfig\components\workOrderCreatorConfig.vue
+```
+
+输入最大金额限制+保留两位小数（不允许末位.）【订单详情-发起审批-师傅费用退款】
+
+> 最大金额限制，输入超过最大金额自动调整
+
+```
+src\views\order\details\popup\applyCollection.vue
+```
+
+多个上传图片组件【订单详情-发起审批-师傅费用退款】
+
+```
+src\views\order\details\popup\applyCollection.vue
+```
+
+
+
+**弹窗**
+
 日志弹窗-修改前后内容复杂【活动中心配置-日志】
 
 ```
@@ -389,51 +465,13 @@ src\views\operations\activityCenterConfig\edit\editDialog.vue
 src\views\workermanange\workerOrderManange\workOrderDetail\components\abnormalDialog.vue
 ```
 
-省市-关联选择器【师傅短信促单列表-创建规则/编辑】
-
-> 可回显
-
-```
-src\views\operations\msgPromotion\ruleList\components\addRule.vue
-```
-
-省市-级联选择器【师傅管理-师傅工单管理-工单生成规则配置】
-
-```
-src\views\workermanange\workerOrderManange\workOrderConfig\components\workOrderCreatorConfig.vue
-```
-
-确认删除弹窗
-
-信用分/费用退款管理条例-费用退款规则-删除
+确认删除弹窗【信用分/费用退款管理条例-费用退款规则-删除】
 
 ```
 src\views\workermanange\creditmanange\FeeRefundRules\index.vue
 ```
 
 
-
-搜索项-关联省市区（级级多选）【师傅管理-费用退款列表】
-
-```
-src\views\workermanange\feeRefund\index.vue
-```
-
-
-
-搜索项-取平台端和商家端的所有一级品类【师傅管理-费用退款列表】
-
-```
-src\views\workermanange\feeRefund\index.vue
-```
-
-
-
-列表项-查看电话（师傅电话）【师傅管理-费用退款列表】
-
-```
-src\views\workermanange\feeRefund\index.vue
-```
 
 
 
