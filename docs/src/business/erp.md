@@ -657,7 +657,7 @@ export default {
 
 ```html
 <el-tooltip :content="demoStr" :disabled="demoStr.length <= 10" placement="top">
-    <el-ellipsis :max-length="10">{{demoStr}}</el-ellipsis>
+    <el-ellipsis :max-length="10" :content="demoStr" />
 </el-tooltip>
 ```
 
