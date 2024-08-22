@@ -588,9 +588,61 @@ delectHandle(row) {
 }
 ```
 
+#### 悬浮提示
+
+```html
+<el-tooltip class="item" effect="dark" content="发起限制天数" trigger="click" placement="top">
+    <i class="el-icon-question" style="color: #b3b3b3; cursor: pointer"></i>
+</el-tooltip>
+```
+
+#### 图片列表
+
+```html
+<el-image
+    v-for="item in imageList"
+    :key="item"
+    style="width: 100px; height: 100px; margin-right: 10px; border-radius: 5px"
+    :src="item"
+    :preview-src-list="imageList"
+/>
+```
+
+```javascript
+const imageList = ['http://xx1.png', 'http://xx2.png']
+```
+
+
+
 
 
 ### 其它
+
+#### 自定义上传路径
+
+`http://fhd.local.lbdj.net:9537/uploadPictures`
+
+找到文件
+
+```
+src\views\setting\uploadPictures\index.vue
+```
+
+- 27行替换为
+
+```
+文件路径预览：https://osscdn.lbdj.com/{{ customFile.trim() }}/
+```
+
+- 70行替换为
+
+```javascript
+const storeAs = '/' + this.customFile.trim() + '/' + file.name
+```
+
+
+
+
 
 #### 内容超过两行展示 el-tooltip
 
