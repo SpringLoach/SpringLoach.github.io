@@ -614,6 +614,31 @@ const imageList = ['http://xx1.png', 'http://xx2.png']
 
 
 
+#### 新的弹窗引用方式
+
+```html
+<template>
+    <div>
+        <work-order-treat-dialog v-if="orderTreatShow" v-model="orderTreatShow" />
+    </div>
+</template>
+
+<script>
+export default {
+    components: {
+        orderTreatDialog: () => import('./components/orderTreatDialog.vue'),
+    },
+    data() {
+        return {
+            orderTreatShow: false
+        }
+    },
+}
+</script>
+```
+
+
+
 
 
 ### 其它
