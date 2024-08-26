@@ -616,6 +616,8 @@ const imageList = ['http://xx1.png', 'http://xx2.png']
 
 #### 新的弹窗引用方式
 
+> 附：新弹窗使用快捷键 `vue-dialog-new`
+
 ```html
 <template>
     <div>

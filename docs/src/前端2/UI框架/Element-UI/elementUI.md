@@ -846,3 +846,15 @@ this.value = `\n${remark}`
 </style>
 ```
 
+
+
+#### el-table 适配不同宽度
+
+在容器宽度较小时x列不至于换行/过窄，在宽度较大时x列能够自动适配为合适宽度
+
+```html
+<el-table>
+    <el-table-column prop="id" label="编号" min-width="200" />
+</el-table>
+```
+
