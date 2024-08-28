@@ -367,3 +367,23 @@ export default {
 </script>
 ```
 
+
+
+### 定位到某元素的位置
+
+> `scroll-margin` 用于设置滚动到某元素时相对视口的预留位置
+
+```html
+<div
+    style="scroll-margin: 60px"
+     id="target-wrap"
+>...</div>
+```
+
+```javascript
+skipToXX() {
+    const targetEl = document.getElementById('target-wrap')
+    targetEl?.scrollIntoView({ behavior: "smooth" })
+}
+```
+

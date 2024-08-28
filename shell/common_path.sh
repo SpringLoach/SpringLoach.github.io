@@ -12,7 +12,7 @@ lowercase_first_letter() {
     echo "${lower_first_char}${rest}"
 }
 
-select opt in "自定义路径" "erp-admin" "lbdj-pc-website" "lbdj-app-h5" "lbdj-team-app-h5" "lbdj-order-app-h5" "lbdj-wap" "worker-mini-program" "xd-mini-program" "official-website-pc-fe" "xixiang-virtual-street-h5" "jms-erp-fe" "lbdj-performance-web" "jingjiangbang-manage-pc" "退出"; do
+select opt in "自定义路径" "erp-admin" "lbdj-pc-website" "lbdj-app-h5" "lbdj-team-app-h5" "lbdj-order-app-h5" "lbdj-wap" "worker-mini-program" "xd-mini-program" "official-website-pc-fe" "xixiang-virtual-street-h5" "jms-erp-fe" "lbdj-performance-web" "jingjiangbang-manage-pc" "lb-oa-frontend" "退出"; do
   case $opt in
     "自定义路径")
       read -p "输入项目路径：" origin_path
@@ -69,6 +69,10 @@ select opt in "自定义路径" "erp-admin" "lbdj-pc-website" "lbdj-app-h5" "lbd
       ;;
     "jingjiangbang-manage-pc")
       path='d:\项目\jingjiangbang-manage-pc'
+      break
+      ;;
+    "lb-oa-frontend")
+      path='d:\项目\lb-oa-frontend'
       break
       ;;
     "退出")
