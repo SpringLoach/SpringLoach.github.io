@@ -584,6 +584,8 @@ function toolTipVisibleChange(event) {
 />
 ```
 
+> 后面试试里面的弹窗加 `model=false` 试试
+
 
 
 #### 表单-规则切换
