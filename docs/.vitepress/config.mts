@@ -317,6 +317,7 @@ export default defineConfig({
         { text: '风格规范', link: '/expand/风格规范' },
         { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },
         { text: '有兴趣就研究', link: '/expand/有兴趣就研究' },
+        { text: 'stone', link: '/expand/stone' },
       ]
     },
 

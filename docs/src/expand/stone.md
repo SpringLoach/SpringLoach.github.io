@@ -38,9 +38,12 @@ if (isOverlap(element1, element2)) {
 
 ```html
 <template>
-    <div>
-        <!-- <div ref="blockRef" class="block1" :style="{ left: `${position.left}px`, top: `${position.top}px` }">{{ position.left }}</div> -->
-        <div ref="blockRef" class="block1" :style="{ left: `${position.left}px`, top: `${position.top}px` }"></div>
+    <div id="game-area">
+        <div
+            ref="blockRef"
+            class="block1"
+            :style="{ left: `${position.left}px`, top: `${position.top}px` }"
+        ></div>
         <div ref="masterRef" class="master"></div>
         <div class="obstacle obstacle1"></div>
         <div class="obstacle obstacle2"></div>
@@ -81,19 +84,18 @@ export default {
         this.elInfo = rect
 
         /* 画布容器 */
-        const boxRect = document.getElementById('xxx').getBoundingClientRect()
+        const boxRect = document.getElementById('game-area').getBoundingClientRect()
         this.boxInfo = boxRect
         console.log('====-----boxInfo-----====', this.boxInfo)
 
         this.contactTimer = setInterval(() => {
-            this.judgeContact()
+            // this.judgeContact()
             this.judgeTouch()
         }, 50)
     },
 
     methods: {
         initPress() {
-            const _this = this
             document.addEventListener('keydown', this.controlDir)
             document.addEventListener('keyup', this.controlDirStop)
         },
@@ -101,7 +103,9 @@ export default {
             if (this.keyState[event.key]) {
                 return
             }
-            this.$set(this.keyState, event.key, 1)
+            // vue3
+            // this.$set(this.keyState, event.key, 1)
+            this.keyState[ event.key] = 1
             switch (event.key) {
                 case 'ArrowLeft': // 左
                     this._controlDir('x', -1)
@@ -164,7 +168,10 @@ export default {
                     }
                 }
                 if (positionAttrStr == 'top' && way == 1) {
-                    if (this.elInfo.height + this.position[positionAttrStr] >= this.boxInfo.height) {
+                    if (
+                        this.elInfo.height + this.position[positionAttrStr] >=
+                        this.boxInfo.height
+                    ) {
                         return
                     }
                 }
@@ -243,24 +250,69 @@ export default {
             // 获取元素2的边界矩形
             const rect2 = element2.getBoundingClientRect()
 
-            const condition1 = rect1.left > rect2.left && rect1.left < rect2.right
-            const condition2 = rect1.right < rect2.right && rect1.right > rect2.left
-            const condition3 = rect1.top > rect2.top && rect1.top < rect2.bottom
-            const condition4 = rect1.bottom < rect2.bottom && rect1.bottom > rect2.top
+            // 左右重合
+            const condition1 = (rect1.left > rect2.left && rect1.left < rect2.right ) || rect1.left == rect2.left
+            const condition2 = (rect1.right < rect2.right && rect1.right > rect2.left) || rect1.right == rect2.right
+            // 上下重合
+            const condition3 = (rect1.top > rect2.top && rect1.top < rect2.bottom) || rect1.top == rect2.top
+            const condition4 = (rect1.bottom < rect2.bottom && rect1.bottom > rect2.top) || rect1.bottom == rect2.bottom
 
             const isTouch = (condition1 || condition2) && (condition3 || condition4)
-            // todoMaster 重置位置
+            // 重置位置
+            // 取上下、左右距离较小的一端还原
             if (isTouch) {
+                let leftValue  = ''
+                let topValue = ''
+                let leftRelative = '' // 相对边距“嵌入”的距离
+                let topRelative = ''
+                // 目标可能在物体靠左/靠右一侧嵌入，判断离哪个方向更近，记录值和相对距离
                 if (condition1 || condition2) {
+                    console.log('左右重合')
                     const differ1 = rect2.right - rect1.left
                     const differ2 = rect1.right - rect2.left
-                    console.log('feeInfo', differ1 >= differ2)
                     if (differ1 > differ2) {
-                        this.position.left = element2.offsetLeft - rect1.width - 1
-                        console.log('====-----his.position.left -----====', this.position.left )
+                        const targetValue = element2.offsetLeft - rect1.width - 1
+                        leftRelative = this.position.left - targetValue
+                        leftValue = targetValue
                     } else if (differ1 < differ2) {
-                        this.position.left = element2.offsetLeft + rect2.width
+                        const targetValue = element2.offsetLeft + rect2.width
+                        leftRelative = this.position.left - targetValue
+                        leftValue = targetValue
                     }
+                }
+                if (condition3 || condition4) {
+                    console.log('上下重合')
+                    const differ1 = rect2.bottom - rect1.top
+                    const differ2 = rect1.bottom - rect2.top
+                    if (differ1 > differ2) {
+                        const targetValue = element2.offsetTop - rect1.height - 1
+                        topRelative = this.position.top - targetValue
+                        topValue = targetValue
+                    } else if (differ1 < differ2) {
+                        const targetValue = element2.offsetTop + rect2.height
+                        topRelative = this.position.top - targetValue
+                        topValue = targetValue
+                    }
+                }
+
+                // x轴和y轴相对距离比较，还原改动较少的一侧的位置
+                console.log('topValue', topValue)
+                console.log('leftValue', leftValue)
+                if (leftRelative === '') {
+                    this.position.top = topValue
+                    return
+                }
+                if (topValue === '') {
+                    this.position.left = leftValue
+                    return
+                }
+                if (Math.abs(leftRelative) > Math.abs(topRelative)) {
+                    console.log('leftValue > topValue')
+                    this.position.top = topValue
+                } else {
+                    console.log('leftValue < topValue')
+                    
+                    this.position.left = leftValue
                 }
             }
 
@@ -270,7 +322,7 @@ export default {
         cacheObstaclesRects() {
             this.obstaclesRects = []
             const obstacles = document.querySelectorAll('.obstacle')
-            obstacles.forEach(obstacle => {
+            obstacles.forEach((obstacle) => {
                 this.obstaclesRects.push(obstacle.getBoundingClientRect())
             })
         },
@@ -289,7 +341,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+#game-area {
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+    position: relative;
+}
 .block1 {
     position: absolute;
     width: 20px;
@@ -309,18 +367,18 @@ export default {
 .obstacle1 {
     position: absolute;
     top: 40px;
-    left: 100px;
-    width: 10px;
+    left: 200px;
+    width: 20px;
     height: 20px;
-    border: 1px solid #ebebeb;
+    background: green;
 }
 .obstacle2 {
     position: absolute;
-    top: 30px;
-    left: 180px;
-    width: 10px;
-    height: 20px;
-    border: 1px solid #ebebeb;
+    top: 90px;
+    left: 120px;
+    width: 60px;
+    height: 80px;
+    background: skyblue;
 }
 </style>
 
