@@ -46,6 +46,8 @@
 
 #### legend
 
+> 需要对应的 `series.name` 或 `legend.data.name` 才会[展示](https://echarts.apache.org/zh/option.html#legend.data)
+
 | 模块               | 说明                 | 相关属性                 |
 | ------------------ | -------------------- | ------------------------ |
 | 组件距离容器距离   |                      | left、top、right、bottom |
