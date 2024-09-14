@@ -40,6 +40,7 @@ export default defineConfig({
             { text: 'computed', link: '/business/computed' },
             { text: 'common', link: '/business/common' },
             { text: 'h5', link: '/business/h5' },
+            { text: 'wap', link: '/business/wap' },
             { text: '小程序', link: '/business/小程序' },
             { text: 'erp', link: '/business/erp' },
             { text: 'web', link: '/business/web' },
@@ -253,6 +254,7 @@ export default defineConfig({
             {  text: 'viewer.js', link: '/前端2/第三方库/viewer.js/viewer.js' },
             {  text: 'mockjs', link: '/前端2/第三方库/mockjs/mockjs' },
             {  text: 'html2canvas', link: '/前端2/第三方库/html2canvas/html2canvas' },
+            {  text: 'swiper', link: '/前端2/第三方库/swiper/swiper' },
             { 
               text: 'ECharts',
               collapsed: true,

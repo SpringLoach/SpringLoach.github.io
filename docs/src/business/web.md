@@ -102,7 +102,25 @@ src\views\placeOrderPlatform\popup\cookieRechargePopup.vue
 
 
 
+#### 异性弹窗（居中）
+
+```
+ptActivity\9thAnniversary\components\ninthLoginToReceive\components\loginReceivePop.vue
+```
+
+
+
+
+
 ### 特殊实现
+
+#### 跳转到下单页
+
+```
+ptActivity\9thAnniversary\components\ninthLoginToReceive\components\loginReceivePop.vue
+```
+
+
 
 #### 跳转到下单并选中特定商品类目
 
@@ -183,5 +201,21 @@ src\views\person\mymessage\list.vue
     }
 }
 </style>
+```
+
+
+
+#### 判断是否登录
+
+```
+src\views\ptActivity\9thAnniversary\components\registerReceive\index.vue
+```
+
+
+
+#### 曝光/点击埋点
+
+```
+src\views\ptActivity\9thAnniversary\components\ninthLoginToReceive\index.vue
 ```
 
