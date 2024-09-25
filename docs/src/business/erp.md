@@ -641,6 +641,18 @@ export default {
 
 
 
+#### 拨打电话
+
+**师傅-不带拨号**
+
+师傅管理-师傅自动指派
+
+```
+src\views\workermanange\designate.vue
+```
+
+
+
 
 
 ### 其它
