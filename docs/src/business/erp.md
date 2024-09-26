@@ -423,6 +423,20 @@ operations\merchantOpertion\workOrder\MyWorkOrder\components\pendingList.vue
 src\views\workermanange\feeRefund\index.vue
 ```
 
+表格项格式化【师傅资质列表-职业证书-审核列表】
+
+```
+src\views\workermanange\qualificationExamineList\index.vue
+```
+
+批量勾选、批量勾选条件禁用【师傅资质列表-职业证书-审核列表】
+
+```
+src\views\workermanange\qualificationExamineList\index.vue
+```
+
+
+
 
 
 ##### 编辑
@@ -469,6 +483,12 @@ src\views\operations\activityCenterConfig\edit\editDialog.vue
 
 ```
 workermanange\workerOrderManange\workOrderDetail\components\abnormalDialog.vue
+```
+
+带分页日志弹窗【师傅资质列表-职业证书-审核列表-日志】
+
+```
+src\views\workermanange\qualificationExamineList\components\logDialog.vue
 ```
 
 确认删除弹窗【信用分/费用退款管理条例-费用退款规则-删除】
