@@ -46,6 +46,7 @@ export default defineConfig({
             { text: 'web', link: '/business/web' },
             { text: 'nuxt', link: '/business/nuxt' },
             { text: '官网', link: '/business/官网' },
+            { text: '通用', link: '/business/通用' },
             { text: '开发账号', link: '/business/开发账号' },
             { text: '构建', link: '/business/构建' },
           ]

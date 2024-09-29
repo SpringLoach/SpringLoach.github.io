@@ -62,7 +62,15 @@
 | 样式表现       | 设置背景色、边界                                             | backgroundColor、borderColor、borderWidth |
 | 触发类型(时机) | 柱状图，折线图设置为 `axis`，在坐标轴触发；<br />散点图，饼图设置为 `item`，在数据项触发 | trigger                                   |
 | 触发条件       | 设置鼠标移动、点击等方式触发                                 | triggerOn                                 |
-| 内容格式器     | 定制性更高，可以返回html字符串                               | formatter                                 |
+| 内容格式器     | 定制性更高，甚至可以返回html字符串/dom实例                   | formatter                                 |
+
+
+
+#### series
+
+| 模块     | 说明             | 相关属性                                                     |
+| -------- | ---------------- | ------------------------------------------------------------ |
+| 样式表现 | 定制系列标签样式 | [serise·label.rich](https://echarts.apache.org/zh/option.html#series-bar.label.rich) |
 
 
 
@@ -210,6 +218,52 @@ tooltip: {
 ```
 
 如果对系列设置了[渐变色](https://echarts.apache.org/zh/option.html#color)，那 params 中的遍历对象的 `color` 属性会获取到对应的颜色对象，否则会获取到字符串
+
+
+
+#### 柱形图定制标签颜色
+
+> `series-label.color` 可以设置文字颜色，如果[设置](https://echarts.apache.org/zh/option.html#series-bar.label.color)为 `'inherit'`，则为视觉映射得到的颜色。
+
+```javascript
+const option = {
+    series: [
+        {
+            type: 'pie',
+            label: {
+                show: true,
+                color: 'inherit',
+                formatter: params => {
+                    return `${params.data.categoryName} ${params.data.value}%`
+                },
+            },
+            data: categoryInfoList
+        },
+    ],
+}
+```
+
+```javascript
+const categoryInfoList = [
+    {
+        categoryName: '晾衣架类',
+        color: '#3580FF',
+        value: 30,
+    },
+    {
+        categoryName: '卫浴类',
+        color: '#06d6d2',
+        value: 25,
+    },
+    {
+        categoryName: '锁类',
+        color: '#ff6257',
+        value: 20,
+    }
+]
+```
+
+
 
 
 
