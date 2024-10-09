@@ -673,6 +673,14 @@ src\views\workermanange\designate.vue
 
 
 
+#### 上传图片列表
+
+师傅资质列表-审核列表-新增/修改
+
+```
+src/views/workermanange/qualificationExamineList/page/examine/index.vue
+```
+
 
 
 ### 其它
