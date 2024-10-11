@@ -38,7 +38,6 @@ export default defineConfig({
           text: 'Business',
           items: [
             { text: 'computed', link: '/business/computed' },
-            { text: 'common', link: '/business/common' },
             { text: 'h5', link: '/business/h5' },
             { text: 'wap', link: '/business/wap' },
             { text: '小程序', link: '/business/小程序' },
