@@ -41,6 +41,7 @@
 |       `Alt` + `↓`        |    本行代码与下行代码替换    |
 |     `Alt` + `Enter`      |        选中所有匹配项        |
 | `Ctrl` + `Alt` + `Enter` |      [新版]确认全局替换      |
+|     `Alt` + `滚轮下`     |       更大幅度下滑页面       |
 |       log + `Tab`        |        console.log()         |
 |         div#demo         |  `<div id="demo"\></div\>`   |
 |         div.demo         | `<div class="demo"\></div\>` |
