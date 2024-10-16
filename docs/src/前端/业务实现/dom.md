@@ -387,3 +387,42 @@ skipToXX() {
 }
 ```
 
+
+
+#### 让页面中的某元素滚动到视窗内的顶部位置
+
+```html
+<!-- scroll-margin 可以控制距离边界距离 -->
+<div id="target" style="scroll-margin: 100px;"></div>
+```
+
+```javascript
+const el = document.querySelector('#target');
+
+el.scrollIntoView({
+    behavior: 'smooth', // 使滚动平滑过渡
+    block: 'start' // 定义垂直方向的对齐，默认值就是start
+});
+```
+
+
+
+#### 让容器内的滚动元素与容器顶部对齐
+
+```html
+<div class="fix-wrap">
+    <div class="inner-wrap"></div>
+</div>
+```
+
+```javascript
+// 获取容器和目标元素
+const fixEl = document.querySelector('.fix-wrap');
+const innerEl = document.querySelector('.inner-wrap');
+
+// 滚动容器，使目标元素的顶部与容器顶部对齐
+if (fixEl && innerEl) {
+    innerEl.scrollTop = fixEl.offsetTop - innerEl.offsetTop;
+}
+```
+
