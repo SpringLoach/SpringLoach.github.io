@@ -373,6 +373,19 @@ async downloadErrorList() {
 
 
 
+#### 关闭并返回列表
+
+```javascript
+closeAndBack() {
+    this.$store.dispatch('delView', this.$route).then(res => {
+        // this.$router.back()
+        this.$router.push('xxList')
+    })
+}
+```
+
+
+
 ### 组件
 
 #### 总览
@@ -670,6 +683,24 @@ export default {
 ```
 src\views\workermanange\designate.vue
 ```
+
+**顾客-带拨号**
+
+发单竞品列表
+
+```
+src\views\businessmanage\appreciation\competitors\index\index.vue
+```
+
+**商家-带拨号**
+
+运营工单列表-详情
+
+```
+merchantOpertion\workOrder\details\components\modules\businessInfo.vue
+```
+
+
 
 
 
