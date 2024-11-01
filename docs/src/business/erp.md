@@ -635,7 +635,7 @@ delectHandle(row) {
 <el-image
     v-for="item in imageList"
     :key="item"
-    style="width: 100px; height: 100px; margin-right: 10px; border-radius: 5px"
+    style="width: 100px; height: 100px; margin-right: 10px; border-radius: 5px; vertical-align: middle"
     :src="item"
     :preview-src-list="imageList"
 />
