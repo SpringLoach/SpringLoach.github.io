@@ -1120,3 +1120,31 @@ export default {
 </script>
 ```
 
+
+
+### 兼容列表条件渲染
+
+```html
+<div v-if="demoList && demoList.length" class="full-item"></div>
+<!-- 等价写法 -->
+<div v-if="demoList?.length" class="full-item"></div>
+```
+
+```javascript
+data() {
+    return {
+        demoList: []
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+

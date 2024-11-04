@@ -268,6 +268,7 @@ export default defineConfig({
               ]
             },
             {  text: 'vconsole', link: '/前端2/第三方库/vconsole' },
+            {  text: '阿里云', link: '/前端2/第三方库/阿里云' },
           ]
         },
         { text: '文档参考', link: '/前端2/文档参考' },
