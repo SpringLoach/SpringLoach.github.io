@@ -43,6 +43,7 @@ export default defineConfig({
             { text: '小程序', link: '/business/小程序' },
             { text: 'erp', link: '/business/erp' },
             { text: 'web', link: '/business/web' },
+            { text: 'jingjiangbang-pc', link: '/business/jingjiangbang-pc' },
             { text: 'nuxt', link: '/business/nuxt' },
             { text: '官网', link: '/business/官网' },
             { text: '通用', link: '/business/通用' },
