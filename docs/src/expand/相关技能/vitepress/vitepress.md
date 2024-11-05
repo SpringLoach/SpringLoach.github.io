@@ -79,3 +79,25 @@ export default defineConfig({
 
 将找到的 svg 代码中的 `fill` 属性删除
 
+
+
+### 引入ant-design-vue
+
+安装依赖后[配置](https://vitejs.cn/vitepress/guide/custom-theme#consuming-a-custom-theme)
+
+`.vitepress/theme/index.js`
+
+```javascript
+import DefaultTheme from 'vitepress/theme'
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/reset.css'
+
+export default {
+    ...DefaultTheme,
+    enhanceApp({ app }) {
+        app.use(Antd)
+    }
+}
+
+```
+
