@@ -38,13 +38,15 @@ export default defineConfig({
           text: 'Business',
           items: [
             { text: 'computed', link: '/business/computed' },
-            { text: 'common', link: '/business/common' },
             { text: 'h5', link: '/business/h5' },
+            { text: 'wap', link: '/business/wap' },
             { text: '小程序', link: '/business/小程序' },
             { text: 'erp', link: '/business/erp' },
             { text: 'web', link: '/business/web' },
+            { text: 'jingjiangbang-pc', link: '/business/jingjiangbang-pc' },
             { text: 'nuxt', link: '/business/nuxt' },
             { text: '官网', link: '/business/官网' },
+            { text: '通用', link: '/business/通用' },
             { text: '开发账号', link: '/business/开发账号' },
             { text: '构建', link: '/business/构建' },
           ]
@@ -253,6 +255,7 @@ export default defineConfig({
             {  text: 'viewer.js', link: '/前端2/第三方库/viewer.js/viewer.js' },
             {  text: 'mockjs', link: '/前端2/第三方库/mockjs/mockjs' },
             {  text: 'html2canvas', link: '/前端2/第三方库/html2canvas/html2canvas' },
+            {  text: 'swiper', link: '/前端2/第三方库/swiper/swiper' },
             { 
               text: 'ECharts',
               collapsed: true,
@@ -265,6 +268,7 @@ export default defineConfig({
               ]
             },
             {  text: 'vconsole', link: '/前端2/第三方库/vconsole' },
+            {  text: '阿里云', link: '/前端2/第三方库/阿里云' },
           ]
         },
         { text: '文档参考', link: '/前端2/文档参考' },

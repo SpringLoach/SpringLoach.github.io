@@ -53,6 +53,112 @@ HTMLDivElement
 
 ## 高频场景
 
+### props
+
+```html
+<script lang="ts" setup>
+// =======  依赖引入  =======
+import { PropType } from 'vue'
+// =======  类型声明  =======
+type ProvinceType = {
+    name: string
+    left: number
+    bottom: number
+    data?: {
+        level: number
+        orderCountToday: number
+        oldOrderCountToday?: number
+        showCount: boolean
+        starLevel: number | null
+    }
+}
+// =======  变量声明  =======
+const props = defineProps({
+    // 不添加过于严格的约束
+    list: {
+        type: Array,
+        default: () => [],
+    },
+    // 比较规范的约束方式
+    provinceList: {
+        type: Array as PropType<ProvinceType[]>,
+        default: () => [],
+    },
+    // 也可以这样约束
+    srcGroup: {
+        type: Array as PropType<string[]>,
+        default: () => ['https://tu1.png', 'https://tu2.png', 'https://tu3.png'],
+    },
+    // 限制具体的值
+    diration: {
+        type: String as PropType<'left-to-right' | 'right-to-left'>,
+        default: 'left-to-right',
+    },
+})
+</script>
+```
+
+
+
+### emit
+
+```html
+<script lang="ts" setup>
+// =======  变量声明  =======
+const emit = defineEmits<{
+    // 不带参数
+    (_event: 'back'): void
+    // 可选参数
+    (_event: 'go', _val?: string): void
+    // 参数名是任意的
+    (_event: 'empty', _content: boolean): void
+    (_event: 'get-table-info', _item: string[]): void
+    (_event: 'update:modelValue', _content: string): void
+}>()
+    
+// =======  函数声明  =======
+function handleChange() {
+    emit('update:modelValue', '123')
+    emit('empty', false)
+}
+</script>
+```
+
+
+
+### reactive
+
+```javascript
+// =======  类型声明  =======
+type ProvinceType = {
+    name: string
+    left: number
+    bottom: number
+    data?: {
+        level: number
+        orderCountToday: number
+        oldOrderCountToday?: number
+        showCount: boolean
+        starLevel: number | null
+    }
+}
+// =======  变量声明  =======
+const state = reactive<{ imgList: string[]; provinceList: ProvinceType[] }>({
+    imgList: ['https://tu1.png', 'https://tu2.png', 'https://tu3.png'],
+    provinceList: [
+        {
+            name: '安徽省',
+            left: 824,
+            bottom: 312,
+        },
+    ],
+})
+```
+
+
+
+
+
 ### 定义固定的状态值
 
 ```typescript

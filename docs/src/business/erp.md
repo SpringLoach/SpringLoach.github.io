@@ -373,6 +373,19 @@ async downloadErrorList() {
 
 
 
+#### 关闭并返回列表
+
+```javascript
+closeAndBack() {
+    this.$store.dispatch('delView', this.$route).then(res => {
+        // this.$router.back()
+        this.$router.push('xxList')
+    })
+}
+```
+
+
+
 ### 组件
 
 #### 总览
@@ -423,6 +436,20 @@ operations\merchantOpertion\workOrder\MyWorkOrder\components\pendingList.vue
 src\views\workermanange\feeRefund\index.vue
 ```
 
+表格项格式化【师傅资质列表-职业证书-审核列表】
+
+```
+src\views\workermanange\qualificationExamineList\index.vue
+```
+
+批量勾选、批量勾选条件禁用【师傅资质列表-职业证书-审核列表】
+
+```
+src\views\workermanange\qualificationExamineList\index.vue
+```
+
+
+
 
 
 ##### 编辑
@@ -469,6 +496,12 @@ src\views\operations\activityCenterConfig\edit\editDialog.vue
 
 ```
 workermanange\workerOrderManange\workOrderDetail\components\abnormalDialog.vue
+```
+
+带分页日志弹窗【师傅资质列表-职业证书-审核列表-日志】
+
+```
+src\views\workermanange\qualificationExamineList\components\logDialog.vue
 ```
 
 确认删除弹窗【信用分/费用退款管理条例-费用退款规则-删除】
@@ -602,7 +635,7 @@ delectHandle(row) {
 <el-image
     v-for="item in imageList"
     :key="item"
-    style="width: 100px; height: 100px; margin-right: 10px; border-radius: 5px"
+    style="width: 100px; height: 100px; margin-right: 10px; border-radius: 5px; vertical-align: middle"
     :src="item"
     :preview-src-list="imageList"
 />
@@ -640,6 +673,44 @@ export default {
 ```
 
 
+
+#### 拨打电话
+
+**师傅-不带拨号**
+
+师傅管理-师傅自动指派
+
+```
+src\views\workermanange\designate.vue
+```
+
+**顾客-带拨号**
+
+发单竞品列表
+
+```
+src\views\businessmanage\appreciation\competitors\index\index.vue
+```
+
+**商家-带拨号**
+
+运营工单列表-详情
+
+```
+merchantOpertion\workOrder\details\components\modules\businessInfo.vue
+```
+
+
+
+
+
+#### 上传图片列表
+
+师傅资质列表-审核列表-新增/修改
+
+```
+src/views/workermanange/qualificationExamineList/page/examine/index.vue
+```
 
 
 

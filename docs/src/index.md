@@ -33,11 +33,4 @@ features:
 
 
 
-```
-Set-ExecutionPolicy Set-ExecutionPolicy
-```
-
-
-
-
 

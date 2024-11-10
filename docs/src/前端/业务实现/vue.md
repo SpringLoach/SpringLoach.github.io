@@ -1091,3 +1091,60 @@ provide() {
 inject: ['getMap']
 ```
 
+
+
+### 模块化在vue的应用
+
+`data.js`
+
+```javascript
+const totalList = [
+    { name: '向天哮', phone: '1122334', book: '开箱有奖' },
+]
+
+export default totalList
+```
+
+`demo.vue`
+
+```html
+<script>
+import totalList from './data'
+export default {
+    data() {
+        return {
+            list: totalList
+        }
+    }
+}
+</script>
+```
+
+
+
+### 兼容列表条件渲染
+
+```html
+<div v-if="demoList && demoList.length" class="full-item"></div>
+<!-- 等价写法 -->
+<div v-if="demoList?.length" class="full-item"></div>
+```
+
+```javascript
+data() {
+    return {
+        demoList: []
+    }
+}
+```
+
+
+
+
+
+
+
+
+
+
+

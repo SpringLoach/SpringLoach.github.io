@@ -52,23 +52,38 @@ orderData.orderType - 下单模式(商家端平台端不同？)
 
 pt-orderType
 
-| 平台 | **orderTypeCode** | **orderTypeName** |
-| ---- | ----------------- | ----------------- |
-| PT   | "0"               | 一口价模式        |
-| PT   | "1"               | 比价模式          |
-| PT   | "3"               | 议价模式          |
-| PT   | "2"               | 优享服务          |
-| SJ   |                   | 无                |
+| 平台 | **orderTypeCode** | **orderTypeName**  |
+| ---- | ----------------- | ------------------ |
+| PT   | "0"               | 一口价模式         |
+| PT   | "1"               | 比价模式           |
+| PT   | "3"               | 议价模式           |
+| PT   | "2"               | 优享服务           |
+| SJ   |                   | 无，视为只有一口价 |
+
+isBatchOrder
+
+| 平台  | orderData.isBatchOrder | 含义                  |
+| ----- | ---------------------- | --------------------- |
+| PT/SJ | 0                      | 单笔下单              |
+|       | ...                    | ...批量下单、工程项目 |
 
 
 
-师傅详情-师傅报价tab：只有报价单 才会有
+师傅详情-师傅报价tab：只有报价单【平台下单-比价模式-erp邀请师傅报价-师傅接收后】 才会有
 
 
 
 商家端下单-灯具类目特有页面出现条件：
 
 erp-商家端商家列表-编辑对应的商家信息-商家配置-【灯具是否单个界面下单】选是
+
+
+
+#### 下单地址
+
+```
+张三，18800000000，广东省 深圳市 宝安区 西乡街道宝安智谷创新科技园;
+```
 
 
 
@@ -102,7 +117,25 @@ src\views\placeOrderPlatform\popup\cookieRechargePopup.vue
 
 
 
+#### 异性弹窗（居中）
+
+```
+ptActivity\9thAnniversary\components\ninthLoginToReceive\components\loginReceivePop.vue
+```
+
+
+
+
+
 ### 特殊实现
+
+#### 跳转到下单页
+
+```
+ptActivity\9thAnniversary\components\ninthLoginToReceive\components\loginReceivePop.vue
+```
+
+
 
 #### 跳转到下单并选中特定商品类目
 
@@ -183,5 +216,21 @@ src\views\person\mymessage\list.vue
     }
 }
 </style>
+```
+
+
+
+#### 判断是否登录
+
+```
+src\views\ptActivity\9thAnniversary\components\registerReceive\index.vue
+```
+
+
+
+#### 曝光/点击埋点
+
+```
+src\views\ptActivity\9thAnniversary\components\ninthLoginToReceive\index.vue
 ```
 
