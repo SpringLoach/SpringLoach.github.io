@@ -13,7 +13,7 @@ while true; do
     echo "尝试执行git pull..."
     git pull
 
-    # 检查git push的退出状态
+    # 检查git pull的退出状态
     if [ $? -eq 0 ]; then
         echo "git pull 成功"
         break
