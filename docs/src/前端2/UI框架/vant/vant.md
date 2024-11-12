@@ -1,5 +1,3 @@
-
-
 ### 自定义输入文本域ui
 
 > 随输入字数定制统计字数颜色
@@ -160,3 +158,40 @@ app.use(ImagePreview);
 > 使用 `v-model` 绑定的字段，一开始都是正常双向绑定，后续在更新列表数据时，绑定失效；
 >
 > 排错：列表key值不唯一导致。
+
+
+
+### van-popup 修改自带关闭按钮样式
+
+> h5
+
+```html
+<van-popup
+    v-model="popupShow"
+    class="demo-popup"
+    closeable
+    close-icon="https://xx.png"
+>
+...
+</van-popup>
+
+<style lang="scss" scoped>
+.demo-popup ::v-deep {
+    border-radius: 18px 18px 0 0;
+    .van-popup__close-icon {
+        top: 38px;
+        right: 24px;
+        font-size: 0; // 重要
+        img {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
+</style>
+```
+
+
+
+
+

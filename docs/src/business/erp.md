@@ -44,7 +44,13 @@ getOrderDetail
 
 注意pc下单流程中，商品未必能在图库中展示，可以在商品名称唤出下拉框
 
+**修改账号外呼类型**
 
+外呼系统账号设置-编辑-修改对应的外呼系统，坐席ID找产品拿
+
+**配置商家的商品需要装前检测步骤**
+
+APP管理-装前检测/装后验收配置
 
 
 
@@ -231,6 +237,87 @@ export default {
 ```
 
 
+
+#### el-dialog懒加载处理
+
+① 通过 `:visible.sync` 绑定变量的弹窗，不能减少初始开销，它会被直接添加到 `dom` 结构上，只是不渲染；
+
+② 将弹窗迁移到子组件中，并使用 `v-if` 控制，可以避免一些变量、方法初始化占用内存的问题。
+
+**示例**
+
+`father.vue`
+
+```html
+<button @click="openDemoDialog(xxx)">打开弹窗</button>
+<demo-dialog v-if="showDemo" :record="record" @submit="handleDeomSave" @close="showDemo = false" />
+
+<script>
+export default {
+    components: {
+        demoDialog: () => import('./component/demoDialog.vue')
+    },
+    data() {
+        showDemo: false,
+        record: {}
+    },
+    methods: {
+        openDemoDialog(record) {
+            this.record = record
+        },
+        handleDeomSave() {
+            this.showDemo = false
+            // 额外交互，如列表刷新..
+        }
+    },
+}
+</script>
+```
+
+`son.vue`
+
+```html
+<el-dialog :visible.sync="showDemo" :before-close="close">
+    <div>demo </div>
+    <span slot="footer">
+        <el-button @click="close">取消</el-button>
+        <el-button @click="confirm">确定</el-button>
+    </span>
+</el-dialog>
+
+<script>
+export default {
+    props: {
+        record: {
+            type: Object,
+            required: true
+        },
+    },
+    data() {
+        showDemo: true
+    },
+    methods: {
+        // 核心，关闭变量必须由父组件控制，关闭后子组件直接销毁
+        close() {
+            this.$emit('close')
+        },
+        async confirm() {
+            const res = await apiDemo({})
+            if (res.data.code == 200) {
+                const result = res.data.data
+                this.$message.success('操作成功')
+                this.$emit('submit')
+            } else {
+                this.$message({
+                    type: 'error',
+                    message: res.data.msg
+                })
+            }
+        }
+    },
+}
+</script>
+```
 
 
 
