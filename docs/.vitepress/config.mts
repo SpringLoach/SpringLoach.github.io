@@ -222,6 +222,7 @@ export default defineConfig({
                   text: 'vue2', link: '/前端2/技术框架/Vue技术栈/vue2/知识沉淀' },
                 { text: 'vuex', link: '/前端2/技术框架/Vue技术栈/vuex/知识沉淀' },
                 { text: 'vue-router', link: '/前端2/技术框架/Vue技术栈/vue-router/知识沉淀' },
+                { text: '插件', link: '/前端2/技术框架/Vue技术栈/插件/插件' },
               ]
             },
             { 
