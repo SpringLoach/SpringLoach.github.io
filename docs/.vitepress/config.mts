@@ -61,7 +61,6 @@ export default defineConfig({
               text: '原生部分',
               collapsed: true,
               items: [
-                { text: '表单相关', link: '/前端/方法梳理/原生部分/表单相关' },
                 { text: '格式转换', link: '/前端/方法梳理/原生部分/格式转换' },
                 { text: '环境相关', link: '/前端/方法梳理/原生部分/环境相关' },
                 { text: '路由缓存', link: '/前端/方法梳理/原生部分/路由缓存' },
