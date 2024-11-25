@@ -741,6 +741,66 @@ export default {
 
 
 
+#### el-date-picker 同时禁用日期和时间
+
+```html
+<el-date-picker
+    v-model="demo"
+    type="datetime"
+    placeholder="选择日期时间"
+    :picker-options="pickerOptions"
+/>
+```
+
+```javascript
+data() {
+    return {
+        demo: '',
+        pickerOptions: {
+            disabledDate: () => {
+                const r = Math.random()
+                if (r > 0.5) {
+                    return true
+                }
+            },
+            // el-time-picker 中的配置，可以在这里生效
+            selectableRange: ['09:30:00 - 12:00:00', '14:30:00 - 18:30:00']
+        }
+    }
+}
+```
+
+
+
+#### el-date-picker 禁用过去的时间
+
+```html
+<el-date-picker
+    v-model="demo"
+    type="datetime"
+    placeholder="选择日期时间"
+    :picker-options="pickerOptions"
+/>
+```
+
+```javascript
+pickerOptions: {
+    disabledDate: time => {
+        // return time.getTime() < Date.now(); // 当天不可选
+        return time.getTime() < new Date().getTime() - 86400000 //  - 86400000是否包括当天
+    },
+    selectableRange: (() => {
+        const data = new Date()
+        const hour = data.getHours()
+        const minute = data.getMinutes()
+        const second = data.getSeconds()
+        return [`${hour}:${minute}:${second} - 23:59:59`]
+    })()
+}
+```
+
+
+
 #### 超出字数溢出隐藏&tooltip
 
 ```html
