@@ -426,3 +426,99 @@ if (fixEl && innerEl) {
 }
 ```
 
+
+
+### 曝光埋点思路
+
+> 这里以 vue2 引入的 elment 表格为例
+
+```html
+<el-table ref="tableRef">...</el-table>
+
+<script>
+export default {
+    data() {
+        return {
+            orderList: [] // 统计暴露在视野的条目序号(由1开始)
+        }
+    },
+    beforeDestroy() {
+        this.orderList = []
+        const tableEl = this.$refs.tableRef?.$el
+        const body = tableEl?.querySelector('.el-table__fixed-body-wrapper')
+        body.removeEventListener('scroll', this.handleScroll)
+    },
+    methods: {
+        // 获取数据后的 $nextTick 中调用
+        afterGetList() {
+            this.orderList = []
+            const tableEl = this.$refs.tableRef?.$el
+            if (!tableEl) {
+                return
+            }
+            const body = tableEl.querySelector('.el-table__fixed-body-wrapper')
+            // 立马获取一次暴露的条目
+            this.handleScroll()
+            body.addEventListener('scroll', this.handleScroll)
+        },
+        handleScroll() {
+            const tableEl = this.$refs.tableRef?.$el
+            const body = tableEl.querySelector('.el-table__fixed-body-wrapper')
+            const trEls = body.getElementsByClassName('el-table__row')
+            const scrollTop = body.scrollTop
+            const scrollFooterHeight = body.scrollTop + body.offsetHeight
+            let accumulatedHeight = 0
+            for (let i = 0; i < trEls.length; i++) {
+                const accumulatedFooterHeight = accumulatedHeight + trEls[i].offsetHeight
+                // 头在容器上边缘的上面，且脚在容器上边缘的下面
+                if (accumulatedHeight < scrollTop && accumulatedFooterHeight > scrollTop) {
+                    console.log('====-----i-----====', `第${i + 1}个符合情况1`)
+                    if (this.orderList.indexOf(i + 1) == -1) {
+                        this.orderList.push(i + 1)
+                    }
+                }
+                // 头在容器上边缘的下面，脚在容器下边缘的上面
+                if (accumulatedHeight >= scrollTop && accumulatedFooterHeight <= scrollFooterHeight) {
+                    console.log('====-----i-----====', `第${i + 1}个符合情况2`)
+                    if (this.orderList.indexOf(i + 1) == -1) {
+                        this.orderList.push(i + 1)
+                    }
+                }
+                // 脚在容器下边缘的下面，且头在容器下边缘的上面
+                if (accumulatedFooterHeight > scrollFooterHeight && accumulatedHeight < scrollFooterHeight) {
+                    console.log('====-----i-----====', `第${i + 1}个符合情况3`)
+                    if (this.orderList.indexOf(i + 1) == -1) {
+                        this.orderList.push(i + 1)
+                    }
+                }
+                accumulatedHeight += trEls[i].offsetHeight
+            }
+        }
+    }
+}
+</script>
+```
+
+**优化思路**
+
+> 当确定项的高度小于容器时，可以优化思路如下
+
+```javascript
+const ordersInfo = []
+for(let i = 0; i < rect.length; i++) {
+    const _ = rect[i]
+    // 脚在容器上边缘的下面
+    const condition1 = '..'
+    // 头在容器下边缘的上面
+    const condition2 = '..'
+    if (condition1 && condition2) {
+        ordersInfo.push(_)
+    }
+    // 当头在容器下边缘的下面，说明后面的项都不需要遍历了
+    const condition3 = _.top >= screenHeight
+    if (condition3) {
+        break
+    }
+}
+```
+

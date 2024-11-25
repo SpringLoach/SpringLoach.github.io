@@ -1140,6 +1140,52 @@ data() {
 
 
 
+### computed的get/set应用
+
+> 背景：更换组件后，发现原本绑定的是索引而非tab本身，且该索引应用到了非常多的位置，替换成本极高。
+
+```html
+<template>
+    <el-tabs v-model="currentTitle">
+        <el-tab-pane
+            v-for="item in workTitleList"
+            :key="item"
+            :label="item"
+            :name="item"
+        />
+    </el-tabs>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            workTitleList: ['苹果', '香蕉'],
+        }
+    },
+    props: {
+        // 激活索引
+        titleCurrentIndex: {
+            type: Number,
+            required: true
+        },
+    },
+    computed: {
+        currentTitle: {
+            get() {
+                return this.workTitleList[this.titleCurrentIndex]
+            },
+            set(item) {
+                const index = this.workTitleList.findIndex(name => name == item)
+                // 拿到index后，触发原本的点击逻辑
+                this.onClickTitle(index, item)
+            }
+        }
+    }
+}
+</script>
+```
+
 
 
 
