@@ -477,6 +477,73 @@ closeAndBack() {
 
 
 
+#### 表格翻页后置顶
+
+```javascript
+async getList() {
+    this.list = [] // [!code ++]
+    const res = await getList({})
+    this.list = res.data
+}
+```
+
+
+
+
+
+#### 返回列表保留定位
+
+点击查看详情后，返回到列表页，定位到原查看位置，不进行自动刷新置顶列表
+
+```javascript
+const tableOptions = {
+    keepScroll: true, // [!code ++]
+   // ...
+}
+```
+
+
+
+#### 列表查看后按钮置灰
+
+```html
+<lb-table :data="tableData">
+    <template #operate="{ row, $index }">
+        <el-button
+           :class="row.active ? 'btnActive' : ''"
+           type="text"
+           @click="clickView(row, $index)"
+         >查看</el-button>
+    </template>
+</lb-table>
+
+<script setup>
+async getList() {
+    const res = await getList({})
+    this.tableData = res.data
+     this.tableData.forEach(item => {
+        item.active = 0
+    })
+}
+function clickView(row, index) {
+    const list = JSON.parse(JSON.stringify(this.tableData))
+    list[index].active = 1
+    this.$nextTick(() => {
+        this.tableData = list
+    })
+    this.$router.push('/demo')
+}
+</script>
+
+<style scoped lang="scss">
+.btnActive {
+    color: #8e8e93;
+}
+</style>
+```
+
+
+
 ### 组件
 
 #### 总览
