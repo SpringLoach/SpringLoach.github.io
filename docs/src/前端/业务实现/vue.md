@@ -1188,6 +1188,41 @@ export default {
 
 
 
+### computed结合当前时间
+
+```html
+<script>
+export default {
+    data() {
+        return {
+            currentDate: new Date(),
+            cTime: null
+        }
+    },
+    computed: {
+        deadLineDay() {
+            const subTaskStartTime = '2025-01-28 00:00:00'
+            const startDate = new Date(subTaskStartTime.replace(/-/g, '/'))
+            return this.currentDate > startDate
+        }
+    },
+    mounted() {
+        this.getCurrentTime()
+    },
+    beforeDestroy() {
+        clearInterval(this.cTime)
+    },
+    methods: {
+        getCurrentTime() {
+            this.cTime = setInterval(() => {
+                this.currentDate = new Date()
+            }, 1000)
+        }
+    }
+}
+</script>
+```
+
 
 
 
