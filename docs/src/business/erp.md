@@ -1013,3 +1013,15 @@ export default {
 </el-tooltip>
 ```
 
+#### 通过promise添加中间态校验弹窗
+
+```
+src\views\businessmanage\appreciation\competitors\index\index.vue
+```
+
+```javascript
+const res = await this.$refs.assignValidRef.assignValid(params)
+```
+
+
+

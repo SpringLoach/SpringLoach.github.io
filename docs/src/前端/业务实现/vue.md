@@ -1225,6 +1225,119 @@ export default {
 
 
 
+### 通过 promise 添加中间态校验弹窗
+
+> 场景：已经有完善的校验和提交流程，需要在中间插入一个弹窗校验（可能出现），只有弹窗校验通过才继续往下走，否则保持原样。
+
+`父组件`
+
+```html
+<!-- 校验弹窗（子组件） -->
+<valid-dialog ref="validRef" />
+```
+
+```javascript
+async handleClickSave(flag) {
+    const res = await this.$refs.validRef.extraValid(params)
+    if (res != 'pass') {
+        return
+    }
+    // ..一些业务逻辑
+}
+```
+
+`子组件`
+
+```html
+<template>
+    <diy-dialog
+        ref="dialogRef"
+        title="温馨提示"
+        @confirm="confirm"
+        @cancel="cancel"
+        @close="close"
+    >
+        <div style="padding-bottom: 20px; text-align: center">请确保在{{ hours }}小时后{{ text }}</div>
+    </diy-dialog>
+</template>
+
+<script>
+import diyDialog from '@/components/diyDialog'
+import { demoApi } from '@/api/xx'
+
+export default {
+    components: {
+        diyDialog
+    },
+    data() {
+        return {
+            resolve: null,
+            reject: null,
+            hours: null,
+            text: '刷牙' // '跑步'
+        }
+    },
+    methods: {
+        async extraValid({ name, text }) {
+            if (!name) {
+                this.$message.warning('请先输入姓名')
+                return Promise.reject('cancel')
+            }
+            const params = {
+                name
+            }
+            const res = await demoApi(params)
+
+            if (res.data.code == 200) {
+                const result = res.data.data
+                this.hours = result.hours
+                if (!result.needMiddleValid) {
+                    return Promise.resolve('pass')
+                }
+            } else {
+                this.$message({
+                    type: 'error',
+                    message: res.data.msg
+                })
+                return Promise.reject('cancel')
+            }
+
+            this.text = text
+
+            this.$refs.dialogRef.showDialog()
+            const asyncFn = new Promise((resolve, reject) => {
+                this.resolve = resolve
+                this.reject = reject
+            })
+
+            const operateResult = await asyncFn.then(
+                () => {
+                    this.$refs.dialogRef.hideDialog()
+                    return 'pass'
+                },
+                err => {
+                    return 'cancel'
+                }
+            )
+
+            return operateResult
+        },
+        confirm() {
+            this.resolve()
+        },
+        cancel() {
+            this.reject()
+        },
+        close() {
+            this.reject()
+        }
+    }
+}
+</script>
+```
+
+
+
 
 
 

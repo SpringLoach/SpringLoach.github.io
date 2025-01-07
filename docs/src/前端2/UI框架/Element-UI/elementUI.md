@@ -910,6 +910,27 @@ this.value = `\n${remark}`
 
 
 
+#### el-popper 设置最大宽度
+
+> 想要实现宽度自适应，且存在最大宽度的效果，但是设置为 `width: auto` 后发现不生效
+
+```html
+<el-popover
+    placement="top-start"
+    trigger="hover"
+    popper-class="diy-popper"
+>...</el-popover>
+```
+
+```css
+.diy-popper.el-popper {
+    max-width: 613px !important;
+    width: fit-content !important;
+}
+```
+
+
+
 #### el-table 适配不同宽度
 
 在容器宽度较小时x列不至于换行/过窄，在宽度较大时x列能够自动适配为合适宽度
@@ -919,4 +940,128 @@ this.value = `\n${remark}`
     <el-table-column prop="id" label="编号" min-width="200" />
 </el-table>
 ```
+
+
+
+#### el-checkbox 实现三层嵌套
+
+> 最上层为全选，第二层为商品名称，第三层为商品规格
+
+**交互梳理**
+
+1. 需要在第一层添加一级添加绑定(选中)值和半选态（记录其下的二级是否全部<span style="color: red">完全选</span>）、二级映射数组（用于记录其下二级的选中情况）
+2. 需要在第二次添加半选态（记录其下的三级是否全选）、三级映射数组（用于记录其下三级的选中情况）
+
+当三级选择改变时
+
+- 改变二级选择的状态
+
+  - 如果三级全选，那么二级半选设置为false，二级映射数组中需要加入该二级
+  - 如果三级半选，那么二级半选设置为true，二级映射数组中需要加入该二级
+  - 如果三级未选，那么二级半选设置为false，二级映射数组中需要移除该二级
+
+- 重新计算一级选择态
+
+  - 重新设置一级添加绑定值
+    - 遍历其下的二级，如果其上的三级映射数组为全选，当前二级标识为pass，判断pass的二级标识是否等于二级总数量
+
+  - 重新设置一级半选态
+    - 一级添加绑定值为 false && 二级映射数组非空
+
+当二级选择改变时
+
+> 经测试，会先执行 `el-checkout` 上的 `@change` ，再执行 `el-checkbox-group` 上的 `@change`
+
+- 处理二级映射数组、二级半选态、三级、三级映射数组
+  - 首先，如果本身半选，那么三级全部选中，二级半选设置为false，二级映射数组中需要加入该二级
+  - 否则，如果本身全选，那么三级进行清空，二级半选设置为false，二级映射数组中需要移除该二级
+  - 否则，如果操作结果为选中，那么三级全部选中，二级半选设置为false
+  - 如果都不满足，将三级全部清空，二级半选设置为false
+
+- 重新计算一级选择态（跟上面同一个方法）
+
+当一级选择改变时
+
+- 一级半选设置为false
+- 如果操作结果为选中
+  - 二级映射数组全选，二级半选设置为false，三级映射数组全选
+- 如果操作结果为未选
+  - 二级映射数组清空，二级半选设置为false，三级映射数组清空
+
+
+
+**数据结构**
+
+> 实际上我这里遇到的数据结构要更复杂，分为了商品一/二/三级品类/服务类型四个层级的结构（还有全选二级品类功能夹在中间），但是通过重新赋值变量，在后续的处理中都不需要担忧双向绑定的问题；
+>
+> 唯一需要注意的是，在给列表遍历添加对象属性时，记得使用深拷贝以避免相互的影响；
+>
+> 这里以更通俗易懂的模型作为展示，但原理是一样的。
+
+```javascript
+{
+    label: '家具类',
+    checkAll: false, // 一级绑定值
+    indeterminate: false, // 一级是否半选
+    goodsIds: ['94507'], // 二级映射数组，即选中商品的id列表
+    goodsList: [], // 商品列表，即下面的一层
+}
+```
+
+```javascript
+[
+	...,
+    {
+      goodsId: '94507', // 商品id
+      goodsName: '星之灯具', // 商品名称
+      specList: [
+        { specName: '1个灯', specId: '1911' },
+        { specName: '2个灯', specId: '1912' },
+      ], // 规格列表
+      indeterminate: false, // 二级是否半选
+      mapArr: [], // 三级映射数组，即选中规格的id列表
+    }
+]
+```
+
+
+
+**标签结构**
+
+> 通过设置 `font-size` 的样式可以在 `el-checkbox-group` 中显示其他元素；这里省略了事件。
+
+```html
+<el-checkbox
+    v-model="checkAll"
+    :indeterminate="indeterminate"
+>
+    全选
+</el-checkbox>
+<el-checkbox-group v-model="goodsIds">
+    <div
+        v-for="(goodsObj, i) in goodsList"
+        :key="goodsObj.goodsId"
+        style="font-size: 14px"
+    >
+        <el-checkbox
+            :label="goodsObj.goodsId"
+            :indeterminate="goodsObj.indeterminate"
+            >{{ goodsObj.goodsName }}
+        </el-checkbox>
+        <span>选择规格：</span>
+        <el-checkbox-group
+            v-model="goodsObj.mapArr"
+        >
+            <el-checkbox
+                v-for="specObj in goodsObj.specList"
+                :key="specObj.specId"
+                :label="specObj.specId"
+                >{{ specObj.specName }}</el-checkbox
+            >
+        </el-checkbox-group>
+    </div>
+</el-checkbox-group>
+```
+
+
 

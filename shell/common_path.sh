@@ -1,5 +1,5 @@
 # 作为合并对象的测试分支
-target_test_branch=test_11.12
+target_test_branch=test_12.1
 
 # 函数：将字符串的首字母转换为小写
 # 参数 $1: 输入字符串
