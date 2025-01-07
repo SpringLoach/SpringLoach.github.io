@@ -1065,3 +1065,52 @@ this.value = `\n${remark}`
 
 
 
+#### el-table 样式调整
+
+> 标题内容居中、空数据样式、最大高度限制
+
+```html
+<el-table
+    class="diy-table"
+    :data="tableData"
+    border
+    stripe
+    max-height="400"
+    :header-cell-style="{ textAlign: 'center' }"
+    :cell-style="{ textAlign: 'center' }"
+>
+    <div slot="empty" class="empty-box">
+        <img :src="require('@/assets/images/empty.png')" />
+        <span class="empty-text">暂无数据</span>
+    </div>
+    <el-table-column property="noteName" label="姓名" />
+    <el-table-column property="createTime" label="日期" />
+    <el-table-column width="230" property="noteContent" label="备注" />
+</el-table>
+```
+
+```less
+.diy-table {
+    ::v-deep .el-table__empty-block {
+        width: 100% !important;
+    }
+    .empty-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 0 22px;
+        img {
+            width: 160px;
+            height: 160px;
+        }
+        .empty-text {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            color: #8e8e93;
+        }
+    }
+}
+```
+

@@ -175,6 +175,7 @@ export default defineConfig({
               collapsed: true,
               items: [
                 { text: '常用方法速查', link: '/前端/原生技术/javascript/常用方法速查' },
+                { text: '常见场景整理', link: '/前端/原生技术/javascript/常见场景整理' },
                 { text: 'ES Next', link: '/前端/原生技术/javascript/功能相关/ES Next' },
               ]
             },

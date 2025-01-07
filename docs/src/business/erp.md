@@ -113,6 +113,20 @@ const params = {
 
 
 
+时间字段展示
+
+```javascript
+{ label: 'xx时间', prop: 'xxTime', width: '180', className: 'lb-table-number-column' }
+```
+
+隐藏表格列
+
+[customHide](http://fe.dev.lbdj.net/ui/componentization.html#%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6)
+
+
+
+
+
 #### lb-table 复选框禁用
 
 `使用默认配置时，无法添加属性`
@@ -860,14 +874,63 @@ merchantOpertion\workOrder\details\components\modules\businessInfo.vue
 
 
 
-
-
 #### 上传图片列表
 
 师傅资质列表-审核列表-新增/修改
 
 ```
 src/views/workermanange/qualificationExamineList/page/examine/index.vue
+```
+
+
+
+#### 日志弹窗
+
+> 可以控制是否显示分页、定义传参和接口返回结构
+
+```
+src\views\operations\app\feedback\index.vue
+```
+
+`示例`
+
+```html
+<template>
+    <template #operate="scope">
+        <el-button type="text" @click="openLog(scope.row)">日志</el-button>
+    </template>
+    <!-- 日志弹窗 -->
+    <log-dialog v-if="logInfo.view" v-model="logInfo.view" :api="logInfo.api" :params="logInfo.params" />
+</template>
+
+<script>
+import { queryCertificateLogPage } from '@/api/worked' // todoMaster 替换
+export default {
+    components: {
+        'log-dialog': () => import('@/components/diyLogDialog/index.vue'),
+    },
+    data() {
+        return {
+            logInfo: {
+                view: false,
+                api: queryCertificateLogPage,
+                params: {},
+            }
+        }
+    },
+    methods: {
+        openLog(row) {
+            Object.assign(this.logInfo, {
+                view: true,
+                params: {
+                    type: 1,
+                    objectId: row.id
+                }
+            })
+        },
+    }
+}
+</script>
 ```
 
 
@@ -1005,6 +1068,14 @@ export default {
 />
 ```
 
+#### 输入框限制示例
+
+> 禁用表情包、前后空格、展示限制字数
+
+```html
+<el-input v-model.trim="demo" v-lb-input:emoji type="textarea" :rows="5" placeholder="请输入回复内容" maxlength="300" show-word-limit />
+```
+
 #### 超出字数溢出隐藏&tooltip
 
 ```html
@@ -1016,12 +1087,11 @@ export default {
 #### 通过promise添加中间态校验弹窗
 
 ```
-src\views\businessmanage\appreciation\competitors\index\index.vue
+src\views\order\popup\acrossAssign.vue
+src\views\order\components\assignValidDialog.vue
 ```
 
-```javascript
-const res = await this.$refs.assignValidRef.assignValid(params)
-```
+
 
 
 
