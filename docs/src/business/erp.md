@@ -119,7 +119,7 @@ const params = {
 { label: 'xx时间', prop: 'xxTime', width: '180', className: 'lb-table-number-column' }
 ```
 
-隐藏表格列
+动态展示表格列
 
 [customHide](http://fe.dev.lbdj.net/ui/componentization.html#%E8%A1%A8%E6%A0%BC%E7%BB%84%E4%BB%B6)
 
