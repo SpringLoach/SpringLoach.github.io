@@ -58,6 +58,10 @@ export default defineConfig({
           collapsed: true,
           items: [
             { 
+              text: '汇总',
+              link: '/前端/方法梳理/汇总'
+            },
+            { 
               text: '原生部分',
               collapsed: true,
               items: [
