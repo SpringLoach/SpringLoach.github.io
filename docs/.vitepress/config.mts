@@ -235,6 +235,10 @@ export default defineConfig({
               items: [
                 { text: '微信小程序', link: '/前端2/技术框架/微信小程序/微信小程序' },
               ]
+            },
+            {
+              text: '/前端2/技术框架/uni-app/原生转uni-app',
+              link: '原生转uni-app.md'
             }
           ]
         },
