@@ -237,8 +237,11 @@ export default defineConfig({
               ]
             },
             {
-              text: '/前端2/技术框架/uni-app/原生转uni-app',
-              link: '原生转uni-app.md'
+              text: 'uni-app',
+              collapsed: true,
+              items: [
+                {  text: '原生转uni-app', link: '/前端2/技术框架/uni-app/原生转uni-app' },
+              ]
             }
           ]
         },
