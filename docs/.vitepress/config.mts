@@ -228,6 +228,13 @@ export default defineConfig({
                 { text: 'vuex', link: '/前端2/技术框架/Vue技术栈/vuex/知识沉淀' },
                 { text: 'vue-router', link: '/前端2/技术框架/Vue技术栈/vue-router/知识沉淀' },
                 { text: '插件', link: '/前端2/技术框架/Vue技术栈/插件/插件' },
+                { 
+                  text: 'vue3',
+                  collapsed: true,
+                  items: [
+                    { text: '经验谈', link: '/前端2/技术框架/Vue技术栈/vue3/经验谈' }
+                  ]
+                }
               ]
             },
             { 
@@ -256,6 +263,8 @@ export default defineConfig({
                 { text: 'elementUI', link: '/前端2/UI框架/Element-UI/elementUI' },
               ]
             },
+            { 
+              text: 'Element-Plus', link: '/前端2/UI框架/Element-Plus/index' },
             { 
               text: 'vant', link: '/前端2/UI框架/vant/vant' },
           ]
