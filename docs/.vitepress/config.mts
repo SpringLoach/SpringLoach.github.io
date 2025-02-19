@@ -165,6 +165,7 @@ export default defineConfig({
                 { text: '样式速查表', link: '/前端/原生技术/css/原笔记/样式速查表' },
                 { text: '组合器', link: '/前端/原生技术/css/原笔记/组合器' },
                 { text: 'html-速查', link: '/前端/原生技术/css/原笔记/html-速查' },
+                { text: '初始化样式', link: '/前端/原生技术/css/样式相关/初始化样式' },
               ]
             },
             { 
