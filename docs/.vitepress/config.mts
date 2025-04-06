@@ -2,14 +2,13 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "master",
+  title: "前端文档",
   description: "Accumulate Steadily",
   srcDir: 'src',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '业务', link: '/business/computed' },
       {
         text: '前端',
         items: [
@@ -28,8 +27,8 @@ export default defineConfig({
           { text: '文档参考', link: '/前端2/文档参考' },
         ]
       },
+      { text: '业务', link: '/business/computed' },
       { text: '其他', link: '/expand/初始配置/计算机环境配置' },
-      { text: '开发账号', link: '/business/开发账号' }
     ],
 
     sidebar: {
