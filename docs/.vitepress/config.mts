@@ -10,7 +10,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '前端',
+        text: '原生/底层',
         items: [
           { text: '方法梳理', link: '/前端/方法梳理/原生部分/日期处理' },
           { text: '素养基石', link: '/前端/素养基石/网络/axios' },
@@ -27,7 +27,13 @@ export default defineConfig({
           { text: '文档参考', link: '/前端2/文档参考' },
         ]
       },
-      { text: '业务', link: '/business/computed' },
+      {
+        text: '编码相关',
+        items: [
+          { text: '编码助手', link: '/前端3/编码助手/computed'},
+          { text: '代码约束', link: '/前端3/代码约束/eslint'},
+        ]
+      },
       { text: '其他', link: '/expand/初始配置/计算机环境配置' },
     ],
 
@@ -295,6 +301,22 @@ export default defineConfig({
           ]
         },
         { text: '文档参考', link: '/前端2/文档参考' },
+      ],
+      '/前端3/': [
+        {
+          text: '编码助手',
+          link: '/前端3/编码助手/computed'
+        },
+        {
+          text: '代码约束',
+          collapsed: true,
+          items: [
+            { text: 'eslint', link: '/前端3/代码约束/eslint' },
+            { text: 'prettier', link: '/前端3/代码约束/prettier' },
+            { text: 'stylelint', link: '/前端3/代码约束/stylelint' },
+            { text: '编写eslint库', link: '/前端3/代码约束/编写eslint库' },
+          ]
+        },
       ],
       '/expand/': [
         {
