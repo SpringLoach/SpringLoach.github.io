@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Spring Loach"
-  text: "记录前端技术"
-  tagline: 服务器语言及数据库相关知识点击右上角的小鱼
+  text: "前端技术"
+  tagline: Every day is unmissable
   actions:
     - theme: brand
       text: 文档参考
