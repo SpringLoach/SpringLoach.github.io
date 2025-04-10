@@ -23,13 +23,13 @@ export default defineConfig({
           { text: '前端框架', link: '/前端2/前端框架/微信小程序/微信小程序' },
           { text: '样式框架', link: '/前端2/样式框架/Element-UI/elementUI' },
           { text: '第三方库', link: '/前端2/第三方库/viewer.js/viewer.js' },
-          // { text: '文档参考', link: '/前端2/文档参考' },
         ]
       },
       {
         text: '编码相关',
         items: [
           { text: '编码助手', link: '/前端3/编码助手/computed'},
+          { text: '版本控制', link: '/前端3/版本控制/git/命令速查'},
           { text: '代码约束', link: '/前端3/代码约束/eslint'},
           { text: '进阶处理', link: '/前端3/进阶处理/代码规范'},
         ]
@@ -37,7 +37,9 @@ export default defineConfig({
       {
         text: '其他',
         items: [
-          { text: '计算机环境配置', link: '/expand/初始配置/计算机环境配置'},
+          { text: '电脑环境', link: '/expand/电脑环境/初始环境'},
+          { text: '相关软件', link: '/expand/相关软件/markdown/markdown'},
+          { text: '风格规范', link: '/expand/文档相关/风格规范'},
           { text: '文档参考', link: '/expand/其他/文档参考'},
         ]
       },
@@ -296,6 +298,22 @@ export default defineConfig({
           link: '/前端3/编码助手/computed'
         },
         {
+          text: '版本控制',
+          collapsed: true,
+          items: [
+            { 
+              text: 'git',
+              items: [
+                { text: '命令速查', link: '/前端3/版本控制/git/命令速查' },
+                { text: 'git笔记-1', link: '/前端3/版本控制/git/git笔记/git笔记-1' },
+                { text: 'git笔记-2', link: '/前端3/版本控制/git/git笔记/git笔记-2' },
+                { text: 'git笔记-3', link: '/前端3/版本控制/git/git笔记/git笔记-3' },
+              ]
+            },
+            { text: 'svn', link: '/前端3/版本控制/svn/SVN' },
+          ]
+        },
+        {
           text: '代码约束',
           collapsed: true,
           items: [
@@ -318,57 +336,48 @@ export default defineConfig({
       ],
       '/expand/': [
         {
-          text: '初始配置',
+          text: '电脑环境',
           collapsed: true,
           items: [
-            { text: '计算机环境配置', link: '/expand/初始配置/计算机环境配置' },
-            { text: '编写规范', link: '/expand/初始配置/编写规范' },
+            { text: '初始环境', link: '/expand/电脑环境/初始环境' },
+            { text: '拓展操作', link: '/expand/电脑环境/拓展操作' },
           ]
         },
         {
-          text: '编程相关',
+          text: '相关软件',
           collapsed: true,
           items: [
-            { 
-              text: 'git',
-              items: [
-                { text: '速查', link: '/expand/相关技能/git/速查' },
-                { text: 'git学习', link: '/expand/相关技能/git/git学习/git学习' },
-                { text: 'git学习2', link: '/expand/相关技能/git/git学习/git学习2' },
-                { text: 'git学习3', link: '/expand/相关技能/git/git学习/git学习3' },
-              ]
-            },
-            { 
-              text: 'markdown', 
-              items: [
-                { text: 'markdown', link: '/expand/相关技能/markdown/markdown' },
-              ]
-            },
-            { text: 'svn', link: '/expand/相关技能/svn/SVN' },
-            { text: 'xmind', link: '/expand/相关技能/xmind/xmind' },
-            { text: 'v2rayN', link: '/expand/相关技能/v2rayN/v2rayN' },
-            { text: 'vitepress', link: '/expand/相关技能/vitepress/vitepress' },
-            { text: 'PicList', link: '/expand/相关技能/PicList/PicList' },
+            { text: 'markdown', link: '/expand/相关软件/markdown/markdown' },
+            { text: 'xmind', link: '/expand/相关软件/xmind/xmind' },
+            { text: 'v2rayN', link: '/expand/相关软件/v2rayN/v2rayN' },
+            { text: 'vitepress', link: '/expand/相关软件/vitepress/vitepress' },
+            { text: 'PicList', link: '/expand/相关软件/PicList/PicList' },
           ]
         },
         {
-          text: '烤冷面',
+          text: '文档相关',
           collapsed: true,
           items: [
-            { text: '待整理', link: '/expand/烤冷面/待整理' },
-            { text: '高频知识点', link: '/expand/烤冷面/高频知识点' },
-            { text: '核心问题', link: '/expand/烤冷面/核心问题' },
-            { text: '总结', link: '/expand/烤冷面/总结' },
+            { text: '风格规范', link: '/expand/文档相关/风格规范' },
+            { text: '编写规范', link: '/expand/文档相关/编写规范' },
           ]
         },
-        { text: '风格规范', link: '/expand/风格规范' },
-        { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },
-        { text: '有兴趣就研究', link: '/expand/有兴趣就研究' },
+        {
+          text: '面试经验',
+          collapsed: true,
+          items: [
+            { text: '待整理', link: '/expand/面试经验/待整理' },
+            { text: '高频知识点', link: '/expand/面试经验/高频知识点' },
+            { text: '核心问题', link: '/expand/面试经验/核心问题' },
+            { text: '总结', link: '/expand/面试经验/总结' },
+          ]
+        },
         {
           text: '其他',
           collapsed: true,
           items: [
             { text: '文档参考', link: '/expand/其他/文档参考'},
+            { text: '兴趣拓展', link: '/expand/其他/兴趣拓展' },
           ]
         },
       ]
