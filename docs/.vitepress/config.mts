@@ -13,7 +13,7 @@ export default defineConfig({
         text: '原生/底层',
         items: [
           { text: '方法梳理', link: '/前端/方法梳理/原生部分/日期处理' },
-          { text: '素养基石', link: '/前端/素养基石/网络/axios' },
+          { text: '素养基石', link: '/前端/素养基石/数据结构与算法/数组相关' },
           { text: '原生技术', link: '/前端/原生技术/css/样式相关/功能总结' },
         ]
       },
@@ -42,7 +42,6 @@ export default defineConfig({
         {
           text: 'Business',
           items: [
-            { text: 'computed', link: '/business/computed' },
             { text: 'h5', link: '/business/h5' },
             { text: 'wap', link: '/business/wap' },
             { text: '小程序', link: '/business/小程序' },
@@ -99,7 +98,6 @@ export default defineConfig({
               text: '业务实现',
               collapsed: true,
               items: [
-                { text: '兼容性', link: '/前端/业务实现/兼容性' },
                 { text: 'vue', link: '/前端/业务实现/vue' },
                 { text: '界面', link: '/前端/业务实现/界面' },
                 { text: 'dom', link: '/前端/业务实现/dom' },
@@ -130,15 +128,13 @@ export default defineConfig({
                 { text: 'section11', link: '/前端/素养基石/数据结构与算法/section11' },
                 { text: 'section12', link: '/前端/素养基石/数据结构与算法/section12' },
                 { text: '数组相关', link: '/前端/素养基石/数据结构与算法/数组相关' },
-                { text: '项目栗子', link: '/前端/素养基石/数据结构与算法/项目栗子' },
+                { text: '相关经验', link: '/前端/素养基石/数据结构与算法/相关经验' },
               ]
             },
             { 
               text: '网络',
               collapsed: true,
               items: [
-                { text: 'axios', link: '/前端/素养基石/网络/axios' },
-                { text: '路径处理', link: '/前端/素养基石/网络/路径处理' },
                 { text: '网络协议', link: '/前端/素养基石/网络/网络协议' },
               ]
             },
@@ -280,6 +276,7 @@ export default defineConfig({
           text: '第三方库',
           collapsed: true,
           items: [
+            {  text: 'axios.js', link: '/前端2/第三方库/axios/axios' },
             {  text: 'highlight.js', link: '/前端2/第三方库/highlight.js/highlight.js' },
             {  text: 'viewer.js', link: '/前端2/第三方库/viewer.js/viewer.js' },
             {  text: 'mockjs', link: '/前端2/第三方库/mockjs/mockjs' },
