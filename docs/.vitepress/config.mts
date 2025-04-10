@@ -20,11 +20,10 @@ export default defineConfig({
       { 
         text: '技术框架',
         items: [
-          { text: '代码规范', link: '/前端2/代码规范/代码规范'},
-          { text: '技术框架', link: '/前端2/技术框架/微信小程序/微信小程序' },
-          { text: 'UI框架', link: '/前端2/UI框架/Element-UI/elementUI' },
+          { text: '前端框架', link: '/前端2/前端框架/微信小程序/微信小程序' },
+          { text: '样式框架', link: '/前端2/样式框架/Element-UI/elementUI' },
           { text: '第三方库', link: '/前端2/第三方库/viewer.js/viewer.js' },
-          { text: '文档参考', link: '/前端2/文档参考' },
+          // { text: '文档参考', link: '/前端2/文档参考' },
         ]
       },
       {
@@ -32,9 +31,16 @@ export default defineConfig({
         items: [
           { text: '编码助手', link: '/前端3/编码助手/computed'},
           { text: '代码约束', link: '/前端3/代码约束/eslint'},
+          { text: '进阶处理', link: '/前端3/进阶处理/代码规范'},
         ]
       },
-      { text: '其他', link: '/expand/初始配置/计算机环境配置' },
+      {
+        text: '其他',
+        items: [
+          { text: '计算机环境配置', link: '/expand/初始配置/计算机环境配置'},
+          { text: '文档参考', link: '/expand/其他/文档参考'},
+        ]
+      },
     ],
 
     sidebar: {
@@ -201,40 +207,30 @@ export default defineConfig({
       ],
       '/前端2/': [
         {
-          text: '代码规范',
-          collapsed: true,
-          items: [
-            {  text: '代码规范', link: '/前端2/代码规范/代码规范' },
-            {  text: '兼容性', link: '/前端2/代码规范/兼容性' },
-            {  text: '性能优化', link: '/前端2/代码规范/性能优化' },
-            {  text: '安全性', link: '/前端2/代码规范/安全性' },
-          ]
-        },
-        {
-          text: '技术框架',
+          text: '前端框架',
           collapsed: true,
           items: [
             { 
               text: 'React',
               collapsed: true,
               items: [
-                { text: 'HOOK.md', link: '/前端2/技术框架/React技术栈/React/HOOK.md' },
+                { text: 'HOOK.md', link: '/前端2/前端框架/React技术栈/React/HOOK.md' },
               ]
             },
             { 
-              text: 'Vue技术栈',
+              text: 'Vue',
               collapsed: true,
               items: [
                 {
-                  text: 'vue2', link: '/前端2/技术框架/Vue技术栈/vue2/知识沉淀' },
-                { text: 'vuex', link: '/前端2/技术框架/Vue技术栈/vuex/知识沉淀' },
-                { text: 'vue-router', link: '/前端2/技术框架/Vue技术栈/vue-router/知识沉淀' },
-                { text: '插件', link: '/前端2/技术框架/Vue技术栈/插件/插件' },
+                  text: 'vue2', link: '/前端2/前端框架/Vue技术栈/vue2/知识沉淀' },
+                { text: 'vuex', link: '/前端2/前端框架/Vue技术栈/vuex/知识沉淀' },
+                { text: 'vue-router', link: '/前端2/前端框架/Vue技术栈/vue-router/知识沉淀' },
+                { text: '插件', link: '/前端2/前端框架/Vue技术栈/插件/插件' },
                 { 
                   text: 'vue3',
                   collapsed: true,
                   items: [
-                    { text: '经验谈', link: '/前端2/技术框架/Vue技术栈/vue3/经验谈' }
+                    { text: '经验谈', link: '/前端2/前端框架/Vue技术栈/vue3/经验谈' }
                   ]
                 }
               ]
@@ -243,33 +239,29 @@ export default defineConfig({
               text: '微信小程序',
               collapsed: true,
               items: [
-                { text: '微信小程序', link: '/前端2/技术框架/微信小程序/微信小程序' },
+                { text: '微信小程序', link: '/前端2/前端框架/微信小程序/微信小程序' },
               ]
             },
             {
               text: 'uni-app',
               collapsed: true,
               items: [
-                { text: '原生转uni-app', link: '/前端2/技术框架/uni-app/原生转uni-app' },
-                { text: '经验谈', link: '/前端2/技术框架/uni-app/经验谈' }
+                { text: '原生转uni-app', link: '/前端2/前端框架/uni-app/原生转uni-app' },
+                { text: '相关经验', link: '/前端2/前端框架/uni-app/相关经验' }
               ]
             }
           ]
         },
         {
-          text: 'UI框架',
+          text: '样式框架',
           collapsed: true,
           items: [
             { 
-              text: 'elementUI',
-              items: [
-                { text: 'elementUI', link: '/前端2/UI框架/Element-UI/elementUI' },
-              ]
-            },
+              text: 'Element-UI', link: '/前端2/样式框架/Element-UI/elementUI' },
             { 
-              text: 'Element-Plus', link: '/前端2/UI框架/Element-Plus/index' },
+              text: 'Element-Plus', link: '/前端2/样式框架/Element-Plus/index' },
             { 
-              text: 'vant', link: '/前端2/UI框架/vant/vant' },
+              text: 'Vant', link: '/前端2/样式框架/Vant/Vant' },
           ]
         },
         {
@@ -296,8 +288,7 @@ export default defineConfig({
             {  text: 'vconsole', link: '/前端2/第三方库/vconsole' },
             {  text: '阿里云', link: '/前端2/第三方库/阿里云' },
           ]
-        },
-        { text: '文档参考', link: '/前端2/文档参考' },
+        }
       ],
       '/前端3/': [
         {
@@ -312,6 +303,16 @@ export default defineConfig({
             { text: 'prettier', link: '/前端3/代码约束/prettier' },
             { text: 'stylelint', link: '/前端3/代码约束/stylelint' },
             { text: '编写eslint库', link: '/前端3/代码约束/编写eslint库' },
+          ]
+        },
+        {
+          text: '进阶处理',
+          collapsed: true,
+          items: [
+            {  text: '代码规范', link: '/前端3/进阶处理/代码规范' },
+            {  text: '兼容性', link: '/前端3/进阶处理/兼容性' },
+            {  text: '性能优化', link: '/前端3/进阶处理/性能优化' },
+            {  text: '安全性', link: '/前端3/进阶处理/安全性' },
           ]
         },
       ],
@@ -363,7 +364,13 @@ export default defineConfig({
         { text: '风格规范', link: '/expand/风格规范' },
         { text: '拓展知识技巧', link: '/expand/拓展知识技巧' },
         { text: '有兴趣就研究', link: '/expand/有兴趣就研究' },
-        { text: 'stone', link: '/expand/stone' },
+        {
+          text: '其他',
+          collapsed: true,
+          items: [
+            { text: '文档参考', link: '/expand/其他/文档参考'},
+          ]
+        },
       ]
     },
 
