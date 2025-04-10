@@ -334,11 +334,18 @@ export default defineConfig({
               ]
             },
             { 
+              text: '包管理器',
+              collapsed: true,
+              items: [
+                { text: 'nvm', link: '/前端2/开发工具链/包管理器/nvm' },
+                { text: 'npm', link: '/前端2/开发工具链/包管理器/npm' },
+                { text: 'pnpm', link: '/前端2/开发工具链/包管理器/pnpm' },
+              ]
+            },
+            { 
               text: '项目配置',
               collapsed: true,
               items: [
-                { text: 'nvm', link: '/前端2/开发工具链/项目配置/nvm' },
-                { text: 'npm', link: '/前端2/开发工具链/项目配置/npm' },
                 { text: 'package.json', link: '/前端2/开发工具链/项目配置/package.json' },
                 { text: 'postcss', link: '/前端2/开发工具链/项目配置/postcss' },
                 { text: 'prettier', link: '/前端2/开发工具链/项目配置/prettier' },
