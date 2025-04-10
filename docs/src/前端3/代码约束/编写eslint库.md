@@ -34,7 +34,7 @@ demo-tool
   // ...
   "name": "demo-tool",
   "main": "lib/index.js",
-    "peerDependencies": {
+  "peerDependencies": {
       "eslint": ">= 3"
    },
 }
@@ -392,7 +392,7 @@ module.exports = springloachTool.configs.stylelintConfig
 
 ### 方法拓展
 
-> 把方法也糅合到整个库，感觉方案不太妥当，像把所有东西都引到使用的组件中去了
+> 🐙把方法/指令也糅合到整个库，不太妥当，引入时会把整个库的内容引入；且这里是 CommonJs 写法，会导致很多黄色警告。
 
 ```
 - lib
@@ -525,7 +525,7 @@ app.mount('#app')
 `lib/directive/index.js`
 
 ```javascript
-import { isVue3 } from 'vue-demi'
+const vueDemi = require('vue-demi')
 
 const ccFunc = (el, binding) => {
     console.log(binding.value.color)
@@ -725,4 +725,101 @@ export default defineConfig({
 注意示例 `.md` 文件的正确性
 
 
+
+## 方法指令库
+
+> 使用 ES Model 组织代码
+
+目录结构
+
+```elm
+- lib
+  + directive
+    - index.js
+  + utils
+    - index.js
+  + index.js
+- package.json
+```
+
+
+
+<span style="color: #3a84aa">编写方法和指令</span>
+
+`lib/utils/index.js`
+
+```javascript
+function addOne(num) {
+    return num + 1
+}
+
+function addTwo(num) {
+    return num + 2
+}
+
+export default {
+    addOne,
+    addTwo
+}
+```
+
+`lib/directive/index.js`
+
+```javascript
+import { isVue3 } from 'vue-demi'
+
+const ccFunc = (el, binding) => {
+    console.log(binding.value.color)
+    console.log(binding.value.text)
+    if (isVue3) {
+        console.log('isVue3')
+    } else {
+        console.log('isVue2')
+    }
+}
+
+function directiveRegister(app, prefix = '') {
+    app.directive(prefix + 'cc', ccFunc)
+}
+export default {
+    directiveRegister
+}
+```
+
+
+
+<span style="color: #3a84aa">编写入口文件</span>
+
+`lib/index.js`
+
+```javascript
+import utils from './utils/index.js'
+import directive from './directive/index.js'
+
+export default {
+    utils,
+    directive
+}
+```
+
+
+
+<span style="color: #3a84aa">修改 package.json</span>
+
+`package.json`
+
+```json
+{
+  "name": "xxx",
+  "version": "0.0.3",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "vue-demi": "^0.14.6"
+  },
+  "license": "ISC"
+}
+```
 
