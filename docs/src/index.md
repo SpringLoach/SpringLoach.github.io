@@ -15,18 +15,18 @@ hero:
       link: https://huamujing.github.io/
 
 features:
-  - title: 编码调试
-    details: 包含大写-小写、驼峰-短横线互转、decodeURI解码等辅助编码方法，也有简便调试代码的方案
-  - title: css语法
-    details: 背景图覆盖元素、单行/多行溢出隐藏、占位符样式修改、滚动条隐藏等常见样式修改
-  - title: 原生常用方法
-    details: 格式转换、日期处理、字符串处理、正则语法等能够通过原生js方法实现的情景
-  - title: 进阶内容
-    details: 代码规范，构建工具、兼容性问题和性能优化
-  - title: 相关库和应用
-    details: 常见ui库的业务场景、各种开发工具库使用、相关辅助软件使用
-  - title: 经验积累
-    details: 对于复杂需求和有趣的交互，记录实现思路
+  - title: 基础部分
+    details: 包含原生语言JavaScript/TypeScript/CSS，底层相关知识如数据结构、网络、调试
+  - title: 常用代码
+    details: 使用频率较高的样式布局、工具方法和常见业务场景的实现
+  - title: 前端框架
+    details: 包括Vue2/3、React、微信小程序和uni-app及相关的UI库
+  - title: 编码相关
+    details: 版本控制、代码风格和约束、兼容性问题和性能优化
+  - title: 开发工具链
+    details: node.js生态下的脚手架、构建工具和项目配置
+  - title: 其他
+    details: 电脑开发环境配置和改善使用体验的技巧，以及开发常用的辅助软件&&参考文档
 ---
 
 

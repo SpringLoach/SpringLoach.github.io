@@ -230,9 +230,9 @@ console.log(result)
 
 
 
-# 附录
 
-参考资料
+
+# 参考
 
 - [esbuild官方文档](https://esbuild.github.io/getting-started/#install-esbuild)
 

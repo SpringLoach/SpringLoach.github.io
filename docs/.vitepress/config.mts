@@ -23,6 +23,7 @@ export default defineConfig({
           { text: '前端框架', link: '/前端2/前端框架/微信小程序/微信小程序' },
           { text: '样式框架', link: '/前端2/样式框架/Element-UI/elementUI' },
           { text: '第三方库', link: '/前端2/第三方库/viewer.js/viewer.js' },
+          { text: '开发工具链', link: '/前端2/开发工具链/脚手架/vite/文档&拓展' },
         ]
       },
       {
@@ -30,7 +31,7 @@ export default defineConfig({
         items: [
           { text: '编码助手', link: '/前端3/编码助手/computed'},
           { text: '版本控制', link: '/前端3/版本控制/git/命令速查'},
-          { text: '代码约束', link: '/前端3/代码约束/eslint'},
+          { text: '代码约束', link: '/前端3/代码约束/eslint/eslint'},
           { text: '进阶处理', link: '/前端3/进阶处理/代码规范'},
         ]
       },
@@ -77,11 +78,11 @@ export default defineConfig({
               text: '原生部分',
               collapsed: true,
               items: [
+                { text: '日期处理', link: '/前端/方法梳理/原生部分/日期处理' },
                 { text: '格式转换', link: '/前端/方法梳理/原生部分/格式转换' },
                 { text: '环境相关', link: '/前端/方法梳理/原生部分/环境相关' },
                 { text: '路由缓存', link: '/前端/方法梳理/原生部分/路由缓存' },
                 { text: '全局相关', link: '/前端/方法梳理/原生部分/全局相关' },
-                { text: '日期处理', link: '/前端/方法梳理/原生部分/日期处理' },
                 { text: '数字格式化', link: '/前端/方法梳理/原生部分/数字格式化' },
                 { text: '正则校验', link: '/前端/方法梳理/原生部分/正则校验' },
                 { text: '正则语法', link: '/前端/方法梳理/原生部分/正则语法' },
@@ -145,6 +146,10 @@ export default defineConfig({
               items: [
                 { text: '网络协议', link: '/前端/素养基石/网络/网络协议' },
               ]
+            },
+            { 
+              text: '调试',
+              link: '/前端/素养基石/调试/调试'
             },
           ]
         },
@@ -290,7 +295,68 @@ export default defineConfig({
             {  text: 'vconsole', link: '/前端2/第三方库/vconsole' },
             {  text: '阿里云', link: '/前端2/第三方库/阿里云' },
           ]
-        }
+        },
+        {
+          text: '开发工具链',
+          collapsed: true,
+          items: [
+            { 
+              text: '脚手架',
+              collapsed: true,
+              items: [
+                {
+                  text: 'webpack',
+                  collapsed: true,
+                  items: [
+                    { text: '文档梳理', link: '/前端2/开发工具链/脚手架/webpack/文档梳理' },
+                    { text: '常规梳理', link: '/前端2/开发工具链/脚手架/webpack/常规梳理' },
+                    { text: '示例&配置详解', link: '/前端2/开发工具链/脚手架/webpack/示例&配置详解' },
+                  ]
+                },
+                {
+                  text: 'vue-cli',
+                  collapsed: true,
+                  items: [
+                    { text: '文档&拓展', link: '/前端2/开发工具链/脚手架/vue-cli/文档&拓展' },
+                    { text: '常用配置字段', link: '/前端2/开发工具链/脚手架/vue-cli/常用配置字段' },
+                  ]
+                },
+                {
+                  text: 'vite',
+                  collapsed: true,
+                  items: [
+                    { text: '文档&拓展', link: '/前端2/开发工具链/脚手架/vite/文档&拓展' },
+                    { text: 'vite-插件体验(unitFit)', link: '/前端2/开发工具链/脚手架/vite/vite-插件体验(unitFit)' },
+                    { text: 'vite-插件体验(md)', link: '/前端2/开发工具链/脚手架/vite/vite-插件体验(md)' },
+                    { text: 'vite-插件体验(md-to-vue)', link: '/前端2/开发工具链/脚手架/vite/vite-插件体验(md-to-vue)' },
+                  ]
+                },
+              ]
+            },
+            { 
+              text: '项目配置',
+              collapsed: true,
+              items: [
+                { text: 'nvm', link: '/前端2/开发工具链/项目配置/nvm' },
+                { text: 'npm', link: '/前端2/开发工具链/项目配置/npm' },
+                { text: 'package.json', link: '/前端2/开发工具链/项目配置/package.json' },
+                { text: 'postcss', link: '/前端2/开发工具链/项目配置/postcss' },
+                { text: 'prettier', link: '/前端2/开发工具链/项目配置/prettier' },
+                { text: 'Browserslist', link: '/前端2/开发工具链/项目配置/Browserslist' },
+                { text: 'ES模块语法', link: '/前端2/开发工具链/项目配置/ES模块语法' },
+              ]
+            },
+            { 
+              text: '构建工具',
+              collapsed: true,
+              items: [
+                { text: 'esbuild', link: '/前端2/开发工具链/构建工具/esbuild' },
+                { text: 'gulp', link: '/前端2/开发工具链/构建工具/gulp' },
+                { text: 'rollup', link: '/前端2/开发工具链/构建工具/rollup' },
+              ]
+            },
+          ]
+        },
       ],
       '/前端3/': [
         {
@@ -317,9 +383,16 @@ export default defineConfig({
           text: '代码约束',
           collapsed: true,
           items: [
-            { text: 'eslint', link: '/前端3/代码约束/eslint' },
+            { 
+              text: 'eslint',
+              items: [
+                { text: 'eslint', link: '/前端3/代码约束/eslint/eslint' },
+                { text: '配置规则', link: '/前端3/代码约束/eslint/配置规则' },
+              ]
+            },
             { text: 'prettier', link: '/前端3/代码约束/prettier' },
             { text: 'stylelint', link: '/前端3/代码约束/stylelint' },
+            { text: 'husky', link: '/前端3/代码约束/husky' },
             { text: '编写eslint库', link: '/前端3/代码约束/编写eslint库' },
           ]
         },
@@ -331,6 +404,15 @@ export default defineConfig({
             {  text: '兼容性', link: '/前端3/进阶处理/兼容性' },
             {  text: '性能优化', link: '/前端3/进阶处理/性能优化' },
             {  text: '安全性', link: '/前端3/进阶处理/安全性' },
+          ]
+        },
+        {
+          text: '开发工具',
+          collapsed: true,
+          items: [
+            {  text: 'VSCode', link: '/前端3/开发工具/VSCode/VSCode' },
+            {  text: 'HBuilderX', link: '/前端3/开发工具/HBuilderX/HBuilderX' },
+            {  text: '微信开发者工具', link: '/前端3/开发工具/微信开发者工具/index' },
           ]
         },
       ],
@@ -352,6 +434,7 @@ export default defineConfig({
             { text: 'v2rayN', link: '/expand/相关软件/v2rayN/v2rayN' },
             { text: 'vitepress', link: '/expand/相关软件/vitepress/vitepress' },
             { text: 'PicList', link: '/expand/相关软件/PicList/PicList' },
+            { text: 'Snipaste', link: '/expand/相关软件/Snipaste' },
           ]
         },
         {

@@ -25,31 +25,32 @@
 
 #### 快捷键  
 
-|        输入/操作         |             说明             |
-| :----------------------: | :--------------------------: |
-|       `Ctrl` + `[`       |         左缩进选中行         |
-|       `Ctrl` + `/`       |          注释选中行          |
-|  `Alt` + `Shift` + `A`   |         注释选中内容         |
-|  `Shift` + `Alt` + `↓`   |        快速复制选中行        |
-|  `Alt` + `Shift` + `F`   |            格式化            |
-|       `Ctrl` + `~`       |        打开/关闭终端         |
-|       `Ctrl` + `F`       |          文档内匹配          |
-|       `Ctrl` + `B`       |     打开/关闭资源管理器      |
-|       `Ctrl` + `G`       |     快速切换到第 `N` 行      |
-|       `Ctrl` + `P`       |        匹配文件名索引        |
-|       `Ctrl` + `↓`       |    同时移动光标和文档视窗    |
-|       `Alt` + `↓`        |    本行代码与下行代码替换    |
-|     `Alt` + `Enter`      |        选中所有匹配项        |
-| `Ctrl` + `Alt` + `Enter` |      [新版]确认全局替换      |
-|     `Alt` + `滚轮下`     |       更大幅度下滑页面       |
-|       log + `Tab`        |        console.log()         |
-|         div#demo         |  `<div id="demo"\></div\>`   |
-|         div.demo         | `<div class="demo"\></div\>` |
-|           a\*3           |           3个a标签           |
-|         ul>li\*3         |        3个li的ul列表         |
-|     ul>li{text}\*100     |    ul带100个默认文本的li     |
-|    bgc + `↓` + `Tab`     |      backgroundcolor: ;      |
-|      fontz + `Tab`       |         font-size: ;         |
+|                 输入/操作                  |             说明             |
+| :----------------------------------------: | :--------------------------: |
+| `Ctrl` + `Shift` + `P`  输入 Reload Window |          重启编辑器          |
+|                `Ctrl` + `[`                |         左缩进选中行         |
+|                `Ctrl` + `/`                |          注释选中行          |
+|           `Alt` + `Shift` + `A`            |         注释选中内容         |
+|           `Shift` + `Alt` + `↓`            |        快速复制选中行        |
+|           `Alt` + `Shift` + `F`            |            格式化            |
+|                `Ctrl` + `~`                |        打开/关闭终端         |
+|                `Ctrl` + `F`                |          文档内匹配          |
+|                `Ctrl` + `B`                |     打开/关闭资源管理器      |
+|                `Ctrl` + `G`                |     快速切换到第 `N` 行      |
+|                `Ctrl` + `P`                |        匹配文件名索引        |
+|                `Ctrl` + `↓`                |    同时移动光标和文档视窗    |
+|                `Alt` + `↓`                 |    本行代码与下行代码替换    |
+|              `Alt` + `Enter`               |        选中所有匹配项        |
+|          `Ctrl` + `Alt` + `Enter`          |      [新版]确认全局替换      |
+|              `Alt` + `滚轮下`              |       更大幅度下滑页面       |
+|                log + `Tab`                 |        console.log()         |
+|                  div#demo                  |  `<div id="demo"\></div\>`   |
+|                  div.demo                  | `<div class="demo"\></div\>` |
+|                    a\*3                    |           3个a标签           |
+|                  ul>li\*3                  |        3个li的ul列表         |
+|              ul>li{text}\*100              |    ul带100个默认文本的li     |
+|             bgc + `↓` + `Tab`              |      backgroundcolor: ;      |
+|               fontz + `Tab`                |         font-size: ;         |
 
 #### 更改缩进 
 
@@ -108,30 +109,6 @@ The language client requires VS Code version ^1.82.0 but received version 1.78.0
 |   :palm_tree:   |   `:palm_tree:`   |    翻译，解释    |
 |    :whale2:     |    `:whale2:`     |    栗子，示例    |
 | :grey_question: | `:grey_question:` |       疑问       |
-
-#### 表格数据转换工具  
-
-> 可以将表格转化为数组或对象，以 JS 或 JSON 形式输出，见[网站](https://echarts.apache.org/zh/spreadsheet.html)。  
-
-#### 表单构建结合elemnt生成Vue   
-
-> 可以[自定义表单](https://demo.django-vue-admin.com/tool/build)，转换为使用element构建的 Vue 文档，可选择弹窗或页面类型。    
->
-> 系统构建 -> 表单构建  
-
-#### 截图提色工具  
-
-> [Snipaste](https://www.snipaste.com/)  
-
-下载后，解压，点击Snipaste图标，即可出现在后台并可使用。  
-
-|  输入/操作  |      说明      |
-| :---------: | :------------: |
-| F1 \+ 回车  |      截图      |
-|   F1 \+ c   |   获取颜色值   |
-| F1 \+ Shift | 切换颜色值类型 |
-|     F3      |      贴图      |
-|     Esc     |    关闭贴图    |
 
 
 
