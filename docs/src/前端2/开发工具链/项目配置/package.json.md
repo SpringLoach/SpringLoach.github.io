@@ -112,6 +112,8 @@ npm install npm-run-all -S -D
 }
 ```
 
+> 含义是**将该 Node.js 项目标记为使用 ECMAScript 模块规范**，而不是传统的 CommonJS 模块系统。这一配置会改变 Node.js 对 `.js` 文件的默认解析方式。
+
 
 
 ### 库的入口文件

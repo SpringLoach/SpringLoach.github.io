@@ -508,6 +508,122 @@ export default {
 
 
 
+## 将 src 文件转化为es和lib文件
+
+<span style="color: #3a84aa">Rollup 可以进行更复杂的打包</span>（如代码压缩、依赖外置等）
+
+```elm
+npm install rollup @rollup/plugin-babel @rollup/plugin-node-resolve -D
+```
+
+
+
+```elm
+- utils
+  + es
+  + lib
+  + src
+    - index.js
+  + package.json
+  + rollup.config.mjs
+```
+
+
+
+<span style="color: #3a84aa">写个方法使用 `ESModule` 导出</span>
+
+`src/index.js`
+
+```javascript
+// 一个简单的工具函数
+export const greet = (name) => `Hello, ${name}!`;
+```
+
+
+
+<span style="color: #3a84aa">编写打包配置</span>
+
+`rollup.config.mjs`
+
+> 命名为 `.mjs`，将文件视为使用 `ESModule` 语法。
+
+```javascript
+import { babel } from "@rollup/plugin-babel";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+
+export default [
+  // ESM 配置
+  {
+    input: "src/index.js",
+    output: {
+      dir: "es",
+      format: "esm",
+    },
+    plugins: [babel({ babelHelpers: "bundled" }), nodeResolve()],
+  },
+  // CJS 配置
+  {
+    input: "src/index.js",
+    output: {
+      dir: "lib",
+      format: "cjs",
+    },
+    plugins: [babel({ babelHelpers: "bundled" }), nodeResolve()],
+  },
+];
+```
+
+
+
+<span style="color: #3a84aa">编写package.json</span>
+
+`package.json`
+
+```json
+{
+  "name": "demoUtils",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "rollup": "^4.39.0"
+  }
+}
+```
+
+<span style="color: #3a84aa">`main` 的含义</span>
+
+指定 CommonJS 模块的入口文件，供 Node.js 或传统打包工具使用
+
+<span style="color: #3a84aa">`module` 的含义</span>
+
+指定 ES Module 入口文件，供现代打包工具（如 Vite、Rollup）使用
+
+<span style="color: #3a84aa">`files` 的含义</span>
+
+只有列出的文件会被发布到 npm
+
+
+
+<span style="color: #3a84aa">执行打包配置</span>
+
+> 将在目录下生成所需要的 lib 和 es 文件夹
+
+```shell
+npm run build
+```
+
+
+
 ## 生成bundle规律总结
 
 - 编写源码（作为配置入口）使用 es 语法，编写配置使用 commonJs 语法，可以生成 bundle 
@@ -558,8 +674,4 @@ export default {
 - [es6模块打包之rollup](https://blog.csdn.net/whl0071/article/details/128411677)
 
 
-
-## 补充的话
-
-如果这篇笔记能够帮助到你，请帮忙在 github 上点亮 `star`，这对我非常重要，感谢！
 

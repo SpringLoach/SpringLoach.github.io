@@ -362,6 +362,19 @@ export default defineConfig({
                 { text: 'rollup', link: '/前端2/开发工具链/构建工具/rollup' },
               ]
             },
+            { 
+              text: '代码管理策略',
+              collapsed: true,
+              items: [
+                {
+                  text: 'Monorepo',
+                  items: [
+                    { text: '概念', link: '/前端2/开发工具链/代码管理策略/Monorepo/概念' },
+                    { text: '简单实例', link: '/前端2/开发工具链/代码管理策略/Monorepo/简单实例' }
+                  ]
+                },
+              ]
+            },
           ]
         },
       ],
