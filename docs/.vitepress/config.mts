@@ -57,7 +57,6 @@ export default defineConfig({
             { text: 'erp', link: '/business/erp' },
             { text: 'web', link: '/business/web' },
             { text: 'jingjiangbang-pc', link: '/business/jingjiangbang-pc' },
-            { text: 'nuxt', link: '/business/nuxt' },
             { text: '官网', link: '/business/官网' },
             { text: '通用', link: '/business/通用' },
             { text: '开发账号', link: '/business/开发账号' },
@@ -256,7 +255,17 @@ export default defineConfig({
                 { text: '原生转uni-app', link: '/前端2/前端框架/uni-app/原生转uni-app' },
                 { text: '相关经验', link: '/前端2/前端框架/uni-app/相关经验' }
               ]
-            }
+            },
+            { 
+              text: 'Nuxt3',
+              collapsed: true,
+              items: [
+                { text: '概念', link: '/前端2/前端框架/Nuxt/Nuxt3/概念' },
+                { text: '简化示例', link: '/前端2/前端框架/Nuxt/Nuxt3/简化示例' },
+                { text: '创建项目', link: '/前端2/前端框架/Nuxt/Nuxt3/创建项目' },
+                { text: '相关经验', link: '/前端2/前端框架/Nuxt/Nuxt3/相关经验' },
+              ]
+            },
           ]
         },
         {
