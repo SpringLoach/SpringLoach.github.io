@@ -29,15 +29,25 @@ npm install axios --registry=https://registry.npmmirror.com
 
 #### 修改默认下载源
 
-```sh
-npm config set registry https://registry.npmmirror.com
-```
-
-> 默认源地址为 `https://registry.npmjs.org`
+获取当前配置源
 
 ```sh
 npm config get registry
 ```
+
+设置为淘宝源
+
+```sh
+npm config set registry https://registry.npmmirror.com
+```
+
+设置为默认源
+
+```sh
+npm config set registry https://registry.npmjs.org/
+```
+
+
 
 
 

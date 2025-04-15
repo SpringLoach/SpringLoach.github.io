@@ -32,7 +32,7 @@ export default defineConfig({
           { text: '编码助手', link: '/前端3/编码助手/computed'},
           { text: '版本控制', link: '/前端3/版本控制/git/命令速查'},
           { text: '代码约束', link: '/前端3/代码约束/eslint/eslint'},
-          { text: '进阶处理', link: '/前端3/进阶处理/代码规范'},
+          { text: '进阶处理', link: '/前端3/进阶处理/兼容性'},
         ]
       },
       {
@@ -236,7 +236,8 @@ export default defineConfig({
                   text: 'vue3',
                   collapsed: true,
                   items: [
-                    { text: '经验谈', link: '/前端2/前端框架/Vue技术栈/vue3/经验谈' }
+                    { text: '对比vue2', link: '/前端2/前端框架/Vue技术栈/vue3/对比vue2' },
+                    { text: '经验谈', link: '/前端2/前端框架/Vue技术栈/vue3/经验谈' },
                   ]
                 }
               ]
@@ -429,10 +430,10 @@ export default defineConfig({
           text: '进阶处理',
           collapsed: true,
           items: [
-            {  text: '代码规范', link: '/前端3/进阶处理/代码规范' },
             {  text: '兼容性', link: '/前端3/进阶处理/兼容性' },
             {  text: '性能优化', link: '/前端3/进阶处理/性能优化' },
             {  text: '安全性', link: '/前端3/进阶处理/安全性' },
+            {  text: '代码规范', link: '/前端3/进阶处理/代码规范' },
           ]
         },
         {
