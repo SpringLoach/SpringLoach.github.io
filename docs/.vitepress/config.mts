@@ -220,7 +220,11 @@ export default defineConfig({
               text: 'React',
               collapsed: true,
               items: [
-                { text: 'HOOK.md', link: '/前端2/前端框架/React技术栈/React/HOOK.md' },
+                { text: 'HOOK', link: '/前端2/前端框架/React技术栈/React/HOOK.md' },
+                { text: '组件', link: '/前端2/前端框架/React技术栈/React/基础/01-组件' },
+                { text: 'JSX', link: '/前端2/前端框架/React技术栈/React/基础/02-JSX' },
+                { text: '传递数据', link: '/前端2/前端框架/React技术栈/React/基础/03-传递数据' },
+                { text: '条件&列表渲染', link: '/前端2/前端框架/React技术栈/React/基础/04-条件&列表渲染' },
               ]
             },
             { 

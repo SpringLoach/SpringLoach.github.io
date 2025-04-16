@@ -17,9 +17,16 @@
 | Vue3 | 多根节点组件    | 新增                                                  |
 | Vue2 | TypeScript 支持 | 需要额外装饰器                                        |
 | Vue3 | TypeScript 支持 | 完全用 TypeScript 重写；更好的类型推导；完整的TSX支持 |
+| Vue2 | data选项        | data选项允许使用对象/函数                             |
+| Vue3 | data选项        | data选项只能使用函数                                  |
+| Vue2 | 全局变量        | Vue.prototype                                         |
+| Vue3 | 全局变量        | app.config.globalProperties                           |
+| Vue2 | 状态管理        | VueX                                                  |
+| Vue3 | 状态管理        | 推荐 Pinia                                            |
 | Vue3 | 破坏性变化      | `v-model` 语法变更                                    |
 | Vue3 | 破坏性变化      | 事件API (`$on`, `$off` 移除)                          |
 | Vue3 | 破坏性变化      | 过滤器(filter)移除，建议使用计算属性/方法代替         |
+| Vue3 | 破坏性变化      | 组合式API 不支持 `$parent` 和 `$children`             |
 
 
 
