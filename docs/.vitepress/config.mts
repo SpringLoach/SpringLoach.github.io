@@ -173,13 +173,14 @@ export default defineConfig({
                 { text: '动画库', link: '/前端/原生技术/css/原笔记/动画库' },
                 { text: '对齐', link: '/前端/原生技术/css/原笔记/对齐' },
                 { text: '功能集结', link: '/前端/原生技术/css/原笔记/功能集结' },
-                { text: '媒体查询', link: '/前端/原生技术/css/原笔记/媒体查询' },
+                { text: 'normalize.css', link: '/前端/原生技术/css/样式相关/normalize.css.md' },
                 { text: '响应式布局', link: '/前端/原生技术/css/原笔记/响应式布局' },
                 { text: '样式速查表', link: '/前端/原生技术/css/原笔记/样式速查表' },
                 { text: '组合器', link: '/前端/原生技术/css/原笔记/组合器' },
                 { text: 'html-速查', link: '/前端/原生技术/css/原笔记/html-速查' },
                 { text: '初始化样式', link: '/前端/原生技术/css/样式相关/初始化样式' },
                 { text: '布局问题', link: '/前端/原生技术/css/样式相关/布局问题' },
+                { text: '媒体查询', link: '/前端/原生技术/css/原笔记/媒体查询' },
               ]
             },
             { 
@@ -220,11 +221,16 @@ export default defineConfig({
               text: 'React',
               collapsed: true,
               items: [
-                { text: 'HOOK', link: '/前端2/前端框架/React技术栈/React/HOOK.md' },
                 { text: '组件', link: '/前端2/前端框架/React技术栈/React/基础/01-组件' },
                 { text: 'JSX', link: '/前端2/前端框架/React技术栈/React/基础/02-JSX' },
                 { text: '传递数据', link: '/前端2/前端框架/React技术栈/React/基础/03-传递数据' },
                 { text: '条件&列表渲染', link: '/前端2/前端框架/React技术栈/React/基础/04-条件&列表渲染' },
+                { text: '纯函数', link: '/前端2/前端框架/React技术栈/React/基础/05-纯函数' },
+                { text: '事件处理函数', link: '/前端2/前端框架/React技术栈/React/基础/06-事件处理函数' },
+                { text: 'state', link: '/前端2/前端框架/React技术栈/React/基础/07-state' },
+                { text: 'state的定义处理', link: '/前端2/前端框架/React技术栈/React/基础/08-state的定义处理' },
+                { text: 'Reducer', link: '/前端2/前端框架/React技术栈/React/基础/09-Reducer' },
+                { text: 'ref', link: '/前端2/前端框架/React技术栈/React/基础/10-ref' },
               ]
             },
             { 
@@ -331,6 +337,7 @@ export default defineConfig({
                   text: 'vue-cli',
                   collapsed: true,
                   items: [
+                    { text: '创建项目', link: '/前端2/开发工具链/脚手架/vue-cli/创建项目' },
                     { text: '文档&拓展', link: '/前端2/开发工具链/脚手架/vue-cli/文档&拓展' },
                     { text: '常用配置字段', link: '/前端2/开发工具链/脚手架/vue-cli/常用配置字段' },
                   ]
@@ -339,6 +346,7 @@ export default defineConfig({
                   text: 'vite',
                   collapsed: true,
                   items: [
+                    { text: '创建项目', link: '/前端2/开发工具链/脚手架/vite/创建项目' },
                     { text: '文档&拓展', link: '/前端2/开发工具链/脚手架/vite/文档&拓展' },
                     { text: 'vite-插件体验(unitFit)', link: '/前端2/开发工具链/脚手架/vite/vite-插件体验(unitFit)' },
                     { text: 'vite-插件体验(md)', link: '/前端2/开发工具链/脚手架/vite/vite-插件体验(md)' },
