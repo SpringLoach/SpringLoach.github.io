@@ -1,23 +1,24 @@
-### 局部变量不适应于交互
+### 局部变量不适用于交互
 
-| 特性                 | 说明       |                                                  |
-| -------------------- | ---------- | ------------------------------------------------ |
-| 局部变量             | 适用场景   | 单个事件处理函数，**无需重新渲染**               |
-|                      | 不适用场景 | 需重新渲染。用于实现交互将失效，无法触发组件变化 |
-|                      | 原因       | ① 局部变量无法在多次渲染中持久保存               |
-|                      |            | ② 更改局部变量不会触发渲染                       |
-| 要使用新数据更新组件 | ① 保留     | 渲染之间的数据                                   |
-|                      | ② 触发     | React 使用新数据渲染组件（重新渲染）             |
+| 特性     | 说明             |                                                  |
+| -------- | ---------------- | ------------------------------------------------ |
+| 局部变量 | 适用场景         | 单个事件处理函数，**无需重新渲染**               |
+|          | 不适用场景       | 需重新渲染。用于实现交互将失效，无法触发组件变化 |
+|          | 原因             | ① 局部变量无法在多次渲染中持久保存               |
+|          |                  | ② 更改局部变量不会触发渲染                       |
+| useState | 用新数据更新组件 | ① 保留 渲染之间的数据                            |
+|          |                  | ② 触发 React 使用新数据渲染组件（重新渲染）      |
 
 ```jsx
 const demoList = [1, 2, 3]
 
+// 点击按钮无反应
 export default function Gallery() {
-  let index = 0;
+  let index = 0; // [!code warning]
 
-  function handleClick() {
-    index = index + 1;
-  }
+  function handleClick() { // [!code warning]
+    index = index + 1; // [!code warning]
+  } // [!code warning]
 
   let showCount = demoList[index];
   return (
@@ -112,8 +113,8 @@ function Gallery() {
 export default function GalleryList() {
   return (
     <>
-      <Gallery />
-      <Gallery />
+      <Gallery /> // [!code warning]
+      <Gallery /> // [!code warning]
     </>
   );
 }
@@ -136,12 +137,12 @@ React 就是一名服务员，他会帮客户们下单并为他们送来所点�
 |              | 组件（或其祖先）的<span style="color: green">状态发生变化</span> |                                                              |
 | 渲染方式     | ① 初次渲染                                                   | 调用根组件                                                   |
 |              | ② 后续渲染                                                   | 调用内部状态更新触发了渲染的函数组件                         |
-|              | 特点                                                         | 如果更新后的组件返回另外的组件，会递归渲染直至叶子组件       |
+|              | 特点                                                         | 更新后的组件若返回其他组件，递归渲染直至叶子组件             |
 | 渲染行为     | ① 初次渲染                                                   | React 使用 `appendChild()` 将创建的所有 DOM 节点放到屏幕     |
 |              | ② 后续渲染                                                   | 应用最少的必要操作，以使得 DOM 与最新的渲染输出相互匹配      |
 |              | 特点                                                         | 仅在渲染之间<span style="color: green">存在差异时才会更改 DOM 节点</span> |
 | 相关计算     | 在一次重渲染过程中                                           | React 将计算它们的哪些属性自上次渲染以来已更改               |
-|              |                                                              | 在下一步（提交阶段）前，不会对这些信息执行任何操作           |
+|              |                                                              | 在下一步（提交）前，不会对这些信息执行任何操作               |
 | 性能问题     | 渲染相关[性能问题方案](https://legacy.reactjs.org/docs/optimizing-performance.html) |                                                              |
 
 
@@ -163,8 +164,8 @@ function Image() {
 }
 
 
-const root = createRoot(document.getElementById('root'))
-root.render(<Image />);
+const root = createRoot(document.getElementById('root')) // [!code warning]
+root.render(<Image />); // [!code warning]
 ```
 
 
@@ -206,7 +207,7 @@ export default function Clock({ time }) {
 ```[同步修改]jsx
 import { useState } from 'react';
 
-// 首次点击将输出 1
+// 首次点击将渲染 1 // [!code warning]
 export default function Counter() {
   const [number, setNumber] = useState(0);
 
@@ -243,9 +244,9 @@ export default function Counter() {
       <h1>{number}</h1>
       <button onClick={() => {
         setNumber(number + 5);
-        setTimeout(() => {
-          alert(number);
-        }, 3000);
+        setTimeout(() => { // [!code warning]
+          alert(number); // 首次点击出现0 // [!code warning]
+        }, 3000); // [!code warning]
       }}>+5</button>
     </>
   )
@@ -253,8 +254,6 @@ export default function Counter() {
 ```
 
 :::
-
-
 
 
 
@@ -277,7 +276,7 @@ export default function Counter() {
 ```[更新函数队列]jsx
 import { useState } from 'react';
 
-// 2
+// 首次点击将渲染 2 // [!code warning]
 export default function Counter() {
   const [number, setNumber] = useState(0);
 
@@ -285,9 +284,9 @@ export default function Counter() {
     <>
       <h1>{number}</h1>
       <button onClick={() => {
-        setNumber(n => n + 1);
-        setNumber(n => n + 1);
-        setNumber(n => n + 1);
+        setNumber(n => n + 1); // [!code warning]
+        setNumber(n => n + 1); // [!code warning]
+        setNumber(n => n + 1); // [!code warning]
       }}>+3</button>
     </>
   )
@@ -297,7 +296,7 @@ export default function Counter() {
 ```[替换后更新]jsx
 import { useState } from 'react';
 
-// 6
+// 首次点击将渲染 6 // [!code warning]
 export default function Counter() {
   const [number, setNumber] = useState(0);
 
@@ -305,8 +304,8 @@ export default function Counter() {
     <>
       <h1>{number}</h1>
       <button onClick={() => {
-        setNumber(number + 5);
-        setNumber(n => n + 1);
+        setNumber(number + 5); // [!code warning]
+        setNumber(n => n + 1); // [!code warning]
       }}>增加数字</button>
     </>
   )
@@ -316,7 +315,7 @@ export default function Counter() {
 ```[更新后替换]jsx
 import { useState } from 'react';
 
-// 42
+// 每次点击都渲染 42 // [!code warning]
 export default function Counter() {
   const [number, setNumber] = useState(0);
 
@@ -324,9 +323,9 @@ export default function Counter() {
     <>
       <h1>{number}</h1>
       <button onClick={() => {
-        setNumber(number + 5);
-        setNumber(n => n + 1);
-        setNumber(42);
+        setNumber(number + 5); // [!code warning]
+        setNumber(n => n + 1); // [!code warning]
+        setNumber(42); // [!code warning]
       }}>增加数字</button>
     </>
   )
@@ -353,7 +352,7 @@ setFriendCount(fc => fc * 2);
 
 | 特性          | 次级          | 说明                                                         |
 | ------------- | ------------- | ------------------------------------------------------------ |
-| 修改对象      | 避免修改属性  | 对于对象类型的状态，<span style="color: green">避免直接修改值</span>，这不会触发组件的重新渲染 |
+| 修改对象      | 避免修改属性  | 对于对象类型的状态，<span style="color: green">避免直接修改值</span>：不会触发组件的重新渲染 |
 |               | state setter  | 正确方式是通过更新函数来重新设置对象                         |
 |               | 局部 mutation | 可以通过局部 mutation 触发渲染                               |
 | 局部 mutation |               | 指修改一个刚创建（尚未使用）的对象                           |
@@ -364,8 +363,8 @@ setFriendCount(fc => fc * 2);
 const [position, setPosition] = useState({ x: 0, y: 0 });
 
 function test() {
-  position.x = 2
-  position.y = 4
+  position.x = 2 // [!code warning]
+  position.y = 4 // [!code warning]
 } 
 ```
 
@@ -373,10 +372,10 @@ function test() {
 const [position, setPosition] = useState({ x: 0, y: 0 });
 
 function test() {
-  setPosition({
-    x: 2,
-    y: 4
-  });
+  setPosition({ // [!code warning]
+    x: 2, // [!code warning]
+    y: 4 // [!code warning]
+  }); // [!code warning]
 } 
 ```
 
@@ -384,10 +383,10 @@ function test() {
 const [position, setPosition] = useState({ x: 0, y: 0 });
 
 function test() {
-  const nextPosition = {};
-  nextPosition.x = 2;
-  nextPosition.y = 4;
-  setPosition(nextPosition);
+  const nextPosition = {}; // [!code warning]
+  nextPosition.x = 2; // [!code warning]
+  nextPosition.y = 4; // [!code warning]
+  setPosition(nextPosition); // [!code warning]
 } 
 ```
 
@@ -407,7 +406,7 @@ const [position, setPosition] = useState({ x: 0, y: 0 });
 
 function test() {
   setPosition({
-    ...position,
+    ...position, // [!code warning]
     y: 4
   });
 } 
@@ -425,19 +424,19 @@ export default function Form() {
   function handleChange(e) {
     setPerson({
       ...person,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value // [!code warning]
     });
   }
 
   return (
     <>
       <input
-        name="name"
+        name="name" // [!code warning]
         value={person.name}
         onChange={handleChange}
       />
       <input
-        name="email"
+        name="email" // [!code warning]
         value={person.email}
         onChange={handleChange}
       />
@@ -467,7 +466,7 @@ const [person, setPerson] = useState({
 
 ```[通过局部mutation]jsx
 const nextArtwork = { ...person.artwork, city: 'New Delhi' };
-const nextPerson = { ...person, artwork: nextArtwork };
+const nextPerson = { ...person, artwork: nextArtwork }; 
 setPerson(nextPerson);
 ```
 
@@ -525,27 +524,27 @@ export default function Form() {
 
 ### state-数组
 
-| 特性                 | 次级               | 说明                                                         |
-| -------------------- | ------------------ | ------------------------------------------------------------ |
-| state-数组只读性     | 概念               | 同对象一样，需要将 React state 中的数组视为只读的            |
-|                      | 避免               | 使用 `arr[0] = 'aa'` 这样的方式修改元素                      |
-|                      | 避免               | 使用会改变原始数组的方法                                     |
-| 更新数组（useState） | state setter       | 正确方式是通过更新函数来<span style="color: green">重新设置</span>数组 |
-|                      | 添加元素           | 使用 `展开操作符` 模拟 `push` 和 `unshift`                   |
-|                      | 删除数组           | 使用 `filter`                                                |
-|                      | 转换数组           | 使用 `map`                                                   |
-|                      | 替换数组中的元素   | 使用 `map`                                                   |
-|                      | 向数组中插入元素   | 使用展开操作符结合 `slice`                                   |
-|                      | 更新数组内部的对象 | 不能浅拷贝数组后操作（修改其中的对象属性仍然会影响原对象，造成bug） |
-|                      | 更新数组内部的对象 | 使用 `map` 并创建新对象                                      |
-| 更新数组（Immer）    | 允许               | 使用产生 `mutation` 的语法                                   |
-|                      | 允许               | 使用会改变原始数组的方法                                     |
+| 特性                 | 次级             | 说明                                                         |
+| -------------------- | ---------------- | ------------------------------------------------------------ |
+| state-数组只读性     | 概念             | 同对象一样，需要将 React state 中的数组视为只读              |
+|                      | 避免             | 使用 `arr[0] = 'aa'` 这样的方式修改元素                      |
+|                      | 避免             | 使用会改变原始数组的方法（如 `push`）                        |
+| 更新数组（useState） | state setter     | 正确方式是通过更新函数来<span style="color: green">重新设置</span>数组 |
+|                      | 添加元素         | 使用 `展开操作符` 模拟 `push` 和 `unshift`                   |
+|                      | 删除数组         | 使用 `filter`                                                |
+|                      | 转换数组         | 使用 `map`                                                   |
+|                      | 替换数组元素     | 使用 `map`                                                   |
+|                      | 插入元素         | 使用展开操作符结合 `slice`                                   |
+|                      | 更新数组内部对象 | 避免浅拷贝数组后操作（修改其中的对象属性仍然会影响原对象，造成bug） |
+|                      | 更新数组内部对象 | 使用 `map` 并创建新对象                                      |
+| 更新数组（Immer）    | 允许             | 使用产生 `mutation` 的语法                                   |
+|                      | 允许             | 使用会改变原始数组的方法                                     |
 
 #### 使用 useState
 
 :::code-group
 
-```[添加元素-模拟push]jsx
+```[添加-模拟push]jsx
 import { useState } from 'react';
 
 let nextId = 0;
@@ -554,20 +553,20 @@ export default function List() {
   const [artists, setArtists] = useState([]);
 
   setArtists(
-    [ 
-      ...artists,
-      { id: nextId++, name: name } // 在末尾添加一个新的元素
-    ]
+    [  // [!code warning]
+      ...artists, // [!code warning]
+      { id: nextId++, name: name } // 在末尾添加一个新的元素 // [!code warning]
+    ] // [!code warning]
   );
   
     return <div>{ artists }</div>
 }
 ```
 
-```[添加元素-模拟unshift]jsx
+```[添加-模拟unshift]jsx
 setArtists([
-  { id: nextId++, name: name }, // 在开头添加一个新的元素
-  ...artists
+  { id: nextId++, name: name }, // 在开头添加一个新的元素 // [!code warning]
+  ...artists // [!code warning]
 ]);
 ```
 
@@ -606,17 +605,17 @@ export default function List() {
 }
 ```
 
-```[向数组中插入元素 ]jsx
+```[插入元素 ]jsx
 function handleClick() {
-  const insertAt = 1; // 可能是任何索引
-  const nextArtists = [
-    // 插入点之前的元素：
-    ...artists.slice(0, insertAt),
-    // 新的元素：
-    { id: nextId++, name: 'dd' },
-    // 插入点之后的元素：
-    ...artists.slice(insertAt)
-  ];
+  const insertAt = 1; // 可能是任何索引 // [!code warning]
+  const nextArtists = [ // [!code warning]
+    // 插入点之前的元素： // [!code warning]
+    ...artists.slice(0, insertAt), // [!code warning]
+    // 新的元素： // [!code warning]
+    { id: nextId++, name: 'dd' }, // [!code warning]
+    // 插入点之后的元素： // [!code warning]
+    ...artists.slice(insertAt) // [!code warning]
+  ]; // [!code warning]
   setArtists(nextArtists);
 }
 ```

@@ -3,6 +3,7 @@
 | 特性   | 说明                                                         |
 | ------ | ------------------------------------------------------------ |
 | 意义   | 当希望组件“记住”某些信息，但又不想让这些信息<span style="color: green">触发新的渲染</span>时，可以使用 ref |
+|        | 可以记录定时器 或 操作dom                                    |
 | 参数   | 以初始值（没有类型限制）作为唯一参数                         |
 | 返回值 | ref 是一个普通的 JavaScript 对象，可以通过 `obj.current` 读取/修改值 |
 
@@ -61,20 +62,20 @@ import { useState, useRef } from 'react';
 export default function Stopwatch() {
   const [startTime, setStartTime] = useState(null);
   const [now, setNow] = useState(null);
-  const intervalRef = useRef(null);
+  const intervalRef = useRef(null); // [!code warning]
 
   function handleStart() {
     setStartTime(Date.now());
     setNow(Date.now());
 
     clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      setNow(Date.now());
-    }, 10);
+    intervalRef.current = setInterval(() => { // [!code warning]
+      setNow(Date.now()); // [!code warning]
+    }, 10);  // [!code warning]
   }
 
   function handleStop() {
-    clearInterval(intervalRef.current);
+    clearInterval(intervalRef.current);  // [!code warning]
   }
 
   let secondsPassed = 0;
@@ -95,18 +96,6 @@ export default function Stopwatch() {
   );
 }
 ```
-
-
-
-
-
-何时使用
-
-存储 timeout ID
-
-存储和操作 DOM 元素
-
-存储不需要被用来计算 JSX 的其他对象
 
 
 
@@ -209,9 +198,9 @@ export default function CatFriends() {
   function getMap() {
     if (!itemsRef.current) {
       // 首次运行时初始化 Map。
-      itemsRef.current = new Map();
+      itemsRef.current = new Map(); // [!code warning]
     }
-    return itemsRef.current;
+    return itemsRef.current; // [!code warning]
   }
 
   return (
@@ -266,14 +255,14 @@ for (let i = 0; i < 10; i++) {
 
 ### 访问子组件的 DOM
 
-默认情况下，React 不允许组件访问其他组件（包括子组件）的 DOM 节点，认为如此会让代码混乱。
+默认情况下，React 不允许组件访问其他组件的 DOM 节点，认为如此会让代码混乱。
 
 但可以使用 `forwardRef` 显性启用。
 
-| 场景                               | 是否暴露DOM节点 | 原因                      |
-| ---------------------------------- | --------------- | ------------------------- |
-| 低级组件（如按钮、输入框）         | 暴露            |                           |
-| 高级组件（如表单、列表或页面段落） | 不暴露          | 避免对 DOM 结构的意外依赖 |
+| 场景                               | 是否适合暴露DOM节点 | 原因                      |
+| ---------------------------------- | ------------------- | ------------------------- |
+| 低级组件（如按钮、输入框）         | 适合                |                           |
+| 高级组件（如表单、列表或页面段落） | 不适合              | 避免对 DOM 结构的意外依赖 |
 
 **实现**
 

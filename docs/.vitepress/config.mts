@@ -231,6 +231,7 @@ export default defineConfig({
                 { text: 'state的定义处理', link: '/前端2/前端框架/React技术栈/React/基础/08-state的定义处理' },
                 { text: 'Reducer', link: '/前端2/前端框架/React技术栈/React/基础/09-Reducer' },
                 { text: 'ref', link: '/前端2/前端框架/React技术栈/React/基础/10-ref' },
+                { text: 'Effect', link: '/前端2/前端框架/React技术栈/React/基础/11-Effect' },
               ]
             },
             { 

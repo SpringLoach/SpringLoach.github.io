@@ -81,7 +81,7 @@ useEffect(() => {
 |              | React 使用 `Object.is` 比较依赖项的值                        |
 | 报错机制     | 当指定的依赖项不能与 Effect 代码所期望的相匹配时，lint 将会报错，帮助排错 |
 |              | 常量作为依赖项没有意义；响应式值必须包含在依赖性（props、state、组件体内的变量） |
-|              | 可变值（包括全局变量）不是响应式的，如 `location.pathname` 不应该作为依赖性 |
+|              | 可变值（包括全局变量）不是响应式的，如 `location.pathname` 不应该作为依赖项 |
 | ref 的特殊性 | 依赖数组可以忽略 `ref`，因为 React 保证每轮渲染调用 `useRef` 产生的引用相同 |
 |              | 但如果 `ref` 是从父组件传递的，则必须在依赖项数组中指定：    |
 |              | 无法确定父组件是否始终传递相同的 ref                         |
@@ -297,7 +297,9 @@ useEffect(() => {
 
 #### 初始化应用不需 Effect
 
-```jsx
+:::code-group
+
+```[App.js]jsx
 // 某些逻辑应该只在应用程序启动时运行一次
 if (typeof window !== 'undefined') { // 检查是否在浏览器中运行
   checkAuthToken();
@@ -308,6 +310,8 @@ function App() {
   // ……
 }
 ```
+
+:::
 
 
 
@@ -328,7 +332,7 @@ function handleClick() {
 
 
 
-### 使用例子
+### 模拟防抖
 
 产生连续输入时，只有最后一次的闹钟会被响起
 
@@ -421,11 +425,11 @@ function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
 
-  // 🔴 避免：多余的 state 和不必要的 Effect
-  const [fullName, setFullName] = useState('');
-  useEffect(() => {
-    setFullName(firstName + ' ' + lastName);
-  }, [firstName, lastName]);
+  // 🔴 避免：多余的 state 和不必要的 Effect // [!code warning]
+  const [fullName, setFullName] = useState(''); // [!code warning]
+  useEffect(() => { // [!code warning]
+    setFullName(firstName + ' ' + lastName); // [!code warning]
+  }, [firstName, lastName]); // [!code warning]
   // ...
 }
 ```
@@ -434,8 +438,8 @@ function Form() {
 function Form() {
   const [firstName, setFirstName] = useState('Taylor');
   const [lastName, setLastName] = useState('Swift');
-  // ✅ 非常好：在渲染期间进行计算
-  const fullName = firstName + ' ' + lastName;
+  // ✅ 非常好：在渲染期间进行计算 // [!code warning]
+  const fullName = firstName + ' ' + lastName; // [!code warning]
   // ...
 }
 ```
@@ -556,7 +560,7 @@ function List({ items }) {
 }
 ```
 
-```[中-避免重新渲染子组件]
+```[中-避免重新渲染子组件]jsx
 function List({ items }) {
   const [isReverse, setIsReverse] = useState(false);
   const [selection, setSelection] = useState(null);
@@ -581,7 +585,7 @@ function List({ items }) {
 }
 ```
 
-:::code
+:::
 
 
 
@@ -610,7 +614,7 @@ function ProductPage({ product, addToCart }) {
 }
 ```
 
-```[优-抽离公共逻辑]
+```[优-抽离公共逻辑]jsx
 function ProductPage({ product, addToCart }) {
   // ✅ 非常好：事件特定的逻辑在事件处理函数中处理
   function buyProduct() {
@@ -630,7 +634,7 @@ function ProductPage({ product, addToCart }) {
 }
 ```
 
-:::code
+:::
 
 
 
@@ -690,7 +694,7 @@ function Form() {
 }
 ```
 
-:::code
+:::
 
 
 
@@ -772,7 +776,7 @@ function Game() {
   // ...
 ```
 
-:::code
+:::
 
 
 
@@ -824,7 +828,7 @@ function App() {
 }
 ```
 
-:::code
+:::
 
 
 
@@ -885,7 +889,7 @@ function Toggle({ onChange }) {
 }
 ```
 
-```[优-状态提示]jsx
+```[优-状态提升]jsx
 // ✅ 也很好：该组件完全由它的父组件控制 // [!code warning]
 function Toggle({ isOn, onChange }) { // [!code warning]
   function handleClick() {
@@ -904,7 +908,7 @@ function Toggle({ isOn, onChange }) { // [!code warning]
 }
 ```
 
-:::code
+:::
 
 
 
@@ -1186,8 +1190,8 @@ function ChatRoom({ roomId }) {
 :::code-group
 
 ```[整合]jsx
-// 若将两种情况整合到一个 useEffect
-// 当用户选择不同的城市时，Effect 将重新运行并获取重复的城市列表
+// 若将两种情况整合到一个 useEffect // [!code warning]
+// 当用户选择不同的城市时，Effect 将重新运行并获取重复的城市列表 // [!code warning]
 function ShippingForm({ country }) {
   const [cities, setCities] = useState(null);
   const [city, setCity] = useState(null);
@@ -1360,9 +1364,9 @@ function ChatRoom({ roomId, theme }) {
 
 **例子二**
 
-:::code-group
-
 示例场景：在路径改变时进行一次记录，包含当前的【购物车中的商品数量】，但【购物车中的商品数量】变化时不进行记录
+
+:::code-group
 
 ```[不合预期]jsx
 function Page({ url }) {
@@ -1416,7 +1420,7 @@ function Page({ url }) {
 
 - 希望在接受到新消息时，Effect 中会更新本地 state
 
-- 希望本地 state 改变时不应该带来同步（重新连接）
+- 希望本地 state 改变时不会带来同步（重新连接）
 
 **方式**
 

@@ -1,17 +1,3 @@
-
-
-immer 优化 state 状态修改
-
-reducer 整合组件的状态更新逻辑
-
-use-immer 复合 immer 和 reducer
-
-context 解决 props 多层传递不便，让数据直达
-
-
-
-
-
 ## 状态逻辑迁移至reducer
 
 | 特性   | 次级                | 说明                                                         |
@@ -23,13 +9,14 @@ context 解决 props 多层传递不便，让数据直达
 |        |                     | 在组件中 <span style="color: green">使用</span> reducer      |
 | 对比   | 直接设置状态        | 通过设置状态来告诉 React “要做什么”                          |
 |        | reducers 管理       | 通过事件处理程序 dispatch 一个 “action” 来指明<span style="color: #ed5a65">用户的行为</span> |
+|        |                     | 白话：用户做了什么行为，该行为下要怎么做（怎么修改状态）     |
 | action | `dispatch` 接收对象 | 传递给 `dispatch` 的对象叫做 “action”，结构是自定义的        |
 |        |                     | 按照惯例，通常会添加字符串类型的 `type` 字段来描述<span style="color: #ed5a65">用户行为/发生什么</span> |
 |        |                     | `type` 是特定于组件的                                        |
 | 职责   | 事件处理程序        | 通过派发 `action` 来指定<span style="color: #ed5a65">用户行为/发生什么</span> |
 |        | `reducer` 函数      | 响应 `actions` ，<span style="color: #ed5a65">更新状态</span> |
 | 其他   |                     | reducers 必须是纯粹的，类似纯函数                            |
-|        |                     | action 应该描述一个单一的用户交互                            |
+|        |                     | action 用于描述单一的用户交互                                |
 
 
 
@@ -76,11 +63,11 @@ function handleDeleteTask(taskId) {
 *   ② dispatch 对应行为的 action
 */
 function handleAddTask(text) {
-  dispatch({
-    type: 'added',
+  dispatch({ // [!code warning]
+    type: 'added', // [!code warning]
     id: nextId++,
     text: text,
-  });
+  }); // [!code warning]
 }
 
 function handleChangeTask(task) {
@@ -126,8 +113,8 @@ dispatch({
 
 
 ```javascript
-function tasksReducer(tasks, action) {
-  switch (action.type) {
+function tasksReducer(tasks, action) { // [!code warning]
+  switch (action.type) { 
     case 'added': {
       return [
         ...tasks,
@@ -271,7 +258,7 @@ export default function tasksReducer(tasks, action) {
 :::code-group
 
 ```[App.js]jsx
-import { useImmerReducer } from 'use-immer';
+import { useImmerReducer } from 'use-immer'; // [!code warning]
 import AddTask from './AddTask.js';
 import TaskList from './TaskList.js';
 
@@ -300,7 +287,7 @@ function tasksReducer(draft, action) {
 }
 
 export default function TaskApp() {
-  const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks);
+  const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks); // [!code warning]
 
   function handleAddTask(text) {
     dispatch({
@@ -373,14 +360,14 @@ const initialTasks = [
 | 特性         | 说明                                                         |
 | ------------ | ------------------------------------------------------------ |
 | 意义         | 解决 props 多层传递不便，让数据直达                          |
-| 从最近获取值 | 组件会使用 UI 树中在它上层最近的那个 `<LevelContext.Provider>` 传递过来的值 |
+| 就近获取     | 组件会使用 UI 树中在它上层最近的那个 `<LevelContext.Provider>` 传递过来的值 |
 | 穿透性       | context 能穿过中间层级的组件，避免代码层层传递               |
-| 使用限制     | context实例之间不会造成干扰；一个组件可以使用多个context     |
+| 使用限制     | context 实例之间不会造成干扰；一个组件可以使用多个context    |
 | 适用场景     | 可以用它来传递整个子树需要的任何信息：当前的外观主题、当前账户信息、路由、状态管理 |
 | 触发重新渲染 | 如果 context 在下次渲染传递了不同的值，React 会去更新下级组件，故可以与 state 结合使用 |
 | 使用前提     | 在使用 context 之前，先考虑以下两种方案                      |
 |              | ① 考虑传递 props，会让数据结构更加清晰，便于维护             |
-|              | ② 抽离出子组件作为children传递，减少定义-使用数据的层级      |
+|              | ② 抽离出子组件作为 `children` 传递，减少定义-使用数据的层级  |
 
 
 
@@ -542,7 +529,7 @@ export const LevelContext = createContext(0); // [!code warning]
 
 | 概念 | 说明                                                         |
 | ---- | ------------------------------------------------------------ |
-| 步骤 | 创建两个 context，① 状态，② 组件分发动作的函数               |
+| 步骤 | 创建两个 context：① 状态，② 组件分发动作的函数               |
 | 解释 | 对应 `useReducer` 的返回参数 `const [tasks, dispatch] = useReducer(xxReducer, initialXX);` |
 | 解释 | 把 `null` 作为默认值传递给两个 context，实际值由 `TaskApp` 组件提供 |
 
@@ -782,8 +769,8 @@ export default function TaskApp() {
           onChangeTask={handleChangeTask}
           onDeleteTask={handleDeleteTask}
         />
-      </TasksDispatchContext.Provider>
-    </TasksContext.Provider>
+      </TasksDispatchContext.Provider> // [!code warning]
+    </TasksContext.Provider> // [!code warning]
   );
 }
 
@@ -1144,7 +1131,7 @@ function Task({ task }) {
 
 ① 管理 reducer 的状态（包含定义和修改方法）
 
-② 提供 context 提供 reducer 
+② 暴露 context，内部提供 reducer 
 
 ③ 使用 `children`，增强子组件
 

@@ -1,3 +1,5 @@
+## 重要
+
 ### 特性
 
 | 特性       | 次级           | 说明                                                         |
@@ -57,6 +59,8 @@ ReactDOM.render(
 
 
 
+## 次要
+
 ### 作为表达式
 
 > 在编译后，JSX 表达式会被转为普通 JavaScript 函数调用，并且对其取值后得到 JavaScript 对象。
@@ -115,6 +119,23 @@ const element = {
 ```
 
 
+
+### 忽略布尔值、undefined、null
+
+> false, null, undefined, and true 是合法的子元素，而且都不会被渲染。
+
+```jsx
+// 以下的 JSX 表达式渲染结果相同
+<div></div>
+
+<div>{false}</div>
+
+<div>{null}</div>
+
+<div>{undefined}</div>
+
+<div>{true}</div>
+```
 
 
 
