@@ -1,7 +1,8 @@
 #!/bin/bash
  random_number=$RANDOM
 
-cd /d/power/SpringLoach.github.io
+# cd /d/power/SpringLoach.github.io
+cd /d/工作相关/项目/练手/SpringLoach.github.io
 
 git add .
 git commit -m ${random_number}
