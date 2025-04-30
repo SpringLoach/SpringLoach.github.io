@@ -113,9 +113,7 @@ import { defineStore } from 'pinia'
 
 export const todos = defineStore('todos', {
   state: () => ({
-    /** @type {{ text: string, id: number, isFinished: boolean }[]} */
     todos: [],
-    /** @type {'all' | 'finished' | 'unfinished'} */
     filter: 'all',
     // type 会自动推断为 number
     nextId: 0,
@@ -128,9 +126,6 @@ export const todos = defineStore('todos', {
     unfinishedTodos(state) {
       return state.todos.filter((todo) => !todo.isFinished)
     },
-    /**
-     * @returns {{ text: string, id: number, isFinished: boolean }[]}
-     */
     filteredTodos(state) {
       if (this.filter === 'finished') {
         // 自动调用其他 getter ✨
