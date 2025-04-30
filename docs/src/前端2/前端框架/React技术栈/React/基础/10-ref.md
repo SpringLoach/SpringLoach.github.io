@@ -1,9 +1,10 @@
-## 使用ref引用值
+## 保留不参与渲染的值
 
 | 特性   | 说明                                                         |
 | ------ | ------------------------------------------------------------ |
-| 意义   | 当希望组件“记住”某些信息，但又不想让这些信息<span style="color: green">触发新的渲染</span>时，可以使用 ref |
-|        | 可以记录定时器 或 操作dom                                    |
+| 意义   | ref 是一种脱围机制，用于保留不用于渲染的值                   |
+|        | 改变它的值不会<span style="color: green">触发重新渲染</span> |
+|        | <span style="color: #ff0000">通常用于【记录定时器】 或 【操作dom】</span> |
 | 参数   | 以初始值（没有类型限制）作为唯一参数                         |
 | 返回值 | ref 是一个普通的 JavaScript 对象，可以通过 `obj.current` 读取/修改值 |
 
@@ -17,7 +18,7 @@ export default function Counter() {
 
   function handleClick() {
     ref.current = ref.current + 1; // [!code warning]
-    alert('你点击了 ' + ref.current + ' 次！');
+    alert('你点击了 ' + ref.current + ' 次！'); // 没有改变被React操作的DOM // [!code warning]
   }
 
   return (
@@ -52,7 +53,7 @@ export default function Counter() {
 
 
 
-### 使用场景
+## 记录定时器
 
 每秒数字加一，并让数字渲染到页面上，点击停止按钮，数字停止变动
 
@@ -99,13 +100,13 @@ export default function Stopwatch() {
 
 
 
-## 操作 DOM
+## 访问 DOM
 
 ### 概念
 
 | 特性              | 说明                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| 适用场景          | 通常会将 refs 用于非破坏性操作，例如聚焦、滚动或测量 DOM 元素 |
+| 适用场景          | 通常会将 refs 用于<span style="color: green">非破坏性操作</span>，例如聚焦、滚动或测量 DOM 元素 |
 |                   | React 中没有内置方法做这些事情，故需借助指向 DOM 节点的 ref 来实现 |
 | 操作 dom 最佳实践 | 避免更改由 React 管理的 DOM 节点，如修改、添加/删除子元素    |
 |                   | 可以修改 React 不去更新的部分 DOM                            |
@@ -160,7 +161,7 @@ export default function Form() {
 
 
 
-### 使用 ref 回调管理列表
+### 使用 ref 绑定列表
 
 如果列表是动态生成的，如何给每项绑定 ref
 

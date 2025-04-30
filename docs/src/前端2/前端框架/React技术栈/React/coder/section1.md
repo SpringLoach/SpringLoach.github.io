@@ -194,7 +194,7 @@
 
 
 
-### JSX核心语法一
+### JSX核心语法
 
 #### 案例-列表
 
@@ -733,7 +733,7 @@ class App extends React.Component {
 
 
 
-### jsx的渲染
+### JSX渲染过程
 
 #### 本质是语法糖
 

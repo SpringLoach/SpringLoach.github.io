@@ -24,7 +24,7 @@
 下面的代码如果没有添加 `useEffect`，将会出错：在渲染期间修改了 DOM
 
 ```jsx
-import { useState, useRef, useEffect } from 'react';  // [!code warning]
+import { useState, useRef, useEffect } from 'react'; // [!code warning]
 
 function VideoPlayer({ src, isPlaying }) {
   const ref = useRef(null);
@@ -502,7 +502,7 @@ function TodoList({ todos, filter }) {
 
 
 
-### 当 props 变化时重置所有 state
+### 当 prop 变化时重置所有 state
 
 :::code-group
 

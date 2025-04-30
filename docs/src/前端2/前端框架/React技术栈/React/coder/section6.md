@@ -3,7 +3,7 @@
 | 特性           | 说明                                          |
 | -------------- | --------------------------------------------- |
 | 更方便         | 不像 class 组件，需要处理很多 this 相关的操作 |
-| 状态           | 能够让函数时组件拥有内部的状态                |
+| 状态           | 能够让函数式组件拥有内部的状态                |
 |                | 生命周期                                      |
 | 函数最外层调用 | 不要在循环、条件判断或者子函数中调用          |
 | 只用于函数组件 | 只能在 React 的函数组件中调用 Hook            |
@@ -62,26 +62,27 @@ export default function ComplexHookState() {
     { id: 112, name: "lilei", age: 25 },
   ])
 
-  // 错误示例，将无法触发更新
+  // 错误示例，将无法触发更新 // [!code warning]
   function addFriend() {
-    friends.push("hmm");
-    setFrineds(friends);
+    friends.push("hmm"); // [!code warning]
+    setFrineds(friends); // [!code warning]
   }
 
+  // 正确示例，使用局部 mutation 方案 // [!code warning]
   function incrementAgeWithIndex(index) {
-    const newStudents = [...students];
-    newStudents[index].age += 1;
-    setStudents(newStudents);
+    const newStudents = [...students]; // [!code warning]
+    newStudents[index].age += 1; // [!code warning]
+    setStudents(newStudents); // [!code warning]
   }
 
   return (
     <div>
       <div>{count}:</div>
       <div>{friends.length}</div>
-      {/* 正确的修改 */}
-      <button onClick={e => setFrineds([...friends, "tom"])}>添加朋友</button>
-      {/* 错误的修改 */}
-      <button onClick={addFriend}>添加朋友</button>
+      {/* 正确的修改 */} // [!code warning]
+      <button onClick={e => setFrineds([...friends, "tom"])}>添加朋友</button> // [!code warning]
+      {/* 错误的修改 */} // [!code warning]
+      <button onClick={addFriend}>添加朋友</button> // [!code warning]
 
       <div>
         {
@@ -302,18 +303,18 @@ export default function ContextHookDemo(props) {
 | 修改状态 | 如果状态是引用类型，在修改状态时，注意避免使用相同的引用值 |
 
 ```jsx
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer } from 'react'; // [!code warning]
 
-import reducer from './reducer';
+import reducer from './reducer'; // [!code warning]
 
 export default function Home() {
-  const [state, dispatch] = useReducer(reducer, {counter: 0});
+  const [state, dispatch] = useReducer(reducer, {counter: 0}); // [!code warning]
 
   return (
     <div>
       <h2>Home当前计数: {state.counter}</h2>
-      <button onClick={e => dispatch({type: "increment"})}>+1</button>
-      <button onClick={e => dispatch({type: "decrement"})}>-1</button>
+      <button onClick={e => dispatch({type: "increment"})}>+1</button> // [!code warning]
+      <button onClick={e => dispatch({type: "decrement"})}>-1</button> // [!code warning]
     </div>
   )
 }

@@ -52,15 +52,15 @@ export default defineConfig({
           text: 'Business',
           items: [
             { text: 'h5', link: '/business/h5' },
-            { text: 'wap', link: '/business/wap' },
-            { text: '小程序', link: '/business/小程序' },
-            { text: 'erp', link: '/business/erp' },
-            { text: 'web', link: '/business/web' },
-            { text: 'jingjiangbang-pc', link: '/business/jingjiangbang-pc' },
-            { text: '官网', link: '/business/官网' },
-            { text: '通用', link: '/business/通用' },
-            { text: '开发账号', link: '/business/开发账号' },
-            { text: '构建', link: '/business/构建' },
+            // { text: 'wap', link: '/business/wap' },
+            // { text: '小程序', link: '/business/小程序' },
+            // { text: 'erp', link: '/business/erp' },
+            // { text: 'web', link: '/business/web' },
+            // { text: 'jingjiangbang-pc', link: '/business/jingjiangbang-pc' },
+            // { text: '官网', link: '/business/官网' },
+            // { text: '通用', link: '/business/通用' },
+            // { text: '开发账号', link: '/business/开发账号' },
+            // { text: '构建', link: '/business/构建' },
           ]
         }
       ],
@@ -69,10 +69,10 @@ export default defineConfig({
           text: '方法梳理',
           collapsed: true,
           items: [
-            { 
-              text: '汇总',
-              link: '/前端/方法梳理/汇总'
-            },
+            // { 
+            //   text: '汇总',
+            //   link: '/前端/方法梳理/汇总'
+            // },
             { 
               text: '原生部分',
               collapsed: true,
@@ -221,17 +221,42 @@ export default defineConfig({
               text: 'React',
               collapsed: true,
               items: [
-                { text: '组件', link: '/前端2/前端框架/React技术栈/React/基础/01-组件' },
-                { text: 'JSX', link: '/前端2/前端框架/React技术栈/React/基础/02-JSX' },
-                { text: '传递数据', link: '/前端2/前端框架/React技术栈/React/基础/03-传递数据' },
-                { text: '条件&列表渲染', link: '/前端2/前端框架/React技术栈/React/基础/04-条件&列表渲染' },
-                { text: '纯函数', link: '/前端2/前端框架/React技术栈/React/基础/05-纯函数' },
-                { text: '事件处理函数', link: '/前端2/前端框架/React技术栈/React/基础/06-事件处理函数' },
-                { text: 'state', link: '/前端2/前端框架/React技术栈/React/基础/07-state' },
-                { text: 'state的定义处理', link: '/前端2/前端框架/React技术栈/React/基础/08-state的定义处理' },
-                { text: 'Reducer', link: '/前端2/前端框架/React技术栈/React/基础/09-Reducer' },
-                { text: 'ref', link: '/前端2/前端框架/React技术栈/React/基础/10-ref' },
-                { text: 'Effect', link: '/前端2/前端框架/React技术栈/React/基础/11-Effect' },
+                {
+                  text: '基础',
+                  collapsed: true,
+                  items: [
+                    { text: '组件', link: '/前端2/前端框架/React技术栈/React/基础/01-组件' },
+                    { text: 'JSX', link: '/前端2/前端框架/React技术栈/React/基础/02-JSX' },
+                    { text: '传递数据', link: '/前端2/前端框架/React技术栈/React/基础/03-传递数据' },
+                    { text: '条件&列表渲染', link: '/前端2/前端框架/React技术栈/React/基础/04-条件&列表渲染' },
+                    { text: '纯函数', link: '/前端2/前端框架/React技术栈/React/基础/05-纯函数' },
+                    { text: '事件处理函数', link: '/前端2/前端框架/React技术栈/React/基础/06-事件处理函数' },
+                    { text: 'state', link: '/前端2/前端框架/React技术栈/React/基础/07-state' },
+                    { text: 'state相关实践', link: '/前端2/前端框架/React技术栈/React/基础/08-state相关实践' },
+                    { text: 'Reducer', link: '/前端2/前端框架/React技术栈/React/基础/09-Reducer' },
+                    { text: 'ref', link: '/前端2/前端框架/React技术栈/React/基础/10-ref' },
+                    { text: 'Effect', link: '/前端2/前端框架/React技术栈/React/基础/11-Effect' },
+                  ]
+                },
+                {
+                  text: '项目组织',
+                  collapsed: true,
+                  items: [
+                    { text: '创建项目', link: '/前端2/前端框架/React技术栈/React/项目组织/创建项目' },
+                    { text: '开发思路', link: '/前端2/前端框架/React技术栈/React/项目组织/开发思路' },
+                    { text: '命名公约', link: '/前端2/前端框架/React技术栈/React/项目组织/命名公约' },
+                    { text: 'vscode插件', link: '/前端2/前端框架/React技术栈/React/项目组织/vscode插件' },
+                    { text: '网易云', link: '/前端2/前端框架/React技术栈/React/coder/网易云' },
+                  ]
+                },
+                {
+                  text: '第三方库',
+                  collapsed: true,
+                  items: [
+                    { text: '路由-Redux', link: '/前端2/前端框架/React技术栈/React/第三方库/路由-Redux-版本差异' },
+                    { text: 'styled-components', link: '/前端2/前端框架/React技术栈/React/第三方库/styled-components' },
+                  ]
+                },
               ]
             },
             { 
@@ -240,9 +265,6 @@ export default defineConfig({
               items: [
                 {
                   text: 'vue2', link: '/前端2/前端框架/Vue技术栈/vue2/知识沉淀' },
-                { text: 'vuex', link: '/前端2/前端框架/Vue技术栈/vuex/知识沉淀' },
-                { text: 'vue-router', link: '/前端2/前端框架/Vue技术栈/vue-router/知识沉淀' },
-                { text: '插件', link: '/前端2/前端框架/Vue技术栈/插件/插件' },
                 { 
                   text: 'vue3',
                   collapsed: true,
@@ -250,7 +272,11 @@ export default defineConfig({
                     { text: '对比vue2', link: '/前端2/前端框架/Vue技术栈/vue3/对比vue2' },
                     { text: '经验谈', link: '/前端2/前端框架/Vue技术栈/vue3/经验谈' },
                   ]
-                }
+                },
+                { text: 'vuex', link: '/前端2/前端框架/Vue技术栈/vuex/知识沉淀' },
+                { text: 'pinia', link: '/前端2/前端框架/Vue技术栈/第三方库/pinia/pinia' },
+                { text: 'vue-router', link: '/前端2/前端框架/Vue技术栈/vue-router/知识沉淀' },
+                { text: '插件', link: '/前端2/前端框架/Vue技术栈/插件/插件' },
               ]
             },
             { 
@@ -264,6 +290,7 @@ export default defineConfig({
               text: 'uni-app',
               collapsed: true,
               items: [
+                { text: '功能实现', link: '/前端2/前端框架/uni-app/功能实现' },
                 { text: '原生转uni-app', link: '/前端2/前端框架/uni-app/原生转uni-app' },
                 { text: '相关经验', link: '/前端2/前端框架/uni-app/相关经验' }
               ]

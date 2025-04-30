@@ -86,7 +86,7 @@ yarn eject
 
 ### 开始编写
 
-src/index.js
+<span style="background: #efe0b9">src/index.js</span>
 
 ```jsx
 import React from 'react';
@@ -183,7 +183,7 @@ export default class App extends Component {
 | --------------- | ------------------------------------------------------ |
 | 类组件/函数组件 | 名称是大写字符开头                                     |
 | 类组件          | 需要继承自 React.Component                             |
-| 类组件          | 必须实现 render 方法；                                 |
+| 类组件          | 必须实现 render 方法                                   |
 | 类组件          | 可以实现 constructor，其中的 this.state 为组件内部状态 |
 | 函数组件        | 没有生命周期函数（虽然也会被更新并挂载）               |
 | 函数组件        | 没有this(组件实例），没有内部状态                      |

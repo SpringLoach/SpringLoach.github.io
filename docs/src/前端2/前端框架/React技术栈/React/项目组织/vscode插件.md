@@ -1,19 +1,20 @@
+### vscode插件
 
-
-vscode插件
-
-| --                           | --                                            |
+| 插件                         | 说明                                          |
 | ---------------------------- | --------------------------------------------- |
 | Atom One Dark Theme          | 改变主题，如代码颜色                          |
 | Bookmarks                    | 可以打标记，看源码可用                        |
 | vscode-icons                 | 让文件管理处的各个文件带上图标                |
 | htmltagwrap                  | 标签自动补全                                  |
 | ES7 React/Redux/... snippets | 快速生成模板，如类组件                        |
+|                              | 输入 `rmc` 即可快速生成对应模板               |
 | vscode-styled-components     | react 中使用的 styled-components 库，智能提示 |
 | project Manager              | 保存常用项目，快速打开                        |
 | Remote-SSH                   | 连接远程服务器，修改远程文件                  |
 
-浏览器插件
+
+
+### 浏览器插件
 
 React Developor Tools
 
@@ -21,9 +22,9 @@ React Developor Tools
 
 
 
+### 其他
+
 很多三方库自带 `.d.ts` 文件，用于声明类型，不代表三方库就是用 ts 写的。
-
-
 
 
 
@@ -61,13 +62,7 @@ node 支持 ES6 模块化
 
 
 
-用类定义组件，大写开头
-
-onClick
-
-{}
-
-
+### react vs vue
 
 对比 vue，不需要将可复用的逻辑都写成子组件
 

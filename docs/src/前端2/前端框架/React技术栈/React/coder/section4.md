@@ -2,12 +2,12 @@
 
 ### 基本说明
 
-| 特性     | 说明                                                    |
-| -------- | ------------------------------------------------------- |
-| 默认样式 | 引入 antd，默认会引入一些全局样式，如 body 的 margin    |
-| 优化体积 | antd 默认支持基于 ES modules 的 tree shaking            |
-| 优化体积 | 像 `import { Button } from 'antd'` 就会有按需加载的效果 |
-| 修改配置 | 想要修改create-react-app 的默认配置，craco是推荐的方案  |
+| 特性     | 说明                                                     |
+| -------- | -------------------------------------------------------- |
+| 默认样式 | 引入 antd，默认会引入一些全局样式，如 body 的 margin     |
+| 优化体积 | antd 默认支持基于 ES modules 的 tree shaking             |
+| 优化体积 | 像 `import { Button } from 'antd'` 就会有按需加载的效果  |
+| 修改配置 | 想要修改 create-react-app 的默认配置，craco 是推荐的方案 |
 
 
 
@@ -167,22 +167,6 @@ render () {
     <TextArea />
   </div>  
 }
-```
-
-
-
-
-
-### 案例-评论列表
-
-见十二集
-
-**moment 库使用中文格式**
-
-<span style="background: #efe0b9">src\index.js</span>
-
-```javascript
-import 'moment/locale/zh-hk';
 ```
 
 
@@ -558,8 +542,6 @@ export default class TransitionGroupDemo extends PureComponent {
 
 
 
-
-
 ### 使用流程
 
 ```elm
@@ -896,6 +878,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
 :whale: 为了不往业务组件中引入 store，将传值写成了函数形式，然后再返回对象，可以通过参数传递获取到 store 上需要的的属性。
 
+🌟通过高阶组件传递状态和方法太麻烦了，可以用 redux 内置的 hook 做[优化](/前端2/前端框架/React技术栈/React/coder/网易云.html#redux  的 hook 优化)。
+
 
 
 ### 加强封装
@@ -1030,7 +1014,7 @@ import { connect } from 'react-redux';
 
 <span style="background: #efe0b9">src\store\constants.js</span>
 
-```
+```js
 export const CHANGE_BANNERS = "CHANGE_BANNERS";
 ```
 

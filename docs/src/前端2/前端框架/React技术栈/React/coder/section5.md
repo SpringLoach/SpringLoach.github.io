@@ -134,9 +134,9 @@ class App extends PureComponent {
     return (
       <div>
 		<BrowserRouter>
-          <Link to="/">首页</LinkLink>
-          <Link to="/about">关于</LinkLink>
-          <Link to="/profile">我的</LinkLink>
+          <Link to="/">首页</Link>
+          <Link to="/about">关于</Link>
+          <Link to="/profile">我的</Link>
             
           <Route exact path="/" component={Home} />
           <Route path="/about" component={About} />
@@ -357,9 +357,9 @@ export default class About extends PureComponent {
 
 ```jsx
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter> // [!code warning]
     <App/>
-  </BrowserRouter>,
+  </BrowserRouter>, // [!code warning]
   document.getElementById('root')
 );
 ```
@@ -371,7 +371,8 @@ import {
   BrowserRouter
   Link,
   Route,
-  Switch
+  Switch,
+  withRouter // [!code warning]
 } from 'react-router-dom';
 
 // 省略组件导入
@@ -398,7 +399,7 @@ class App extends PureComponent {
   }  
 }
 
-export default withRouter(App);
+export default withRouter(App); // [!code warning]
 ```
 
 :ghost: 通过使用高阶组件 <span style="color: #a50">withRouter</span>，普通的组件也能够接收到 history 等路由相关的属性；
@@ -445,8 +446,6 @@ export default class Detail extends PureComponent {
 ```
 
 动态路由指路由的路径不是固定的；可以用来传递参数。
-
-
 
 
 
@@ -581,10 +580,10 @@ export default routes;
 
 ```jsx
 import React, { PureComponent } from 'react';
-// 1. 引入方法
-import { renderRoutes } from 'react-router-config';
+// 1. 引入方法 // [!code warning]
+import { renderRoutes } from 'react-router-config'; // [!code warning]
 
-import routes from './router';
+import routes from './router'; // [!code warning]
 
 import {
   NavLink,
@@ -598,8 +597,8 @@ class App extends PureComponent {
         <NavLink exact to="/" activeClassName="link-active">首页</NavLink>
         <NavLink to="/about" activeClassName="link-active">关于</NavLink>
 		
-        {/* 将原本（switch包裹的）Route组件替换如下 */}
-        {renderRoutes(routes)}
+        {/* 2. 将原本（switch包裹的）Route组件替换如下 */} // [!code warning]
+        {renderRoutes(routes)} // [!code warning]
       </div>
     )
   }
@@ -613,8 +612,8 @@ export default withRouter(App);
 ```jsx
 import React, { PureComponent } from 'react'
 import { NavLink } from 'react-router-dom';
-// 1. 引入方法
-import { renderRoutes } from 'react-router-config'
+// 1. 引入方法 // [!code warning]
+import { renderRoutes } from 'react-router-config' // [!code warning]
 
 export default class About extends PureComponent {
   render() {
@@ -623,8 +622,8 @@ export default class About extends PureComponent {
         <NavLink exact to="/about">企业历史</NavLink>
         <NavLink exact to="/about/culture">企业文化</NavLink>
 
-        {/* 将原本（switch包裹的）Route组件替换如下 */}    
-        {renderRoutes(this.props.route.routes)}
+        {/* 2. 将原本（switch包裹的）Route组件替换如下 */} // [!code warning]  
+        {renderRoutes(this.props.route.routes)} // [!code warning]
       </div>
     )
   }
@@ -642,8 +641,8 @@ export default class About extends PureComponent {
 ```jsx
 import React from 'react';
 
-// import Home from '@/pages/home';
-const Home = React.lazy(() => import("@/pages/home"));
+// import Home from '@/pages/home';  // [!code warning]
+const Home = React.lazy(() => import("@/pages/home"));  // [!code warning]
 
 const routes = [
   // ...
@@ -655,14 +654,14 @@ export default routes;
 **根组件处理**
 
 ```jsx
-import React, { Suspense } from 'react';
+import React, { Suspense } from 'react';  // [!code warning]
 import { renderRoutes } from 'react-router-config';
 
 export default memo(function App() {
   return (
-    <Suspense fallback={<div>page loading</div>}>
+    <Suspense fallback={<div>page loading</div>}> // [!code warning]
       {renderRoutes(routes)}
-    </Suspense>
+    </Suspense>  // [!code warning]
   )
 })
 ```
@@ -676,7 +675,7 @@ export default memo(function App() {
 ### 路由重定向
 
 ```jsx
-import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom"; // [!code warning]
 
 // ...
 import Home from '@/pages/home';
@@ -685,9 +684,9 @@ const routes = [
   {
     path: "/",
     exact: true,
-    render: () => (
-      <Redirect to="/discover"/>
-    )
+    render: () => ( // [!code warning]
+      <Redirect to="/discover"/> // [!code warning]
+    ) // [!code warning]
   },
   {
     path: "/discover",
@@ -696,9 +695,9 @@ const routes = [
       {
         path: "/discover",
         exact: true,
-        render: () => (
-          <Redirect to="/discover/recommend"/>
-        )
+        render: () => ( // [!code warning]
+          <Redirect to="/discover/recommend"/> // [!code warning]
+        ) // [!code warning]
       },
       {
         path: "/discover/recommend",

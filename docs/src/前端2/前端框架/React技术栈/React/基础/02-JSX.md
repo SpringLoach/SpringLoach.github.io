@@ -48,8 +48,6 @@ const element = <h1>Hello, {name}</h1>;
 const element = <h1>Hello, {myF(1)}</h1>;
 const element = <h1>Hello, {obj.name}</h1>;
 const element = <h1>Hello, {2+2}</h1>;
-/* 对象示例 */
-const element = <h1>Hello, {{ a: 1, b: 2 }}</h1>;
 
 ReactDOM.render(
   element,
@@ -59,9 +57,98 @@ ReactDOM.render(
 
 
 
+## 核心语法
+
+### jsx-注释
+
+```jsx
+export default function App() {
+  return (
+    <>
+      {/* 我是一段注释 */}
+      <div>Hello World</div>
+    </>
+  )
+}
+```
+
+:octopus: jsx 中不能使用 `<!-- -->`、`//` 这样的方式注释。
+
+
+
+### jsx-嵌入数据限制
+
+这里嵌入的数据，指的是放入 jsx 的 `{}` 的内容。
+
+```jsx
+export default function App() {
+  const demo = { b: 'c' }
+  return (
+    <>
+      <div>{ demo.b }</div>
+    </>
+  )
+}
+```
+
+| 类型         | 现象                            |
+| ------------ | ------------------------------- |
+| String       | 正常显示                        |
+| Number       | 正常显示                        |
+| Array        | 正常显示                        |
+| Object       | 报错（对象不能作为 jsx 的子类） |
+| null         | 不显示(忽略)                    |
+| undefined    | 不显示(忽略)                    |
+| true / false | 不显示(忽略)                    |
+| NaN          | 报错（不能作为 jsx 的子类）     |
+
+:ghost: 对于不显示的几种类型，可以将其转化为字符串后进行显示
+
+```jsx
+{demo.toString()}
+
+{demo + ''}
+
+{String(demo)}
+```
+
+
+
+### jsx-绑定类/样式
+
+```jsx
+import { useState } from "react"
+
+export default function App() {
+  const [active, setActive] = useState(true)
+  return (
+    <>
+      {/* 绑定class */}
+        <div className="box title">元素</div>
+        <div className={"box title " + (active ? "active": "")}>元素</div>
+
+        {/* 绑定style */}
+        <div style={{color: "red", fontSize: "50px"}}>元素</div>
+    </>
+  )
+}
+```
+
+:whale: 为了与 jsx 中的某些关键字作区别，部分 html 的属性要起<span style="color: #ff0000">别名</span>；
+
+:turtle: <span style="color: #ff0000">添加动态类</span>，只能通过 js 的方式进行添加；
+
+:ghost: 添加内联样式时，通过<span style="color: #ff0000">对象</span>形式添加，这里看上去就是双括号；
+
+:whale: 样式中的一些短横线属性名，需要转为<span style="color: #ff0000">小驼峰</span>；
+
+:whale: 内联样式的属性值要加上引号，否则会被理解为变量。
+
+
+
 ## 次要
 
-### 作为表达式
+### 使用场景
 
 > 在编译后，JSX 表达式会被转为普通 JavaScript 函数调用，并且对其取值后得到 JavaScript 对象。
 >
@@ -77,65 +164,7 @@ ReactDOM.render(
 
 
 
-### 本身是对象
 
-```jsx
-/* JSX 会被 Babel 转译为 ② 的形式 */
-const element = (
-  <h1 className="greeting">
-    Hello, world!
-  </h1>
-);
-
-/* 与 ① 等价 */
-const element = React.createElement(
-  'h1',
-  {className: 'greeting'},
-  'Hello, world!'
-);
-
-/* 实际上创建了一个对象（也称为React元素），这是简化结构 */
-const element = {
-  type: 'h1',
-  props: {
-    className: 'greeting',
-    children: 'Hello, world!'
-  }
-};
-```
-
-
-
-### 内联 `style` 属性
-
-在 React 中，内联 `style` 属性使用驼峰命名法编写
-
-```html
-<!-- 普通HTML -->
-<ul style="background-color: black">
-
-<!-- React组件，这里向属性传递对象 -->
-<ul style={{ backgroundColor: 'black' }}>
-```
-
-
-
-### 忽略布尔值、undefined、null
-
-> false, null, undefined, and true 是合法的子元素，而且都不会被渲染。
-
-```jsx
-// 以下的 JSX 表达式渲染结果相同
-<div></div>
-
-<div>{false}</div>
-
-<div>{null}</div>
-
-<div>{undefined}</div>
-
-<div>{true}</div>
-```
 
 
 

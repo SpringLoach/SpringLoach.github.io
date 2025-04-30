@@ -195,7 +195,7 @@ export default class App extends PureComponent {
 
  
 
-# ----
+# 其他
 
 
 
@@ -605,7 +605,7 @@ function withUser(WrappedComponent) {
 const UserContext = createContext({
   nickname: "默认",
   level: -1,
-  区域: "中国"
+  region: "中国"
 });
 
 class Home extends PureComponent {
@@ -1076,9 +1076,11 @@ export default class Profile extends PureComponent {
 
 :ghost: 添加到样式组件上的属性，带有<span style="color: #ff0000">穿透</span>功能，能添加到原标签上去；
 
-:ghost: 通过使用 attrs，可以对原标签<span style="color: #ff0000">添加属性</span>，会与样式组件上的属性进行合并；
+:ghost: 这些属性在定义样式时，都可以通过函数方式获取到；
 
-:ghost: 这些属性在定义样式时，都可以通过函数方式获取到。
+:ghost: 通过使用 attrs，可以对原标签<span style="color: #ff0000">添加属性</span>，会与样式组件上的属性进行合并。
+
+
 
 
 
