@@ -6,10 +6,13 @@ hero:
   name: "Spring Loach"
   text: "前端技术"
   tagline: Every day is unmissable
+  image: 
+    src: /avator.jpg
   actions:
     - theme: brand
-      text: 文档参考
-      link: /前端2/文档参考
+      text: 🌟个人详细简历
+      link: /expand/其他/工作经历
+      # link: https://springloach.github.io/expand/其他/工作经历
     - theme: alt
       text: 后端技术
       link: https://huamujing.github.io/

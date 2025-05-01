@@ -8,7 +8,7 @@ export default {
     enhanceApp({ app, router, siteData }) {
       if (typeof window !== 'undefined') {
         // 默认设置为深色模式
-        localStorage.setItem('vitepress-theme-appearance', 'dark')
+        // localStorage.setItem('vitepress-theme-appearance', 'dark')
       }
     }
   }

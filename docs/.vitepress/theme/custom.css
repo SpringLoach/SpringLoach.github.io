@@ -30,3 +30,7 @@
 .vp-doc > div :first-child {
   margin-top: 0;
 }
+
+.VPImage {
+  border-radius: 50%;
+}
