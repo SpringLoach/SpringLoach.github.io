@@ -30,9 +30,7 @@ features:
   #   details: node.js生态下的脚手架、构建工具和项目配置
   # - title: 其他
   #   details: 电脑开发环境配置和改善使用体验的技巧，以及开发常用的辅助软件&&参考文档
-
   
-
   - title: 🌟Vue2
     details: 用于构建用户界面的 JavaScript 框架，提供了声明式的、组件化的编程模型
     link: '/前端/业务实现/vue'
@@ -69,7 +67,6 @@ features:
     details: 轻量的移动端Vue组件库，Vue2和Vue3都有对应的适配版本
     link: '/前端2/样式框架/Vant/Vant'
     target: _blank
-
   - title: 🌟React
     details: 用于构建 Web 和原生交互界面的库，通常与 jsx 一起使用
     link: '/前端2/前端框架/React技术栈/React/基础/01-组件'
@@ -88,7 +85,6 @@ features:
     target: _blank
   - title: Ant Design
     details: 企业级 React UI 组件库，适合中后台管理系统开发
-
   - title: 🌟微信小程序
     details: 运用原生小程序技术开发，并进行迭代版本的发布
     link: '/前端2/前端框架/微信小程序/微信小程序'
@@ -101,17 +97,14 @@ features:
     details: 开发APP和小程序中的通用页面和活动页，实现统一交互/样式表现
     link: '/business/h5'
     target: _blank
-
   - title: 🌟Nuxt3
     details: 基于Vue.js，用于创建全栈 web 应用程序，支持服务器端渲染。
     link: '/前端2/前端框架/Nuxt/Nuxt3'
     target: _blank
-
   - title: TypeScript
     details: JavaScript 的超集，为 JS 添加了静态类型系统，提高代码可维护性和开发效率
     link: '/前端/原生技术/TypeScript/快速入门'
     target: _blank
-
   - title: vite
     details: 新一代前端构建工具，基于原生ES模块，提供极快的冷启动和热更新，适合现代Web开发
     link: '/前端2/开发工具链/脚手架/vite/文档&拓展'
@@ -124,7 +117,6 @@ features:
     details: 基于Webpack的Vue.js官方脚手架，提供标准化项目模板和插件系统，简化Vue项目搭建
     link: '/前端2/开发工具链/脚手架/vue-cli/常用配置字段'
     target: _blank
- 
   - title: 包管理器
     details: Node.js的版本管理 nvm 和包管理器如 npm、pnpm
     link: '/前端2/开发工具链/包管理器/pnpm'
@@ -133,7 +125,6 @@ features:
     details: 如 esbuild、gulp、rollup
     link: '/前端2/开发工具链/构建工具/rollup'
     target: _blank
-  
   - title: 预处理器
     details: less、sass
     link: '/前端/原生技术/css/原笔记/知识整理/预处理器'
@@ -150,7 +141,6 @@ features:
     details: 基于 Markdown 编写的内容，提供专为技术文档设计的默认主题
     link: '/expand/相关软件/vitepress/vitepress'
     target: _blank
-  
   - title: axios
     details: 基于 promise 的网络请求库，可以用于浏览器和 node.js
     link: '/前端2/第三方库/axios/axios'
@@ -191,7 +181,6 @@ features:
     details: 轻量级的移动端Web控制台插件
     link: '/前端2/第三方库/vconsole'
     target: _blank
-  
   - title: 🌟Node.js
     details: 基于Chrome V8引擎的JavaScript运行环境，使用JavaScript编写服务器端应用程序
     link: 'https://huamujing.github.io/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/node.js/%E5%AE%9E%E8%B7%B5/%E5%AE%9E%E8%B7%B5.html'
@@ -206,7 +195,6 @@ features:
     details: 面向对象的编程语言
     link: 'https://huamujing.github.io/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/Java%E6%8A%80%E6%9C%AF%E6%A0%88/Java/%E7%8B%82%E7%A5%9E%E6%95%99%E7%A8%8B/JavaSE/JavaSE-%E5%85%A5%E9%97%A8.html'
     target: _blank
-  
   - title: 数据结构和算法
     details: 《学习JavaScript数据结构与算法》笔记，项目中的实践经验
     link: '/前端/素养基石/数据结构与算法/数组相关'
