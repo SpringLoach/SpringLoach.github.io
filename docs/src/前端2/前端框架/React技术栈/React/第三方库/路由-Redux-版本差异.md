@@ -393,6 +393,136 @@ export default memo(function HYDiscover() { // [!code warning]
 
 
 
+### 组件内导航
+
+> v7
+
+**编程式导航**
+
+```jsx
+import { useNavigate } from 'react-router-dom';
+
+function MyComponent() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // 跳转到指定路径
+    navigate('/target-path');
+
+    // 带参数跳转
+    navigate('/user/123', { state: { from: 'home' } });
+
+    // 替换历史记录（无后退）
+    navigate('/login', { replace: true });
+
+    // 相对路径跳转（基于当前路由）
+    navigate('../parent', { relative: 'path' });
+  };
+
+  return <button onClick={handleClick}>跳转</button>;
+}
+```
+
+**声明式导航**
+
+```jsx
+import { Link, NavLink } from 'react-router-dom';
+
+function NavBar() {
+  return (
+    <nav>
+      {/* 普通跳转 */}
+      <Link to="/about">关于</Link>
+
+      {/* 高亮激活链接 */}
+      <NavLink 
+        to="/contact" 
+        className={({ isActive }) => isActive ? 'active' : ''}
+      >
+        联系我们
+      </NavLink>
+
+      {/* 带状态参数 */}
+      <Link 
+        to="/profile" 
+        state={{ fromDashboard: true }}
+      >
+        个人资料
+      </Link>
+    </nav>
+  );
+}
+```
+
+**路由跳转时传递参数**
+
+:::code-group
+
+```[路径参数]jsx
+// 路由配置
+<Route path="/user/:id" element={<UserPage />} />
+
+// 跳转时传递
+navigate('/user/123');
+
+// 目标组件获取
+import { useParams } from 'react-router-dom';
+function UserPage() {
+  const { id } = useParams(); // id = '123'
+}
+```
+
+```[查询参数]jsx
+// 跳转时传递
+navigate('/search?query=react');
+
+// 目标组件获取
+import { useSearchParams } from 'react-router-dom';
+function SearchPage() {
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get('query'); // 'react'
+}
+```
+
+```[状态参数]jsx
+// 跳转时传递（不显示在URL）
+navigate('/detail', { state: { productId: 789 } });
+
+// 目标组件获取
+import { useLocation } from 'react-router-dom';
+function DetailPage() {
+  const { state } = useLocation();
+  const productId = state?.productId; // 789
+}
+```
+
+:::
+
+**其他**
+
+:::code-group
+
+```[返回上一页]jsx
+navigate(-1); // 等价于 history.goBack()
+```
+
+```[监听路由变化]jsx
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+function MyComponent() {
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log('路由变化:', location.pathname);
+  }, [location]);
+}
+```
+
+:::
+
+
+
 
 
 ## Redux

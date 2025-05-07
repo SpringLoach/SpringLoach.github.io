@@ -523,6 +523,7 @@ export default defineConfig({
             { text: '高频知识点', link: '/expand/面试经验/高频知识点' },
             { text: '核心问题', link: '/expand/面试经验/核心问题' },
             { text: '总结', link: '/expand/面试经验/总结' },
+            { text: '总结-2', link: '/expand/面试经验/总结-2' },
           ]
         },
         {
