@@ -13,7 +13,7 @@ yarn add styled-components
 ```yaml
 - home             # 组件文件夹
   + index.js	   # 组件
-  + style.css      # 定义样式组件
+  + style.js      # 定义样式组件
 ```
 
 
