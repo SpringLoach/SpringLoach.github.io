@@ -254,6 +254,7 @@ export default defineConfig({
                   collapsed: true,
                   items: [
                     { text: '路由-Redux', link: '/前端2/前端框架/React技术栈/React/第三方库/路由-Redux-版本差异' },
+                    { text: '路由', link: '/前端2/前端框架/React技术栈/React/第三方库/路由' },
                     { text: 'styled-components', link: '/前端2/前端框架/React技术栈/React/第三方库/styled-components' },
                   ]
                 },

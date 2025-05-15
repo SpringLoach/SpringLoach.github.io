@@ -434,32 +434,60 @@ export default function MemoHookDemo01() {
 
 #### 案例-保持子组件不更新
 
+
+
+**1. 缓存子组件**
+
 ```jsx
-import React, { useState, memo, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
-const HYInfo = memo((props) => {
-  console.log("HYInfo重新渲染");
-  return <h2>名字: {props.info.name} 年龄: {props.info.age}</h2>
-});
+const ExpensiveChild = ({ data }) => {
+  // 假设这是一个渲染开销很大的组件
+  console.log('Child rendered!');
+  return <div>{data}</div>;
+};
 
-export default function MemoHookDemo02() {
-  const [show, setShow] = useState(true);
-
-  // const info = { name: "why", age: 18 };  
-  const info = useMemo(() => {
-    return { name: "why", age: 18 };
-  }, []);
+function Parent({ count, text }) {
+  // 使用 useMemo 缓存子组件 // [!code warning]
+  const child = useMemo(() => { // [!code warning]
+    return <ExpensiveChild data={text} />; // [!code warning]
+  }, [text]); // 只有当 text 变化时才重新创建子组件 // [!code warning]
 
   return (
     <div>
-      <HYInfo info={info} />
-      <button onClick={e => setShow(!show)}>更新</button>
+      <h1>Count: {count}</h1>
+      {child}
     </div>
-  )
+  );
 }
 ```
 
-由于 info 为局部变量，每次更新都会重新生成，故导致子组件仍会重新渲染；
+
+
+**2. 缓存复杂props对象**
+
+```jsx
+const Child = ({ config }) => {
+  console.log('Child rendered with:', config);
+  return <div>{config.value}</div>;
+};
+
+function Parent({ count, value }) {
+  const config = { value }; // [!code warning]
+  const config = useMemo(() => { // [!code warning]
+    return { value }; // 依赖项无变化时，返回相同的引用或原始值 // [!code warning]
+  }, [value]); // 只有当 value 变化时才重新创建 config 对象 // [!code warning]
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <Child config={config} />
+    </div>
+  );
+}
+```
+
+由于 config 为局部变量，每次更新都会重新生成，故导致子组件仍会重新渲染；
 
 :ghost: 通过 useMemo 将变量的结果保存，供父组件更新后使用，来实现子组件的无需更新。
 
