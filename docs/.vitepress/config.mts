@@ -247,6 +247,7 @@ export default defineConfig({
                     { text: '命名公约', link: '/前端2/前端框架/React技术栈/React/项目组织/命名公约' },
                     { text: 'vscode插件', link: '/前端2/前端框架/React技术栈/React/项目组织/vscode插件' },
                     { text: '网易云', link: '/前端2/前端框架/React技术栈/React/coder/网易云' },
+                    { text: '锦集', link: '/前端2/前端框架/React技术栈/React/实践/锦集' },
                   ]
                 },
                 {
