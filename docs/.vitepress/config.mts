@@ -36,6 +36,12 @@ export default defineConfig({
         ]
       },
       {
+        text: '效率',
+        items: [
+          { text: '组件', link: '/business2/组件/ListPage'},
+        ]
+      },
+      {
         text: '其他',
         items: [
           { text: '电脑环境', link: '/expand/电脑环境/初始环境'},
@@ -487,6 +493,25 @@ export default defineConfig({
             {  text: '微信开发者工具', link: '/前端3/开发工具/微信开发者工具/index' },
           ]
         },
+      ],
+      '/business2/': [
+        {
+          text: '组件',
+          collapsed: true,
+          items: [
+            { text: '全局按钮', link: '/business2/组件/全局按钮' },
+            { text: '弹窗', link: '/business2/组件/弹窗' },
+
+            { text: 'ListPage', link: '/business2/组件/ListPage' },
+            { text: 'DForm', link: '/business2/组件/DForm' },
+            { text: '表单项', link: '/business2/组件/表单项' },
+            { text: 'useForm', link: '/business2/组件/useForm' },
+            { text: '其他', link: '/business2/组件/其他' },
+            { text: '记录', link: '/business2/组件/记录' },
+          ]
+        },
+        { text: '方法', collapsed: true },
+        { text: '样式', collapsed: true },
       ],
       '/expand/': [
         {
